@@ -1,0 +1,5 @@
+H1SteerTree() {
+   //2007 Low Data
+   fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/07low/hat.4.0.6.10dst7.c070241.root";
+   fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/07low/mods.4.0.6.10dst7.c070241.root";
+}

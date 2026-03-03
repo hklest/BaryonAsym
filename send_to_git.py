@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Set up .gitignore and push only source code to hklest/BaryonAsym (development branch).
-ROOT files, binaries, backup files, and compiled objects are excluded.
+Stage and push source files to hklest/BaryonAsym (development branch).
+Excludes: *.root, *~, '#'* (emacs locks), fort.*, compiled dirs, logs,
+          KaonTree/, LambdaTree/ (large directories).
 """
 
 import os
@@ -19,8 +20,9 @@ GITIGNORE_CONTENT = """
 # ROOT files
 *.root
 
-# Editor backup files
+# Editor backup/lock files
 *~
+\#*\#
 
 # Compiled ROOT / C++ artifacts
 *.so
@@ -29,19 +31,29 @@ GITIGNORE_CONTENT = """
 *.o
 *.a
 
-# Logs
-*.log
-log/
-
 # FORTRAN output
 fort.*
 
-# Compiled binaries in subdirs
+# Logs and job output
+*.log
+*.err
+log/
+
+# Large binary files
+dummyfile
+dummyfile.root
+
+# Compiled binary dirs
 amd64_rhel70/
 x86_64-centos7-gcc9-opt/
+x86_64-el9-gcc14-opt/
+
+# Large data directories
+H1LambdaC/KaonTree/
+H1LambdaC/LambdaTree/
 """
 
-COMMIT_MESSAGE = "Add analysis scripts, H1LambdaC source, and .gitignore"
+COMMIT_MESSAGE = "Add analysis source files and scripts"
 
 def run(cmd, cwd=REPO_DIR):
     print(f"$ {' '.join(cmd)}")
@@ -62,15 +74,19 @@ if __name__ == "__main__":
         f.write(GITIGNORE_CONTENT.strip() + "\n")
     print(f"Wrote {gitignore_path}")
 
-    # Stage everything - .gitignore will filter out the ROOT files etc.
-    run(["git", "add", ".gitignore"])
+    # Untrack any previously committed files that should now be ignored
+    run(["git", "rm", "-r", "--cached", "--ignore-unmatch",
+         "*.root", "*~", "fort.*",
+         "amd64_rhel70", "x86_64-centos7-gcc9-opt", "x86_64-el9-gcc14-opt",
+         "log/", "KaonTree/", "LambdaTree/"])
+
     run(["git", "add", "."])
 
-    # Show what's actually staged before committing
+    # Show what's staged before committing
     run(["git", "status"])
 
-    input("\nReview the staged files above. Press Enter to commit and push, or Ctrl+C to abort: ")
+    input("\nReview staged files above. Press Enter to commit and push, or Ctrl+C to abort: ")
 
     run(["git", "commit", "-m", COMMIT_MESSAGE])
     run(["git", "push", "origin", "development"])
-    print("\nDone! Source files pushed to origin/development.")
+    print("\nDone! Pushed to origin/development.")

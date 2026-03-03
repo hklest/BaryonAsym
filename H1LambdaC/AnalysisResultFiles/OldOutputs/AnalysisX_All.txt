@@ -1,0 +1,432 @@
+
+Processing /data/dust/group/h1/gtustin/h1oo/H1LambdaC/Analysis.C(
+1,
+{0.0001, 0.0002, 0.0004, 0.001, 0.01},
+297657.8,
+4108957.0,
+3560233.0,											
+"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root", 	
+"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root", 			
+"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
+"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root", 		
+"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/merged.root", 		
+"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
+"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root" 		
+)...
+Lambda Tot Data q2 Extraction 1 of 4
+ FCN=24.1034 FROM MIGRAD    STATUS=CONVERGED      38 CALLS          39 TOTAL
+                     EDM=1.63887e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -2.61478e+02   2.53563e+01   1.41614e-03   1.25436e-11
+   2  p1           2.45956e+02   2.28705e+01   1.27732e-03   2.64232e-10
+Slope: 245.956
+Slope: 22.8705
+Lambda Tot Data q2 Extraction 2 of 4
+ FCN=35.8623 FROM MIGRAD    STATUS=CONVERGED      36 CALLS          37 TOTAL
+                     EDM=1.39178e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -5.65620e+02   3.53552e+01   2.38121e-03   7.45989e-12
+   2  p1           5.30453e+02   3.19109e+01   2.14923e-03   2.47952e-11
+Slope: 530.453
+Slope: 31.9109
+Lambda Tot Data q2 Extraction 3 of 4
+ FCN=36.8912 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=3.94458e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -7.28320e+02   4.60021e+01   3.22001e-03   5.51662e-12
+   2  p1           6.90409e+02   4.14134e+01   2.89881e-03  -2.08348e-10
+Slope: 690.409
+Slope: 41.4134
+Lambda Tot Data q2 Extraction 4 of 4
+ FCN=52.0876 FROM MIGRAD    STATUS=CONVERGED      38 CALLS          39 TOTAL
+                     EDM=1.12202e-22    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -5.39746e+02   3.86572e+01   3.21541e-03  -1.65735e-11
+   2  p1           5.11020e+02   3.47992e+01   2.89451e-03  -1.84109e-11
+Slope: 511.02
+Slope: 34.7992
+Lambda Tot MC q2 Extraction 1 of 4
+ FCN=60.1435 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=1.44931e-15    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -3.54461e+03   1.82252e+02   9.44079e-03  -1.50526e-11
+   2  p1           3.27599e+03   1.66504e+02   8.62506e-03  -3.39822e-10
+Slope: 3275.99
+Slope: 166.504
+Lambda Tot MC q2 Extraction 2 of 4
+ FCN=25.9728 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=1.63798e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -6.74703e+03   3.48076e+02   1.89046e-02  -9.39642e-13
+   2  p1           6.30953e+03   3.14822e+02   1.70986e-02   1.71417e-11
+Slope: 6309.53
+Slope: 314.822
+Lambda Tot MC q2 Extraction 3 of 4
+ FCN=47.0842 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=4.58342e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.14997e+04   4.52770e+02   3.27633e-02   4.33744e-12
+   2  p1           1.07518e+04   4.09709e+02   2.96473e-02   2.81606e-11
+Slope: 10751.8
+Slope: 409.709
+Lambda Tot MC q2 Extraction 4 of 4
+ FCN=39.6861 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=5.93291e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -8.98434e+03   3.40531e+02   2.38781e-02   2.23178e-12
+   2  p1           8.44980e+03   3.07354e+02   2.15517e-02  -3.29692e-11
+Slope: 8449.8
+Slope: 307.354
+Lambda Reg Data q2 Extraction 1 of 4
+ FCN=33.328 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=2.65516e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -2.15454e+02   2.03072e+01   1.25235e-03  -1.41842e-11
+   2  p1           2.00809e+02   1.83795e+01   1.13347e-03  -1.41047e-10
+Slope: 200.809
+Slope: 18.3795
+Lambda Reg Data q2 Extraction 2 of 4
+ FCN=39.7279 FROM MIGRAD    STATUS=CONVERGED      36 CALLS          37 TOTAL
+                     EDM=1.22077e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -4.02805e+02   2.77035e+01   1.89252e-03  -6.57036e-11
+   2  p1           3.75753e+02   2.50567e+01   1.71170e-03  -2.69821e-10
+Slope: 375.753
+Slope: 25.0567
+Lambda Reg Data q2 Extraction 3 of 4
+ FCN=41.2771 FROM MIGRAD    STATUS=CONVERGED      36 CALLS          37 TOTAL
+                     EDM=2.65638e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -4.90483e+02   3.64549e+01   2.66672e-03   1.99836e-11
+   2  p1           4.63246e+02   3.28452e+01   2.40267e-03   4.43596e-11
+Slope: 463.246
+Slope: 32.8452
+Lambda Reg Data q2 Extraction 4 of 4
+ FCN=42.0417 FROM MIGRAD    STATUS=CONVERGED      36 CALLS          37 TOTAL
+                     EDM=4.20433e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -3.79068e+02   2.97874e+01   2.18957e-03   2.43384e-11
+   2  p1           3.56310e+02   2.68659e+01   1.97482e-03  -8.09552e-11
+Slope: 356.31
+Slope: 26.8659
+Lambda Reg MC q2 Extraction 1 of 4
+ FCN=43.2482 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=7.67015e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -2.28918e+03   1.43969e+02   5.78166e-03   2.45792e-11
+   2  p1           2.11366e+03   1.31569e+02   5.28370e-03   1.21030e-10
+Slope: 2113.66
+Slope: 131.569
+Lambda Reg MC q2 Extraction 2 of 4
+ FCN=34.9728 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=2.17479e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -4.57056e+03   2.64957e+02   1.49862e-02   3.55598e-12
+   2  p1           4.25292e+03   2.40404e+02   1.35974e-02  -2.35150e-11
+Slope: 4252.92
+Slope: 240.404
+Lambda Reg MC q2 Extraction 3 of 4
+ FCN=54.0571 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=4.77323e-16    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -7.14478e+03   3.29710e+02   2.50215e-02  -1.41986e-12
+   2  p1           6.66302e+03   2.98766e+02   2.26732e-02   1.01850e-10
+Slope: 6663.02
+Slope: 298.766
+Lambda Reg MC q2 Extraction 4 of 4
+ FCN=46.1343 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=8.08294e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -5.75660e+03   2.57453e+02   1.93353e-02   6.43098e-12
+   2  p1           5.39591e+03   2.32377e+02   1.74521e-02  -1.01785e-11
+Slope: 5395.91
+Slope: 232.377
+Lambda Bar Data q2 Extraction 1 of 4
+ FCN=32.659 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=8.90877e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -4.47601e+01   1.26504e+01   8.41799e-04   2.11019e-11
+   2  p1           4.29058e+01   1.13609e+01   7.55993e-04   1.40982e-10
+Slope: 42.9058
+Slope: 11.3609
+Lambda Bar Data q2 Extraction 2 of 4
+ FCN=43.1324 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=9.86415e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.95379e+02   1.95225e+01   1.40542e-03  -2.52786e-11
+   2  p1           1.82466e+02   1.76512e+01   1.27070e-03  -2.79586e-10
+Slope: 182.466
+Slope: 17.6512
+Lambda Bar Data q2 Extraction 3 of 4
+ FCN=27.5175 FROM MIGRAD    STATUS=CONVERGED      36 CALLS          37 TOTAL
+                     EDM=4.11682e-20    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -2.24157e+02   2.69904e+01   1.67076e-03   5.31602e-12
+   2  p1           2.14080e+02   2.42592e+01   1.50169e-03  -5.91453e-12
+Slope: 214.08
+Slope: 24.2592
+Lambda Bar Data q2 Extraction 4 of 4
+ FCN=52.1979 FROM MIGRAD    STATUS=CONVERGED      36 CALLS          37 TOTAL
+                     EDM=3.14098e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.35705e+02   2.34612e+01   1.99528e-03  -8.90279e-12
+   2  p1           1.31368e+02   2.10496e+01   1.79018e-03   1.09150e-10
+Slope: 131.368
+Slope: 21.0496
+Lambda Bar MC q2 Extraction 1 of 4
+ FCN=45.7253 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=7.12306e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.13358e+03   9.71771e+01   4.35351e-03  -6.93648e-11
+   2  p1           1.04767e+03   8.88326e+01   3.97968e-03  -8.92712e-11
+Slope: 1047.67
+Slope: 88.8326
+Lambda Bar MC q2 Extraction 2 of 4
+ FCN=26.9092 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=5.76623e-20    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -2.46043e+03   1.87205e+02   9.81661e-03  -5.42863e-12
+   2  p1           2.29594e+03   1.69739e+02   8.90074e-03  -7.98296e-12
+Slope: 2295.94
+Slope: 169.739
+Lambda Bar MC q2 Extraction 3 of 4
+ FCN=34.6878 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=1.57395e-16    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -4.29976e+03   2.76500e+02   1.63328e-02   4.35040e-12
+   2  p1           4.02251e+03   2.50580e+02   1.48017e-02  -6.60056e-11
+Slope: 4022.51
+Slope: 250.58
+Lambda Bar MC q2 Extraction 4 of 4
+ FCN=21.4046 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=2.90891e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -3.17269e+03   2.11687e+02   1.08455e-02   7.37044e-12
+   2  p1           2.99801e+03   1.91206e+02   9.79619e-03  -3.17330e-11
+Slope: 2998.01
+Slope: 191.206
+Kaon Tot Data q2 Extraction 1 of 4
+ FCN=28.0707 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.97113e-20    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.00822e+03   3.27601e+01   1.49942e-02  -3.31715e-11
+   2  p1          -7.21607e+02   6.33826e+01   2.90100e-02  -1.59205e-11
+Slope: -721.607
+Slope: 63.3826
+Kaon Tot Data q2 Extraction 2 of 4
+ FCN=28.3489 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=9.99513e-20    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.36253e+03   4.86546e+01   2.21910e-02  -5.08308e-11
+   2  p1          -1.92688e+03   9.37490e+01   4.27581e-02  -2.74193e-11
+Slope: -1926.88
+Slope: 93.749
+Kaon Tot Data q2 Extraction 3 of 4
+ FCN=22.9763 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=6.25678e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.44914e+03   5.79981e+01   2.38763e-02   1.11597e-10
+   2  p1          -2.88925e+03   1.11582e+02   4.59352e-02   5.80064e-11
+Slope: -2889.25
+Slope: 111.582
+Kaon Tot Data q2 Extraction 4 of 4
+ FCN=28.6806 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=4.21049e-20    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           2.31072e+03   4.81186e+01   2.20598e-02  -2.01311e-11
+   2  p1          -1.84870e+03   9.26570e+01   4.24781e-02  -7.73636e-12
+Slope: -1848.7
+Slope: 92.657
+Kaon Tot MC q2 Extraction 1 of 4
+ FCN=24.1306 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.78492e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.34230e+04   3.20969e+02   1.35359e-01  -1.07611e-11
+   2  p1          -1.10842e+04   6.18165e+02   2.60659e-01  -5.41782e-12
+Slope: -11084.2
+Slope: 618.165
+Kaon Tot MC q2 Extraction 2 of 4
+ FCN=14.4597 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=7.65984e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.36160e+04   5.41178e+02   2.04278e-01  -1.29132e-11
+   2  p1          -2.91938e+04   1.03916e+03   3.91934e-01  -6.92307e-12
+Slope: -29193.8
+Slope: 1039.16
+Kaon Tot MC q2 Extraction 3 of 4
+ FCN=22.5935 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=4.11755e-20    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           5.15931e+04   6.69837e+02   3.13401e-01   5.95141e-13
+   2  p1          -4.46473e+04   1.28772e+03   6.01738e-01   8.85613e-14
+Slope: -44647.3
+Slope: 1287.72
+Kaon Tot MC q2 Extraction 4 of 4
+ FCN=24.458 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=1.63957e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           3.68350e+04   4.46883e+02   2.21205e-01   2.34888e-11
+   2  p1          -3.03006e+04   8.60971e+02   4.25843e-01   1.20136e-11
+Slope: -30300.6
+Slope: 860.971
+KaonGenCountRad: 5.99803e+06
+KaonGenCountNonRad: 5.45284e+06
+LambdaGenCountRad: 2.27151e+06
+LambdaGenCountNonRad: 2.05963e+06
+Xerr: 5e-05
+Xvals: 0.00015
+Xerr: 0.0001
+Xvals: 0.0003
+Xerr: 0.0003
+Xvals: 0.0007
+Xerr: 0.0045
+Xvals: 0.0055
+Lambda Rad Cor Q2 Bin 1: 0.955591
+Our Results Over H1 Results in Bin 1 : 16402.1
+Lambda Rad Cor Q2 Bin 2: 0.959391
+Our Results Over H1 Results in Bin 2 : 24400.1
+Lambda Rad Cor Q2 Bin 3: 0.960299
+Our Results Over H1 Results in Bin 3 : 18562.7
+Lambda Rad Cor Q2 Bin 4: 0.958453
+Our Results Over H1 Results in Bin 4 : 1660.75
+Lambda Q2 Cross Section Entry 1 : 7577.78 X: 0.00015p/m: 80.4243
+Lambda Q2 Cross Section Entry 2 : 6880.83 X: 0.0003p/m: 48.6026
+Lambda Q2 Cross Section Entry 3 : 2840.09 X: 0.0007p/m: 16.7142
+Lambda Q2 Cross Section Entry 4 : 117.913 X: 0.0055p/m: 0.841445
+K0 Rad Cor Q2 Bin 1: 0.953087
+stat err: 79.7496
+K0 Rad Cor Q2 Bin 2: 0.962982
+stat err: 49.6783
+K0 Rad Cor Q2 Bin 3: 0.963094
+stat err: 17.8932
+K0 Rad Cor Q2 Bin 4: 0.961638
+stat err: 0.92294
+K0 Q2 Cross Section Entry 1 : 18068.1 X: 0.00015p/m: 79.7496
+K0 Q2 Cross Section Entry 2 : 17768.3 X: 0.0003p/m: 49.6783
+K0 Q2 Cross Section Entry 3 : 8244.95 X: 0.0007p/m: 17.8932
+K0 Q2 Cross Section Entry 4 : 361.109 X: 0.0055p/m: 0.92294
+Lambda Tot Incl Data q2 Extraction 1 of 1
+ FCN=59.5074 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=9.8384e-18    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -2.09040e+03   7.55584e+01   6.65638e-03  -1.33433e-11
+   2  p1           1.97598e+03   6.80678e+01   5.99649e-03   5.03596e-11
+Slope: 1975.98
+Slope: 68.0678
+Lambda Tot Incl MC q2 Extraction 1 of 1
+ FCN=67.6241 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=7.26258e-16    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -3.04012e+04   7.10580e+02   6.26620e-02   2.26786e-13
+   2  p1           2.84801e+04   6.42341e+02   5.66444e-02   5.95836e-11
+Slope: 28480.1
+Slope: 642.341
+Lambda Reg Incl Data q2 Extraction 1 of 1
+ FCN=62.989 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=9.7464e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.46749e+03   6.01709e+01   5.36063e-03  -1.65685e-11
+   2  p1           1.38049e+03   5.42773e+01   4.83557e-03  -4.40823e-11
+Slope: 1380.49
+Slope: 54.2773
+Lambda Reg Incl MC q2 Extraction 1 of 1
+ FCN=60.1283 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=1.97689e-16    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.92664e+04   5.47682e+02   4.55016e-02  -3.12315e-12
+   2  p1           1.80182e+04   4.95187e+02   4.11403e-02   3.67013e-11
+Slope: 18018.2
+Slope: 495.187
+Lambda Bar Incl Data q2 Extraction 1 of 1
+ FCN=29.524 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL
+                     EDM=9.78392e-21    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -6.08772e+02   4.48931e+01   2.87440e-03   1.54498e-11
+   2  p1           5.81932e+02   4.03436e+01   2.58311e-03   2.06305e-11
+Slope: 581.932
+Slope: 40.3436
+Lambda Bar Incl MC q2 Extraction 1 of 1
+ FCN=48.1331 FROM MIGRAD    STATUS=CONVERGED      42 CALLS          43 TOTAL
+                     EDM=8.13542e-17    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0          -1.10284e+04   4.36015e+02   3.21808e-02  -1.65598e-12
+   2  p1           1.03518e+04   3.94275e+02   2.91001e-02   3.05214e-11
+Slope: 10351.8
+Slope: 394.275
+Kaon Incl Data q2 Extraction 1 of 1
+ FCN=44.7833 FROM MIGRAD    STATUS=CONVERGED      33 CALLS          34 TOTAL
+                     EDM=2.84564e-19    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           9.13892e+03   9.55666e+01   5.47176e-02   4.25280e-11
+   2  p1          -7.39491e+03   1.84095e+02   1.05390e-01   2.32601e-11
+Slope: -7394.91
+Slope: 184.095
+Kaon Incl MC q2 Extraction 1 of 1
+ FCN=23.7574 FROM MIGRAD    STATUS=CONVERGED      37 CALLS          38 TOTAL
+                     EDM=2.75568e-16    STRATEGY= 1      ERROR MATRIX ACCURATE 
+  EXT PARAMETER                                   STEP         FIRST   
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  p0           1.35422e+05   1.02230e+03   4.26747e-01  -1.33306e-10
+   2  p1          -1.15063e+05   1.96598e+03   8.19627e-01  -6.90602e-11
+Slope: -115063
+Slope: 1965.98
+Lambda Tot Gen Count Rad Channel: 1.36404e+07
+Lambda Tot Gen Count Rad Tot: 1.69157e+07
+Lambda Tot Gen Count Non Rad Tot: 1.52834e+07
+Lambda Rad Correction: 0.958996
+K0s Rad Correction: 0.961487
+Lambda Total Gen Count: 1.36404e+07
+K0 Total Gen Count: 4.84173e+07
+Lambda+Lambda Bar Inclusive Gen Cross Section: 107.506
+Lambda+Lambda Bar Inclusive Gen Cross Section: 381.599
+Lambda+Lambda Bar Inclusive Reconstruction Eff: 0.0981334 pm 8.87906e-05
+Lambda+Lambda Bar Inclusive Cross Section: 4.82914 pm 0.0174029
+Lambda Reg Inclusive Reconstruction Eff: 0.102067 pm 0.000128672
+Lambda Reg Inclusive Cross Section: 2.34653 pm 0.0117826
+Lambda Bar Inclusive Reconstruction Eff: 0.0943823 pm 0.00012232
+Lambda Bar Inclusive Cross Section: 2.28265 pm 0.0117794
+Lambda Asymm Inclusive Measurement: 0.0138003 pm 0.00509037
+Kaon Inclusive Reconstruction Eff: 0.311393 pm 9.53392e-05
+Kaon Inclusive Cross Section: 13.4473 pm 0.0182349
+Kaon Inclusive Gen Cross Section: 381.599
+Lambda:Kaon Inclusive Ratio: 0.359115 pm 0.00138274
+Done

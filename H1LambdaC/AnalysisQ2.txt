@@ -1,0 +1,101 @@
+
+Processing Analysis.C("/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/KaonTree/merged.root")...
+Lambda Tot Data q2 Extraction 1 of 5
+Lambda Tot Data q2 Extraction 2 of 5
+Lambda Tot Data q2 Extraction 3 of 5
+Lambda Tot Data q2 Extraction 4 of 5
+Lambda Tot Data q2 Extraction 5 of 5
+Lambda Tot MC q2 Extraction 1 of 5
+Lambda Tot MC q2 Extraction 2 of 5
+Lambda Tot MC q2 Extraction 3 of 5
+Lambda Tot MC q2 Extraction 4 of 5
+Lambda Tot MC q2 Extraction 5 of 5
+Lambda Reg Data q2 Extraction 1 of 5
+Lambda Reg Data q2 Extraction 2 of 5
+Lambda Reg Data q2 Extraction 3 of 5
+Lambda Reg Data q2 Extraction 4 of 5
+Lambda Reg Data q2 Extraction 5 of 5
+Lambda Reg MC q2 Extraction 1 of 5
+Lambda Reg MC q2 Extraction 2 of 5
+Lambda Reg MC q2 Extraction 3 of 5
+Lambda Reg MC q2 Extraction 4 of 5
+Lambda Reg MC q2 Extraction 5 of 5
+Lambda Bar Data q2 Extraction 1 of 5
+Lambda Bar Data q2 Extraction 2 of 5
+Lambda Bar Data q2 Extraction 3 of 5
+Lambda Bar Data q2 Extraction 4 of 5
+Lambda Bar Data q2 Extraction 5 of 5
+Lambda Bar MC q2 Extraction 1 of 5
+Lambda Bar MC q2 Extraction 2 of 5
+Lambda Bar MC q2 Extraction 3 of 5
+Lambda Bar MC q2 Extraction 4 of 5
+Lambda Bar MC q2 Extraction 5 of 5
+Kaon Tot Data q2 Extraction 1 of 5
+Kaon Tot Data q2 Extraction 2 of 5
+Kaon Tot Data q2 Extraction 3 of 5
+Kaon Tot Data q2 Extraction 4 of 5
+Kaon Tot Data q2 Extraction 5 of 5
+Kaon Tot MC q2 Extraction 1 of 5
+Kaon Tot MC q2 Extraction 2 of 5
+Kaon Tot MC q2 Extraction 3 of 5
+Kaon Tot MC q2 Extraction 4 of 5
+Kaon Tot MC q2 Extraction 5 of 5
+Lambda Rad Cor Q2 Bin 1: 0.992339
+Our Results Over H1 Results in Bin 1 : 1.30965
+Lambda Rad Cor Q2 Bin 2: 0.956831
+Our Results Over H1 Results in Bin 2 : 1.1878
+Lambda Rad Cor Q2 Bin 3: 0.960389
+Our Results Over H1 Results in Bin 3 : 1.16685
+Lambda Rad Cor Q2 Bin 4: 0.959364
+Our Results Over H1 Results in Bin 4 : 1.07455
+Lambda Rad Cor Q2 Bin 5: 0.956305
+Our Results Over H1 Results in Bin 5 : 1.05962
+Lambda Q2 Cross Section Entry 1 : 0.605061 X: 6p/m: 0.00462065
+Lambda Q2 Cross Section Entry 2 : 0.33496 X: 8.5p/m: 0.00251019
+Lambda Q2 Cross Section Entry 3 : 0.178529 X: 12.5p/m: 0.00135958
+Lambda Q2 Cross Section Entry 4 : 0.0762932 X: 20p/m: 0.000614482
+Lambda Q2 Cross Section Entry 5 : 0.0127154 X: 62.5p/m: 9.56073e-05
+K0 Rad Cor Q2 Bin 1: 0.987221
+stat err: 0.00476224
+K0 Rad Cor Q2 Bin 2: 0.965812
+stat err: 0.00260242
+K0 Rad Cor Q2 Bin 3: 0.960689
+stat err: 0.00141114
+K0 Rad Cor Q2 Bin 4: 0.961168
+stat err: 0.000654259
+K0 Rad Cor Q2 Bin 5: 0.960026
+stat err: 0.000111487
+K0 Q2 Cross Section Entry 1 : 1.45024 X: 6p/m: 0.00476224
+K0 Q2 Cross Section Entry 2 : 0.894049 X: 8.5p/m: 0.00260242
+K0 Q2 Cross Section Entry 3 : 0.494987 X: 12.5p/m: 0.00141114
+K0 Q2 Cross Section Entry 4 : 0.182821 X: 20p/m: 0.000654259
+K0 Q2 Cross Section Entry 5 : 0.0393933 X: 62.5p/m: 0.000111487
+Lambda Tot Incl Data q2 Extraction 1 of 1
+Lambda Tot Incl MC q2 Extraction 1 of 1
+Lambda Reg Incl Data q2 Extraction 1 of 1
+Lambda Reg Incl MC q2 Extraction 1 of 1
+Lambda Bar Incl Data q2 Extraction 1 of 1
+Lambda Bar Incl MC q2 Extraction 1 of 1
+Kaon Incl Data q2 Extraction 1 of 1
+Kaon Incl MC q2 Extraction 1 of 1
+Lambda Tot Gen Count Rad Channel: 1.37229e+07
+Lambda Tot Gen Count Rad Tot: 1.70385e+07
+Lambda Tot Gen Count Non Rad Tot: 1.52834e+07
+Lambda Rad Correction: 0.965955
+K0s Rad Correction: 0.967433
+Lambda Total Gen Count: 1.37229e+07
+K0 Total Gen Count: 4.86963e+07
+Lambda+Lambda Bar Inclusive Gen Cross Section: 108.156
+Lambda+Lambda Bar Inclusive Gen Cross Section: 383.798
+Lambda+Lambda Bar Inclusive Reconstruction Eff: 0.109072 pm 9.23379e-05
+Lambda+Lambda Bar Inclusive Cross Section: 4.75919 pm 0.0162317
+Lambda Reg Inclusive Reconstruction Eff: 0.109592 pm 0.000133434
+Lambda Reg Inclusive Cross Section: 2.389 pm 0.011424
+Lambda Bar Inclusive Reconstruction Eff: 0.105119 pm 0.000127611
+Lambda Bar Inclusive Cross Section: 2.23102 pm 0.0110823
+Lambda Asymm Inclusive Measurement: 0.0341941 pm 0.00487431
+Kaon Inclusive Reconstruction Eff: 0.34428 pm 0.000101651
+Kaon Inclusive Cross Section: 13.0629 pm 0.0177268
+Kaon Inclusive Gen Cross Section: 383.798
+Lambda:Kaon Inclusive Ratio: 0.364328 pm 0.00133732
+Done

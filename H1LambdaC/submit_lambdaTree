@@ -9,7 +9,7 @@ output                   = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/lambdaT
 error                    = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/lambdaTree.error 
 log                      = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/lambdaTree.log 
 
-Arguments = -f /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/Tree06.steer -o /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_11_8_23.root
+Arguments = -f /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/Tree06.steer -o /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_11_28_23.root
 
 # $(Process) #If you want to send an argument to the executable, here $(Process) is the number of the job, e.g 0-999 for 1000 jobs
 

@@ -7,8 +7,14 @@ H1SteerTree() {
  //  fModsFiles  = "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8965/mods.4.0.25.RAPGAP31.DIS.RAD.DSTAR.ALLCHANNELS.POSITRON.Q2GT4.8965.S39600.R97905.ftt.DST.0000-0050.root";
   //fHatSelection = "(fRunType>0)"	
   //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/04/mods.4.0.6.10dst7.c040000-40062.root";	
-   fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060000-060001.root";	
-   fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/mods.4.0.6.10dst7.c060000-060001.root";
+   fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060001.root";	
+   fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/mods.4.0.6.10dst7.c060001.root";
+   //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/05/hat.4.0.6.10dst7.c050001.root";
+   //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/05/mods.4.0.6.10dst7.c050001.root";
+
+   //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/00/hat.4.0.24.10dst7.c000000.root";	
+   //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/00/mods.4.0.24.10dst7.c000000.root";
+
 
    //2006 Data
     //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060000-060002.root;	

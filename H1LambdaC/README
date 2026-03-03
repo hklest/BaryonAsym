@@ -1,6 +1,30 @@
 Strange Paticle Production Analysis:
 
+From Daniel's new email
+$ singularity exec --cleanenv --contain --bind /pnfs/desy.de/dphep/online/h1/:/acs --bind /afs:/afs --bind /pnfs/desy.de/dphep/online/h1/:/pnfs/desy.de/dphep/online/h1/ --bind /data:/data --bind /data/dust/group/h1:/nfs/dust/h1/group --bind /cvmfs:/cvmfs --bind /data/dust/group/h1:/pnfs/dust/h1/group /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /bin/zsh
+$ source /data/dust/group/h1/britzger/singularity_centos7/groupset.sh h1
+$ h1lcg
 
+New environment initialization for EL9:
+$ desygroupset h1
+$ h1el9
+
+replace
+/nfs/dust/h1/group
+with
+/data/dust/group/h1
+
+Since the rhel9 upgrade initialzing things is a little different, use these three commands after initial log in:
+
+$ singularity exec --cleanenv --contain --bind /data/dust/group/h1:/nfs/dust/h1/group --bind /pnfs/desy.de/dphep/online/h1/:/acs --bind /afs:/afs --bind /nfs:/nfs --bind /pnfs:/pnfs --bind /cvmfs:/cvmfs /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /bin/zsh
+$ singularity exec --cleanenv --contain --bind /pnfs/desy.de/dphep/online/h1/:/acs --bind /afs:/afs --bind /nfs:/nfs --bind /data:/data --bind /pnfs:/pnfs --bind /cvmfs:/cvmfs /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /bin/zsh
+$ source /nfs/dust/h1/group/britzger/singularity_centos7/groupset.sh h1
+$ source /data/dust/group/h1/britzger/singularity_centos7/groupset.sh h1
+$ h1lcg
+
+This allows the environment to run h1oo code, but condor submitions do no.  So a second work terminal without running these 3 commands is needed for condor.
+
+Command to merge root files: hadd -k -f merged.root ***.root
 
 I keep two different folders for this analysis, one is used for actual data and the other is for MC.
 

@@ -20,8 +20,8 @@ SLIB = libUser.so
 # LIB_TARGETS = 
 LIB = 
 #
-# The binaries you would like to make, you have to provide the final linking
-BIN = kaonfind_ods kaonfind lambda lambdaTree lambdaCTree kaon kaonTree photonconv binfindl binfindk lcuttests kcuttests create_evls ratiopt ratioptnew LambdaDists
+# The binaries you would like to make, you have to provide the linking
+BIN = Alignment SpacLinearity elecCut MyElec kaonfind_ods kaonfind lambda lambdaTree lambdaTreeTest lambdaCTree kaon kaonTree photonconv binfindl binfindk lcuttests kcuttests create_evls ratiopt ratioptnew LambdaDists
 # cintsteering
 
 ifeq ($(STANDALONE),yes)
@@ -32,7 +32,13 @@ endif
 
 #
 # Objects you need for the libraries
-OBJS = UserEvent.o UserFiller.o
+#OBJS = UserEvent.o UserFiller.o
+OBJS = UserEvent.o
+OBJS += UserFiller.o
+OBJS += elecCut.o
+OBJS += MyElec.o
+OBJS += SpacLinearity.o
+OBJS += Alignment.o
 
 # OBJS += UserEvent.o UserFiller.o
 
@@ -71,6 +77,119 @@ endif
 
 
 # the executables
+
+Alignment: outputdirs $(BUILDDIR)/Alignment.o
+	@echo ""
+	@echo Linking programm $@: $@ ...
+	$(LOADER) \
+		$(BUILDDIR)/Alignment.o \
+		\
+		$(OO_LIBS) \
+		\
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc  -l${LHAPDFLIB} \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+                -L$(FASTJET__HOME)/lib -lfastjet \
+		\
+		-c -o $(BINDIR)/$@
+	@echo ""
+	#@echo "copying .pcm files to libdir"
+	#cp *.pcm $(LIBDIR)
+	@echo ""
+	@echo $@ created ...
+	@echo Please run: $(BINDIR)/$@
+	@echo ""
+
+SpacLinearity: outputdirs $(BUILDDIR)/SpacLinearity.o
+	@echo ""
+	@echo Linking programm $@: $@ ...
+	$(LOADER) \
+		$(BUILDDIR)/SpacLinearity.o \
+		\
+		$(OO_LIBS) \
+		\
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc  -l${LHAPDFLIB} \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+                -L$(FASTJET__HOME)/lib -lfastjet \
+		\
+		-o $(BINDIR)/$@
+	@echo ""
+	#@echo "copying .pcm files to libdir"
+	#cp *.pcm $(LIBDIR)
+	@echo ""
+	@echo $@ created ...
+	@echo Please run: $(BINDIR)/$@
+	@echo ""
+
+
+MyElec: outputdirs $(BUILDDIR)/MyElec.o
+	@echo ""
+	@echo Linking programm $@: $@ ...
+	$(LOADER) \
+		$(BUILDDIR)/MyElec.o \
+		\
+		$(OO_LIBS) \
+		\
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc  -l${LHAPDFLIB} \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+                -L$(FASTJET__HOME)/lib -lfastjet \
+		\
+		-c -o $(BINDIR)/$@
+	@echo ""
+	#@echo "copying .pcm files to libdir"
+	#cp *.pcm $(LIBDIR)
+	@echo ""
+	@echo $@ created ...
+	@echo Please run: $(BINDIR)/$@
+	@echo ""
+
+elecCut: outputdirs $(BUILDDIR)/elecCut.o
+	@echo ""
+	@echo Linking physics test program for ods access: $@ ...
+	$(LOADER) \
+		$(BUILDDIR)/elecCut.o  \
+		\
+		$(OO_LIBS) \
+		\
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc  -l${LHAPDFLIB} \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+                -L$(FASTJET__HOME)/lib -lfastjet \
+		\
+		-c -o $(BINDIR)/$@
+	@echo ""
+	#@echo "copying .pcm files to libdir"
+	#cp *.pcm $(LIBDIR)
+	@echo ""
+	@echo $@ created ...
+	@echo Please run: $(BINDIR)/$@
+	@echo ""
 
 kaonfind_ods: outputdirs $(BUILDDIR)/kaonfind_ods.o
 	@echo ""
@@ -130,13 +249,108 @@ lambdaTree: outputdirs $(BUILDDIR)/lambdaTree.o
 		$(BUILDDIR)/lambdaTree.o  \
 		\
 		$(OO_LIBS) \
+		\
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc $(LHAPDFLIB) \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+		\
+		-o $(BINDIR)/$@
+	@echo $@ created ...
+	@echo ""
+
+kaonTree: outputdirs $(BUILDDIR)/kaonTree.o
+	@echo ""
+	@echo Linking physics test program for ods access: $@ ...
+	$(LOADER) \
+		$(BUILDDIR)/kaonTree.o  \
+		\
+		$(OO_LIBS) \
+		\
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc $(LHAPDFLIB) \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+		\
+		-o $(BINDIR)/$@
+	@echo $@ created ...
+	@echo ""
+
+create_evls: outputdirs $(BUILDDIR)/create_evls.o
+	@echo ""
+	@echo Linking physics test program for ods access: $@ ...
+	$(LOADER) \
+		$(BUILDDIR)/create_evls.o  \
+		\
+		$(OO_LIBS) \
+		\
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc $(LHAPDFLIB) \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+		\
+		-o $(BINDIR)/$@
+	@echo $@ created ...
+	@echo ""
+
+
+create_evlsHERA1: outputdirs $(BUILDDIR)/create_evlsHERA1.o
+	@echo ""
+	@echo Linking physics test program for ods access: $@ ...
+	$(LOADER) \
+		$(BUILDDIR)/create_evlsHERA1.o \
+		\
+		$(OO_LIBS) \
+		\
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc  -l${LHAPDFLIB} \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+                -L$(FASTJET__HOME)/lib -lfastjet \
+		\
+		-o $(BINDIR)/$@
+	@echo ""
+	#@echo "copying .pcm files to libdir"
+	#cp *.pcm $(LIBDIR)
+	@echo ""
+	@echo $@ created ...
+	@echo Please run: $(BINDIR)/$@
+	@echo ""
+
+lambdaTreeTest: outputdirs $(BUILDDIR)/lambdaTreeTest.o
+	@echo ""
+	@echo Linking physics test program for ods access: $@ ...
+	$(LOADER) \
+		$(BUILDDIR)/lambdaTreeTest.o  \
+		\
+		$(OO_LIBS) \
 		-lH1Mods -lH1Hat -lH1Ods -lH1Skeleton -lH1Tracks -lH1Clusters \
 		-lH1OOBanks -lH1Geom -lH1Arrays -lH1Tools -lH1Pointers -lH1Steering \
 		-lH1HadronicCalibration  -lH1PhysUtils -lH1JetFinder -lH1Finder \
 		-lH1MagfieldOO \
 		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
 		\
-		-o $(BINDIR)/lambdaTree
+		-o $(BINDIR)/lambdaTreeTest
 	@echo $@ created ...
 	@echo ""
 
@@ -147,13 +361,19 @@ lambdaCTree: outputdirs $(BUILDDIR)/lambdaCTree.o
 		$(BUILDDIR)/lambdaCTree.o  \
 		\
 		$(OO_LIBS) \
-		-lH1Mods -lH1Hat -lH1Ods -lH1Skeleton -lH1Tracks -lH1Clusters \
-		-lH1OOBanks -lH1Geom -lH1Arrays -lH1Tools -lH1Pointers -lH1Steering \
-		-lH1HadronicCalibration  -lH1PhysUtils -lH1JetFinder -lH1Finder \
-		-lH1MagfieldOO \
-		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
 		\
-		-o $(BINDIR)/lambdaCTree
+		-lH1Geom -lH1Ods -lH1OOBanks -lH1Tracks -lH1Clusters -lH1Mods -lH1Hat -lH1Skeleton -lH1Steering \
+		-lH1Pointers -lH1Arrays -lH1Tools -lH1Benchmarks -lH1Arrays -lH1Binning \
+		-lH1PhysUtils  -lH1JetFinder -lH1Finder -lH1HadronicCalibration -lH1CaloTrigger \
+		-lH1Calculator -lH1CalcPointers -lH1CalcWeights -lH1SoftLeptonId  -lH1Analysis \
+		-lH1MagfieldOO -lH1Cuts	-lH1TrkFinder -lH1Selection -lH1ElecCalibration -lH1QCDFunc  -l${LHAPDFLIB} \
+		\
+		-L$(H1_LIBS) -L$(CERN_LIBS) \
+		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
+		-L$(FJCONTRIB__HOME)/lib -lCentauro \
+                -L$(FASTJET__HOME)/lib -lfastjet \
+		\
+		-o $(BINDIR)/$@
 	@echo $@ created ...
 	@echo ""
 
@@ -171,23 +391,6 @@ kaon: outputdirs $(BUILDDIR)/kaon.o
 		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
 		\
 		-o $(BINDIR)/kaon
-	@echo $@ created ...
-	@echo ""
-
-kaonTree: outputdirs $(BUILDDIR)/kaonTree.o
-	@echo ""
-	@echo Linking physics test program for ods access: $@ ...
-	$(LOADER) \
-		$(BUILDDIR)/kaonTree.o  \
-		\
-		$(OO_LIBS) \
-		-lH1Mods -lH1Hat -lH1Ods -lH1Skeleton -lH1Tracks -lH1Clusters \
-		-lH1OOBanks -lH1Geom -lH1Arrays -lH1Tools -lH1Pointers -lH1Steering \
-		-lH1HadronicCalibration  -lH1PhysUtils -lH1JetFinder -lH1Finder \
-		-lH1MagfieldOO \
-		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
-		\
-		-o $(BINDIR)/kaonTree
 	@echo $@ created ...
 	@echo ""
 
@@ -276,22 +479,7 @@ kcuttests: outputdirs $(BUILDDIR)/kcuttests.o
 	@echo $@ created ...
 	@echo ""
 
-create_evls: outputdirs $(BUILDDIR)/create_evls.o
-	@echo ""
-	@echo Linking physics test program for ods access: $@ ...
-	$(LOADER) \
-		$(BUILDDIR)/create_evls.o  \
-		\
-		$(OO_LIBS) \
-		-lH1Mods -lH1Hat -lH1Ods -lH1Skeleton -lH1Tracks -lH1Clusters \
-		-lH1OOBanks -lH1Geom -lH1Arrays -lH1Tools -lH1Pointers -lH1Steering \
-		-lH1HadronicCalibration  -lH1PhysUtils -lH1JetFinder -lH1Finder \
-		-lH1MagfieldOO \
-		$(ROOTLIBS) -lEG -l${FORTRANLIB} \
-		\
-		-o $(BINDIR)/create_evls
-	@echo $@ created ...
-	@echo ""
+
 
 ratiopt: outputdirs $(BUILDDIR)/ratiopt.o
 	@echo ""

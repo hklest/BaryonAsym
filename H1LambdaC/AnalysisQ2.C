@@ -10,47 +10,93 @@ using namespace std;
 //Lambda and Kaon Extraction May require slightly different parameters
 //Convecntion here: element[0] = Lambda ; element[1] = Kaon
 
-vector<int> trainnum = { 10,10 }; //number of time NN is trained
-vector<string> network = { "Mass:350:Count", "Mass:350:Count" }; //defining NN
+vector<int> trainnum = { 100,75 }; //number of time NN is trained
+vector<string> network = { "Mass:350:Count", "Mass:50:Count" }; //defining NN
 
 //Vectors of fit subtraction values for lambda=0 and k0=1 particles,
-//vector<double> leftfitbound1 = { 1.082, 0.40 };
-//vector<double> leftfitbound2 = { 1.1, 0.435 };
-//vector<double> rightfitbound1 = { 1.128, 0.555 };
-//vector<double> rightfitbound2 = { 1.15, 0.68 };
-//vector<double> leftsubbound = { 1.1, 0.44 };
-//vector<double> rightsubbound = { 1.128, 0.55 };
 
-vector<double> leftfitbound1 = { 1.082, 0.40 };
+vector<double> leftfitbound1 = { 1.082, 0.37 };
 vector<double> leftfitbound2 = { 1.1, 0.425 };
-vector<double> rightfitbound1 = { 1.13, 0.59 };
-vector<double> rightfitbound2 = { 1.15, 0.68 };
-vector<double> leftsubbound = { 1.1, 0.43 };
-vector<double> rightsubbound = { 1.13, 0.58 };
+vector<double> rightfitbound1 = { 1.132, 0.57 };
+vector<double> rightfitbound2 = { 1.16, 0.68 };
+vector<double> leftsubbound = { 1.1, 0.425 };
+vector<double> rightsubbound = { 1.132, 0.57 };
 
 //defining vectors of the binning definitions for each of the kinematic variables we are looking at
 //when playing with binning, have to adjust these vectors and hand specify the number of bins for defining Hist arrays
 vector<double> pTbins = {0.5, 0.6, 0.7, 0.8, 0.9, 1.1, 1.3, 1.6, 2.2, 3.5};
 vector<double> Etabins = {-1.3, -1.0, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 1.0, 1.3};
-vector<double> xbins = {0.00004, 0.0001, 0.0002, 0.0004, 0.001, 0.01};
-//vector<double> q2bins = {2.0, 2.5, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 25.0, 100.0};
+vector<double> xbins = {0.0001, 0.0002, 0.0004, 0.001, 0.01};
 vector<double> q2bins = { 5.0, 7.0, 10.0, 15.0, 25.0, 100.0 };
 const int pTentries = 9;
 const int Etaentries = 10;
-const int xentries = 5;
+const int xentries = 4;
 const int q2entries = 5;
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//LUMI DATA and cross seciton values
+
+//Defining integrated Lumi values for 05,06,07 data set obtained separately from oolumi
+
+//double DataIntLumi06 = 106823.1; //2005 DATA nb-1
+//double DataIntLumi06 = 144634.0; //2006 DATA nb-1
+double DataIntLumi06 = 46200.7; //2007 DATA nb-1
+//double DataIntLumi06 = 297657.8; //ALL DATA nb-1
+
+//double MCIntLumi06 = 126880.0; //nb-1
+double MCIntLumi06 = 126880.0; //RAPGAP nb-1
+//double MCIntLumi06 = 2918092.00; //DJANGOH nb-1
+
+
+//double MCDjangoh14radgen = 1087523.00; //2005 Rad DJANGOH14 nb-1
+//double MCDjangoh14nonradgen = 1133362.00; //2005 NonRad DJANGOH14 nb-1
+//double MCDjangoh14radgen = 2268210.00; //2006 Rad DJANGOH14 nb-1
+//double MCDjangoh14nonradgen = 1944680.00; //2006 NonRad DJANGOH14 nb-1
+double MCDjangoh14radgen = 753224.00; //2007 Rad DJANGOH14 nb-1
+double MCDjangoh14nonradgen = 482191.00; //2007 NonRad DJANGOH14 nb-1
+//double MCDjangoh14radgen = 4108957.0; //ALL Rad DJANGOH14 nb-1
+//double MCDjangoh14nonradgen = 3560233.0; //ALL NonRad DJANGOH14 nb-1
+
+
+//Branching Ratios
+double BRlambda = 0.639;
+double BRkaon = 0.692;
 
 //string names for file paths of 5 Trees we need to access
-string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_11_8_23.root";
-string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06_11_8_23.root"; //_electrononly
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// DATA
+string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/KaonTree/2007/merged.root";
+//string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/KaonTree/merged.root";
 
-string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC06_11_8_23.root";
-string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC06_11_8_23.root";
-//string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC06_noS61.root";
-//string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC06_noS61.root";
-string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_afterEvls.root";
+string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/LambdaTree/2007/merged.root";
+//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
+//END DATA
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//MC
+string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/2007/merged.root";
+//string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/AnalysisQ2.root";
+
+string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/2007/merged.root";
+//string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
+
+
+string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/2007/merged.root"; //rad RAPGAP
+//string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/merged.root"; //rad RAPGAP
+
+
+
+string fileNonRadgenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/2007/merged.root"; //non rad DJANGOH
+string fileRadgenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/2007/merged.root";
+
+//string fileNonRadgenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root"; //non rad DJANGOH
+//string fileRadgenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root";
+
+//END MC
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//output files
+string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/AnalysisQ2_2007.root";
 string dummyfile = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/dummyfile.root";
 
 // Histograms Binning
@@ -66,7 +112,7 @@ Double_t kaonlowerbinrange = 0.0;
 // End of Input Section
 /////////////////////////////////////////////////
 
-//Defining a couple functions used for calculations
+//Defining functions used for calculations
 double Square(double value) {
 	return value * value;
 }
@@ -75,32 +121,14 @@ double GetRatioError(double ratio, double numerator, double errnumerator, double
 	return abs(ratio) * sqrt(Square(errnumerator / numerator) + Square(errdenominator / denominator));
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-//read data file with histograms
-//TFile* f = new TFile(loadfilein.c_str());
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 //creating file to output histograms to
 TFile outputfile(outputfilename.c_str(), "RECREATE");
 TFile* f = new TFile(dummyfile.c_str(),"RECREATE");
 
-//MLP function
+//MLP function, this function does the mlp fit and peak extraction, output is a 3 component vecotr {total particle peak count after BG subtraction, error in the peak count, total BG count}
 vector<double> mlpfunction(TH1F* inHist, string plotname, int particlecode, TCanvas* c3, TCanvas* c1) { //when calling function, particle code deictates 0=lambda or 1=kaon MLP parameters
+
 
 	TNtuple* ntp_bg = new TNtuple("datatree", "datatree", "Mass:Count");
 
@@ -224,6 +252,8 @@ vector<double> mlpfunction(TH1F* inHist, string plotname, int particlecode, TCan
 	return { kcount,kcounterror, bgcount };
 };
 
+//This function takes in raw tree from TTree input files and creates histograms with appropriate binning for peak extractions
+//after it has all histrograms for appropriate bins, it extracts counts with mlpfunciton, output is a vector of mlpfunciton vector outputs
 vector<vector<double>> AnalyzeTree(TFile* Data, string TreeName, int binentries, int particlecode, vector<TH1F*> HistArray, vector<double> binsvector, string extractionReadback, TCanvas* c3, TCanvas* c1) { //when calling function, particle code deictates 0=lambda or 1=kaon MLP parameters
 	vector<vector<double>> ExtractionDataVector = {};
 
@@ -238,7 +268,7 @@ vector<vector<double>> AnalyzeTree(TFile* Data, string TreeName, int binentries,
 
 	//Defining the variables that are stored in the Tree branches
 	//double invMasslambda, invMasskaon, pT, Eta, x, Q2s, Ys;
-	double invMass, pT, Eta, x, Q2s, Ys, Angle;
+	double invMass, pT, Eta, x, Q2s, Ys, Angle, weight1, weight2;
 	string invMassName[2] = {"invMasslambda","invMasskaon"};
 
 	//Defining the branch addresses for the Trees to access these stored variables
@@ -249,6 +279,8 @@ vector<vector<double>> AnalyzeTree(TFile* Data, string TreeName, int binentries,
 	tree->SetBranchAddress("Q2s", &Q2s);
 	tree->SetBranchAddress("Ys", &Ys);
 	tree->SetBranchAddress("Angle", &Angle);
+	tree->SetBranchAddress("weight1", &weight1);
+	tree->SetBranchAddress("weight2", &weight2);
 
 	int m;
 	int j;
@@ -262,7 +294,7 @@ vector<vector<double>> AnalyzeTree(TFile* Data, string TreeName, int binentries,
 						if (Q2s > 5 && Q2s < 100) {
 							//if (abs(Angle) <= 10.0) {
 								if (Q2s > binsvector[j] && Q2s < binsvector[j + 1]) {
-									HistArray[j]->Fill(invMass);
+									HistArray[j]->Fill(invMass,weight1*weight2);
 								}
 							//}
 						}
@@ -289,6 +321,7 @@ vector<vector<double>> AnalyzeTree(TFile* Data, string TreeName, int binentries,
 
 };
 
+//This takes the raw gen MC trees and gets MC total counts for efficiency calculation in the appropraiate bin defined by inputs, function output is the count
 vector<double> AnalyzeGenTree(TFile* Data, string TreeName, int binentries, vector<double> binsvector) { //when calling function, particle code deictates 0=lambda or 1=kaon MLP parameters
 
 	vector<double> GenCounts = {};
@@ -308,7 +341,7 @@ vector<double> AnalyzeGenTree(TFile* Data, string TreeName, int binentries, vect
 
 	//Defining the variables that are stored in the Tree branches
 	//double invMasslambda, invMasskaon, pT, Eta, x, Q2s, Ys;
-	double pT, Eta, x, Q2s, Ys;
+	double pT, Eta, x, Q2s, Ys, weight1, weight2, Empz, GenElecEn, VtxZgen;
 
 	//Defining the branch addresses for the Trees to access these stored variables
 	//tree->SetBranchAddress("invMass", &invMass);
@@ -317,6 +350,12 @@ vector<double> AnalyzeGenTree(TFile* Data, string TreeName, int binentries, vect
 	tree->SetBranchAddress("x", &x);
 	tree->SetBranchAddress("Q2s", &Q2s);
 	tree->SetBranchAddress("Ys", &Ys);
+	tree->SetBranchAddress("weight1", &weight1);
+	tree->SetBranchAddress("weight2", &weight2);
+	tree->SetBranchAddress("Empz", &Empz);
+	tree->SetBranchAddress("GenElecEn", &GenElecEn);
+	//tree->SetBranchAddress("H1GenBool", &H1GenBool);
+	tree->SetBranchAddress("VtxZgen", &VtxZgen);
 
 	int m;
 	int j;
@@ -327,8 +366,14 @@ vector<double> AnalyzeGenTree(TFile* Data, string TreeName, int binentries, vect
 				if (abs(Eta) < 1.3) {
 					if (Ys > 0.1 && Ys < 0.6) {
 						if (Q2s > 5 && Q2s < 100) {
-							if (Q2s > binsvector[j] && Q2s < binsvector[j + 1]) {
-								GenCounts[j] = GenCounts[j] + 1;
+							if (GenElecEn>11) {
+								if (Empz>35 && Empz<70) {
+									if (abs(VtxZgen)<30) {
+										if (Q2s > binsvector[j] && Q2s < binsvector[j + 1]) {
+											GenCounts[j] = GenCounts[j] + 1 * weight1 * weight2;
+										}
+									}
+								}
 							}
 						}
 					}
@@ -341,7 +386,73 @@ vector<double> AnalyzeGenTree(TFile* Data, string TreeName, int binentries, vect
 
 };
 
+vector<double> AnalyzeGenTreeRadCorr(TFile* Data, string TreeName, int binentries, vector<double> binsvector) { //when calling function, particle code deictates 0=lambda or 1=kaon MLP parameters
 
+	vector<double> GenCounts = {};
+	//initialize all GenCounts for each bin to zero in the array
+	int p;
+	for (p = 0; p < binentries; p++) {
+		GenCounts.push_back(0);
+	}
+
+	//have files for lambdaTree, kaonTree, lambdaTreeMC, kaonTreeMC, genMCTree
+	//TFile* Data = new TFile(filelambdaTree.c_str(), "read");
+	//grab Tree from file above
+	TTree* tree = (TTree*)Data->Get(TreeName.c_str());
+	int entries;
+
+	entries = tree->GetEntries();
+
+	//Defining the variables that are stored in the Tree branches
+	//double invMasslambda, invMasskaon, pT, Eta, x, Q2s, Ys;
+	double pT, Eta, x, Q2s, Ys, weight1, weight2, Empz, GenElecEn, H1GenBool, VtxZgen;
+
+	//Defining the branch addresses for the Trees to access these stored variables
+	//tree->SetBranchAddress("invMass", &invMass);
+	tree->SetBranchAddress("pT", &pT);
+	tree->SetBranchAddress("Eta", &Eta);
+	tree->SetBranchAddress("x", &x);
+	tree->SetBranchAddress("Q2s", &Q2s);
+	tree->SetBranchAddress("Ys", &Ys);
+	tree->SetBranchAddress("weight1", &weight1);
+	tree->SetBranchAddress("weight2", &weight2);
+	tree->SetBranchAddress("Empz", &Empz);
+	tree->SetBranchAddress("GenElecEn", &GenElecEn);
+	tree->SetBranchAddress("H1GenBool", &H1GenBool);
+	tree->SetBranchAddress("VtxZgen", &VtxZgen);
+
+	int m;
+	int j;
+	for (m = 0; m < entries; m++) {
+		tree->GetEntry(m);
+		for (j = 0; j < binentries; j++) {
+			if (pT > 0.5 && pT < 3.5) {
+				if (abs(Eta) < 1.3) {
+					if (Ys > 0.1 && Ys < 0.6) {
+						if (Q2s > 5 && Q2s < 100) {
+							if (H1GenBool == 1) {
+								if (abs(VtxZgen)<30) {
+									if(GenElecEn>11){
+										if (Empz > 35 && Empz < 70) {
+											if (Q2s > binsvector[j] && Q2s < binsvector[j + 1]) {
+												GenCounts[j] = GenCounts[j] + 1 * weight1 * weight2;
+											}
+										}
+								    }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	return GenCounts;
+
+};
+
+//Function plots data
 int PlotData(string plotcanvasname, string plottitle, string xaxistitle, string yaxistitle, double ylowbound, double yupbound, TGraphErrors* cs, int binentries, double X[binentries], double y[binentries], double xerr[binentries], double y1err[binentries], double dylow[binentries], double dyup[binentries], double dylow2[binentries], double dyup2[binentries]) { //when calling function, particle code deictates 0=lambda or 1=kaon MLP parameters
 
 	TCanvas* c5 = new TCanvas(plotcanvasname.c_str(), plotcanvasname.c_str(), 10, 10, 800, 400);
@@ -376,12 +487,15 @@ int PlotData(string plotcanvasname, string plottitle, string xaxistitle, string 
 	//MCcrosssection->Draw("SAME");
 	TLegend* legend2 = new TLegend();
 	//legend2->AddEntry(MCcrosssection, "RAPGAP31", "l");
-	legend2->AddEntry(cs, "2006 Data", "l");
-	legend2->AddEntry(xyscan, "1999-2000 H1 Analysis", "l");
+	legend2->AddEntry(cs, "2005-2007 HERAII DST7", "l");
+	//legend2->AddEntry(cs, "2007 HERAII Data", "l");
+	//legend2->AddEntry(xyscan, "1999-2000 H1 Analysis", "l");
 	legend2->Draw("SAME");
 	c5->SetGridy();
 	outputfile.cd();
 	c5->Write();
+	cs->SetName((plotcanvasname+" TGraph").c_str());
+	cs->Write();
 	f->cd();
 
 	//c5->Clear();
@@ -396,6 +510,91 @@ int PlotData(string plotcanvasname, string plottitle, string xaxistitle, string 
 
 };
 
+//Function plotting cross section data
+int PlotK0CSData(string plotcanvasname, string plottitle, string xaxistitle, string yaxistitle, double ylowbound, double yupbound, TGraphErrors* cs, int binentries, double X[binentries], double y[binentries], double xerr[binentries], double y1err[binentries], double dylow[binentries], double dyup[binentries], double dylow2[binentries], double dyup2[binentries]) { //when calling function, particle code deictates 0=lambda or 1=kaon MLP parameters
+
+	//double xerr[q2entries] = { 1,1.5,2.5,5,37.5 };
+	//double xvals[q2entries] = { 6,8.5,12.5,20,62.5 };
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//K0s Cross section results from HERAII Preliminary
+	double X2[4];
+	double y2[4];
+	double dxlow2[4];
+	double dxup2[4];
+	double dylow3[4];
+	double dyup3[4];
+	int n = 0;
+	X2[n] = 8.5;	y2[n] = 0.94825;	dxlow2[n] = 1.5;	dxup2[n] = 1.5;	dylow3[n] = 0;	dyup3[n] = 0;	n++;
+	X2[n] = 12.5;	y2[n] = 0.514681;	dxlow2[n] = 2.5;	dxup2[n] = 2.5;	dylow3[n] = 0;	dyup3[n] = 0;	n++;
+	X2[n] = 20;	y2[n] = 0.240309;	dxlow2[n] = 5;	dxup2[n] = 5;	dylow3[n] = 0;	dyup3[n] = 0;	n++;
+	X2[n] = 62.5;	y2[n] = 0.0408826;	dxlow2[n] = 37.5;	dxup2[n] = 37.5;	dylow3[n] = 0;	dyup3[n] = 0;	n++;
+	////
+	gPad->SetLogx(1);
+	gPad->SetLogy(1);
+	TCanvas* c5 = new TCanvas(plotcanvasname.c_str(), plotcanvasname.c_str(), 10, 10, 800, 400);
+	TGraphAsymmErrors* xyscan = new TGraphAsymmErrors(binentries, X, y, xerr, xerr, dylow, dyup);
+	TGraphAsymmErrors* xyscan2 = new TGraphAsymmErrors(binentries, X, y, xerr, xerr, dylow2, dyup2);
+	TGraphAsymmErrors* H1prelim = new TGraphAsymmErrors(binentries-1, X2, y2, dxup2, dxup2, dylow3, dyup3);
+	xyscan->SetMarkerColor(kBlack);
+	xyscan->SetLineColor(kBlack);
+	xyscan2->SetMarkerColor(kBlack);
+	xyscan2->SetLineColor(kBlack);
+	//auto cs = new TGraphErrors(pTentries, X, y1, xerr, y1err);
+	//auto cs = new TGraphErrors(binentries, X, y1, xerr, y1err);
+	cs->SetMarkerSize(0.01);
+	xyscan->SetMarkerSize(0.01);
+	xyscan->SetMarkerStyle(21);
+	xyscan2->SetMarkerSize(0.01);
+	xyscan2->SetMarkerStyle(21);
+	H1prelim->SetMarkerSize(0.01);
+	H1prelim->SetMarkerStyle(21);
+	H1prelim->SetMarkerColor(kBlue);
+	H1prelim->SetLineColor(kBlue);
+	cs->SetMarkerStyle(21);
+	cs->SetMarkerColor(kRed);
+	cs->SetLineColor(kRed);
+	TMultiGraph* mgcs = new TMultiGraph();
+
+	mgcs->Add(cs, "AP");
+	//mgcs->Add(xyscan, "AP");
+	//mgcs->Add(xyscan2, "AP");
+	//mgcs->Add(H1prelim, "AP");
+	cs->Draw("AP");
+	cs->GetYaxis()->SetRange(ylowbound, yupbound);
+	//MCcrosssection->Draw("AP");
+	mgcs->Draw("SAME");
+	mgcs->SetTitle(plottitle.c_str());
+	mgcs->GetXaxis()->SetTitle(xaxistitle.c_str());
+	mgcs->GetYaxis()->SetTitle(yaxistitle.c_str());
+	//MCcrosssection->Draw("SAME");
+	TLegend* legend2 = new TLegend();
+	//legend2->AddEntry(MCcrosssection, "RAPGAP31", "l");
+	legend2->AddEntry(cs, "2005-2007 HERAII DST7)", "l");
+	//legend2->AddEntry(xyscan, "HERAI H1 Publication (1999-2000 DST5)", "l");
+	//legend2->AddEntry(H1prelim, "HERAII H1 Prelim (2006 DST7)", "l");
+	legend2->Draw("SAME");
+	c5->SetGridy();
+	outputfile.cd();
+	cs->SetName((plotcanvasname + " TGraph").c_str());
+	cs->Write();
+	c5->Write();
+	f->cd();
+	gPad->SetLogx(0);
+	gPad->SetLogy(0);
+	//c5->Clear();
+	//c5->SetName("RAPGAP Lambda Cross Section");
+	//MCcrosssection->Draw();
+	//c5->Write();
+
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	return 0;
+
+};
+
+
+
 //End of MLP function and inputs, actual analysis code follows
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -409,30 +608,19 @@ int PlotData(string plotcanvasname, string plottitle, string xaxistitle, string 
 
 
 void AnalysisQ2() {
-	//Defining integrated Lumi values for 05,06,07 data set obtained separately from oolumi
-	double DataIntLumi05 = 108796.1875; //nb-1
-	//double DataIntLumi06 = 132495.265625; //nb-1
-	double DataIntLumi06 = 144634.0; //nb-1
-	double DataIntLumi07 = 46577.761719; //nb-1
-	double MCIntLumi05 = 253760.0; //nb-1
-	double MCIntLumi06 = 126880.0; //nb-1
-	double MCIntLumi07 = 253760.0; //nb-1
-	//Branching Ratios
-	double BRlambda = 0.639;
-	double BRkaon = 0.692;
-	
 	// defining arrays of histograms corresponding to particles within kinematic bins
 	//must be done for each particle, for data
-	//TH1F* LambdaTotDatapT[pTentries];
+	//Q2 data
+	vector<TH1F*> LambdaTotDataQ2;
+	vector<TH1F*> LambdaRegDataQ2;
+	vector<TH1F*> LambdaBarDataQ2;
+	vector<TH1F*> LambdaTotMCQ2;
+	vector<TH1F*> LambdaRegMCQ2;
+	vector<TH1F*> LambdaBarMCQ2;
+	vector<TH1F*> KaonDataQ2;
+	vector<TH1F*> KaonMCQ2;
 
-	vector<TH1F*> LambdaTotDatax;
-	vector<TH1F*> LambdaRegDatax;
-	vector<TH1F*> LambdaBarDatax;
-	vector<TH1F*> LambdaTotMCx;
-	vector<TH1F*> LambdaRegMCx;
-	vector<TH1F*> LambdaBarMCx;
-	vector<TH1F*> KaonDatax;
-	vector<TH1F*> KaonMCx;
+
 	//I don't have Histograms for particle level generator data because counts for these
 	//will be done by just going through the generate TTree and adding events up that are within our conditions
 	for (int a = 0; a < q2entries; a++) {
@@ -447,14 +635,14 @@ void AnalysisQ2() {
 
 		
 		//LambdaTotDatapT[a] = new TH1F(namestr1.c_str(), namestr1.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange);
-		LambdaTotDatax.push_back(new TH1F(namestr1.c_str(), namestr1.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
-		LambdaRegDatax.push_back(new TH1F(namestr2.c_str(), namestr2.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
-		LambdaBarDatax.push_back(new TH1F(namestr3.c_str(), namestr3.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
-		LambdaTotMCx.push_back(new TH1F(namestr4.c_str(), namestr4.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
-		LambdaRegMCx.push_back(new TH1F(namestr5.c_str(), namestr5.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
-		LambdaBarMCx.push_back(new TH1F(namestr6.c_str(), namestr6.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
-		KaonDatax.push_back(new TH1F(namestr7.c_str(), namestr7.c_str(), kaonbins, kaonlowerbinrange, kaonupperbinrange));
-		KaonMCx.push_back(new TH1F(namestr8.c_str(), namestr8.c_str(), kaonbins, kaonlowerbinrange, kaonupperbinrange));
+		LambdaTotDataQ2.push_back(new TH1F(namestr1.c_str(), namestr1.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
+		LambdaRegDataQ2.push_back(new TH1F(namestr2.c_str(), namestr2.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
+		LambdaBarDataQ2.push_back(new TH1F(namestr3.c_str(), namestr3.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
+		LambdaTotMCQ2.push_back(new TH1F(namestr4.c_str(), namestr4.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
+		LambdaRegMCQ2.push_back(new TH1F(namestr5.c_str(), namestr5.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
+		LambdaBarMCQ2.push_back(new TH1F(namestr6.c_str(), namestr6.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
+		KaonDataQ2.push_back(new TH1F(namestr7.c_str(), namestr7.c_str(), kaonbins, kaonlowerbinrange, kaonupperbinrange));
+		KaonMCQ2.push_back(new TH1F(namestr8.c_str(), namestr8.c_str(), kaonbins, kaonlowerbinrange, kaonupperbinrange));
 	}
 
 
@@ -484,6 +672,11 @@ void AnalysisQ2() {
 	vector<double> LambdaRegGenCount;
 	vector<double> LambdaBarGenCount;
 	vector<double> KaonGenCount;
+	//Gen particle counting for Rad Corrections
+	vector<double> LambdaGenCountRad;
+	vector<double> KaonGenCountRad;
+	vector<double> LambdaGenCountNonRad;
+	vector<double> KaonGenCountNonRad;
 
 	//Histogram vector names
 	//vector<TH1F*> LambdaTotDatapT;
@@ -496,27 +689,40 @@ void AnalysisQ2() {
 	//vector<TH1F*> KaonMCpT;
 
 	//Analyzing Tot Lambda Counts for q2 bins for MC and Data
-	LambdaTotDataCount = AnalyzeTree(new TFile(filelambdaTree.c_str(), "read"), "Lambda Tot", q2entries, 0, LambdaTotDatax, q2bins, "Lambda Tot Data q2 Extraction ", c3, c1);
-	LambdaTotMCCount = AnalyzeTree(new TFile(filelambdaTreeMC.c_str(), "read"), "Lambda Tot", q2entries, 0, LambdaTotMCx, q2bins, "Lambda Tot MC q2 Extraction ", c3, c1);
+	LambdaTotDataCount = AnalyzeTree(new TFile(filelambdaTree.c_str(), "read"), "Lambda Tot", q2entries, 0, LambdaTotDataQ2, q2bins, "Lambda Tot Data q2 Extraction ", c3, c1);
+	LambdaTotMCCount = AnalyzeTree(new TFile(filelambdaTreeMC.c_str(), "read"), "Lambda Tot", q2entries, 0, LambdaTotMCQ2, q2bins, "Lambda Tot MC q2 Extraction ", c3, c1);
 
-	LambdaRegDataCount = AnalyzeTree(new TFile(filelambdaTree.c_str(), "read"), "Lambda Reg", q2entries, 0, LambdaRegDatax, q2bins, "Lambda Reg Data q2 Extraction ", c3, c1);
-	LambdaRegMCCount = AnalyzeTree(new TFile(filelambdaTreeMC.c_str(), "read"), "Lambda Reg", q2entries, 0, LambdaRegMCx, q2bins, "Lambda Reg MC q2 Extraction ", c3, c1);
+	LambdaRegDataCount = AnalyzeTree(new TFile(filelambdaTree.c_str(), "read"), "Lambda Reg", q2entries, 0, LambdaRegDataQ2, q2bins, "Lambda Reg Data q2 Extraction ", c3, c1);
+	LambdaRegMCCount = AnalyzeTree(new TFile(filelambdaTreeMC.c_str(), "read"), "Lambda Reg", q2entries, 0, LambdaRegMCQ2, q2bins, "Lambda Reg MC q2 Extraction ", c3, c1);
 
-	LambdaBarDataCount = AnalyzeTree(new TFile(filelambdaTree.c_str(), "read"), "Lambda Bar", q2entries, 0, LambdaBarDatax, q2bins, "Lambda Bar Data q2 Extraction ", c3, c1);
-	LambdaBarMCCount = AnalyzeTree(new TFile(filelambdaTreeMC.c_str(), "read"), "Lambda Bar", q2entries, 0, LambdaBarMCx, q2bins, "Lambda Bar MC q2 Extraction ", c3, c1);
+	LambdaBarDataCount = AnalyzeTree(new TFile(filelambdaTree.c_str(), "read"), "Lambda Bar", q2entries, 0, LambdaBarDataQ2, q2bins, "Lambda Bar Data q2 Extraction ", c3, c1);
+	LambdaBarMCCount = AnalyzeTree(new TFile(filelambdaTreeMC.c_str(), "read"), "Lambda Bar", q2entries, 0, LambdaBarMCQ2, q2bins, "Lambda Bar MC q2 Extraction ", c3, c1);
 
-	KaonDataCount = AnalyzeTree(new TFile(filekaonTree.c_str(), "read"), "K0", q2entries, 1, KaonDatax, q2bins, "Kaon Tot Data q2 Extraction ", c3, c1);
-	KaonMCCount = AnalyzeTree(new TFile(filekaonTreeMC.c_str(), "read"), "K0", q2entries, 1, KaonMCx, q2bins, "Kaon Tot MC q2 Extraction ", c3, c1);
+	KaonDataCount = AnalyzeTree(new TFile(filekaonTree.c_str(), "read"), "K0", q2entries, 1, KaonDataQ2, q2bins, "Kaon Tot Data q2 Extraction ", c3, c1);
+	KaonMCCount = AnalyzeTree(new TFile(filekaonTreeMC.c_str(), "read"), "K0", q2entries, 1, KaonMCQ2, q2bins, "Kaon Tot MC q2 Extraction ", c3, c1);
 
 	//Analyzing Gen Counts
-	LambdaTotGenCount = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Tot", q2entries, q2bins);
-	LambdaRegGenCount = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Reg", q2entries, q2bins);
-	LambdaBarGenCount = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Bar", q2entries, q2bins);
-	KaonGenCount = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "K0s", q2entries, q2bins);
+	LambdaTotGenCount = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Tot Channel", q2entries, q2bins);
+	LambdaRegGenCount = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Reg Channel", q2entries, q2bins);
+	LambdaBarGenCount = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Bar Channel", q2entries, q2bins);
+	KaonGenCount = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "K0s Channel", q2entries, q2bins);
 	
+	//Analyzing Gen counts for radiative and non Radiative MC
+	//Non Radiative Gen Counting for Radiative Corrections
+	//LambdaTotGenCountinclNonRad = AnalyzeGenTreeRadCorr(new TFile(fileNonRadgenMCTree.c_str(), "read"), "Lambda Tot", 1, { q2bins[0],q2bins[q2entries] });
+	//LambdaTotGenCountinclRad = AnalyzeGenTreeRadCorr(new TFile(filegenMCTree.c_str(), "read"), "Lambda Tot", 1, { q2bins[0],q2bins[q2entries] });
+	//KaonGenCountinclNonRad = AnalyzeGenTreeRadCorr(new TFile(fileNonRadgenMCTree.c_str(), "read"), "K0s", 1, { q2bins[0],q2bins[q2entries] });
+	//KaonGenCountinclRad = AnalyzeGenTreeRadCorr(new TFile(filegenMCTree.c_str(), "read"), "K0s", 1, { q2bins[0],q2bins[q2entries] });
+	KaonGenCountRad = AnalyzeGenTreeRadCorr(new TFile(fileRadgenMCTree.c_str(), "read"), "K0s", q2entries, q2bins);
+	KaonGenCountNonRad = AnalyzeGenTreeRadCorr(new TFile(fileNonRadgenMCTree.c_str(), "read"), "K0s", q2entries, q2bins);
+	LambdaGenCountRad = AnalyzeGenTreeRadCorr(new TFile(fileRadgenMCTree.c_str(), "read"), "Lambda Tot", q2entries, q2bins);
+	LambdaGenCountNonRad = AnalyzeGenTreeRadCorr(new TFile(fileNonRadgenMCTree.c_str(), "read"), "Lambda Tot", q2entries, q2bins);
 
-	
+
 	double y1[q2entries] = {};
+	double ourresultsoverpaper[q2entries] = {};
+	double ourresultsoverpaperk0[q2entries] = {};
+	double ourresultsoverprelimk0[q2entries-1] = {};
 	//vector<double> q2bins = { 5.0, 7.0, 10.0, 15.0, 25.0, 100.0 };
 	double xerr[q2entries] = { 1,1.5,2.5,5,37.5 };
 	double xvals[q2entries] = { 6,8.5,12.5,20,62.5 };
@@ -528,6 +734,9 @@ void AnalysisQ2() {
 	double effbarplot[q2entries] = {};
 	double erreffregplot[q2entries] = {};
 	double erreffbarplot[q2entries] = {};
+	double lambdaradcorrplot[q2entries] = {};
+	double k0radcorrplot[q2entries] = {};
+	double lambdaradcorrploterrors[q2entries] = {};
 
 	//Lambda Cross section results from 2009 H1 Paper
 	double X[5];
@@ -543,12 +752,19 @@ void AnalysisQ2() {
 	X[n] = xvals[n];	y[n] = 0.071;	dxlow[n] = 0;	dxup[n] = 0;	dylow[n] = 0.0015;	dyup[n] = 0.0015;	n++;
 	X[n] = xvals[n];	y[n] = 0.0120;	dxlow[n] = 0;	dxup[n] = 0;	dylow[n] = 0.0002;	dyup[n] = 0.0002;	n++;
 	////
+	
 
 	for (int k = 0; k < q2entries; k++) {
 		double templameff = (LambdaTotMCCount[k][0]) / (LambdaTotGenCount[k]);
-		
 		double templamefferr = GetRatioError(templameff, LambdaTotMCCount[k][0], LambdaTotMCCount[k][1], LambdaTotGenCount[k], 0);
-		double templamcrosssection = (LambdaTotDataCount[k][0]) / (templameff * BRlambda * DataIntLumi06 * (q2bins[k+1]-q2bins[k]));
+		
+		//cout << "Lambda Rad Correction: " << (LambdaTotGenCountinclRad[0] / LambdaTotGenCountinclNonRad[0]) * (MCDjangoh14nonradgen / MCDjangoh14radgen) << endl;
+		double templambdaradcorr = (LambdaGenCountRad[k] / LambdaGenCountNonRad[k]) * (MCDjangoh14nonradgen / MCDjangoh14radgen);
+		lambdaradcorrplot[k] = (templambdaradcorr-1)*100;
+		lambdaradcorrploterrors[k] = 0;
+		cout << "Lambda Rad Cor Q2 Bin " << k + 1 << ": " << templambdaradcorr << endl;
+
+		double templamcrosssection = (LambdaTotDataCount[k][0]) / (templameff * BRlambda * DataIntLumi06 * templambdaradcorr * (q2bins[k+1]-q2bins[k]));
 		//cout << "Lambda Tot Data Count: " << LambdaTotDataCount[k][0] << endl;
 		//cout << "Lambda Bin Cross Section: " << templamcrosssection << endl;
 		//cout << "Lambda BR: " << BRlambda << endl;
@@ -556,7 +772,7 @@ void AnalysisQ2() {
 		//cout << "Lambda Tot Data Lumi: " << DataIntLumi06 << endl;
 		//cout << "Bin Width: " << q2bins[k + 1] - q2bins[k] << endl;
 		cout << "Our Results Over H1 Results in Bin " << k+1 << " : " << templamcrosssection/y[k] << endl;
-		
+		ourresultsoverpaper[k] = templamcrosssection / y[k];
 
 		double templamcrosssectionerr = GetRatioError(templamcrosssection, (LambdaTotDataCount[k][0]), (LambdaTotDataCount[k][1]), (templameff * BRlambda * DataIntLumi06 * (q2bins[k + 1] - q2bins[k])), templamefferr);
 		
@@ -628,10 +844,14 @@ void AnalysisQ2() {
 	auto cs = new TGraphErrors(q2entries, X, y1, xerr, y1err);
 	PlotData("Lambda Cross Section vs q2", "d#sigma(ep #rightarrow e [#Lambda + #bar{#Lambda}] X)/dx", "q2", "d#sigma/dx",0,4.2, cs, q2entries, X, y, xerr, y1err, dylow, dyup, dylow2, dyup2);
 	for (int k = 0; k < q2entries; k++) {
-		cout << "Q2 Cross Section Entry " << k + 1 << " : " << y1[k] << " X: " << X[k] << endl;
+		cout << "Lambda Q2 Cross Section Entry " << k + 1 << " : " << y1[k] << " X: " << X[k] << "p/m: " << y1err[k] << endl;
 	}
-
-
+	auto g = new TGraph(5, X, ourresultsoverpaper);
+	g->SetTitle("Our Results Over Paper's;Q^{2};Cross Section Ratio");
+	g->Draw("AC*");
+	outputfile.cd();
+	g->Write();
+	f->cd();
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Lambda Asymm Data from 2009 paper obtained through xyscan, no syst error published for this, so just stat. error
@@ -690,14 +910,30 @@ void AnalysisQ2() {
 	dylow2[m] = 0.024;	dyup2[m] = 0.023;	m++;
 	dylow2[m] = 0.012;	dyup2[m] = 0.012;	m++;
 	dylow2[m] = 0.0021;	dyup2[m] = 0.002;	m++;
-
-
+	//K0s Cross section results from HERAII Preliminary
+	double X2[4];
+	double y2[4];
+	double dxlow2[4];
+	double dxup2[4];
+	double dylow3[4];
+	double dyup3[4];
+	n = 0;
+	X2[n] = 8.5;	y2[n] = 0.94825;	dxlow2[n] = 1.5;	dxup2[n] = 1.5;	dylow3[n] = 0;	dyup3[n] = 0;	n++;
+	X2[n] = 12.5;	y2[n] = 0.514681;	dxlow2[n] = 2.5;	dxup2[n] = 2.5;	dylow3[n] = 0;	dyup3[n] = 0;	n++;
+	X2[n] = 20;	y2[n] = 0.240309;	dxlow2[n] = 5;	dxup2[n] = 5;	dylow3[n] = 0;	dyup3[n] = 0;	n++;
+	X2[n] = 62.5;	y2[n] = 0.0408826;	dxlow2[n] = 37.5;	dxup2[n] = 37.5;	dylow3[n] = 0;	dyup3[n] = 0;	n++;
+	////
 	
 	for (int k = 0; k < q2entries; k++) {
 		double tempk0eff = (KaonMCCount[k][0]) / (KaonGenCount[k]);
-
 		double tempk0efferr = GetRatioError(tempk0eff, KaonMCCount[k][0], KaonMCCount[k][1], KaonGenCount[k], 0);
-		double tempk0crosssection = (KaonDataCount[k][0]) / (tempk0eff * BRkaon * DataIntLumi06 * (q2bins[k + 1] - q2bins[k]));
+
+		//cout << "K0s Rad Correction: " << (KaonGenCountinclRad[0] / KaonGenCountinclNonRad[0]) * (MCDjangoh14nonradgen / MCDjangoh14radgen) << endl;
+		double tempk0radcorr = (KaonGenCountRad[k] / KaonGenCountNonRad[k]) * (MCDjangoh14nonradgen / MCDjangoh14radgen);
+		k0radcorrplot[k] = (tempk0radcorr-1)*100;
+		cout << "K0 Rad Cor Q2 Bin " << k + 1 << ": " << tempk0radcorr << endl;
+
+		double tempk0crosssection = (KaonDataCount[k][0]) / (tempk0eff * BRkaon * DataIntLumi06 * tempk0radcorr * (q2bins[k + 1] - q2bins[k]));
 
 		double tempk0crosssectionerr = GetRatioError(tempk0crosssection, (KaonDataCount[k][0]), (KaonDataCount[k][1]), (tempk0eff * BRkaon * DataIntLumi06 * (q2bins[k + 1] - q2bins[k])), tempk0efferr);
 		
@@ -708,11 +944,45 @@ void AnalysisQ2() {
 		effregplot[k] = tempk0eff;
 		erreffregplot[k] = tempk0efferr;
 
+		ourresultsoverpaperk0[k] = tempk0crosssection / y[k];
+		if (k>0) {
+			ourresultsoverprelimk0[k-1] = tempk0crosssection / y2[k-1];
+		}
 	}
 
+	auto gk0 = new TGraph(5, X, ourresultsoverpaperk0);
+	auto gk0prelim = new TGraph(4, X2, ourresultsoverprelimk0);
+	TMultiGraph* mgratios = new TMultiGraph();
+	TCanvas* cgk = new TCanvas("Results Ratio", "Results Ratio", 10, 10, 800, 400);
+	cgk->SetName("Results Ratio");
+	gk0->SetTitle("Our Results Over Paper's;Q^{2};Cross Section Ratio");
+	//mgratios->Add(gk0, "AP");
+	gk0->GetXaxis()->SetRange(0, 105);
+	gk0->Draw();
+	gk0->SetLineColor(kBlack);
+	gk0prelim->SetTitle("Our Results Over Prelim;Q^{2};Cross Section Ratio");
+	gk0prelim->Draw("same");
+	//mgratios->Add(gk0prelim, "AP");
+	gk0prelim->SetLineColor(kBlue);
+	g->SetLineColor(kRed);
+	g->Draw("same");
+	//mgratios->Add(g, "AP");
+	//mgratios->Draw();
+	//g->SetLineStyle("AC*")
+	TLegend* legendgk = new TLegend();
+	legendgk->AddEntry(g, "#Lambda HERAI H1 Publication (1999-2000 DST5):Our HERAII Results (2006 DST7)", "l");
+	legendgk->AddEntry(gk0, "K^{0}_{s} HERAI H1 Publication (1999-2000 DST5):Our HERAII Results (2006 DST7)", "l");
+	legendgk->AddEntry(gk0prelim, "K^{0}_{s} HERAII H1 Prelim (2006 DST7):Our HERAII Results (2006 DST7)", "l");
+	//legend3->AddEntry(effbar, "#bar{#Lambda}", "l");
+	legendgk->Draw("same");
+	outputfile.cd();
+	cgk->SetGridy();
+	cgk->Write();
+	gk0->Write();
+	gk0prelim->Write();
+	f->cd();
 
-
-	//Plotting Lambda Efficiency
+	//Plotting K0 Efficiency
 	TCanvas* ckeff = new TCanvas("K0 Cross Section vs q2", "K0 Cross Section vs q2", 10, 10, 800, 400);
 	ckeff->SetName("K0 Reconstruction Eff vs q2");
 
@@ -736,13 +1006,46 @@ void AnalysisQ2() {
 	legend4->Draw("SAME");
 	outputfile.cd();
 	ckeff->Write();
+	//End Plotting K0 Efficiency
+
+	//Plotting radiative Corrections
+	TCanvas* cradcorr = new TCanvas("Radiative Corrections", "Radiative Corrections", 10, 10, 800, 400);
+	cradcorr->SetName("Radiaitve Corrections vs q2");
+
+	auto radcorrlambda = new TGraphErrors(q2entries, X, lambdaradcorrplot, xerr, lambdaradcorrploterrors);
+	auto radcorrk0 = new TGraphErrors(q2entries, X, k0radcorrplot, xerr, lambdaradcorrploterrors);
+	//auto effbar = new TGraphErrors(arraysize, X, effbarplot, xerr, erreffbarplot);
+	radcorrlambda->SetMarkerColor(kRed);
+	radcorrlambda->SetLineColor(kRed);
+	radcorrlambda->SetMarkerSize(0.01);
+	radcorrk0->SetMarkerColor(kBlue);
+	radcorrk0->SetLineColor(kBlue);
+	radcorrk0->SetMarkerSize(0.01);
+	//effbar->SetMarkerColor(kBlue);
+	//effbar->SetLineColor(kBlue);
+	//effbar->SetMarkerSize(0.5);
+
+	radcorrlambda->SetTitle("Radiative Corrections vs Q^{2}");
+	radcorrlambda->GetXaxis()->SetTitle("Q^{2}");
+	radcorrlambda->GetYaxis()->SetTitle("#delta_{QED} [%]");
+	radcorrlambda->Draw();
+	radcorrk0->Draw("SAME");
+	//effbar->Draw("SAME");
+	TLegend* legendradcorr = new TLegend();
+	legendradcorr->AddEntry(radcorrlambda, "#Lambda", "l");
+	legendradcorr->AddEntry(radcorrk0, "K^{0}_{s}", "l");
+	//legend3->AddEntry(effbar, "#bar{#Lambda}", "l");
+	legendradcorr->Draw("SAME");
+	outputfile.cd();
+	cradcorr->Write();
+	//End plotting radiative corrections
+
 	f->cd();
-	//End Plotting Lambda Efficiency
 
 	auto cs3 = new TGraphErrors(q2entries, X, y1, xerr, y1err);
-	PlotData("K0 Cross Section vs q2", "d#sigma(ep #rightarrow e K^{0}_{S} X)/dx", "q2", "d#sigma/dx [nb]",0,10.5, cs3, q2entries, X, y, xerr, y1err, dylow, dyup, dylow2, dyup2);
+	PlotK0CSData("K0 Cross Section vs q2", "d#sigma(ep #rightarrow e K^{0}_{S} X)/dx", "q2", "d#sigma/dx [nb]",0,10.5, cs3, q2entries, X, y, xerr, y1err, dylow, dyup, dylow2, dyup2);
 	for (int k = 0; k < q2entries; k++) {
-		cout << "K0 Q2 Cross Section Entry " << k + 1 << " : " << y1[k] << " X: " << X[k] << endl;
+		cout << "K0 Q2 Cross Section Entry " << k + 1 << " : " << y1[k] << " X: " << X[k] << "p/m: " << y1err[k] << endl;
 	}
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -825,7 +1128,7 @@ void AnalysisQ2() {
 		string namestr8 = "Kaon MC q2 Bin";
 
 
-		//LambdaTotDatax[a] = new TH1F(namestr1.c_str(), namestr1.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange);
+		//LambdaTotDataQ2[a] = new TH1F(namestr1.c_str(), namestr1.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange);
 		LambdaTotDataxincl.push_back(new TH1F(namestr1.c_str(), namestr1.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
 		LambdaRegDataxincl.push_back(new TH1F(namestr2.c_str(), namestr2.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
 		LambdaBarDataxincl.push_back(new TH1F(namestr3.c_str(), namestr3.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange));
@@ -854,6 +1157,10 @@ void AnalysisQ2() {
 	vector<double> LambdaRegGenCountincl;
 	vector<double> LambdaBarGenCountincl;
 	vector<double> KaonGenCountincl;
+	vector<double> LambdaTotGenCountinclNonRad;
+	vector<double> LambdaTotGenCountinclRad;
+	vector<double> KaonGenCountinclNonRad;
+	vector<double> KaonGenCountinclRad;
 
 	//Analyzing Tot Lambda Counts for q2 bins for MC and Data
 	//vector<vector<double>> AnalyzeTree(TFile * Data, string TreeName, int binentries, int particlecode, vector<TH1F*> HistArray, vector<double> binsvector, string extractionReadback, TCanvas * c3, TCanvas * c1) { //when calling function, particle code deictates 0=lambda or 1=kaon MLP parameters
@@ -870,6 +1177,7 @@ void AnalysisQ2() {
 	KaonDataCountincl = AnalyzeTree(new TFile(filekaonTree.c_str(), "read"), "K0", 1, 1, KaonDataxincl, { q2bins[0],q2bins[q2entries] }, "Kaon Incl Data q2 Extraction ", c3, c1);
 	KaonMCCountincl = AnalyzeTree(new TFile(filekaonTreeMC.c_str(), "read"), "K0", 1, 1, KaonMCxincl, { q2bins[0],q2bins[q2entries] }, "Kaon Incl MC q2 Extraction ", c3, c1);
 
+	
 	//LambdaTotDataCountincl = AnalyzeTree(new TFile(filelambdaTree.c_str(), "read"), "Lambda Tot", 1, 0, LambdaTotDataxincl, { 10,q2bins[q2entries] }, "Lambda Tot Incl Data q2 Extraction ", c3, c1);
 	//LambdaTotMCCountincl = AnalyzeTree(new TFile(filelambdaTreeMC.c_str(), "read"), "Lambda Tot", 1, 0, LambdaTotMCxincl, { 10,q2bins[q2entries] }, "Lambda Tot Incl MC q2 Extraction ", c3, c1);
 
@@ -885,11 +1193,29 @@ void AnalysisQ2() {
 	//Analyzing Gen Counts
 	//vector<double> AnalyzeGenTree(TFile* Data, string TreeName, int binentries, vector<double> binsvector) { //when calling function, particle code deictates 0=lambda or 1=kaon MLP parameters
 
-	LambdaTotGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Tot", 1, { q2bins[0],q2bins[q2entries] });
-	LambdaRegGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Reg", 1, { q2bins[0],q2bins[q2entries] });
-	LambdaBarGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Bar", 1, { q2bins[0],q2bins[q2entries] });
-	KaonGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "K0s", 1, { q2bins[0],q2bins[q2entries] });
+	LambdaTotGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Tot Channel", 1, { q2bins[0],q2bins[q2entries] });
+	LambdaRegGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Reg Channel", 1, { q2bins[0],q2bins[q2entries] });
+	LambdaBarGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Bar Channel", 1, { q2bins[0],q2bins[q2entries] });
+	KaonGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "K0s Channel", 1, { q2bins[0],q2bins[q2entries] });
 
+	//Non Radiative Gen Counting for Radiative Corrections
+	LambdaTotGenCountinclNonRad = AnalyzeGenTreeRadCorr(new TFile(fileNonRadgenMCTree.c_str(), "read"), "Lambda Tot", 1, { q2bins[0],q2bins[q2entries] });
+	LambdaTotGenCountinclRad = AnalyzeGenTreeRadCorr(new TFile(fileRadgenMCTree.c_str(), "read"), "Lambda Tot", 1, { q2bins[0],q2bins[q2entries] });
+	KaonGenCountinclNonRad = AnalyzeGenTreeRadCorr(new TFile(fileNonRadgenMCTree.c_str(), "read"), "K0s", 1, { q2bins[0],q2bins[q2entries] });
+	KaonGenCountinclRad = AnalyzeGenTreeRadCorr(new TFile(fileRadgenMCTree.c_str(), "read"), "K0s", 1, { q2bins[0],q2bins[q2entries] });
+
+	//double MCDjangoh14radgen = 2331962.00;//radiative gen level DJANGOH nb-1
+	//double MCDjangoh14nonradgen = 3560342.00;//non-radiatice gen level DJANGOH nb-1
+	cout << "Lambda Tot Gen Count Rad Channel: " << LambdaTotGenCountincl[0] << endl;
+	cout << "Lambda Tot Gen Count Rad Tot: " << LambdaTotGenCountinclRad[0] << endl;
+	cout << "Lambda Tot Gen Count Non Rad Tot: " << LambdaTotGenCountinclNonRad[0] << endl;
+	double lambdatotincradcorr = (LambdaTotGenCountinclRad[0] / LambdaTotGenCountinclNonRad[0]) * (MCDjangoh14nonradgen / MCDjangoh14radgen);
+	cout << "Lambda Rad Correction: " << (LambdaTotGenCountinclRad[0] / LambdaTotGenCountinclNonRad[0]) * (MCDjangoh14nonradgen / MCDjangoh14radgen) << endl;
+	//cout << "Lambda Rad Correction: " << (LambdaTotGenCountinclRad[0] / LambdaTotGenCountinclNonRad[0]) * (MCDjangoh14nonradgen / MCIntLumi06) << endl;
+	
+	double k0totincradcorr = (KaonGenCountinclRad[0] / KaonGenCountinclNonRad[0]) * (MCDjangoh14nonradgen / MCDjangoh14radgen);
+	cout << "K0s Rad Correction: " << (KaonGenCountinclRad[0] / KaonGenCountinclNonRad[0]) * (MCDjangoh14nonradgen / MCDjangoh14radgen) << endl;
+	//cout << "K0s Rad Correction: " << (KaonGenCountinclRad[0] / KaonGenCountinclNonRad[0]) * (MCDjangoh14nonradgen / MCIntLumi06) << endl;
 
 	//LambdaTotGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Tot", 1, { 10,q2bins[q2entries] });
 	//LambdaRegGenCountincl = AnalyzeGenTree(new TFile(filegenMCTree.c_str(), "read"), "Lambda Reg", 1, { 10,q2bins[q2entries] });
@@ -903,7 +1229,7 @@ void AnalysisQ2() {
 	double incllameff = (LambdaTotMCCountincl[0][0]) / (LambdaTotGenCountincl[0]);
 
 	double incllamefferr = GetRatioError(incllameff, LambdaTotMCCountincl[0][0], LambdaTotMCCountincl[0][1], LambdaTotGenCountincl[0], 0);
-	double incllamcrosssection = (LambdaTotDataCountincl[0][0]) / (incllameff * BRlambda * DataIntLumi06);
+	double incllamcrosssection = (LambdaTotDataCountincl[0][0]) / (incllameff * BRlambda * DataIntLumi06 * lambdatotincradcorr);
 	double incllamcrosssectionerr = GetRatioError(incllamcrosssection, (LambdaTotDataCountincl[0][0]), (LambdaTotDataCountincl[0][1]), (incllameff * BRlambda * DataIntLumi06), incllamefferr);
 
 	//MC Lumi Calc
@@ -932,7 +1258,7 @@ void AnalysisQ2() {
 	double inclK0eff = (KaonMCCountincl[0][0]) / (KaonGenCountincl[0]);
 
 	double inclK0efferr = GetRatioError(inclK0eff, KaonMCCountincl[0][0], KaonMCCountincl[0][1], KaonGenCountincl[0], 0);
-	double inclK0crosssection = (KaonDataCountincl[0][0]) / (inclK0eff * BRkaon * DataIntLumi06);
+	double inclK0crosssection = (KaonDataCountincl[0][0]) / (inclK0eff * BRkaon * DataIntLumi06* k0totincradcorr);
 	double inclK0crosssectionerr = GetRatioError(inclK0crosssection, (KaonDataCountincl[0][0]), (KaonDataCountincl[0][1]), (inclK0eff * BRkaon * DataIntLumi06), inclK0efferr);
 
 	double MCinclK0crosssection = (KaonGenCountincl[0]) / (MCIntLumi06);

@@ -1,8 +1,9 @@
 # ROOT files
 *.root
 
-# Editor backup files
+# Editor backup/lock files
 *~
+\#*\#
 
 # Compiled ROOT / C++ artifacts
 *.so
@@ -11,13 +12,23 @@
 *.o
 *.a
 
-# Logs
-*.log
-log/
-
 # FORTRAN output
 fort.*
 
-# Compiled binaries in subdirs
+# Logs and job output
+*.log
+*.err
+log/
+
+# Large binary files
+dummyfile
+dummyfile.root
+
+# Compiled binary dirs
 amd64_rhel70/
 x86_64-centos7-gcc9-opt/
+x86_64-el9-gcc14-opt/
+
+# Large data directories
+H1LambdaC/KaonTree/
+H1LambdaC/LambdaTree/
