@@ -1,0 +1,23 @@
+# ROOT files
+*.root
+
+# Editor backup files
+*~
+
+# Compiled ROOT / C++ artifacts
+*.so
+*.d
+*.pcm
+*.o
+*.a
+
+# Logs
+*.log
+log/
+
+# FORTRAN output
+fort.*
+
+# Compiled binaries in subdirs
+amd64_rhel70/
+x86_64-centos7-gcc9-opt/

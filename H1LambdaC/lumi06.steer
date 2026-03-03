@@ -1,0 +1,51 @@
+H1SteerOolumi()
+{
+  // 2006 e-p and e+p data
+  fFirstRun   = 444307;
+  fLastRun    = 492541;
+ 
+  fMinRunLumi = 0.0;   // Minimal lumi required per run in nb^(-1) (default is 0.1)
+  //fMinTrigPhase = 1;
+  //fCJC1       = 1; //Full list of sub detectors h1oo/H1Tools/H1SteerOolumi.h
+  //fCJC2       = 1;
+  //fLAR        = 1;
+  //fTOF        = 1;
+  //fLUMI       = 1;
+  //fCIP        = 1;
+  //fSPAC       = 1;
+  //fFST        = 1;
+  ////fCOP        = 1;
+  //fFPC        = 1;
+  ////fBDC        = 1;
+  //fFTP        = 1; // forward tracker
+  //fBST        = 1; // backward tracker
+
+  fCJC1 = 1;
+  fCJC2 = 1;
+  fLAR = 1;
+  fSPAC = 1;
+  fTOF = 1;
+  fLUMI = 1;
+  fCIP = 1;
+  fBDC = 1;
+
+  fCaloTrig = 1;
+
+  fZ0         = 0; // could be changed for shifted vertex
+  fDZ         = 30; //is this z vertex range [cm]? was 35
+
+  // subtrigger 1: electron with E>10 GeV anywhere in SpaCal (huge prescale)
+  // subtrigger 0: electron with E>7 GeV and R>20 cm in SpaCal (large prescale)
+  // subtrigger 2: electron with E>10 GeV and R>20 cm in SpaCal (small prescale)
+  // subtrigger 3: electron with E>10 GeV and R>30 cm in SpaCal (no prescale)
+  fSubTrigs     = "61";  // subtrigger selection 61, only one used in our analysis so far
+ 
+  fComptonCorrection = 1;
+
+  fExcludedRunRanges = "
+  458155,458840
+  466998,468530
+  485679,485714
+";
+}
+

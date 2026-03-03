@@ -1,0 +1,41 @@
+Strange Paticle Production Analysis:
+
+
+
+I keep two different folders for this analysis, one is used for actual data and the other is for MC.
+
+Data directory: /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC
+
+MC directory: /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC
+
+Both directories share the same file for executables: /nfs/dust/h1/group/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt/
+
+A lot of the codes (creating event lists, analysis) are largely the same, there are only a few things I have to do slightly different for data vs MC.
+So these codes are copied over between the files and I make the small adjustments.  Eventually I will just have one code with a IsMC() check to account for differnces needed.
+
+Right now, I have many different smaller codes I run and use their outputs in the final analysis, for now it helps to have things segmented in troubleshooting, but it is a little but tedious.
+
+Relevant codes in /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC:
+create_evls.C -- Code with event selections, steering is the whole 2006 data set, outputs a file I then use as input for lambdaTree/kaonTree codes
+lambdaTree.C -- Code that loops over H1FindLambda candidates and further applies cuts, output is a lambdaTree.root file which is a tree, stores lambda candidates and relavnt information for separate analysis code 
+kaonTree.C -- Code that loops over H1FindK0 candidates and further applies cuts, output is a kaonTree.root file which is a tree, stores lambda candidates and relavnt information for separate analysis code
+
+
+Relevant codes in /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC:
+create_evlsMC.C -- Code with event selections, steering is the whole 2006 data set, outputs a file I then use as input for lambdaTreeMC/kaonTreeMC codes
+lambdaTreeMC.C -- Code that loops over H1FindLambda candidates and further applies cuts, output is a lambdaTree.root file which is a tree, stores lambda candidates and relavnt information for separate analysis code 
+kaonTreeMC.C -- Code that loops over H1FindK0 candidates and further applies cuts, output is a kaonTree.root file which is a tree, stores lambda candidates and relavnt information for separate analysis code
+genMCTree.C -- Code that takes the same input as the create_evlsMC code, but then applies our kinematic range selections on the generator level and outputes a genMCTree.root Tree file.  This is for gen level counts in efficiency calculation.
+
+All of the codes above have associated condor_submit files in the directory, in the condor_submit files you can see my most 
+
+Then will the Tree outputs from lambdaTree.C, lambdaTreeMC.C, kaonTree.C, kaonTreeMC.C, and genMCTree.C I have several analysis root macros I run that access these trees.
+The main analysis code I am using now is /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/AnalysisQ2.root
+This code does the bulk of work for the actual analysis, extraction peaks and calculating cross sections and ratios.
+
+I launch root from /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC: "root -b"
+And then run the root macro: ".x AnalysisQ2.C"
+
+This outputs an AnalysisQ2.root file that has many plots.  Most of them are the mlp peak extractions in each Q2 bin (and inclusive extractions) to help tuning the neural network.
+It also outputs the Q2 distributions of the K0_s and Lambda cross sections (and ratios/asymmetries) overlapped with the 2009 paper, and the Q2 distribution of the efficiencies.  It outputs to the terminal print outs of inclusive measurements
+and some useful diagnostic information.

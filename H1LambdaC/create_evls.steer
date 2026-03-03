@@ -1,0 +1,63 @@
+H1SteerTree() {
+  //fEventListFiles =  "/afs/desy.de/group/h1/root/checkout/oo-releases/eventlists/list.4.0.6.dst7.04.acs.d03-04.root";
+ // fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/04/hat.4.0.6.10dst7.c040000-40062.root";
+   //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/hat.4.0.6.10dst7.c060000-070111.root";	
+   //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/mods.4.0.6.10dst7.c060000-070111.root";
+ //  fHatFiles  = "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8965/hat.4.0.25.RAPGAP31.DIS.RAD.DSTAR.ALLCHANNELS.POSITRON.Q2GT4.8965.S39600.R97905.ftt.DST.0000-0050.root";
+ //  fModsFiles  = "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8965/mods.4.0.25.RAPGAP31.DIS.RAD.DSTAR.ALLCHANNELS.POSITRON.Q2GT4.8965.S39600.R97905.ftt.DST.0000-0050.root";
+  //fHatSelection = "(fRunType>0)"	
+  //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/04/mods.4.0.6.10dst7.c040000-40062.root";	
+   fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060000-060001.root";	
+   fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/mods.4.0.6.10dst7.c060000-060001.root";
+
+   //2006 Data
+    //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060000-060002.root;	
+
+    //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/mods.4.0.6.10dst7.c060000-060002.root";
+
+//2005 Data
+//2006 Data
+//2007 Data
+    //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/05/hat.4.0.6.10dst7.c050000-050151.root,
+     //             /pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060000-060212.root,
+      //            /pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060220-060319.root,
+      //            /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/hat.4.0.6.10dst7.c070000-070111.root,
+      //            /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/hat.4.0.6.10dst7.c070111-007280.root,
+      //            /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/hat.4.0.6.10dst7.c070280-070348.root";	
+
+    //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/05/mods.4.0.6.10dst7.c050000-050151.root,
+      //             /pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/mods.4.0.6.10dst7.c060000-060212.root,
+      //             /pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/mods.4.0.6.10dst7.c060220-060319.root,
+      //             /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/mods.4.0.6.10dst7.c070000-070111.root,
+      //             /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/mods.4.0.6.10dst7.c070111-070280.root,
+      //             /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/mods.4.0.6.10dst7.c070280-070348.root";
+
+
+
+   //2005+2006 Data
+    //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060000-060212.root,
+    //              /pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/hat.4.0.6.10dst7.c060220-060319.root,
+    //              /pnfs/desy.de/dphep/online/h1/data/oo-4.0/05/hat.4.0.6.10dst7.c050000-050151.root";	
+
+   //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/mods.4.0.6.10dst7.c060000-060212.root,
+   //               /pnfs/desy.de/dphep/online/h1/data/oo-4.0/06/mods.4.0.6.10dst7.c060220-060319.root,
+   //               /pnfs/desy.de/dphep/online/h1/data/oo-4.0/05/mods.4.0.6.10dst7.c050000-050151.root";
+   
+   //2005 Data
+    //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/05/hat.4.0.6.10dst7.c050000-050151.root";
+   //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/05/mods.4.0.6.10dst7.c050000-050151.root";
+
+   //2000 and 1999 Data Set
+    //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/00/hat.4.0.24.10dst7.c000000-000066.root,
+                  /pnfs/desy.de/dphep/online/h1/data/oo-4.0/99/hat.4.0.24.10dst7.c990000-990059.root";
+  // fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/00/mods.4.0.24.10dst7.c000000-000066.root,
+                  /pnfs/desy.de/dphep/online/h1/data/oo-4.0/99/mods.4.0.24.10dst7.c990000-990059.root";
+
+   //1999 Data
+    //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/99/hat.4.0.24.10dst7.c990000-990059.root";
+   //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/99/mods.4.0.24.10dst7.c990000-990059.root";
+                
+
+
+   
+}

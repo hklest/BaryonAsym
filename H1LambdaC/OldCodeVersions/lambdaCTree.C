@@ -1,0 +1,567 @@
+///////////////////////////////////////////////////////
+// 
+// Lambda Finder 
+// Additional Selections building on H1FindLambda.C selections
+// 
+// Author     : gtustin
+// 
+///////////////////////////////////////////////////////
+
+// General Includes
+#include <iostream>
+#include <stdlib.h>
+#include <cmath>
+// ROOT includes
+#include <TFile.h>
+#include <THStack.h>
+#include <TROOT.h>
+#include <TH1.h>
+#include <TH2.h>
+#include <TClonesArray.h>
+#include <TCanvas.h>
+#include <TTree.h>
+#include <TDatabasePDG.h>
+#include <TApplication.h>
+#include <TMultiLayerPerceptron.h>
+#include <TSynapse.h>
+#include <TObject.h>
+#include <TString.h>
+#include <TObjArray.h>
+#include <TMatrixD.h>
+#include <TNeuron.h>
+#include <TMath.h>
+#include <TF1.h>
+#include <TLegend.h>
+#include <TGraph.h>
+#include <TGraphErrors.h>
+//H1 OO includes
+#include "H1Pointers/H1FloatPtr.h"
+#include "H1Skeleton/H1EventList.h"
+#include "H1Skeleton/H1Tree.h"
+#include "H1Geom/H1DBManager.h"
+// tracks
+#include "H1Tracks/H1TrackEvent.h"
+#include "H1Tracks/H1Track.h"
+#include "H1Tracks/H1Trajectory.h"
+#include "H1Tracks/H1CentralFittedTrack.h"
+#include "H1Tracks/H1CentralFittedV0.h"
+#include "H1Tracks/H1CentralFittedV0ArrayPtr.h"
+#include "H1Tracks/H1CentralTrack.h"
+#include "H1Mods/H1PartSelTrack.h"
+#include "H1Mods/H1PartSelTrackArrayPtr.h"
+#include "H1Mods/H1PartJPsi.h"
+#include "H1Mods/H1PartJPsiArrayPtr.h"
+#include "H1Mods/H1PartCand.h"
+#include "H1Mods/H1PartCandArrayPtr.h"
+#include "H1Mods/H1PartMCArrayPtr.h"
+#include "H1Mods/H1PartLambdaArrayPtr.h"
+#include "H1Mods/H1PartLambda.h"
+#include "H1Mods/H1SelVertex.h"
+#include "H1Tracks/H1ReconstructedVertex.h"
+#include "H1Tracks/H1CentralVertex.h"
+#include "H1Tracks/H1CentralVertexArrayPtr.h"
+#include "H1Steering/H1StdCmdLine.h"
+
+
+
+using namespace std;
+
+int
+main(int argc, char* argv[])
+{
+    //Output file name and path
+    //string output = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambda.root";
+    // event counter
+    Int_t eventCounter = 0;
+    // parse the command line
+    H1StdCmdLine opts;
+    opts.Parse(&argc, argv);
+    // needed for graphic, but MUST be AFTER Parse(...):
+    //TApplication theApp("kaonfind_ods", &argc, argv);
+
+    // Load mODS/HAT files
+    H1Tree::Instance()->Open();            // this statement must be here
+
+    // Histograms Binning
+    Double_t lambdabins = 1000;
+    Double_t lambdaupperbinrange = 1.5;
+    Double_t lambdalowerbinrange = 1.0;
+
+    Double_t lambdaCbins = 50;
+    Double_t lambdaCupperbinrange = 3.317;
+    Double_t lambdaClowerbinrange = 2.017;
+    
+    // load in some HAT data
+    H1FloatPtr q2e("Q2e");
+    H1FloatPtr ebeamE("EBeamE");
+    H1FloatPtr ebeamP("EBeamP");
+    H1FloatPtr ye("Ye");
+
+    //Armenteros-Podolansky plot for charmed lambdas
+    TH2F* hAPbeforeC = new TH2F("Charm AP", "Charm Armenteros-Podolansky Plot Before pT_rel Cut", 200, -1, 1, 500, 0, 1);
+    TH2F* hAPafterC = new TH2F("Charm AP", "Charm Armenteros-Podolansky Plot Before pT_rel Cut", 200, -1, 1, 500, 0, 1);
+
+    TH2D* hdEdxPionCBefore = new TH2D("LambdaC Pion dEdxvP Before", "LambdaC Pion dEdxvP Before", 500, 0, 2, 500, 0, 10);
+    TH2D* hdEdxPionCAfter = new TH2D("LambdaC Pion dEdxvP After", "LambdaC Pion dEdxvP After", 500, 0, 2, 500, 0, 10);
+
+    TH2F* pXYvtxdensitytot = new TH2F("Total Lambda XY Vertices", "Total Lambda XY Vertices", 200, -10, 10, 200, -10, 10);
+    TH2F* pZXvtxdensitytot = new TH2F("Total Lambda ZX Vertices", "Total Lambda ZX Vertices", 500, -40, 40, 200, -10, 10);
+    TH2F* pZYvtxdensitytot = new TH2F("Total Lambda ZY Vertices", "Total Lambda ZY Vertices", 500, -40, 40, 200, -10, 10);
+    TH1F* pdecaylengthmag = new TH1F("Lambda Decay Length Magnitude", "Lambda Decay Length Magnitude", 200, 0, 20);
+
+    
+    //Defining TTrees to store Lambda, Lambda Bar, and Combined Lambda candidates and their associated kinematic variables
+    TTree* lambdaRegTree = new TTree("Lambda Reg", "Lambda Reg");
+    TTree* lambdaBarTree = new TTree("Lambda Bar", "Lambda Bar");
+    TTree* lambdaTotTree = new TTree("Lambda Tot", "Lambda Tot");
+    //defining the variables I want to store in Lambda Trees
+    double pT, Eta, x, invMasslambda, Q2e, Ye;
+    //Defining Tree Branches
+    lambdaRegTree->Branch("invMasslambda", &invMasslambda, "invMasslambda/D");
+    lambdaRegTree->Branch("pT",&pT,"pT/D");
+    lambdaRegTree->Branch("Eta", &Eta, "Eta/D");
+    lambdaRegTree->Branch("x", &x, "x/D");
+    lambdaRegTree->Branch("Q2e", &Q2e, "Q2e/D");
+    lambdaRegTree->Branch("Ye", &Ye, "Ye/D");
+
+    lambdaBarTree->Branch("invMasslambda", &invMasslambda, "invMasslambda/D");
+    lambdaBarTree->Branch("pT", &pT, "pT/D");
+    lambdaBarTree->Branch("Eta", &Eta, "Eta/D");
+    lambdaBarTree->Branch("x", &x, "x/D");
+    lambdaBarTree->Branch("Q2e", &Q2e, "Q2e/D");
+    lambdaBarTree->Branch("Ye", &Ye, "Ye/D");
+
+    lambdaTotTree->Branch("invMasslambda", &invMasslambda, "invMasslambda/D");
+    lambdaTotTree->Branch("pT", &pT, "pT/D");
+    lambdaTotTree->Branch("Eta", &Eta, "Eta/D");
+    lambdaTotTree->Branch("x", &x, "x/D");
+    lambdaTotTree->Branch("Q2e", &Q2e, "Q2e/D");
+    lambdaTotTree->Branch("Ye", &Ye, "Ye/D");
+    
+    TTree* lambdaCTree = new TTree("LambdaC", "LambdaC");
+
+    double invMasslambdaC;
+    lambdaCTree->Branch("invMasslambdaC", &invMasslambdaC, "invMasslambdaC/D");
+
+    //////////////////////////////////////////////////////////////////////////
+    // Defining Cut Progression Histograms
+
+    THStack* hs = new THStack("hs", "Stacked Total Lambda Mass Plots");
+    THStack* hsC = new THStack("hsC", "Stacked Total LambdaC Mass Plots");
+
+    TH1F* LambdaCutProgression[9];
+    for (int a = 0; a < 9; a++) {
+        string lambdacutprogstring = "Lambda Cut " + to_string(a);
+        LambdaCutProgression[a] = new TH1F(lambdacutprogstring.c_str(), lambdacutprogstring.c_str(), lambdabins, lambdalowerbinrange, lambdaupperbinrange);
+    }
+
+    TH1F* LambdaCCutProgression[15];
+    for (int a = 0; a < 15; a++) {
+        string lambdaCcutprogstring = "LambdaC Cut " + to_string(a);
+        LambdaCCutProgression[a] = new TH1F(lambdaCcutprogstring.c_str(), lambdaCcutprogstring.c_str(), lambdaCbins, lambdaClowerbinrange, lambdaCupperbinrange);
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //Defining Root Canvas to work on
+    TCanvas* canvas = new TCanvas("ODS", "Plot", 10, 10, 800, 800);
+
+   //
+   // 
+    // Pointer to vertices to loop over
+    static H1CentralVertexArrayPtr vertex;
+    static H1PartLambdaArrayPtr LambdaCand;
+    static H1PartSelTrackArrayPtr PST;
+    
+    
+    // Get the pion's mass
+    Double_t mPion = TDatabasePDG::Instance()->GetParticle(211)->Mass();
+    // Get proton mass
+    Double_t mProton = TDatabasePDG::Instance()->GetParticle(2212)->Mass();
+    // Get electron mass
+    Double_t mElectron = TDatabasePDG::Instance()->GetParticle(11)->Mass();
+
+
+    ///////////////BEGIN MAIN LOOP////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////
+    // Loop as long as there's data
+    while (H1Tree::Instance()->Next() && !opts.IsMaxEvent(eventCounter)) {
+
+        // Loop over all Lambda candidates on MODS level as determined by rough cuts in H1FindLambda code
+        for (Int_t loop = 0; loop < LambdaCand.GetEntries(); loop++) {
+
+        if (LambdaCand[loop]->GetNumOfParticles() < 2) continue;
+
+        invMasslambda = (LambdaCand[loop]->GetProtonFourVector()
+            + LambdaCand[loop]->GetPionFourVector()).M();
+
+        //Getting Vectors for Armenteros-Podolansky Plot
+        H1Track* ProtonH1Track = (H1Track*)LambdaCand[loop]->GetProtonTrack();
+        H1Track* PionH1Track = (H1Track*)LambdaCand[loop]->GetPionTrack();
+
+        TVector3 vecProton = ProtonH1Track->GetFourVector(mProton).Vect();
+        TVector3 vecPion = PionH1Track->GetFourVector(mPion).Vect();
+        TVector3 vecLambda = vecProton + vecPion;
+        
+        //Call H1PartLambda class data that references H1CentralFittedTrack for Pion and Proton
+        const H1CentralFittedTrack* ProtonCFTrack = LambdaCand[loop]->GetProtonTrack();
+        const H1CentralFittedTrack* PionCFTrack = LambdaCand[loop]->GetPionTrack();
+
+        //Getting H1PartSelTracks for daughters
+        const H1PartSelTrack* ProtonPSTrack = LambdaCand[loop]->GetProton();
+        const H1PartSelTrack* PionPSTrack = LambdaCand[loop]->GetPion();
+
+        //Prepating DCA/dDCA information to get a histogram to help visualize this DCA Significance cut
+        const H1CentralTrack* protonFittedNoV = ProtonCFTrack->GetCentralTrack();
+        const H1Trajectory* protonTrajectory = protonFittedNoV->GetTrajectory();
+
+        const H1CentralTrack* pionFittedNoV = PionCFTrack->GetCentralTrack();
+        const H1Trajectory* pionTrajectory = pionFittedNoV->GetTrajectory();
+
+        H1SelVertex* ProtonVertex = (H1SelVertex*)LambdaCand[loop]->GetProtonTrack();
+        const H1SelVertex* ProtonPrimaryVertex = ProtonVertex->GetPrimaryVertex();
+        TVector3 pv = ProtonPrimaryVertex->GetPosition();//is same for both protons and pion daughters, so just using proton here and previous couple lines
+        TVector2 V2PV(pv.X(), pv.Y());
+        TVector3 sv = LambdaCand[loop]->GetV0()->GetDecayVertex()->GetPosition();
+
+        //Defining pT before cuts and putting stuff into pt bins
+        const H1CentralFittedV0* v0 = LambdaCand[loop]->GetV0();
+        pT = v0->GetPt();
+
+        LambdaCutProgression[0]->Fill(invMasslambda); //Raw Lambda Candidates
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //PID Likelihood Cut for Proton
+        if (ProtonPSTrack->GetDedxLikelihood(H1Dedx::kProton) < 0.001) { 
+            continue;
+        }
+
+        LambdaCutProgression[1]->Fill(invMasslambda);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //PID Likelihood Cut for Pion
+        if (PionPSTrack->GetDedxLikelihood(H1Dedx::kPion) < 0.001) {
+            continue; }
+
+        LambdaCutProgression[2]->Fill(invMasslambda);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
+        //DCA over dDCA proton cut
+        if (abs((protonTrajectory->GetDca(V2PV)) / (protonTrajectory->GetdDca(V2PV))) < 1) { 
+            continue; }
+
+        LambdaCutProgression[3]->Fill(invMasslambda);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //DCA over dDCA pion cut
+        if (abs((pionTrajectory->GetDca(V2PV)) / (pionTrajectory->GetdDca(V2PV))) < 1) { 
+            continue; }
+
+        LambdaCutProgression[4]->Fill(invMasslambda);
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Cut against K0 contamination
+        Double_t invMasskaonCont = (ProtonH1Track->GetFourVector(mPion)
+            + PionH1Track->GetFourVector(mPion)).M();
+        if (invMasskaonCont > 0.465 && invMasskaonCont < 0.53) { 
+            continue; }
+
+        LambdaCutProgression[5]->Fill(invMasslambda);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Cut against photon contamination
+        Double_t invMassphotonCont = (ProtonH1Track->GetFourVector(mElectron)
+            + PionH1Track->GetFourVector(mElectron)).M();
+        if (invMassphotonCont < 0.05) { 
+            continue; }
+
+        LambdaCutProgression[6]->Fill(invMasslambda);
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // STORE LAMBDA CANDIDATES INTO TTREES AFTER ALL CUTS EXCEPT THE PT AND ETA CUT HERE
+        Eta = LambdaCand[loop]->GetFourVector().Vect().Eta();
+        x = (*q2e) / ((*ye) * (*ebeamE) * (*ebeamP) * 4);
+        Q2e = *q2e;
+        Ye = *ye;
+
+        lambdaTotTree->Fill();
+
+        if (LambdaCand[loop]->IsLambdaBar() == true) { lambdaBarTree->Fill(); }
+        if (LambdaCand[loop]->IsLambdaBar() != true) { lambdaRegTree->Fill(); }
+    
+            
+
+
+
+
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //LAMBDA C 
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Now starting new loop over H1PartCandArray to grab protons coming out of ventral vertex to get LambdaC candidates
+        for (Int_t loop2 = 0; loop2 < PST.GetEntries(); loop2++) {
+
+            invMasslambdaC = (PST[loop2]->GetFourVector(mPion)
+                + LambdaCand[loop]->GetFourVector()).M();
+
+            LambdaCCutProgression[0]->Fill(invMasslambdaC);
+
+            if (LambdaCand[loop]->IsLambdaBar() == true && PST[loop2]->GetCharge() > 0) { continue; }
+
+            if (LambdaCand[loop]->IsLambdaBar() != true && PST[loop2]->GetCharge() < 0) { continue; }
+
+            if (PST[loop2]->GetCharge() == 0) { continue; }
+
+            LambdaCCutProgression[1]->Fill(invMasslambdaC);
+
+            if (PST[loop2]->IsFromPrimary() != true) { continue; }
+
+            LambdaCCutProgression[2]->Fill(invMasslambdaC);
+
+            if (invMasslambdaC < 2.00 || invMasslambdaC > 2.7) { continue; }
+
+            LambdaCCutProgression[3]->Fill(invMasslambdaC);
+
+            if (invMasslambda < 1.1 || invMasslambda > 1.135) { continue; }
+
+            LambdaCCutProgression[4]->Fill(invMasslambdaC);
+
+            //hC1->Fill(invMasslambdaC);
+
+            hdEdxPionCBefore->Fill(PST[loop2]->GetMomentum().Mag(), PST[loop2]->GetDedx());
+
+            if (PST[loop2]->GetDedxLikelihood(H1Dedx::kPion) < 0.001) { continue; }
+
+            hdEdxPionCAfter->Fill(PST[loop2]->GetMomentum().Mag(), PST[loop2]->GetDedx());
+
+            //hC2->Fill(invMasslambdaC);
+            LambdaCCutProgression[5]->Fill(invMasslambdaC);
+            
+
+            if (PST[loop2]->GetRadLength() < 10) { continue; }
+
+            //hC3->Fill(invMasslambdaC);
+            LambdaCCutProgression[6]->Fill(invMasslambdaC);
+
+            // Armenteros Plot and pT_rel cut calculations
+
+            TVector3 vecPionC = PST[loop2]->GetFourVector(mPion).Vect();
+            TVector3 vecLambdaC = LambdaCand[loop]->GetFourVector().Vect() + vecPionC;
+
+            //Double_t qlProton = vecLambda.Dot(vecProton) / vecLambda.Mag();
+            //Double_t qlPion = vecLambda.Dot(vecPion) / vecLambda.Mag();
+            //Double_t pTrel = vecLambda.Cross(vecPion).Mag() / vecLambda.Mag();
+            //Double_t chargeProton = LambdaCand[loop]->GetProtonCharge();
+            //Double_t chargePion = LambdaCand[loop]->GetPionCharge();
+            //Double_t alpha = (chargeProton * qlProton + chargePion * qlPion) / (qlProton + qlPion);
+
+            double pTrelC = vecLambdaC.Cross(vecPionC).Mag() / (vecLambdaC.Mag());
+            double qlPionC = vecLambdaC.Dot(vecPionC) / vecLambdaC.Mag();
+            double qlLambdaC = vecLambdaC.Dot(LambdaCand[loop]->GetFourVector().Vect()) / vecLambdaC.Mag();
+            double alphaC = (2 * (qlPionC)) / (vecLambdaC.Mag()) - 1;
+
+            //pT cut for Lambda C
+            //if (PST[loop2]->GetPt() < 0.2) { continue; }
+            if ((sqrt(vecLambdaC.X() * vecLambdaC.X() + vecLambdaC.Y() * vecLambdaC.Y())) < 1.7) { continue; }
+
+            //hC4->Fill(invMasslambdaC);
+            LambdaCCutProgression[7]->Fill(invMasslambdaC);
+
+
+            //ensuring the larger longitudinal momentum with respect to charm lambda is the lambda, skip if not
+            if (qlPionC > qlLambdaC) { continue; }
+            //hC5->Fill(invMasslambdaC);
+
+            LambdaCCutProgression[8]->Fill(invMasslambdaC);
+
+            hAPbeforeC->Fill(alphaC, pTrelC);
+
+            //Calculations to cut on Lambda Candidate vertex position
+            //we only care about lambdas that come from the primary vertex
+            H1SelVertex* ProtonVertex = (H1SelVertex*)LambdaCand[loop]->GetProtonTrack();//Get the proton secondary vertex, which should be the spot the Lambda decay took place
+            TVector3 ProtonVertexPosVec = ProtonVertex->GetPosition();
+            double ProtonPosX = sv.X();
+            double ProtonPosY = sv.Y();
+            double ProtonPosZ = sv.Z();
+
+
+            //cout << "Total Decay Length: " << sqrt((pv.X() - ProtonVertexPosVec.X()) * (pv.X() - ProtonVertexPosVec.X()) + (pv.Y() - ProtonVertexPosVec.Y()) * (pv.Y() - ProtonVertexPosVec.Y()) + (pv.Z() - ProtonVertexPosVec.Z()) * (pv.Z() - ProtonVertexPosVec.Z())) << endl;
+            
+            pdecaylengthmag->Fill(sqrt((pv.X() - ProtonPosX) * (pv.X() - ProtonPosX) + (pv.Y() - ProtonPosY) * (pv.Y() - ProtonPosY) + (pv.Z() - ProtonPosZ) * (pv.Z() - ProtonPosX)));
+            
+            if (sqrt((pv.X() - ProtonPosX) * (pv.X() - ProtonPosX) + (pv.Y() - ProtonPosY) * (pv.Y() - ProtonPosY) + (pv.Z() - ProtonPosZ) * (pv.Z() - ProtonPosX)) > 8) {continue;}
+            
+            //cout << "X: " << ProtonPosX << endl;
+            //cout << "Y: " << ProtonPosY << endl;
+            //cout << "Z: " << ProtonPosZ << endl;
+
+            pXYvtxdensitytot->Fill(pv.X()-ProtonPosX, pv.Y()-ProtonPosY);
+            pZXvtxdensitytot->Fill(pv.Z()-ProtonPosZ, pv.X()-ProtonPosX);
+            pZYvtxdensitytot->Fill(pv.Z()-ProtonPosZ, pv.Y()-ProtonPosY);
+
+            //if (pTrelC < 0.3 || pTrelC > 0.88) { continue; } //pT,rel cut for Armenteros Plot
+            LambdaCCutProgression[10]->Fill(invMasslambdaC);
+
+            if (pTrelC < 0.3) { continue; } //final cut
+
+            LambdaCCutProgression[11]->Fill(invMasslambdaC);
+
+
+            hAPafterC->Fill(alphaC, pTrelC);
+
+            lambdaCTree->Fill();
+
+        }
+
+
+        }// loop over lambda candidate array
+    
+
+            eventCounter++;
+            if (eventCounter % 1000 == 0) {
+                cout << "Processing ODS event " << eventCounter << endl;
+
+                // Redraw the canvas every 1000 events
+                //hKaon->Draw();
+                //hLambda->Draw();
+                //hAP->Draw();
+                //gPad->Update();
+            }
+
+    } // loop over events
+
+        cout << "\n" << eventCounter << " events processed." << endl;
+        ////////////////////////////////////////////////////////////////////
+        //////////////END MAIN LOOP//////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////
+
+      
+       /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       //Output File just for Lambda TTrees and few odd histograms as sanity checks
+       
+        TFile treefile(opts.GetOutput(), "RECREATE");
+        
+        
+        for (int a = 0; a < 9; a++) {
+            LambdaCutProgression[a]->SetStats(0);
+            LambdaCutProgression[a]->SetLineColor(kBlack + a);
+            LambdaCutProgression[a]->GetXaxis()->SetTitle("Mass [GeV]");
+            LambdaCutProgression[a]->GetYaxis()->SetTitle("Count");
+            LambdaCutProgression[a]->Draw();
+            LambdaCutProgression[a]->Write();
+
+            hs->Add(LambdaCutProgression[a]);
+        }
+
+        hs->Draw("nostack");
+        canvas->SetName("Lambda Cut Stack");
+        canvas->Write();
+
+        for (int a = 0; a < 15; a++) {
+            LambdaCCutProgression[a]->SetStats(0);
+            LambdaCCutProgression[a]->SetLineColor(kBlack + a);
+            LambdaCCutProgression[a]->GetXaxis()->SetTitle("Mass [GeV]");
+            LambdaCCutProgression[a]->GetYaxis()->SetTitle("Count");
+            LambdaCCutProgression[a]->Draw();
+            LambdaCCutProgression[a]->Write();
+
+            hsC->Add(LambdaCCutProgression[a]);
+        }
+
+        hsC->Draw("nostack");
+        canvas->SetName("LambdaC Cut Stack");
+        canvas->Write();
+        
+        hdEdxPionCBefore->SetStats(0);
+        hdEdxPionCBefore->GetXaxis()->SetTitle("p [GeV]");
+        hdEdxPionCBefore->GetYaxis()->SetTitle("dE/dx");
+        hdEdxPionCBefore->Draw("colz");
+        canvas->SetName("dE/dx Charm Pion After");
+        canvas->Write();
+
+        hdEdxPionCAfter->SetStats(0);
+        hdEdxPionCAfter->GetXaxis()->SetTitle("p [GeV]");
+        hdEdxPionCAfter->GetYaxis()->SetTitle("dE/dx");
+        hdEdxPionCAfter->Draw("colz");
+        canvas->SetName("dE/dx Charm Pion Before");
+        canvas->Write();
+
+
+        hAPbeforeC->SetStats(0);
+        hAPbeforeC->GetXaxis()->SetTitle("\\alpha = 2 p^{Ch}_{L}/P - 1");
+        hAPbeforeC->GetYaxis()->SetTitle("p_{T} [GeV]");
+        hAPbeforeC->GetXaxis()->SetTitleSize(0.04);
+        hAPbeforeC->GetXaxis()->SetTitleOffset(1);
+        hAPbeforeC->GetYaxis()->SetTitleSize(0.05);
+        hAPbeforeC->Draw("colz");
+        canvas->SetName("AP Before C");
+        canvas->Write();
+
+        hAPafterC->SetStats(0);
+        hAPafterC->GetXaxis()->SetTitle("\\alpha = 2 p^{Ch}_{L}/P - 1");
+        hAPafterC->GetYaxis()->SetTitle("p_{T} [GeV]");
+        hAPafterC->GetXaxis()->SetTitleSize(0.04);
+        hAPafterC->GetXaxis()->SetTitleOffset(1);
+        hAPafterC->GetYaxis()->SetTitleSize(0.05);
+        hAPafterC->Draw("colz");
+        canvas->SetName("AP After C");
+        canvas->Write();
+
+        pdecaylengthmag->SetStats(0);
+        pdecaylengthmag->GetXaxis()->SetTitle("|Decay Length|");
+        pdecaylengthmag->GetYaxis()->SetTitle("Count");
+        pdecaylengthmag->Draw();
+        pdecaylengthmag->Write();
+        
+
+        pXYvtxdensitytot->SetStats(0);
+        pXYvtxdensitytot->GetXaxis()->SetTitle("X [cm]");
+        pXYvtxdensitytot->GetYaxis()->SetTitle("Y [cm]");
+        pXYvtxdensitytot->GetXaxis()->SetTitleSize(0.04);
+        pXYvtxdensitytot->GetXaxis()->SetTitleOffset(1);
+        pXYvtxdensitytot->GetYaxis()->SetTitleSize(0.05);
+        pXYvtxdensitytot->Draw("colz");
+        canvas->SetName("XY Vertex Density");
+        canvas->Write();
+
+        pZXvtxdensitytot->SetStats(0);
+        pZXvtxdensitytot->GetXaxis()->SetTitle("Z [cm]");
+        pZXvtxdensitytot->GetYaxis()->SetTitle("X [cm]");
+        pZXvtxdensitytot->GetXaxis()->SetTitleSize(0.04);
+        pZXvtxdensitytot->GetXaxis()->SetTitleOffset(1);
+        pZXvtxdensitytot->GetYaxis()->SetTitleSize(0.05);
+        pZXvtxdensitytot->Draw("colz");
+        canvas->SetName("ZX Vertex Density");
+        canvas->Write();
+
+        pZYvtxdensitytot->SetStats(0);
+        pZYvtxdensitytot->GetXaxis()->SetTitle("Z [cm]");
+        pZYvtxdensitytot->GetYaxis()->SetTitle("Y [cm]");
+        pZYvtxdensitytot->GetXaxis()->SetTitleSize(0.04);
+        pZYvtxdensitytot->GetXaxis()->SetTitleOffset(1);
+        pZYvtxdensitytot->GetYaxis()->SetTitleSize(0.05);
+        pZYvtxdensitytot->Draw("colz");
+        canvas->SetName("ZY Vertex Density");
+        canvas->Write();
+
+        
+       //Write all TTrees 
+       lambdaTotTree->Write();
+       lambdaRegTree->Write();
+       lambdaBarTree->Write();
+
+       lambdaCTree->Write();
+       //Write and close TTree file
+       treefile.Write();
+       treefile.Close();
+
+       cout << "TTrees written to " << opts.GetOutput() << endl;
+
+       return 0;
+
+} //main loop

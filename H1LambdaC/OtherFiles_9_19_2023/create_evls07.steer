@@ -1,0 +1,13 @@
+H1SteerTree() {
+  
+   //2007 Data
+    fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/hat.4.0.6.10dst7.c070000-070111.root,
+                  /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/hat.4.0.6.10dst7.c070111-007280.root,
+                  /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/hat.4.0.6.10dst7.c070280-070348.root";	
+
+    fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/mods.4.0.6.10dst7.c070000-070111.root,
+                   /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/mods.4.0.6.10dst7.c070111-070280.root,
+                   /pnfs/desy.de/dphep/online/h1/data/oo-4.0/07/mods.4.0.6.10dst7.c070280-070348.root";
+
+  
+}
