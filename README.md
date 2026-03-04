@@ -2,11 +2,19 @@
 
 Repository for H1 Lambda/K0 baryon asymmetry analysis.
 
-## New unified runner
+## Unified orchestration
 
-A new master pipeline driver is available to orchestrate both **data** and **MC** workflows from one place while preserving existing H1 interfaces:
+- `pipeline/run_master.sh`: submit/monitor end-to-end stages across data + MC.
+- `pipeline/config.sh`: stage submit-file configuration.
 
-- `pipeline/run_master.sh`
-- `pipeline/config.sh`
+## Unified directory migration target
 
-See [`PIPELINE.md`](PIPELINE.md) for usage and flags.
+- `analysis_unified/` provides a single mode-based interface (`data`/`mc`) and a ROOT packaging macro that merges outputs into one tree file layout:
+  - `data/rec`
+  - `mc/rec`
+  - `mc/gen`
+
+Start here:
+
+- `analysis_unified/run_unified_pipeline.sh`
+- `analysis_unified/README.md`
