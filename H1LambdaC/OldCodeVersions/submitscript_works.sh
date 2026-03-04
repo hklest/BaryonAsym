@@ -12,8 +12,8 @@ export LD_LIBRARY_PATH="/cvmfs/sft.cern.ch/lcg/releases/LCG_102/libaio/0.3.110-1
 source /nfs/dust/h1/group/britzger/singularity_centos7/groupset.sh h1
 h1lcg
 
-#/usr/bin/singularity exec --cleanenv --contain --bind /afs:/afs --bind /nfs:/nfs --bind /pnfs:/pnfs --bind /cvmfs:/cvmfs /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/submitscript.sh
-/nfs/dust/h1/group/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt/create_evls -f /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/create_evls06.steer -o /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/test_evls.root
+#/usr/bin/singularity exec --cleanenv --contain --bind /afs:/afs --bind /nfs:/nfs --bind /pnfs:/pnfs --bind /cvmfs:/cvmfs /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/submitscript.sh
+/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt/create_evls -f /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/create_evls06.steer -o /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/test_evls.root
 
 # Initialize variables
 #start_number=1

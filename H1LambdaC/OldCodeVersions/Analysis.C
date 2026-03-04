@@ -37,15 +37,15 @@ vector<double> Q2ebins = {2.0, 2.5, 3.0, 4.0, 5.0, 7.0, 10.0, 15.0, 25.0, 100.0}
 const int pTentries = 9;
 
 //string names for file paths of 5 Trees we need to access
-string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06.root";
-string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06.root";
+string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06.root";
+string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06.root";
 
-string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC06.root";
-string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC06.root";
-string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree06.root";
+string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC06.root";
+string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC06.root";
+string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree06.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/Analysis.root";
-string dummyfile = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Analysis.root";
+string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 
 // Histograms Binning
 Double_t lambdabins = 1000;

@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+####
+
+cd /data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/CondorScripts
+
+condor_submit multi_submit_create_evlsMC_Rad_DJANGOH14_05
+condor_submit multi_submit_create_evlsMC_Rad_DJANGOH14_06
+condor_submit multi_submit_create_evlsMC_Rad_DJANGOH14_07
+condor_submit multi_submit_create_evlsMC_Rad_RAPGAP31_05
+condor_submit multi_submit_create_evlsMC_Rad_RAPGAP31_06
+condor_submit multi_submit_create_evlsMC_Rad_RAPGAP31_07

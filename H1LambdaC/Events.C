@@ -9,13 +9,13 @@ using namespace std;
 
 
 //string names for file paths of 3 Event Trees we need to access
-string fileDataEvents = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventDists06_Ecra.root";
-string fileMCrecEvents = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventDists06_MCNEW.root";
-string filegenEvents = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_Ecra.root";
+string fileDataEvents = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventDists06_Ecra.root";
+string fileMCrecEvents = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventDists06_MCNEW.root";
+string filegenEvents = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_Ecra.root";
 
 //output file name
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/Events06.root";
-string dummyfile = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Events06.root";
+string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 TFile* f = new TFile(dummyfile.c_str(), "RECREATE");
 
 // Histogram Binning

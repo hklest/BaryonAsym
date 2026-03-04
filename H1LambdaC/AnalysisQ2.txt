@@ -1,5 +1,5 @@
 
-Processing Analysis.C("/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/KaonTree/merged.root")...
+Processing Analysis.C("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root")...
 Lambda Tot Data q2 Extraction 1 of 5
 Lambda Tot Data q2 Extraction 2 of 5
 Lambda Tot Data q2 Extraction 3 of 5

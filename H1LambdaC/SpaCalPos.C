@@ -41,12 +41,12 @@ const int xentries = 5;
 const int q2entries = 5;
 
 //Data
-//string fileEventTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventLists/merged.root";
+//string fileEventTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/merged.root";
 
 //MC
-string fileEventTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists/DJANGOH14/merged.root";
+string fileEventTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/DJANGOH14/merged.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/SpaCalPos.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/SpaCalPos.root";
 
 
 // Histograms Binning

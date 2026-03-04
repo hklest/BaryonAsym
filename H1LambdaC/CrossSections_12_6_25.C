@@ -78,40 +78,40 @@ double MCIntLumi06 = 126880.0; //RAPGAP nb-1
 //string names for file paths of 5 Trees we need to access
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // DATA
-//string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/2007/merged.root";
-//string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/2007/merged.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root";
 
-//string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/2007/merged.root";
-//string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/2007/merged.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
 //END DATA
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //MC
-//string filekaonTreeMC = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/2007/merged.root";
-//string filekaonTreeMC = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root";
+//string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/RAPGAP31/2007/merged.root";
+//string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root";
 
 
-//string filelambdaTreeMC = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/2007/merged.root";
-//string filelambdaTreeMC = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
+//string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/2007/merged.root";
+//string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
 
 
-//string filegenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/2007/merged.root"; //rad RAPGAP
-//string filegenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/merged.root"; //rad RAPGAP
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/2007/merged.root"; //rad RAPGAP
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/merged.root"; //rad RAPGAP
 
 
 
-//string fileNonRadgenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/2007/merged.root"; //non rad DJANGOH
-//string fileRadgenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/2007/merged.root";
+//string fileNonRadgenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/2007/merged.root"; //non rad DJANGOH
+//string fileRadgenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/2007/merged.root";
 
-//string fileNonRadgenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root"; //non rad DJANGOH
-//string fileRadgenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root";
+//string fileNonRadgenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root"; //non rad DJANGOH
+//string fileRadgenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root";
 
 //END MC
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //output files
-string outputfilename = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root";
-string dummyfile = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root";
+string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 
 // Histograms Binning
 Double_t lambdabins = 1000;

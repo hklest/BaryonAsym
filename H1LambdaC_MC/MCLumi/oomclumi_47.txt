@@ -1,0 +1,13 @@
+ Cross Section (pb) And Luminosity (pb-1) Summary
+
+ //Analysis
+ SigmaTot	= 688269.562 	 Lumi(-30.0<zvtx<30.0)	=   35.309
+
+ //Contributions
+ SigmaBorn	= 305777.625 	 LumiBorn	=   36.253
+ SigmaISR	= 218958.656 	 LumiISR	=   36.274
+ SigmaFSR	= 147531.203 	 LumiFSR	=   36.185
+ SigmaQED	= 16002.129 	 LumiQED	=   36.189
+
+ //Total
+ Sigma	= 688269.562 	 Lumi	=   36.243

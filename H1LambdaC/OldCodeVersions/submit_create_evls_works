@@ -1,17 +1,17 @@
 #An example condor submit script, submitted via "condor_submit submit", won't run out of the box, needs to be modified for your use
 #Lambda #Name of executable to be executed, e.g kaonfind_ods, best to specify an absolute path, e.g "nfs/dust/..."
 
-#executable = /nfs/dust/h1/group/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt/create_evls
+#executable = /data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt/create_evls
 executable = /usr/bin/singularity
 transfer_executable      = False
 universe   = vanilla 
 
 #Make sure directory named "log" exists in directory that condor_submit is called from, absolute paths can be specified here if needed
-output                   = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/create_evls.out 
-error                    = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/create_evls.error 
-log                      = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/create_evls.log 
+output                   = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/create_evls.out 
+error                    = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/create_evls.error 
+log                      = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/create_evls.log 
 
-Arguments = exec --cleanenv --contain --bind /afs:/afs --bind /nfs:/nfs --bind /pnfs:/pnfs --bind /cvmfs:/cvmfs /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/submitscript_works.sh
+Arguments = exec --cleanenv --contain --bind /afs:/afs --bind /nfs:/nfs --bind /pnfs:/pnfs --bind /cvmfs:/cvmfs /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/submitscript_works.sh
 
 #$(Process) #If you want to send an argument to the executable, here $(Process) is the number of the job, e.g 0-999 for 1000 jobs
 

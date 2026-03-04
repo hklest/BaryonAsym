@@ -24,6 +24,9 @@ log/
 dummyfile
 dummyfile.root
 
+# Steering files
+*.steer
+
 # Compiled binary dirs
 amd64_rhel70/
 x86_64-centos7-gcc9-opt/

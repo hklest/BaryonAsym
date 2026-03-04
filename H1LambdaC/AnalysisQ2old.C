@@ -41,29 +41,29 @@ const int xentries = 5;
 const int q2entries = 5;
 
 //string names for file paths of 5 Trees we need to access
-//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_NoDuplicates.root";
-string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06_NoDuplicates.root";
-//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_11_8_23.root";
-//string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06_11_8_23.root";
-//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_11_28_23.root";
-string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
-//string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06_11_28_23.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_NoDuplicates.root";
+string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_NoDuplicates.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_11_8_23.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_11_8_23.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_11_28_23.root";
+string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_11_28_23.root";
 
 
-//string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC06_11_8_23.root";
-//string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC06_11_8_23.root";
-//string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC06_noDuplicateTrackswithS61.root";
-//string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC06_11_8_23.root";
-//string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC06_noS61.root";
-string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC06_noDuplicateTrackswithS61.root";
-//string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC06_12_4.root";
-string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/merged.root";
+//string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC06_11_8_23.root";
+//string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC06_11_8_23.root";
+//string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC06_noDuplicateTrackswithS61.root";
+//string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC06_11_8_23.root";
+//string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC06_noS61.root";
+string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC06_noDuplicateTrackswithS61.root";
+//string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC06_12_4.root";
+string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/merged.root";
 
-//string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_11_12_23.root";
-string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree/merged.root";
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_11_12_23.root";
+string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/merged.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/AnalysisQ2.root";
-string dummyfile = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisQ2.root";
+string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 
 // Histograms Binning
 Double_t lambdabins = 1000;

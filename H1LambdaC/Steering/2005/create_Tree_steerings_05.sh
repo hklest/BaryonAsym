@@ -2,14 +2,14 @@
 
 # Specify the common content for all files
 line1="H1SteerTree() {fEventListFiles =  \""
-line2="/data/dust/group/h1/gtustin/h1oo/H1LambdaC/EventLists/2005/condor_05_evls_"
+line2="/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/2005/condor_05_evls_"
 line3=".root\";}"
 # Specify the range of numbers for the file names
 
 search_string="condor_05_evls_"
 
 # Specify the path to the directory containing files with the string
-search_directory="/data/dust/group/h1/gtustin/h1oo/H1LambdaC/EventLists/2005"
+search_directory="/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/2005"
 
 # Get the number of files with the specified string
 file_count=$(grep -l "$search_string" "$search_directory"/* | wc -l)

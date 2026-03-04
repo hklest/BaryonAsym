@@ -1,17 +1,17 @@
 
-Processing /data/dust/group/h1/gtustin/h1oo/H1LambdaC/Analysis2.C(
+Processing /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Analysis2.C(
 6,
 {-30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 30},
 297657.8,
 4108957.0,
 3560233.0,											
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root", 	
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root", 			
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root" 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root", 	
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root", 			
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root" 		
 )...
 Lambda Tot Data q2 Extraction 1 of 12
  FCN=27.7224 FROM MIGRAD    STATUS=CONVERGED      40 CALLS          41 TOTAL

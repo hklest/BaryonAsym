@@ -129,7 +129,7 @@ main(int argc, char* argv[])
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Consistenct with Lumi calculation using SelectedRuns.root oolumi output file
-    TString goodRunFileName("/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/SelectedRuns.root");
+    TString goodRunFileName("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/SelectedRuns.root");
     TFile goodRunFile(goodRunFileName);
     if (!goodRunFile.IsOpen()) {
         cerr << "Error: could not open file " << goodRunFileName << "\n";
@@ -447,7 +447,7 @@ main(int argc, char* argv[])
     file.Close();
 
     //Write Event Distributions to File
-    TFile fileEventDist("/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventDists06.root","RECREATE");
+    TFile fileEventDist("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventDists06.root","RECREATE");
     EventTree->Write();
 
     hXYclusterBefore->SetStats(0);
@@ -476,7 +476,7 @@ main(int argc, char* argv[])
     fileEventDist.Close();
 
     cout << "Eventlist written to " << opts.GetOutput() << endl;
-    cout << "Event Dists written to " << "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventDists06.root" << endl;
+    cout << "Event Dists written to " << "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventDists06.root" << endl;
 
     //initial amount of events in 2006 e+p and e-p: 
     cout << "Events After Trigger: " << TriggerEvents << endl;

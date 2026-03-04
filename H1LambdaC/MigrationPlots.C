@@ -40,10 +40,10 @@ const int Etaentries = 10;
 const int xentries = 5;
 const int q2entries = 5;
 
-string fileEventTreePythia = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists_PythiaBG/merged.root";
+string fileEventTreePythia = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists_PythiaBG/merged.root";
 
-string fileEventTreeDjangoh = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists/merged.root";
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/MigrationPlots.root";
+string fileEventTreeDjangoh = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/merged.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/MigrationPlots.root";
 
 
 // Histograms Binning

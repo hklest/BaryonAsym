@@ -34,9 +34,9 @@ int
 main()
 {
 	//File to write hists to
-	TFile file("/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/LambdaDists.root", "RECREATE");
+	TFile file("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaDists.root", "RECREATE");
 	//File to load 2D hist in
-	TFile* f = new TFile("/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambda.root");
+	TFile* f = new TFile("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambda.root");
 	TCanvas* c3 = new TCanvas("canvas", "canvas", 10, 10, 800, 400);
 	
 	//load in

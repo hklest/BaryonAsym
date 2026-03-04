@@ -1,0 +1,9 @@
+ Cross Section (pb) And Luminosity (pb-1) Summary
+
+ //Analysis
+ SigmaTot	= 591439.312 	 Lumi(-30.0<zvtx<30.0)	=  322.088
+
+ //Contributions
+
+ //Total
+ Sigma	= 591439.312 	 Lumi	=  331.614

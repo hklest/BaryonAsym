@@ -43,6 +43,9 @@ log/
 dummyfile
 dummyfile.root
 
+# Steering files
+*.steer
+
 # Compiled binary dirs
 amd64_rhel70/
 x86_64-centos7-gcc9-opt/
@@ -76,11 +79,11 @@ if __name__ == "__main__":
 
     # Untrack any previously committed files that should now be ignored
     run(["git", "rm", "-r", "--cached", "--ignore-unmatch",
-         "*.root", "*~", "fort.*",
+         "*.root", "*~", "fort.*", "*.steer",
          "amd64_rhel70", "x86_64-centos7-gcc9-opt", "x86_64-el9-gcc14-opt",
-         "log/", "KaonTree/", "LambdaTree/"])
+         "log/", "KaonTree/", "LambdaTree/", "KaonTreeMC/", "LambdaTreeMC/", "LambdaTreeMC_PythiaBG/", "genMCTree/","KaonTreeMC_PythiaBG/"])
 
-    run(["git", "add", "."])
+    run(["git", "add", "-A", "--", ".", ":!*.steer"])
 
     # Show what's staged before committing
     run(["git", "status"])

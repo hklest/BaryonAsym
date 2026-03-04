@@ -7,11 +7,11 @@ using namespace std;
 
 
 
-string fileDataTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventLists/merged.root";
-string fileRAPGAPTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists/RAPGAP06/merged.root";
-string fileDJANGOHTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists/DJANGOH06/merged.root";
+string fileDataTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/merged.root";
+string fileRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/RAPGAP06/merged.root";
+string fileDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/DJANGOH06/merged.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/ControlPlots.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/ControlPlots.root";
 
 
 

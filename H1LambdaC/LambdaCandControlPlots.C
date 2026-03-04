@@ -8,11 +8,11 @@ using namespace std;
 
 
 //Change these file paths and output for different years
-string fileDataTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/LambdaTree/CutsApplied/merged.root";
-string fileRAPGAPTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
-string fileDJANGOHTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
+string fileDataTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/CutsApplied/merged.root";
+string fileRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
+string fileDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/LambdaCandControlPlotsTest.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaCandControlPlotsTest.root";
 
 //double DataLumi = 297639.1; //nb-1
 //double RAPGAPLumi = 5293265.0; //nb-1

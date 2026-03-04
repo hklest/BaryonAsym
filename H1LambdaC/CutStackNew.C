@@ -9,15 +9,15 @@ using namespace std;
 // User Inputs in this section
 ////////////////////////////////////////////////
 
-string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
-string filelambdaRAPGAPTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
-string filelambdaDJANGOHTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root";
+string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
+string filelambdaRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
+string filelambdaDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root";
 
-//string filelambdaTreeOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/CutsApplied/merged.root";
-//string filelambdaRAPGAPTreeOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
-//string filelambdaDJANGOHTreeOutputOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
+//string filelambdaTreeOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/CutsApplied/merged.root";
+//string filelambdaRAPGAPTreeOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
+//string filelambdaDJANGOHTreeOutputOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
 //
-string outputfilename = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/CutStackNew.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/CutStackNew.root";
 
 
 // Histograms Binning
@@ -81,7 +81,7 @@ int Analyze(string Type, TFile* DataLambda, string filelambdaTreeOutputFileName,
 	//creating file to output histograms to
 	//TFile outputfile(outputfilename.c_str(), "RECREATE");
 	//TFile outputfileLambdaCutsAppliedTree(filelambdaTreeOutputFileName.c_str(), "RECREATE");
-	//TFile dummyfile("/data/dust/group/h1/gtustin/h1oo/H1LambdaC/dummyfile.root", "RECREATE");
+	//TFile dummyfile("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root", "RECREATE");
 
 	//Creating Tree to save Lambda Candidates to that pass all of our cuts
 	//TTree* lambdaRegTree = new TTree("Lambda Reg", "Lambda Reg");
@@ -264,7 +264,7 @@ int Analyze(string Type, TFile* DataLambda, string filelambdaTreeOutputFileName,
 	//creating file to output histograms to
 	//TFile outputfile(outputfilename.c_str(), "RECREATE");
 	TFile outputfileLambdaCutsAppliedTree(filelambdaTreeOutputFileName.c_str(), "RECREATE");
-	//TFile dummyfile("/data/dust/group/h1/gtustin/h1oo/H1LambdaC/dummyfile.root", "RECREATE");
+	//TFile dummyfile("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root", "RECREATE");
 
 	//Creating Tree to save Lambda Candidates to that pass all of our cuts
 	TTree* lambdaRegTree = new TTree("Lambda Reg", "Lambda Reg");
@@ -689,31 +689,31 @@ void CutStackNew() {
 	//TTree* LambdaRegDJANGOHTree = (TTree*)DJANGOHLambda->Get("Lambda Reg");
 	//TTree* LambdaBarDJANGOHTree = (TTree*)DJANGOHLambda->Get("Lambda Bar");
 	
-	string filelambdaTreeOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/CutsApplied/merged.root";
-	string filelambdaRAPGAPTreeOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
-	string filelambdaDJANGOHTreeOutputOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
+	string filelambdaTreeOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/CutsApplied/merged.root";
+	string filelambdaRAPGAPTreeOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
+	string filelambdaDJANGOHTreeOutputOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
 
-	//string filelambdaTreeOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/CutsApplied/merged.root";
-	//string filelambdaRAPGAPTreeOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
-	//string filelambdaDJANGOHTreeOutputOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
+	//string filelambdaTreeOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/CutsApplied/merged.root";
+	//string filelambdaRAPGAPTreeOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
+	//string filelambdaDJANGOHTreeOutputOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
 
 	TFile* outputfile = new TFile(outputfilename.c_str(), "RECREATE");
 
 	//Analyze(string Type, TTree* LambdaRegDataTree, TTree* LambdaBarDataTree, string filelambdaTreeOutputFileName)
 	
 	TFile* DataLambda = new TFile(filelambdaTree.c_str());
-	Analyze("Data", DataLambda, "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/CutsApplied/merged.root", outputfile);
+	Analyze("Data", DataLambda, "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/CutsApplied/merged.root", outputfile);
 	DataLambda->Close();
 	
 	TFile* RAPGAPLambda = new TFile(filelambdaRAPGAPTree.c_str());
-	Analyze("RAPGAP", RAPGAPLambda, "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root", outputfile);
+	Analyze("RAPGAP", RAPGAPLambda, "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root", outputfile);
 	RAPGAPLambda->Close();
 
 	TFile* DJANGOHLambda = new TFile(filelambdaDJANGOHTree.c_str());
-	Analyze("DJANGOH", DJANGOHLambda, "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root", outputfile);
+	Analyze("DJANGOH", DJANGOHLambda, "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root", outputfile);
 	DJANGOHLambda->Close();
 	
-	//Analyze("DJANGOH", LambdaRegDJANGOHTree, LambdaBarDJANGOHTree, "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root", outputfile);
+	//Analyze("DJANGOH", LambdaRegDJANGOHTree, LambdaBarDJANGOHTree, "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root", outputfile);
 
 	outputfile->Close();
 }

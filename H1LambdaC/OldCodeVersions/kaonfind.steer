@@ -1,7 +1,0 @@
-H1SteerTree() {
-  //fEventListFiles =  "/nfs/dust/h1/group/klesthen/KaonFind/Analysis/KaonEventList.root"; 
-  //fHatFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/04/hat.4.0.6.10dst7.c040040.root";
-  //fModsFiles  = "/pnfs/desy.de/dphep/online/h1/data/oo-4.0/04/mods.4.0.6.10dst7.c040040.root";
-  fEventListFiles =  "/nfs/dust/h1/group/klesthen/KaonFind/Analysis/TrigKaonEventList06.root";
-  //fEventListFiles =  "/nfs/dust/h1/group/gtustin/h1oo/H1Examples/create_evls.root";
-}

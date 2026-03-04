@@ -7,9 +7,9 @@ using namespace std;
 
 
 
-string fileLambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
+string fileLambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/RawAsymPlots.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/RawAsymPlots.root";
 
 
 // Histograms Binning

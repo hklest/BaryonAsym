@@ -36,47 +36,47 @@ const int q2entries = 5;
 
 //string names for file paths of 5 Trees we need to access
 // DATA
-//string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/lambdaTree06_NoDuplicates.root";
-//string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/kaonTree06_NoDuplicates.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_NoDuplicates.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_NoDuplicates.root";
 
-//string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/merged_KaonTreeMC_DJANGOH.root";
-//string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC_RAPGAP_1_25_24.root";
-string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/merged_KaonTreeMC_DJANGOH.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC_RAPGAP_1_25_24.root";
+string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root";
 
-//string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/lambdaTree06_11_8_23.root";
-//string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/kaonTree06_11_8_23.root";
-//string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/lambdaTree06_11_28_23.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_11_8_23.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_11_8_23.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_11_28_23.root";
 
-//string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/merged_LambdaTreeMC_DJANGOH.root";
-//string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC_RAPGAP_1_25_24.root";
-string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/merged_LambdaTreeMC_DJANGOH.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC_RAPGAP_1_25_24.root";
+string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
 
-//string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/kaonTree06_11_28_23.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_11_28_23.root";
 //END DATA
 
 //MC
 
 
-//string filekaonTreeMC = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC_RAPGAP_1_25_24.root";
-string filekaonTreeMC = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/merged.root";
+//string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC_RAPGAP_1_25_24.root";
+string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/merged.root";
 
 
-//string filelambdaTreeMC = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC_RAPGAP_1_25_24.root";
-string filelambdaTreeMC = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/merged.root";
+//string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC_RAPGAP_1_25_24.root";
+string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/merged.root";
 
 
-//string filegenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree_2_8_24.root"; //RAPGAP
-//string filegenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree_newsteeringtest_1_28_24.root"; //RAPGAP with new steering
-//string filegenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree_DJANGOH14RAD/merged.root"; //rad DJANGOH
-string filegenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/merged.root"; //rad RAPGAP
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_2_8_24.root"; //RAPGAP
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_newsteeringtest_1_28_24.root"; //RAPGAP with new steering
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_DJANGOH14RAD/merged.root"; //rad DJANGOH
+string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/merged.root"; //rad RAPGAP
 
 
-string fileNonRadgenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree_DJANGOH14NONRAD/merged.root"; //non rad DJANGOH
-string fileRadgenMCTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree_DJANGOH14RAD/merged.root";
+string fileNonRadgenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_DJANGOH14NONRAD/merged.root"; //non rad DJANGOH
+string fileRadgenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_DJANGOH14RAD/merged.root";
 //END MC
 
-string outputfilename = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/singleextract.root";
-string dummyfile = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/singleextract.root";
+string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 
 string plotname = "Test";
 
@@ -141,9 +141,9 @@ void singleextract() {
 	double leftsubbound = 2.20;
 	double rightsubbound = 2.326;
 
-	TFile* Data = new TFile("/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root");
+	TFile* Data = new TFile("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root");
 	TH1F* inHist = (TH1F*)Data->Get("LambdaC Cut 13");
-	string outputfilename = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/singleextract.root";
+	string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/singleextract.root";
 	TCanvas* c3 = new TCanvas("LambdaC Extraction", "LambdaC Extraction", 10, 10, 800, 400);
 	TCanvas* c1 = new TCanvas("Training", "Training", 400, 400);
 

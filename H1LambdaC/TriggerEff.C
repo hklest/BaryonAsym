@@ -6,17 +6,17 @@
 using namespace std;
 
 //Change these file paths and output for different years
-//string fileDataTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/EventLists/merged.root";
-//string fileRAPGAPTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/EventLists/RAPGAP31/merged.root";
-//string fileDJANGOHTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/EventLists/DJANGOH14/merged.root";
+//string fileDataTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/merged.root";
+//string fileRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/RAPGAP31/merged.root";
+//string fileDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/DJANGOH14/merged.root";
 
-string fileDataTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
-string fileRAPGAPTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
-string fileDJANGOHTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root";
+string fileDataTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
+string fileRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
+string fileDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root";
 
-//string filePYTHIATree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/EventLists/PYTHIA62/merged.root";
+//string filePYTHIATree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/PYTHIA62/merged.root";
 
-string outputfilename = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/TriggerEff.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/TriggerEff.root";
 
 vector<vector<double>> AnalyzeTree(int idx, int idxvar, string plotcanvasname, string plottitle, string xaxistitle, string yaxistitle, TFile* Data, TFile* MC, TFile* Output, string TreeName, vector<double> binsvector, int binentries) {
 	TTree* tree = (TTree*)Data->Get(TreeName.c_str());

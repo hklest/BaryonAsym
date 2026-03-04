@@ -19,7 +19,7 @@ for ((i = start_number; i < end_number; i++)); do
     file_number=$(printf "%04d" $file_number)
     file_name="${hat_files_prefix}$(printf "%03d" $i)"
     file_path="${root_files_location}${hat_files_prefix}${file_number}.root"
-    output_file="/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/Steering/2007low/SelectedEvents07low_${i}.steer"
+    output_file="/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Steering/2007low/SelectedEvents07low_${i}.steer"
     printf "${root_files_location}${hat_files_prefix}${file_number}.root \n"
     printf "$output_file\n"
     # Check if the file exists

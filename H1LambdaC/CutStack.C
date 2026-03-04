@@ -40,15 +40,15 @@ const int Etaentries = 10;
 const int xentries = 5;
 const int q2entries = 5;
 
-string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
-string filekaonTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root";
+string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
+string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root";
 
-string filelambdaRAPGAPTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
-string filekaonRAPGAPTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root";
-string filelambdaDJANGOHTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
-string filekaonDJANGOHTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root";
+string filelambdaRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
+string filekaonRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root";
+string filelambdaDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
+string filekaonDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root";
 
-string outputfilename = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/CutStack.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/CutStack.root";
 
 
 // Histograms Binning

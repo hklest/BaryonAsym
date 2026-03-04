@@ -16,8 +16,8 @@ double BRkaon = 0.692;
 
 
 //output files
-string outputfilename = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root";
-//string dummyfile = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root";
+//string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 
 //creating file to output histograms to
 TFile outputfile(outputfilename.c_str(), "RECREATE");
@@ -53,9 +53,9 @@ vector<double> Extract(TTree* tree, double lowbinvalue, double highbinvalue, str
 void NewAsym() {
 	TCanvas* canvas = new TCanvas("Lambda Extraction", "Lambda Extraction", 10, 10, 800, 400);
 	
-	string DataFileString = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
-	//string RAPGAPFileString = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
-	//string DJANGOHFileString = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root";
+	string DataFileString = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
+	//string RAPGAPFileString = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
+	//string DJANGOHFileString = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root";
 	
 	TFile* DataFile = new TFile(DataFileString.c_str());
 	//TFile DJANGOHFile(RAPGAPFileString.c_str(), "read");

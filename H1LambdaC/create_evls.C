@@ -79,11 +79,11 @@
 // Electron Cut includes from Daniel's low Q2 jet analysis
 // Modular fomrat was not working, and some functions were not defined in reference directory for some reason,
 // So I will explicitly include necessary functions
-//#include "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/MyCalibCuts.h"
-//#include "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/MyElec.h"			// Outer cut oin SpaCal Radius = 74cm (ELAN)
-//#include "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/elecCut.h"
-//#include "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/SpacLinearity.h"
-//#include "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/Alignment.h"
+//#include "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/MyCalibCuts.h"
+//#include "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/MyElec.h"			// Outer cut oin SpaCal Radius = 74cm (ELAN)
+//#include "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/elecCut.h"
+//#include "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/SpacLinearity.h"
+//#include "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Alignment.h"
 using namespace std;
 
 //Define some variables
@@ -1569,7 +1569,7 @@ main(int argc, char* argv[])
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Consistenct with Lumi calculation using SelectedRuns.root oolumi output file
-    TString goodRunFileName("/data/dust/group/h1/gtustin/h1oo/H1LambdaC/SelectedRuns.root");
+    TString goodRunFileName("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/SelectedRuns.root");
     TFile goodRunFile(goodRunFileName);
     if (!goodRunFile.IsOpen()) {
         cerr << "Error: could not open file " << goodRunFileName << "\n";
@@ -2016,11 +2016,11 @@ main(int argc, char* argv[])
     //file.Close();
 
     //Write Event Distributions to File
-    //TFile fileEventDist("/data/dust/group/h1/gtustin/h1oo/H1LambdaC/EventDists06.root","RECREATE");
+    //TFile fileEventDist("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventDists06.root","RECREATE");
     //string str1 = "123";
     //string str2 = str1.substr(0, str1.length() - 1);
 
-    //string StdDirectory = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/";
+    //string StdDirectory = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/";
     //string StdOutput = opts.GetOutput();
     //string EventDistsOutput = StdOutput.substr(0, StdOutput.length()-5) + "_EventDists06.root";
     //TFile fileEventDist(EventDistsOutput.c_str(), "RECREATE");

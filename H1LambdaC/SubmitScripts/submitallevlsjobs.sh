@@ -2,7 +2,7 @@
 
 ####
 
-cd /data/dust/group/h1/gtustin/h1oo/H1LambdaC/CondorScripts
+cd /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/CondorScripts
 
 condor_submit multi_submit_create_evls_05
 condor_submit multi_submit_create_evls_06

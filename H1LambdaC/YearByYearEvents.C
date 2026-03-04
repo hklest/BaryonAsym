@@ -7,11 +7,11 @@ using namespace std;
 
 
 
-string fileDataTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventLists/2006/merged.root";
-string fileRAPGAPTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventLists/2005/merged.root";
-string fileDJANGOHTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventLists/2007/merged.root";
+string fileDataTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/2006/merged.root";
+string fileRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/2005/merged.root";
+string fileDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/2007/merged.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/YearByYearEvents.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/YearByYearEvents.root";
 
 double Lumi05 = 106823.101562; //nb-1
 double Lumi06 = 144634.0; //nb-1

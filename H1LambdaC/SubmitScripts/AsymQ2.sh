@@ -29,22 +29,22 @@
 ###2005-2007 Q2
 #Before calling root macro, need to write command to edit line defining num of bin entries
 #C++ will not let this be a variable input since it defines array lengths
-sed -i '35c\'"const int q2entries = 5;" "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/Asym.C"
-root -l -q '/data/dust/group/h1/gtustin/h1oo/H1LambdaC/Asym.C(
+sed -i '35c\'"const int q2entries = 5;" "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Asym.C"
+root -l -q '/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Asym.C(
 0,
 { 5.0, 7.0, 10.0, 15.0, 25.0, 100.0 },
 297657.8,
 4108957.0,
 3560233.0,											
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root", 	
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root", 			
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root",
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root",  		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/Save/merged.root",
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root", 	
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root", 			
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root",  		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/Save/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root",
 "Q^{2} [GeV^{2}]",
 {{0.0021,5.0,1.1156},{0.002,2.0,1.1156},{0.0018,2.0,1.1156},{0.0018,3.0,1.1156},{0.0018,3.0,1.1156}},
 {{1.088,1.103,1.13,1.165},{1.087,1.100,1.13,1.165},{1.088,1.100,1.13,1.165},{1.086,1.102,1.13,1.165},{1.089,1.099,1.134,1.165}},
@@ -55,9 +55,9 @@ root -l -q '/data/dust/group/h1/gtustin/h1oo/H1LambdaC/Asym.C(
 {{0.0017,4.0,1.116},{0.0018,4.0,1.116},{0.0015,4.0,1.1158},{0.0016,3.0,1.1158},{0.0015,4.0,1.1156}},
 {{1.092,1.103,1.131,1.165},{1.089,1.100,1.13,1.152},{1.09,1.100,1.13,1.165},{1.086,1.102,1.13,1.165},{1.086,1.096,1.138,1.163}}
 )' > ../AnalysisResultFiles/AsymQ2_All.txt	
-/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles									
-cp /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AsymQ2_All.root 							
-rm /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root
+/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles									
+cp /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AsymQ2_All.root 							
+rm /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root
 #######################################################################
 
 

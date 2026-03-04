@@ -42,47 +42,47 @@ const int q2entries = 5;
 
 //string names for file paths of 5 Trees we need to access
 // DATA
-//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_NoDuplicates.root";
-//string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06_NoDuplicates.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_NoDuplicates.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_NoDuplicates.root";
 
-//string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/merged_KaonTreeMC_DJANGOH.root";
-//string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC_RAPGAP_1_25_24.root";
-string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/KaonTree/merged.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/merged_KaonTreeMC_DJANGOH.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC_RAPGAP_1_25_24.root";
+string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root";
 
-//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_11_8_23.root";
-//string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06_11_8_23.root";
-//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_11_28_23.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_11_8_23.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_11_8_23.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_11_28_23.root";
 
-//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/merged_LambdaTreeMC_DJANGOH.root";
-//string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC_RAPGAP_1_25_24.root";
-string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/merged_LambdaTreeMC_DJANGOH.root";
+//string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC_RAPGAP_1_25_24.root";
+string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
 
-//string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06_11_28_23.root";
+//string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_11_28_23.root";
 //END DATA
 
 //MC
 
 
-//string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC_RAPGAP_1_25_24.root";
-string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/merged.root";
+//string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC_RAPGAP_1_25_24.root";
+string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/merged.root";
 
 
-//string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC_RAPGAP_1_25_24.root";
-string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/merged.root";
+//string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC_RAPGAP_1_25_24.root";
+string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/merged.root";
 
 
-//string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_2_8_24.root"; //RAPGAP
-//string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_newsteeringtest_1_28_24.root"; //RAPGAP with new steering
-//string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_DJANGOH14RAD/merged.root"; //rad DJANGOH
-string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree/merged.root"; //rad RAPGAP
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_2_8_24.root"; //RAPGAP
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_newsteeringtest_1_28_24.root"; //RAPGAP with new steering
+//string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_DJANGOH14RAD/merged.root"; //rad DJANGOH
+string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/merged.root"; //rad RAPGAP
 
 
-string fileNonRadgenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_DJANGOH14NONRAD/merged.root"; //non rad DJANGOH
-string fileRadgenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_DJANGOH14RAD/merged.root";
+string fileNonRadgenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_DJANGOH14NONRAD/merged.root"; //non rad DJANGOH
+string fileRadgenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_DJANGOH14RAD/merged.root";
 //END MC
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/RadCorr.root";
-string dummyfile = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/RadCorr.root";
+string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 
 // Histograms Binning
 Double_t lambdabins = 1000;

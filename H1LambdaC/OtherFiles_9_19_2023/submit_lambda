@@ -1,15 +1,15 @@
 #An example condor submit script, submitted via "condor_submit submit", won't run out of the box, needs to be modified for your use
 #Lambda #Name of executable to be executed, e.g kaonfind_ods, best to specify an absolute path, e.g "nfs/dust/..."
 
-executable = /nfs/dust/h1/group/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt/lambda       
+executable = /data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt/lambda       
 universe   = vanilla 
 
 #Make sure directory named "log" exists in directory that condor_submit is called from, absolute paths can be specified here if needed
-output                   = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/lambda.out 
-error                    = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/lambda.error 
-log                      = /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/log/lambda.log 
+output                   = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/lambda.out 
+error                    = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/lambda.error 
+log                      = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/lambda.log 
 
-Arguments = -f /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambda.steer -o /nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambda06_1_23_23.root
+Arguments = -f /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambda.steer -o /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambda06_1_23_23.root
 
 # $(Process) #If you want to send an argument to the executable, here $(Process) is the number of the job, e.g 0-999 for 1000 jobs
 

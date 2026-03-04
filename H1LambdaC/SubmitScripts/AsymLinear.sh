@@ -29,31 +29,31 @@
 ###2005-2007 pT
 #Before calling root macro, need to write command to edit line defining num of bin entries
 #C++ will not let this be a variable input since it defines array lengths
-sed -i '35c\'"const int q2entries = 9;" "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/Asym.C"
-root -l -q '/data/dust/group/h1/gtustin/h1oo/H1LambdaC/Asym.C(
+sed -i '35c\'"const int q2entries = 9;" "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Asym.C"
+root -l -q '/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Asym.C(
 2,
 {0.5, 0.6, 0.7, 0.8, 0.9, 1.1, 1.3, 1.6, 2.2, 3.5},
 297657.8,
 4108957.0,
 3560233.0,											
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root", 	
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root", 			
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root",
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root",  		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/merged.root",
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root", 	
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root", 			
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root",  		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/merged.root",
 "p_{T} [GeV]",
 {{0.0019,5,1.1156},{0.002,5,1.1156},{0.0018,5,1.1156},{0.0018,4,1.1156},{0.0018,4,1.1156},{0.0019,4,1.1156},{0.002,4,1.1156},{0.0023,2,1.1156},{0.0026,1.5,1.1156}},
 {{1.088,1.103,1.13,1.145,1.106,1.1252},{1.087,1.100,1.13,1.164,1.1044,1.1268},{1.088,1.100,1.13,1.16,1.103,1.1282},{1.086,1.102,1.13,1.155,1.1025,1.1287},{1.089,1.099,1.134,1.16,1.1,1.1312},{1.083,1.094,1.137,1.175,1.096,1.1352},{1.092,1.102,1.135,1.175,1.1015,1.13},{1.081,1.098,1.14,1.16,1.10216,1.12904},{1.083,1.10,1.134,1.151,1.10216,1.12904}},
 {{0.0017,2.0,1.116},{0.0017,5.0,1.116},{0.0015,2.5,1.1158},{0.0016,2,1.1158},{0.0014,2.0,1.1156},{0.0016,2,1.1156},{0.00152,2,1.1156},{0.0016,2,1.1156},{0.0020,2,1.1156}},
 {{1.092,1.103,1.131,1.175,1.106,1.1252},{1.093,1.100,1.13,1.155,1.1044,1.1268},{1.088,1.100,1.13,1.17,1.103,1.1282},{1.086,1.102,1.13,1.155,1.1025,1.1287},{1.083,1.096,1.138,1.17,1.1,1.1312},{1.083,1.094,1.137,1.155,1.096,1.1352},{1.083,1.105,1.1305,1.157,1.1015,1.13},{1.083,1.10,1.134,1.151,1.10216,1.12904},{1.083,1.10,1.134,1.151,1.10216,1.12904}}
 )' > ../AnalysisResultFiles/AsymPt_All.txt	
-/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles									
-cp /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AsymPt_All.root 							
-rm /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root
+/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles									
+cp /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AsymPt_All.root 							
+rm /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root
 #######################################################################
 
 

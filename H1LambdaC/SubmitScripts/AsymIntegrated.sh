@@ -29,22 +29,22 @@
 ###2005-2007 pT
 #Before calling root macro, need to write command to edit line defining num of bin entries
 #C++ will not let this be a variable input since it defines array lengths
-sed -i '35c\'"const int q2entries = 9;" "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AsymIntegrated.C"
-root -l -q '/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AsymIntegrated.C(
+sed -i '35c\'"const int q2entries = 9;" "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AsymIntegrated.C"
+root -l -q '/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AsymIntegrated.C(
 2,
 {0.5, 0.6, 0.7, 0.8, 0.9, 1.1, 1.3, 1.6, 2.2, 3.5},
 297657.8,
 4108957.0,
 3560233.0,											
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root", 	
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/CutsApplied/merged.root", 			
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root",
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root",  		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/Save/merged.root",
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root", 	
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/CutsApplied/merged.root", 			
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root",  		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/Save/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root",
 "p_{T} [GeV]",
 {{0.0021,5.0,1.1156},{0.002,2.0,1.1156},{0.0018,2.0,1.1156},{0.0018,3.0,1.1156},{0.0018,3.0,1.1156},{0.0019,3.0,1.1156},{0.0019,4,1.1156},{0.0023,3.0,1.1156},{0.0023,2.0,1.1156}},
 {{1.088,1.103,1.13,1.165},{1.087,1.100,1.13,1.165},{1.088,1.100,1.13,1.165},{1.086,1.102,1.13,1.165},{1.089,1.099,1.134,1.165},{1.09,1.096,1.137,1.16},{1.092,1.102,1.135,1.165},{1.095,1.093,1.14,1.165},{1.087,1.093,1.145,1.165}},
@@ -55,9 +55,9 @@ root -l -q '/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AsymIntegrated.C(
 {{0.0017,4.0,1.116},{0.0017,5.0,1.116},{0.0015,4.0,1.1158},{0.0016,3.0,1.1158},{0.0014,3.0,1.1156},{0.0016,3.0,1.1156},{0.0016,3.0,1.1156},{0.0018,3.0,1.1156},{0.0020,3.0,1.1156}},
 {{1.092,1.103,1.131,1.165},{1.093,1.100,1.13,1.165},{1.085,1.100,1.13,1.165},{1.086,1.102,1.13,1.165},{1.083,1.096,1.138,1.165},{1.083,1.094,1.137,1.16},{1.083,1.105,1.1305,1.165},{1.087,1.10,1.134,1.165},{1.087,1.10,1.134,1.165}}
 )' > ../AnalysisResultFiles/AsymIntegrated.txt	
-/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles									
-cp /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AsymIntegrated.root 							
-rm /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root
+/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles									
+cp /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AsymIntegrated.root 							
+rm /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root
 #######################################################################
 
 

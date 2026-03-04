@@ -1,18 +1,18 @@
 #An example condor submit script, submitted via "condor_submit submit", won't run out of the box, needs to be modified for your use
 #Lambda #Name of executable to be executed, e.g kaonfind_ods, best to specify an absolute path, e.g "nfs/dust/..."
 
-#executable = /data/dust/group/h1/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt/kaonTree
+#executable = /data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt/kaonTree
 executable = /usr/bin/singularity
 transfer_executable      = False
 universe   = vanilla 
 
 #Make sure directory named "log" exists in directory that condor_submit is called from, absolute paths can be specified here if needed
-output                   = /data/dust/group/h1/gtustin/h1oo/H1LambdaC/log/kaonTree05_$(Process).out 
-error                    = /data/dust/group/h1/gtustin/h1oo/H1LambdaC/log/kaonTree05_$(Process).error 
-log                      = /data/dust/group/h1/gtustin/h1oo/H1LambdaC/log/kaonTree05_$(Process).log 
+output                   = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/kaonTree05_$(Process).out 
+error                    = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/kaonTree05_$(Process).error 
+log                      = /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/log/kaonTree05_$(Process).log 
 
-#Arguments = -f /data/dust/group/h1/gtustin/h1oo/H1LambdaC/Steering/Tree05_$(Process).steer -o /data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/kaonTree05_$(Process).root
-Arguments = exec --cleanenv --contain --bind /pnfs/desy.de/dphep/online/h1/:/acs --bind /afs:/afs --bind /pnfs/desy.de/dphep/online/h1/:/pnfs/desy.de/dphep/online/h1/ --bind /data:/data --bind /data/dust/group/h1:/nfs/dust/h1/group --bind /cvmfs:/cvmfs --bind /data/dust/group/h1:/pnfs/dust/h1/group /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /data/dust/group/h1/gtustin/h1oo/H1LambdaC/SubmitScripts/kaonsubmitscript.sh /data/dust/group/h1/gtustin/h1oo/H1LambdaC/Steering/2005/Tree05_$(Process).steer /data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/2005/KaonTree05 $(Process)
+#Arguments = -f /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Steering/Tree05_$(Process).steer -o /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/kaonTree05_$(Process).root
+Arguments = exec --cleanenv --contain --bind /pnfs/desy.de/dphep/online/h1/:/acs --bind /afs:/afs --bind /pnfs/desy.de/dphep/online/h1/:/pnfs/desy.de/dphep/online/h1/ --bind /data:/data --bind /data/dust/group/h1:/nfs/dust/h1/group --bind /cvmfs:/cvmfs --bind /data/dust/group/h1:/pnfs/dust/h1/group /cvmfs/atlas.cern.ch/repo/containers/fs/singularity/x86_64-centos7 /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/SubmitScripts/kaonsubmitscript.sh /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/Steering/2005/Tree05_$(Process).steer /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/2005/KaonTree05 $(Process)
 
 # $(Process) #If you want to send an argument to the executable, here $(Process) is the number of the job, e.g 0-999 for 1000 jobs
 

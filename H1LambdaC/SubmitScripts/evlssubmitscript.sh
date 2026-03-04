@@ -22,9 +22,9 @@ echo "  CHAIN:      $3"
 echo " ------------------------------------------------------------------------ "
 echo " "
 
-#/data/dust/group/h1/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt/create_evls -f /data/dust/group/h1/gtustin/h1oo/H1LambdaC/create_evls06.steer -o /data/dust/group/h1/gtustin/h1oo/H1LambdaC/test_evls.root
+#/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt/create_evls -f /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/create_evls06.steer -o /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/test_evls.root
 
-/data/dust/group/h1/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt/create_evls -f $1 -o $2_$3.root
+/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt/create_evls -f $1 -o $2_$3.root
 
 # Initialize variables
 #start_number=1

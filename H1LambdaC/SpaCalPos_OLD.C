@@ -41,14 +41,14 @@ const int xentries = 5;
 const int q2entries = 5;
 
 
-string DataEventTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventLists/merged.root";
+string DataEventTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/merged.root";
 
-string MCEventTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists/merged.root";
+string MCEventTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/merged.root";
 
 
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/SpaCalPos.root";
-string dummyfile = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/SpaCalPos.root";
+string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 
 // Histograms Binning
 Double_t lambdabins = 1000;

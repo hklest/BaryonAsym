@@ -1,0 +1,34 @@
+#An example condor submit script, submitted via "condor_submit submit", won't run out of the box, needs to be modified for your use
+#Lambda #Name of executable to be executed, e.g kaonfind_ods, best to specify an absolute path, e.g "nfs/dust/..."
+
+executable = /data/dust/group/h1/gtustin/h1oo/bin/x86_64-el9-gcc14-opt/kaonTreeMC
+#executable = /data/dust/group/h1/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt/lambdaTree
+#executable = /usr/bin/singularity
+#transfer_executable      = False
+universe   = vanilla 
+
+#Make sure directory named "log" exists in directory that condor_submit is called from, absolute paths can be specified here if needed
+output                   = /data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/log/kaonTreeMC_DJANGOH14_05_$(Process).out 
+error                    = /data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/log/kaonTreeMC_DJANGOH14_05_$(Process).error 
+log                      = /data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/log/kaonTreeMC_DJANGOH14_05_$(Process).log 
+
+Arguments = -f /data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/Steering/DJANGOH14/Rad/2005/TreeMC_DJANGOH14_05_RAD_$(Process).steer -o /data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/DJANGOH14/2005/KaonTreeMC_DJANGOH14_05_$(Process).root
+#Arguments = -f /data/dust/group/h1/gtustin/h1oo/H1LambdaC/Steering/Tree05_$(Process).steer -o /data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/LambdaTree05_$(Process).root
+#/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/Steering/DJANGOH14/Rad/2005/TreeMC_DJANGOH14_05_RAD_$(Process).steer /data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/DJANGOH14/2005/KaonTreeMC_DJANGOH14_05 $(Process)
+
+# $(Process) #If you want to send an argument to the executable, here $(Process) is the number of the job, e.g 0-999 for 1000 jobs
+
+#Memory requested in bytes
+RequestMemory            = 6000
+should_transfer_files    = Yes
+getenv                   = True
+when_to_transfer_output  = ON_EXIT
+#requirements             = OpSysAndVer == "CentOS7"
++RequestRuntime          = 86400 
+
+#running time requested in seconds, jobs exceeding runtime will be evicted, 
+#less runtime requested will get jobs placed on a CPU faster, same with Memory
+
++MyProject               = "h1"
+
+Queue 32

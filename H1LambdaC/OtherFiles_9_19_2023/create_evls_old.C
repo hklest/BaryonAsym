@@ -119,13 +119,13 @@ main(int argc, char* argv[])
     file.Close();
 
     //Write Event Distributions to File
-    TFile fileEventDist("/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventDists06test.root","RECREATE");
+    TFile fileEventDist("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventDists06test.root","RECREATE");
     EventTree->Write();
     fileEventDist.Write();
     fileEventDist.Close();
 
     cout << "Eventlist written to " << opts.GetOutput() << endl;
-    cout << "Event Dists written to " << "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventDists06test.root" << endl;
+    cout << "Event Dists written to " << "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventDists06test.root" << endl;
     
     return 0;
 }

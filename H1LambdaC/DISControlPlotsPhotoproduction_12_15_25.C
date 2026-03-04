@@ -7,12 +7,12 @@ using namespace std;
 
 
 //Change these file paths and output for different years
-string fileDataTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventLists/merged.root";
-string fileRAPGAPTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists/RAPGAP31/merged.root";
-string fileDJANGOHTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists/DJANGOH14/merged.root";
-string filePYTHIATree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventLists/PYTHIA62/merged.root";
+string fileDataTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventLists/merged.root";
+string fileRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/RAPGAP31/merged.root";
+string fileDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/DJANGOH14/merged.root";
+string filePYTHIATree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventLists/PYTHIA62/merged.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/DISControlPlotsPhotoproduction.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/DISControlPlotsPhotoproduction.root";
 
 double DataLumi = 297639.1; //nb-1
 double RAPGAPLumi = 5293265.0; //nb-1

@@ -76,7 +76,7 @@ int
 main(int argc, char* argv[])
 {
     //Output file name and path
-    string output = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaon.root";
+    string output = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaon.root";
 
     // event counter
     Int_t eventCounter = 0;

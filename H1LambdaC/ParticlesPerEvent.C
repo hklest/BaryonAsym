@@ -41,18 +41,18 @@ const int xentries = 5;
 const int q2entries = 5;
 
 //string names for file paths of 5 Trees we need to access
-string filelambdaTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/lambdaTree06_Ecra.root";
-string filekaonTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/kaonTree06_Ecra.root"; //_electrononly
+string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/lambdaTree06_Ecra.root";
+string filekaonTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/kaonTree06_Ecra.root"; //_electrononly
 
-string filelambdaTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/lambdaTreeMC06combined_Ecra.root";
-string filekaonTreeMC = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/kaonTreeMC06combined_Ecra.root";
-string filegenMCTree = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/genMCTree_Ecra.root";
+string filelambdaTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/lambdaTreeMC06combined_Ecra.root";
+string filekaonTreeMC = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/kaonTreeMC06combined_Ecra.root";
+string filegenMCTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree_Ecra.root";
 
-string outputfilename = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/ParticlesPerEvent.root";
-string dummyfile = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/dummyfile.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/ParticlesPerEvent.root";
+string dummyfile = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root";
 
-string fileDataEvents = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC/EventDists06_full.root";
-string fileDataMCEvents = "/nfs/dust/h1/group/gtustin/h1oo/H1LambdaC_MC/EventDistsMC.root";
+string fileDataEvents = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/EventDists06_full.root";
+string fileDataMCEvents = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/EventDistsMC.root";
 
 // Histograms Binning
 Double_t lambdabins = 1000;

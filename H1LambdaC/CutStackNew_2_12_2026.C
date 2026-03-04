@@ -9,15 +9,15 @@ using namespace std;
 // User Inputs in this section
 ////////////////////////////////////////////////
 
-string filelambdaTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/merged.root";
-string filelambdaRAPGAPTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
-string filelambdaDJANGOHTree = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root";
+string filelambdaTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/merged.root";
+string filelambdaRAPGAPTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/merged.root";
+string filelambdaDJANGOHTree = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/merged.root";
 
-string filelambdaTreeOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/CutsApplied/merged.root";
-string filelambdaRAPGAPTreeOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
-string filelambdaDJANGOHTreeOutputOutputFileName = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
+string filelambdaTreeOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/CutsApplied/merged.root";
+string filelambdaRAPGAPTreeOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root";
+string filelambdaDJANGOHTreeOutputOutputFileName = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root";
 
-string outputfilename = "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/CutStackNew.root";
+string outputfilename = "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/CutStackNew.root";
 
 
 // Histograms Binning
@@ -91,7 +91,7 @@ void CutStackNew() {
 	//creating file to output histograms to
 	//TFile outputfile(outputfilename.c_str(), "RECREATE");
 	//TFile outputfileLambdaCutsAppliedTree(filelambdaTreeOutputFileName.c_str(), "RECREATE");
-	//TFile dummyfile("/data/dust/group/h1/gtustin/h1oo/H1LambdaC/dummyfile.root", "RECREATE");
+	//TFile dummyfile("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root", "RECREATE");
 
 	//Creating Tree to save Lambda Candidates to that pass all of our cuts
 	//TTree* lambdaRegTree = new TTree("Lambda Reg", "Lambda Reg");
@@ -270,7 +270,7 @@ void CutStackNew() {
 	//creating file to output histograms to
 	//TFile outputfile(outputfilename.c_str(), "RECREATE");
 	TFile outputfileLambdaCutsAppliedTree(filelambdaTreeOutputFileName.c_str(), "RECREATE");
-	//TFile dummyfile("/data/dust/group/h1/gtustin/h1oo/H1LambdaC/dummyfile.root", "RECREATE");
+	//TFile dummyfile("/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/dummyfile.root", "RECREATE");
 
 	//Creating Tree to save Lambda Candidates to that pass all of our cuts
 	TTree* lambdaRegTree = new TTree("Lambda Reg", "Lambda Reg");

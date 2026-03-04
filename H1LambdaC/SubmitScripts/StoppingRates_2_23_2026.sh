@@ -29,22 +29,22 @@
 ###2005-2007 pT
 #Before calling root macro, need to write command to edit line defining num of bin entries
 #C++ will not let this be a variable input since it defines array lengths
-sed -i '35c\'"const int q2entries = 10;" "/data/dust/group/h1/gtustin/h1oo/H1LambdaC/StoppingRates.C"
-root -l -q '/data/dust/group/h1/gtustin/h1oo/H1LambdaC/StoppingRates.C(
+sed -i '35c\'"const int q2entries = 10;" "/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/StoppingRates.C"
+root -l -q '/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/StoppingRates.C(
 7,
 {1.9, 1.926, 1.957, 2.003, 2.046, 2.106, 2.173, 2.252, 2.361, 2.605, 3.1},
 297657.8,
 4108957.0,
 3560233.0,											
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/KaonTree/merged.root", 	
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC/LambdaTree/CutsApplied/merged.root", 			
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root",
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root",  		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/Save/merged.root",
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
-"/data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/KaonTree/merged.root", 	
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/LambdaTree/CutsApplied/merged.root", 			
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/KaonTreeMC/RAPGAP31/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/RAPGAP31/CutsApplied/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/LambdaTreeMC/DJANGOH14/CutsApplied/merged.root",  		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/RAPGAP31/Rad/Save/merged.root",
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/NonRad/merged.root", 		
+"/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC_MC/genMCTree/DJANGOH14/Rad/Save/merged.root",
 "E_{CM}(p+N) [GeV]",
 {{0.0017,4.0,1.1156}, {0.0017,4.0,1.1156}, {0.0017,4.0,1.1156}, {0.002,2.0,1.1156}, {0.0025,2.0,1.1156}, {0.0017,4.0,1.1156}, {0.002,2.0,1.1156}, {0.0017,4.0,1.1156}, {0.0025,2.0,1.1156}, {0.0017,4.0,1.1156}},
 {{1.0782,1.095,1.135,1.155},{1.0782,1.1,1.135,1.155},{1.0782,1.1,1.135,1.155},{1.0782,1.1,1.135,1.155},{1.0782,1.1,1.135,1.155},{1.0782,1.1,1.135,1.155},{1.0782,1.1,1.135,1.155},{1.0782,1.1,1.135,1.155},{1.0782,1.1,1.135,1.155},{1.0782,1.1,1.135,1.155}},
@@ -63,9 +63,9 @@ root -l -q '/data/dust/group/h1/gtustin/h1oo/H1LambdaC/StoppingRates.C(
 {{0.0025,4.0,1.1156},{0.0025,4.0,1.1156},{0.0025,4.0,1.1156},{0.0025,4.0,1.1156},{0.0025,4.0,1.1156},{0.0025,4.0,1.1156},{0.0025,4.0,1.1156},{0.0025,4.0,1.1156},{0.002,8.0,1.1156},{0.0017,8.0,1.1156}},
 {{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155},{1.0782,1.095,1.132,1.155}}
 )' > ../AnalysisResultFiles/StoppingRates.txt	
-/data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles									
-cp /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/StoppingRates.root 							
-rm /data/dust/group/h1/gtustin/h1oo/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root
+/data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles									
+cp /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/StoppingRates.root 							
+rm /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/AnalysisResultFiles/AnalysisOutput.root
 #######################################################################
 
 
