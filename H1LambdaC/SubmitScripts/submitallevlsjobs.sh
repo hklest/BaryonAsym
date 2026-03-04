@@ -1,12 +1,11 @@
-#!/bin/zsh
+#!/usr/bin/env bash
+set -euo pipefail
 
-####
-
-cd /data/dust/group/h1/klesthen/BaryonAsym/H1LambdaC/CondorScripts
-
-condor_submit multi_submit_create_evls_05
-condor_submit multi_submit_create_evls_06
-condor_submit multi_submit_create_evls_07
-condor_submit multi_submit_create_evls_07low
-condor_submit multi_submit_create_evls_07med
-
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+"$REPO_ROOT/pipeline/run_master.sh" \
+  --do-create-evls 1 \
+  --do-lambda-tree 0 \
+  --do-kaon-tree 0 \
+  --do-gen-tree 0 \
+  --do-hadd 0 \
+  --do-analysis 0
