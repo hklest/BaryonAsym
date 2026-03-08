@@ -18,3 +18,5 @@ Start here:
 
 - `analysis_unified/run_unified_pipeline.sh`
 - `analysis_unified/README.md`
+
+Note: the master pipeline can auto-rewrite missing Condor executable paths using fallback binary directories configured in `pipeline/config.sh` (helpful when EL9/CentOS binary paths drift).

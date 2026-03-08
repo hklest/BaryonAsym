@@ -84,6 +84,51 @@ prepare_minimal_submit() {
   ' "$infile" > "$outfile"
 }
 
+
+extract_submit_executable() {
+  sed -n 's/^[[:space:]]*[Ee]xecutable[[:space:]]*=[[:space:]]*//p' "$1" | head -n1 | xargs || true
+}
+
+rewrite_submit_executable_if_needed() {
+  local file="$1"
+  local current
+  current="$(extract_submit_executable "$file")"
+
+  [[ -n "$current" ]] || return 0
+  if [[ -x "$current" ]]; then
+    return 0
+  fi
+
+  local base
+  base="$(basename "$current")"
+  local cand
+  for dir in "${PIPELINE_EXEC_SEARCH_DIRS[@]}"; do
+    cand="$dir/$base"
+    if [[ -x "$cand" ]]; then
+      python3 - <<PY2
+from pathlib import Path
+p = Path(r"$file")
+lines = p.read_text().splitlines()
+for i,l in enumerate(lines):
+    if l.lstrip().lower().startswith('executable') and '=' in l:
+        prefix = l.split('=',1)[0]
+        lines[i] = f"{prefix}= $cand"
+        break
+p.write_text("\n".join(lines) + "\n")
+PY2
+      warn "Rewrote missing executable '$current' -> '$cand' for submit file $file"
+      return 0
+    fi
+  done
+
+  warn "Executable '$current' does not exist and no fallback was found for basename '$base'"
+  if [[ "$DRY_RUN" == "1" ]]; then
+    warn "Continuing because --dry-run=1"
+    return 0
+  fi
+  return 12
+}
+
 submit_file() {
   local submit_rel="$1"
   local submit_abs="$ROOT_DIR/$submit_rel"
@@ -96,10 +141,22 @@ submit_file() {
 
   local target="$submit_abs"
   local tmp=""
-  if [[ "$MINIMAL" == "1" ]]; then
+
+  if [[ "$MINIMAL" == "1" || "$AUTO_FIX_EXECUTABLE" == "1" ]]; then
     tmp="$(mktemp)"
-    prepare_minimal_submit "$submit_abs" "$tmp"
+    if [[ "$MINIMAL" == "1" ]]; then
+      prepare_minimal_submit "$submit_abs" "$tmp"
+    else
+      cp "$submit_abs" "$tmp"
+    fi
     target="$tmp"
+  fi
+
+  if [[ "$AUTO_FIX_EXECUTABLE" == "1" ]]; then
+    rewrite_submit_executable_if_needed "$target" || {
+      [[ -n "$tmp" ]] && rm -f "$tmp"
+      return 12
+    }
   fi
 
   local output

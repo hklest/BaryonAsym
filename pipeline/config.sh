@@ -33,3 +33,14 @@ PIPELINE_HADD_COMMANDS=(
 PIPELINE_ANALYSIS_COMMANDS=(
   ""
 )
+
+# Fallback executable search paths used when submit files reference non-existing binaries.
+PIPELINE_EXEC_SEARCH_DIRS=(
+  "/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-el9-gcc14-opt"
+  "/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt"
+  "/data/dust/group/h1/gtustin/h1oo/bin/x86_64-el9-gcc14-opt"
+  "/data/dust/group/h1/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt"
+)
+
+# If 1, rewrite Condor submit executable path to the first existing fallback match by basename.
+AUTO_FIX_EXECUTABLE="${AUTO_FIX_EXECUTABLE:-1}"
