@@ -1,21 +1,11 @@
-#!/bin/zsh
+#!/usr/bin/env bash
+set -euo pipefail
 
-####
-
-cd /data/dust/group/h1/gtustin/h1oo/H1LambdaC_MC/CondorScripts
-
-condor_submit multi_submit_genMCTree_Rad_DJANGOH14_05
-condor_submit multi_submit_genMCTree_Rad_DJANGOH14_06
-condor_submit multi_submit_genMCTree_Rad_DJANGOH14_07
-
-#condor_submit multi_submit_genMCTree_NonRad_DJANGOH14_05
-#condor_submit multi_submit_genMCTree_NonRad_DJANGOH14_06
-#condor_submit multi_submit_genMCTree_NonRad_DJANGOH14_07
-
-condor_submit multi_submit_genMCTree_Rad_RAPGAP31_05
-condor_submit multi_submit_genMCTree_Rad_RAPGAP31_06
-condor_submit multi_submit_genMCTree_Rad_RAPGAP31_07
-
-#condor_submit multi_submit_genMCTree_NonRad_RAPGAP31_05
-#condor_submit multi_submit_genMCTree_NonRad_RAPGAP31_06
-#condor_submit multi_submit_genMCTree_NonRad_RAPGAP31_07
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+"$REPO_ROOT/pipeline/run_master.sh" \
+  --do-create-evls 0 \
+  --do-lambda-tree 0 \
+  --do-kaon-tree 0 \
+  --do-gen-tree 1 \
+  --do-hadd 0 \
+  --do-analysis 0
