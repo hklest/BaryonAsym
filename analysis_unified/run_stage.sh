@@ -45,7 +45,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 RUNNER="$REPO_ROOT/scripts/run_h1_executable.sh"
 
 DATA_BIN="${BARYONASYM_DATA_BIN:-/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt}"
-MC_BIN="${BARYONASYM_MC_BIN:-/data/dust/group/h1/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt}"
+MC_BIN="${BARYONASYM_MC_BIN:-/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt}"
 
 EXEC=""
 case "$MODE:$STAGE" in

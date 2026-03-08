@@ -35,11 +35,10 @@ PIPELINE_ANALYSIS_COMMANDS=(
 )
 
 # Fallback executable search paths used when submit files reference non-existing binaries.
+# Intentionally restricted to klesthen area only.
 PIPELINE_EXEC_SEARCH_DIRS=(
   "/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-el9-gcc14-opt"
   "/data/dust/group/h1/klesthen/BaryonAsym/bin/x86_64-centos7-gcc9-opt"
-  "/data/dust/group/h1/gtustin/h1oo/bin/x86_64-el9-gcc14-opt"
-  "/data/dust/group/h1/gtustin/h1oo/bin/x86_64-centos7-gcc9-opt"
 )
 
 # If 1, rewrite Condor submit executable path to the first existing fallback match by basename.
@@ -53,3 +52,9 @@ PIPELINE_PATH_REWRITES=(
 
 # If 1, validate steering file for the first process and ensure output directories exist.
 PRECHECK_STEERING_AND_OUTPUTS="${PRECHECK_STEERING_AND_OUTPUTS:-1}"
+
+# If 1, auto-generate known minimal steering files for process 0 when missing.
+AUTO_GENERATE_MINIMAL_STEERING="${AUTO_GENERATE_MINIMAL_STEERING:-1}"
+
+# If 1, wait for currently submitted clusters to finish after each stage block before continuing.
+WAIT_BETWEEN_STAGES="${WAIT_BETWEEN_STAGES:-1}"

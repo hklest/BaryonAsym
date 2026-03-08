@@ -23,3 +23,9 @@ Note: the master pipeline can auto-rewrite missing Condor executable paths using
 
 
 If submissions start but process 0 events, check for missing steering-file warnings in logs; the pipeline now prechecks steering presence and output directories before submit.
+
+Use `pipeline/config.sh` toggles (`PRECHECK_STEERING_AND_OUTPUTS`, `AUTO_GENERATE_MINIMAL_STEERING`, `WAIT_BETWEEN_STAGES`) to avoid zero-event jobs from missing steering files and to enforce stage barriers.
+
+No gtustin paths are used by default in pipeline executable fallbacks, path rewrites, or steering generation.
+
+Executables are rebuilt by default before run via `scripts/run_h1_executable.sh` (`AUTO_REBUILD_EXECUTABLES=1`) using local klesthen sources.

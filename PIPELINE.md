@@ -75,3 +75,28 @@ Before submitting, generate the steering files via the existing scripts under:
 - `H1LambdaC_MC/Steering/**/create_*steerings*.sh`
 
 Then rerun a dry-run and confirm no missing-steering warnings appear.
+
+
+Additional knobs in `pipeline/config.sh`:
+
+- `PRECHECK_STEERING_AND_OUTPUTS=1`: validate `-f` steering and ensure `-o` output directories.
+- `AUTO_GENERATE_MINIMAL_STEERING=1`: for missing common 2006 process-0 steering files, auto-generate minimal steering snippets in non-dry-run.
+- `WAIT_BETWEEN_STAGES=1`: wait for each stage block to finish before submitting dependent stages.
+
+
+## Steering generation from event lists
+
+After `create_evls` stages complete, the master pipeline now calls:
+
+- `analysis_unified/generate_tree_steering_from_eventlists.sh`
+
+This creates `Tree06_*.steer` and `TreeMC_RAPGAP31_06_RAD_*.steer` from existing event-list ROOT files in the **klesthen** directory tree.
+
+No `gtustin` paths are used by default anymore.
+
+
+## Executable rebuild policy
+
+`scripts/run_h1_executable.sh` now attempts to rebuild the requested executable target by default (`AUTO_REBUILD_EXECUTABLES=1`) from the local klesthen repository (`H1LambdaC` or `H1LambdaC_MC`) before execution.
+
+This avoids depending on stale binaries from other user areas.
