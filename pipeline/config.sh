@@ -44,3 +44,12 @@ PIPELINE_EXEC_SEARCH_DIRS=(
 
 # If 1, rewrite Condor submit executable path to the first existing fallback match by basename.
 AUTO_FIX_EXECUTABLE="${AUTO_FIX_EXECUTABLE:-1}"
+
+# Optional path rewrites applied to submit-file contents before submission.
+# Format: "old_prefix|new_prefix"
+PIPELINE_PATH_REWRITES=(
+  "/data/dust/group/h1/gtustin/h1oo|/data/dust/group/h1/klesthen/BaryonAsym"
+)
+
+# If 1, validate steering file for the first process and ensure output directories exist.
+PRECHECK_STEERING_AND_OUTPUTS="${PRECHECK_STEERING_AND_OUTPUTS:-1}"

@@ -129,6 +129,80 @@ PY2
   return 12
 }
 
+
+apply_path_rewrites() {
+  local file="$1"
+  local rule old new
+  for rule in "${PIPELINE_PATH_REWRITES[@]}"; do
+    old="${rule%%|*}"
+    new="${rule#*|}"
+    [[ -n "$old" && -n "$new" ]] || continue
+    python3 - <<PY2
+from pathlib import Path
+p = Path(r"$file")
+text = p.read_text()
+text = text.replace(r"$old", r"$new")
+p.write_text(text)
+PY2
+  done
+}
+
+precheck_submit_arguments() {
+  local file="$1"
+  python3 - <<'PY2' "$file" "$MINIMAL" "$DRY_RUN"
+import re, shlex, sys
+from pathlib import Path
+
+file = Path(sys.argv[1])
+minimal = sys.argv[2] == '1'
+dry_run = sys.argv[3] == '1'
+
+text = file.read_text().splitlines()
+arg_line = None
+for line in text:
+    if re.match(r'^\s*arguments\s*=\s*', line, flags=re.I):
+        arg_line = line.split('=',1)[1].strip()
+        break
+
+if not arg_line:
+    print('')
+    sys.exit(0)
+
+if minimal:
+    arg_line = arg_line.replace('$(Process)', '0')
+
+try:
+    toks = shlex.split(arg_line)
+except Exception:
+    print('WARN::Could not parse arguments line with shlex')
+    sys.exit(0)
+
+steer = None
+out = None
+for i,t in enumerate(toks):
+    if t == '-f' and i+1 < len(toks):
+        steer = toks[i+1]
+    if t == '-o' and i+1 < len(toks):
+        out = toks[i+1]
+
+msgs = []
+if steer:
+    sp = Path(steer)
+    if not sp.exists():
+        msgs.append(f'ERR::Missing steering file for submit precheck: {sp} (generate steering files first)')
+if out:
+    od = Path(out).parent
+    if not od.exists():
+        if dry_run:
+            msgs.append(f'WARN::Would create missing output directory: {od}')
+        else:
+            od.mkdir(parents=True, exist_ok=True)
+            msgs.append(f'INFO::Created missing output directory: {od}')
+
+print('\n'.join(msgs))
+PY2
+}
+
 submit_file() {
   local submit_rel="$1"
   local submit_abs="$ROOT_DIR/$submit_rel"
@@ -142,7 +216,7 @@ submit_file() {
   local target="$submit_abs"
   local tmp=""
 
-  if [[ "$MINIMAL" == "1" || "$AUTO_FIX_EXECUTABLE" == "1" ]]; then
+  if [[ "$MINIMAL" == "1" || "$AUTO_FIX_EXECUTABLE" == "1" || "$PRECHECK_STEERING_AND_OUTPUTS" == "1" || ${#PIPELINE_PATH_REWRITES[@]} -gt 0 ]]; then
     tmp="$(mktemp)"
     if [[ "$MINIMAL" == "1" ]]; then
       prepare_minimal_submit "$submit_abs" "$tmp"
@@ -152,11 +226,37 @@ submit_file() {
     target="$tmp"
   fi
 
+  if [[ ${#PIPELINE_PATH_REWRITES[@]} -gt 0 ]]; then
+    apply_path_rewrites "$target"
+  fi
+
   if [[ "$AUTO_FIX_EXECUTABLE" == "1" ]]; then
     rewrite_submit_executable_if_needed "$target" || {
       [[ -n "$tmp" ]] && rm -f "$tmp"
       return 12
     }
+  fi
+
+  if [[ "$PRECHECK_STEERING_AND_OUTPUTS" == "1" ]]; then
+    local precheck
+    precheck="$(precheck_submit_arguments "$target")"
+    if [[ -n "$precheck" ]]; then
+      while IFS= read -r line; do
+        [[ -z "$line" ]] && continue
+        case "$line" in
+          ERR::*)
+            warn "${line#ERR::}"
+            if [[ "$DRY_RUN" != "1" ]]; then
+              [[ -n "$tmp" ]] && rm -f "$tmp"
+              return 13
+            fi
+            ;;
+          WARN::*) warn "${line#WARN::}" ;;
+          INFO::*) log "${line#INFO::}" ;;
+          *) warn "$line" ;;
+        esac
+      done <<< "$precheck"
+    fi
   fi
 
   local output

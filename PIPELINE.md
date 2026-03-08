@@ -52,3 +52,26 @@ by matching the binary basename (e.g. `create_evls`) in fallback directories fro
 
 This addresses failures like:
 `ERROR: Executable file ... does not exist`.
+
+
+## Troubleshooting: jobs run but process 0 events
+
+If logs show messages like:
+
+- `Could not open steering file ...`
+- `Could not correctly open H1Tree: no files were given`
+
+it usually means steering files were not generated (or submit files point to the wrong path).
+
+`run_master.sh` now prechecks submit arguments and will:
+
+- fail fast in non-dry-run when steering files are missing,
+- create missing output directories for `-o` paths,
+- apply configurable path rewrites (`PIPELINE_PATH_REWRITES`) for migrated working areas.
+
+Before submitting, generate the steering files via the existing scripts under:
+
+- `H1LambdaC/Steering/*/create_*_steerings*.sh`
+- `H1LambdaC_MC/Steering/**/create_*steerings*.sh`
+
+Then rerun a dry-run and confirm no missing-steering warnings appear.

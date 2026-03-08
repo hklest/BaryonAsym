@@ -20,3 +20,6 @@ Start here:
 - `analysis_unified/README.md`
 
 Note: the master pipeline can auto-rewrite missing Condor executable paths using fallback binary directories configured in `pipeline/config.sh` (helpful when EL9/CentOS binary paths drift).
+
+
+If submissions start but process 0 events, check for missing steering-file warnings in logs; the pipeline now prechecks steering presence and output directories before submit.
