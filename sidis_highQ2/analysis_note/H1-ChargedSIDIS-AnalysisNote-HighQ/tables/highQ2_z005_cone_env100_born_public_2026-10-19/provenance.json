@@ -1,0 +1,1224 @@
+{
+  "bin_volume": {
+    "capped_cells": [
+      "S3_x0"
+    ],
+    "capped_dx": 0.979,
+    "capped_vs_uncapped_factor": 1.5107252298263536,
+    "convention": "dV = dQ2 * dx * dz * dpT_h in GeV^3 from the release edge columns; x width capped at x_cap - x_min wherever the bookkeeping x_max exceeds x_cap; the same value is emitted per row in the sidecar CSVs (bin_volume_gev3) and printed in the final table column",
+    "n_bins_checked": 490,
+    "n_capped_bins": 70,
+    "n_printed_rows_checked": 490,
+    "printed_rows_per_mode": {
+      "withZ": 490
+    },
+    "uncapped_dx": 1.479,
+    "x_cap": 1.0
+  },
+  "cli_args": {
+    "budget_csv": null,
+    "caption_style": "public",
+    "config": "sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/highQ2_z005_cone_env100_born_public_2026-10-19/table_config_env100_public_2026-10-19.json",
+    "crad_noz_csv": null,
+    "crad_withz_csv": null,
+    "digits": null,
+    "method": "ibu",
+    "mode": "withZ",
+    "out": "sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/highQ2_z005_cone_env100_born_public_2026-10-19",
+    "release_dir": null,
+    "sigma_form": null,
+    "sys_mode": "published_total",
+    "verify_only": false
+  },
+  "config": {
+    "_schema": [
+      "PUBLIC caption profile for the 2026-10-16 CONE-BASIS product. Thin overlay",
+      "deep-merged over table_config_cone_2026-10-16.json (same directory), which itself",
+      "extends table_config.json. Differences vs the cone base profile:",
+      "  latex.caption_style = \"public\" -- plain, externally readable captions rendered",
+      "    from captions.public in the base config (basis-agnostic by design: the cone",
+      "    basis travels in the invisible % header comment status lines, not in the",
+      "    visible captions); the caption_forbidden_tokens hard gate is active.",
+      "  outputs.out_dir -- the TOP LEVEL of the 2026-10-16 cone product (the binned",
+      "    public tables, the single report set, and blocks/); the internal-profile",
+      "    sub-run and the density-form sub-run are rendered from the cone base profile",
+      "    (--sigma-form density --out <product>/density with THIS config).",
+      "The numbers are identical in both caption profiles; only the visible wording",
+      "(and the active token gate) changes. provenance.json records the effective",
+      "merged config and every config sha256 in the chain."
+    ],
+    "captions": {
+      "_comment": "printf-style LaTeX caption templates (literal %% for a percent sign). Placeholders are filled per block. The kinematic-domain sentences follow the release's own SELECTION contract: the first published bins are 0.0-0.05 in z and 0.0-0.5 GeV in pT_h (zlow005/pT5 are path tags, NOT cuts).",
+      "factor_basis_noZ": "$C_{\\gamma\\mathrm{Born}}$ from the DJANGOH14 NoZ photon-exchange-only Born sample (releasebin, EMPZ$>45$), WITHOUT $Z$ exchange. Both factors are tabulated in every table ($C_{\\mathrm{rad}}$ then $C_{\\gamma\\mathrm{Born}}$); here $C_{\\gamma\\mathrm{Born}}$ is the applied factor, and dividing a tabulated cross section by $C_{\\gamma\\mathrm{Born}}/C_{\\mathrm{rad}} = F_{\\mathrm{EW}\\gamma}$ converts it to the WITH-$Z$ convention.",
+      "factor_basis_withZ": "$C_{\\mathrm{rad}}$ from DJANGOH14 releasebin $(Q^{2}_{\\mathrm{esGen}}, x_{\\mathrm{es,gen}})$, EMPZ$>45$, xFGen$<0$, WITH $\\gamma^\\ast/Z$ exchange. Both factors are tabulated in every table ($C_{\\mathrm{rad}}$ then $C_{\\gamma\\mathrm{Born}}$); here $C_{\\mathrm{rad}}$ is the applied factor, and multiplying a tabulated cross section by $C_{\\gamma\\mathrm{Born}}/C_{\\mathrm{rad}} = F_{\\mathrm{EW}\\gamma}$ converts it to the photon-exchange-only convention.",
+      "level_sentence_by_mode": {
+        "noZ": "Photon-exchange-only Born level WITHOUT Z exchange: sigma_Born_gamma = C_gamma_born x sigma_raw, C_gamma_born from the DJANGOH14 NoZ photon-only Born sample (releasebin, EMPZ>45).",
+        "withZ": "Born level, c_rad_applied=true: full electroweak Born WITH gamma*/Z exchange; sigma_Born = C_rad x Unfold(data;R), C_rad from DJANGOH14 releasebin (Q2esGen, x_es_gen), EMPZ>45, xFGen<0."
+      },
+      "method_sentence_by_method": {
+        "bbb": "bin-by-bin (BBB) correction, $L_{\\mathrm{data}} = %(lumi_pb)s$~pb$^{-1}$",
+        "ibu": "IBU $k=%(ibu_iter)s$ unfolding with coherent \\texttt{body+miss} prior, $L_{\\mathrm{data}} = %(lumi_pb)s$~pb$^{-1}$"
+      },
+      "noZ": "Photon-exchange-only Born-level inclusive charged-hadron SIDIS cross sections WITHOUT $Z$ exchange, %(charge_display)s, cell %(cell_label)s (%(q2_range)s, %(x_range)s); central values $\\sigma^{\\gamma}_{\\mathrm{Born}} = C_{\\gamma\\mathrm{Born}} \\times \\sigma_{\\mathrm{raw}}$. Basis: %(method_sentence)s; %(selection_sentence)s %(factor_basis_noZ)s %(sigma_form_sentence)s%(x_cap_sentence)s %(noz_gen_note)s %(status_short)s",
+      "noz_gen_note": {
+        "carry": "The DJANGOH14-vs-RAPGAP scheme spread is carried over from the WITH-$Z$ $C_{\\mathrm{rad}}$ pair as the systematic proxy for $C_{\\gamma\\mathrm{Born}}$ (no RAPGAP NoZ photon-only sample exists).",
+        "drop": "The scheme-spread proxy is excluded from the systematic column (no RAPGAP NoZ photon-only sample exists); $C_{\\gamma\\mathrm{Born}}$ is quoted with its statistical uncertainty only."
+      },
+      "public": {
+        "_comment": "PUBLIC wording profile, selected by latex.caption_style=public. Plain, externally readable sentences: no internal identifiers, paths, directory names, snake_case names, or status tags; the internal provenance stays in the invisible % header comment. Rendered captions are hard-checked against latex.forbidden_caption_tokens by the caption_forbidden_tokens gate. Placeholders: charge_phrase, q2_range, x_range, sigma_form_sentence, preliminary_sentence.",
+        "charge_phrase": {
+          "neg": "negatively charged hadrons ($h^-$)",
+          "pos": "positively charged hadrons ($h^+$)"
+        },
+        "noZ": "Cross sections for inclusive production of %(charge_phrase)s in deep-inelastic scattering, for the kinematic region %(q2_range)s and %(x_range)s, tabulated in bins of the hadron energy fraction $z$ and the hadron transverse momentum $p_{T,h}$. The selection requires $Q^2 > 150$~GeV$^2$; only hadrons within the central tracking region, $|\\eta_h| < 1.6$, are included. %(sigma_form_sentence)s The values are Born-level cross sections: they are corrected for detector effects and for radiative (QED and electroweak) effects; the correction convention is photon exchange only, i.e. the cross sections are defined without $Z$-boson exchange. Each cross section is quoted with its statistical uncertainty and its total systematic uncertainty. Two correction factors are tabulated for reference: the factor applied in this table (seventh column), which follows the photon-exchange-only convention, and the corresponding factor of the convention with $Z$-boson exchange included (sixth column); the ratio of the two factors converts a cross section between the two conventions.%(x_cap_sentence)s %(preliminary_sentence)s",
+        "preliminary_sentence": "The values are preliminary and subject to change.",
+        "q2_range_pattern": "$%(lo)s < Q^2 < %(hi)s$~GeV$^2$",
+        "sigma_form_sentence": {
+          "binned": "Each entry is the cross section in nb integrated over the corresponding four-dimensional bin; the bin volume is given in the last column of the table. The bin-averaged density (the cross section divided by the bin volume) is a derived quantity that is deliberately not tabulated, and model predictions must be integrated over the same bin volume before comparison with the tabulated values.",
+          "density": "The tabulated entries are cross sections divided by the bin volume in $Q^2$, $x$, $z$ and $p_{T,h}$, in units of nb~GeV$^{-3}$; the bin volume is given in the last column of the table, and the entries are a derived view of the tabulated integrated cross sections. For the bins whose upper $x$ edge lies above $1$, only the range up to $x = 1$ enters the bin volume."
+        },
+        "withZ": "Cross sections for inclusive production of %(charge_phrase)s in deep-inelastic scattering, for the kinematic region %(q2_range)s and %(x_range)s, tabulated in bins of the hadron energy fraction $z$ and the hadron transverse momentum $p_{T,h}$. The selection requires $Q^2 > 150$~GeV$^2$; only hadrons within the central tracking region, $|\\eta_h| < 1.6$, are included. %(sigma_form_sentence)s The values are Born-level cross sections: they are corrected for detector effects and for radiative (QED and electroweak) effects, with $Z$-boson exchange included in the correction convention. Each cross section is quoted with its statistical uncertainty and its total systematic uncertainty. Two correction factors are tabulated for reference: the factor applied in this table (sixth column), which includes $Z$-boson exchange, and the corresponding factor of the photon-exchange-only convention (seventh column); the ratio of the two factors converts a cross section between the two conventions.%(x_cap_sentence)s %(preliminary_sentence)s",
+        "x_cap_sentence": " In this block the physical range of $x$ ends at $x = %(x_cap)s$; the bin volume given in the last column of the table uses this physical limit.",
+        "x_range_pattern": "$%(lo)s \\leq x < %(hi)s$"
+      },
+      "q2_range_pattern": "$%(lo)s < Q^2 < %(hi)s$~GeV$^2$",
+      "selection_sentence": "$150 < Q^2 < 20\\,000$~GeV$^2$, $0.1 < y < 0.7$, $E-P_z > 45$~GeV, current-hemisphere $xF < 0$; inclusive charged hadrons (no species PID); track $|\\eta_h| < 1.6$ and $p_{T,h} > 0.15$~GeV; $z$ and $p_{T,h}$ binned from 0.0 (first bins $0.0$--$0.05$ and $0.0$--$0.5$~GeV; the release path tags \\texttt{zlow005}/\\texttt{pT5} denote first-bin edges, not cuts). An $\\alpha \\geq 0.2$~rad laboratory-frame electron-cone veto is applied on the reconstructed legs only (imposed after the $e$/V0 truth vetoes, before the matched-fake classification and det.int.\\ reroute; cone-rejected matched legs enter the miss row; the generator-level selection is unchanged).",
+      "sigma_form_sentence": {
+        "binned": "Entries are per-bin integrated cross sections in nb: each entry is the cross section integrated over the corresponding four-dimensional bin, whose volume is given in the last column of the table. The bin-averaged density (the cross section divided by the bin volume) is a derived quantity that is deliberately not tabulated, and model predictions must be integrated over the same bin volume before comparison with the tabulated values.",
+        "density": "Entries are bin-averaged $d^4\\sigma/dQ^2\\,dx\\,dz\\,dp_{T,h}$ in nb~GeV$^{-3}$ (per-bin cross section divided by the true bin volume, given in the last column of the table; for the highest-$x$ cell the $x$ width is capped at $1.0 - x_{\\min}$). This form is a derived view of the tabulated integrated cross sections."
+      },
+      "status_short": "PROVISIONAL / not physics-final (see the file header for status caveats).",
+      "withZ": "Born-level inclusive charged-hadron SIDIS cross sections, %(charge_display)s, cell %(cell_label)s (%(q2_range)s, %(x_range)s), WITH $\\gamma^\\ast/Z$ exchange (full electroweak Born, \\texttt{c\\_rad\\_applied=true}; $\\sigma_{\\mathrm{Born}} = C_{\\mathrm{rad}} \\times \\mathrm{Unfold}(\\mathrm{data};R)$). Basis: %(method_sentence)s; %(selection_sentence)s %(factor_basis_withZ)s %(sigma_form_sentence)s%(x_cap_sentence)s %(status_short)s",
+      "x_cap_sentence": " In this block the bookkeeping upper edge $x_{\\max} = %(x_max)s$ exceeds the physical limit: the physical range of $x$ ends at $x = %(x_cap)s$, and the bin volume given in the last column of the table uses the capped width $dx = %(x_cap)s - x_{\\min}$ (here $%(x_cap)s - %(x_min)s$).",
+      "x_range_pattern": "$%(lo)s \\leq x < %(hi)s$"
+    },
+    "charges": {
+      "_comment": "Canonical charge = the release/budget token. crad_token maps canonical->C_rad-table token. display is LaTeX; file_token is used in file names.",
+      "crad_token": {
+        "neg": "h-",
+        "pos": "h+"
+      },
+      "display": {
+        "neg": "$h^-$",
+        "pos": "$h^+$"
+      },
+      "file_token": {
+        "neg": "neg",
+        "pos": "pos"
+      },
+      "order": [
+        "pos",
+        "neg"
+      ]
+    },
+    "columns": {
+      "_comment": "semantic name -> CSV column name. Adapt here if a future release renames columns. The 15 budget component columns are auto-mapped: their CSV names ARE the component names declared in systematics.components (no separate mapping needed).",
+      "budget": {
+        "bin_index": "bin_index",
+        "cell_label": "cell_label",
+        "charge": "charge",
+        "global_bin_index": "global_bin_index",
+        "nominal_cross_section_nb": "nominal_cross_section_nb",
+        "pT_idx": "pT_idx",
+        "total_quadrature_rel": "total_quadrature_rel",
+        "total_with_crad13_rel": "total_with_crad13_rel",
+        "total_with_s2prime15_rel": "total_with_env100_rel",
+        "z_idx": "z_idx"
+      },
+      "crad_noz": {
+        "C_gamma_born": "C_gamma_born",
+        "C_gamma_born_stat_unc": "C_gamma_born_stat_unc",
+        "C_rad_mixed_published": "C_rad_mixed_published",
+        "F_EWgamma": "F_EWgamma",
+        "bin_index": "bin_index",
+        "cell": "cell",
+        "charge": "charge",
+        "empz_mode": "empz_mode",
+        "finite_flag": "finite_C_gamma_born",
+        "identity_residual": "identity_residual",
+        "pT_max": "pTh_max",
+        "pT_min": "pTh_min",
+        "q2_max": "Q2_max",
+        "q2_min": "Q2_min",
+        "relative_stat_unc": "relative_stat_unc",
+        "sigma_gamma_born": "sigma_gamma_born",
+        "sigma_nonrad_mixed": "sigma_nonrad_mixed",
+        "sigma_rad_mixed": "sigma_rad_mixed",
+        "x_max": "x_max",
+        "x_min": "x_min",
+        "z_max": "z_max",
+        "z_min": "z_min"
+      },
+      "crad_withz": {
+        "C_rad": "C_rad",
+        "C_rad_stat_unc": "C_rad_stat_unc",
+        "bin_index": "bin_index",
+        "cell": "cell",
+        "charge": "charge",
+        "empz_mode": "empz_mode",
+        "finite_flag": "finite_C_rad",
+        "pT_max": "pTh_max",
+        "pT_min": "pTh_min",
+        "q2_max": "Q2_max",
+        "q2_min": "Q2_min",
+        "relative_stat_unc": "relative_stat_unc",
+        "sigma_nonrad": "sigma_nonrad",
+        "sigma_rad": "sigma_rad",
+        "x_max": "x_max",
+        "x_min": "x_min",
+        "z_max": "z_max",
+        "z_min": "z_min"
+      },
+      "release": {
+        "acceptance_rapgap": "acceptance_rapgap",
+        "bin_index": "bin_index",
+        "caveat": "caveat",
+        "cell_label": "cell_label",
+        "charge": "charge",
+        "cross_section_nb": "cross_section_nb",
+        "global_bin_index": "global_bin_index",
+        "method": "method",
+        "pT_idx": "pT_idx",
+        "pT_max": "pT_max",
+        "pT_min": "pT_min",
+        "q2_max": "q2_max",
+        "q2_min": "q2_min",
+        "q2_stratum": "q2_stratum",
+        "stat_unc_nb": "stat_unc_nb",
+        "supported": "supported",
+        "total_unc_rel": "total_unc_rel",
+        "toy_stat_unc_nb": "toy_stat_unc_nb",
+        "x_max": "x_max",
+        "x_min": "x_min",
+        "yield_unfolded": "yield_unfolded",
+        "z_idx": "z_idx",
+        "z_max": "z_max",
+        "z_min": "z_min"
+      }
+    },
+    "defaults": {
+      "_comment": "Values used when the corresponding CLI flag is not given.",
+      "method": "ibu",
+      "mode": "both",
+      "sigma_form": "binned",
+      "significant_digits": 4,
+      "sys_mode": "excl_all_stat"
+    },
+    "density": {
+      "_comment": "Density form: sigma_binned / true bin volume = (dQ2 * dx * dz * dpT_h) in GeV^3, giving d4sigma/dQ2 dx dz dpT_h in nb GeV^-3. For any bin whose x_max exceeds x_cap (the S3_x0 cell has x_max = 1.5), the x width is capped at x_cap - x_min per the canonical convention.",
+      "binned_units_label": "nb",
+      "density_units_label": "nb~GeV$^{-3}$",
+      "x_cap": 1.0
+    },
+    "expected": {
+      "_comment": "Documented cross-check values (from the release/campaign records) with tolerances. null = report-only (gate evaluated, cannot fail). Since the S2' repoint the withZ integrals are the Born release's own summary_totals.json values (additionally asserted hard by the release_meta gate); the noZ integrals are self-derived from these validated inputs (no independent campaign number exists) and were recomputed on the S2' basis; update them when repointing at a new release. previous_factor_tol_rel (0.0 = bit-identical) and factor_ratio_tol_rel drive the factor_columns_consistency gate against inputs.previous_product.",
+      "budget_internal_tol_rel": 1e-12,
+      "budget_nominal_vs_raw_rel_tol_by_method": {
+        "bbb": null,
+        "ibu": 1e-09
+      },
+      "crad_integral_tol_rel": 1e-09,
+      "edge_match_tol": 1e-09,
+      "factor_ratio_tol_rel": 1e-12,
+      "identity_born_raw_crad_tol_rel": 1e-12,
+      "integral_tol_rel": 1e-06,
+      "integrated_cgamma_born_by_charge": {
+        "neg": 1.0401468080806677,
+        "pos": 1.040960540463156
+      },
+      "integrated_crad_by_charge": {
+        "neg": 1.1410367377289135,
+        "pos": 1.1415172920054786
+      },
+      "lumi_nb": 351000.0,
+      "lumi_tol_rel": 1e-09,
+      "noZ_integral_tol_rel": 1e-09,
+      "noZ_integrals_nb_by_method": {
+        "bbb": {
+          "neg": 11.556630565791144,
+          "pos": 11.854149813863614
+        },
+        "ibu": {
+          "neg": 10.62961231458769,
+          "pos": 10.936684738828891
+        }
+      },
+      "noz_crosscheck_tol_rel": 1e-09,
+      "noz_stat_rel_tolerance": 1e-09,
+      "previous_factor_tol_rel": 0.0,
+      "rel_unc_bounds": [
+        0.0,
+        10.0
+      ],
+      "release_meta_integral_tol_rel": 1e-09,
+      "volume_cap_margin_rel": 0.1,
+      "volume_consistency_tol_rel": 0.001,
+      "volume_recompute_tol_rel": 1e-12,
+      "withZ_integrals_nb_by_method": {
+        "bbb": {
+          "neg": 11.657483067530787,
+          "pos": 11.982899018247757
+        },
+        "ibu": {
+          "neg": 11.663955534683723,
+          "pos": 11.996558161307064
+        }
+      }
+    },
+    "formatting": {
+      "_comment": "Number formats. --digits overrides significant_digits (the factor columns keep factor_digits). edge_format is applied to bin edges; a decimal point is ensured. use_siunitx=false keeps plain r columns so the AN compiles without extra packages. The header lists and column specs cover EIGHT columns (TEN in split factor mode): z, pT_h, sigma, stat, syst, C_rad, C_gamma_Born, and the four-dimensional bin volume in GeV^3 as the final column. BOTH radiative-correction factors appear in BOTH table sets in fixed order (C_rad then C_gamma_Born); each factor prints as value$\\pm$uncertainty with the VALUE at factor_digits (3) and the UNCERTAINTY at factor_unc_digits (2) significant digits -- two config keys; a single shared digit count is infeasible at the analysis-note text width (the published four-digit sigma/stat./syst. scientific-notation cells alone fix about 168pt of width). Headers wider than their column's data width are typeset as two-line \\shortstack stacks with identical text. tabcolsep_pt (null = LaTeX default 6pt, nothing emitted) is written into every shipped block as a width knob.",
+      "column_spec_plain": "rrrrrrrr",
+      "column_spec_plain_split": "rrrrrrrrrr",
+      "column_spec_siunitx": "rrSSSSSS",
+      "column_spec_siunitx_split": "rrSSSSSSSS",
+      "edge_format": "%.10g",
+      "factor_digits": 3,
+      "factor_unc_digits": 2,
+      "headers": {
+        "binned": [
+          "$z$ range",
+          "\\shortstack[r]{$p_{T,h}$ range\\\\(GeV)}",
+          "$\\sigma$ (nb)",
+          "\\shortstack[r]{stat.\\ unc.\\\\(nb)}",
+          "\\shortstack[r]{syst.\\ unc.\\\\(nb)}",
+          "%(factor_header_withZ)s",
+          "%(factor_header_noZ)s",
+          "\\shortstack[r]{$\\Delta V$\\\\(GeV$^3$)}"
+        ],
+        "density": [
+          "$z$ range",
+          "\\shortstack[r]{$p_{T,h}$ range\\\\(GeV)}",
+          "\\shortstack[r]{$d^4\\sigma$\\\\(nb GeV$^{-3}$)}",
+          "\\shortstack[r]{stat.\\ unc.\\\\(nb GeV$^{-3}$)}",
+          "\\shortstack[r]{syst.\\ unc.\\\\(nb GeV$^{-3}$)}",
+          "%(factor_header_withZ)s",
+          "%(factor_header_noZ)s",
+          "\\shortstack[r]{$\\Delta V$\\\\(GeV$^3$)}"
+        ],
+        "factor_header_by_mode": {
+          "noZ": "$C_{\\gamma\\mathrm{Born}}$",
+          "withZ": "$C_{\\mathrm{rad}}$"
+        },
+        "split_extra_header": "scheme unc."
+      },
+      "missing_value": "--",
+      "pm_separator": "$\\pm$",
+      "range_separator": "--",
+      "significant_digits": 4,
+      "tabcolsep_pt": 1.0,
+      "use_siunitx": false,
+      "z_group_separator": "\\addlinespace"
+    },
+    "grid": {
+      "_comment": "Expected binning. The code derives expected rows per charge = len(cells)*n_z_bins*n_pt_bins and total = that times len(charges.order). No counts are hardcoded in code.",
+      "cells": [
+        "S0_x0",
+        "S0_x1",
+        "S1_x0",
+        "S1_x1",
+        "S2_x0",
+        "S2_x1",
+        "S3_x0"
+      ],
+      "n_pt_bins": 5,
+      "n_z_bins": 7
+    },
+    "inputs": {
+      "budget": {
+        "_comment": "Canonical 15-component S2' systematics budget (13 central-mirroring components + detint_removal_rel + fakecol_mcstat_rel; published total column total_with_s2prime15_rel). Its nominal_cross_section_nb column refers to the RAW parent (IBU) -- enforced by a gate with a per-method tolerance. c_rad_gen_rel / c_rad_stat_rel are carried UNCHANGED from the emfix-pair recipe: take them FROM THE BUDGET, do not recompute.",
+        "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/systematics_bgsub_env100_21comp_2026-10-19/bgsub_env100_21comp_budget.csv"
+      },
+      "crad_noz": {
+        "_comment": "C_gamma_born WITHOUT Z exchange (DJANGOH14 NoZ photon-exchange-only Born sample, releasebin, EMPZ>45). UNCHANGED by the 2026-10-10 S2' promotion. bin_index is GLOBAL.",
+        "campaign_summary_charge_keys": {
+          "neg": "h-",
+          "pos": "h+"
+        },
+        "campaign_summary_json": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_nozborn_crad_releasebin_2026-10-09/cgammaborn_v1_summary.json",
+        "campaign_summary_pointer": "variants.empz_gt45.nominal.integrated_C_gamma_born_by_charge",
+        "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_nozborn_crad_releasebin_2026-10-09/cgammaborn_empz_gt45_nominal_490rows.csv"
+      },
+      "crad_withz": {
+        "_comment": "APPLIED C_rad WITH Z exchange (DJANGOH14 releasebin (Q2esGen, x_es_gen), EMPZ>45, xFGen<0). UNCHANGED by the 2026-10-10 S2' promotion. bin_index is GLOBAL (pos: 0..N-1, neg: N..2N-1).",
+        "campaign_summary_charge_keys": {
+          "neg": "h-",
+          "pos": "h+"
+        },
+        "campaign_summary_json": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_crad_releasebin_2026-10-09/crad_v3_summary.json",
+        "campaign_summary_pointer": "variants.empz_gt45.nominal.integrated_C_rad_by_charge",
+        "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_crad_releasebin_2026-10-09/crad_v3_xfgen_lt0_empz_gt45_nominal_490rows.csv"
+      },
+      "previous_product": {
+        "_comment": "Sidecars of the PREVIOUS published S2' table product (2026-10-11, single-factor-column layout). Reference for the factor_columns_consistency gate: the own-convention factor columns of the new product (withZ C_rad, noZ C_gamma_Born; value and total uncertainty) must reproduce these per-bin values EXACTLY (expected.previous_factor_tol_rel = 0), proving that the two-factor column layout changed no published number. Also asserted: C_gamma_born / C_rad == F_EWgamma per bin (expected.factor_ratio_tol_rel). Update these two paths when a newer product supersedes the 2026-10-11 one.",
+        "noZ_sidecar": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_noZ.csv",
+        "withZ_sidecar": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_withZ.csv"
+      },
+      "release_born": {
+        "_comment": "BORN-level canonical release (c_rad_applied=TRUE, WITH gamma*/Z). CURRENT since the 2026-10-10 S2' detint-fake promotion; its summary_totals.json is the source of the expected withZ integrals and of the release_meta per-charge totals assertion. --release-dir overrides release_dir; the method subdir and CSV name come from here.",
+        "cross_section_csv": "cross_sections.csv",
+        "method_subdirs": {
+          "bbb": "bbb",
+          "ibu": "ibu"
+        },
+        "release_dir": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/born_crad_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-15",
+        "summary_totals_filename": "summary_totals.json"
+      },
+      "release_raw": {
+        "_comment": "RAW PARENT release (no C_rad applied) of the Born release; parent of the identity gate and base of the no-Z central values. CURRENT since the 2026-10-10 S2' detint-fake promotion (supersedes the coherent-prior raw release); its own summary_totals.json per-charge totals are asserted by the release_meta gate via per_charge_totals_pointer.",
+        "cross_section_csv": "cross_sections.csv",
+        "method_subdirs": {
+          "bbb": "bbb",
+          "ibu": "ibu"
+        },
+        "release_dir": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/bbb_ibu_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-17",
+        "summary_totals_filename": "summary_totals.json"
+      }
+    },
+    "latex": {
+      "_comment": "One-shot compile of the wrapper (syntax + width accounting), run only if the engine exists on PATH; reported, never gates. The wrapper mimics the analysis-note page geometry: documentclass_options + wrapper_geometry reproduce the note (11pt, a4paper, margin=2.5cm), so the overfull-hbox count in the log measures fit against the note text width; the log's TEXTWIDTH_PT and the overfull counts are recorded in validation.json compile_check. caption_style selects the caption wording profile: 'internal' (captions.*, historical full-provenance wording, default) or 'public' (captions.public.*, plain external wording). caption_styles_allowed is the validated set. forbidden_caption_tokens: in public style a HARD gate fails if any token appears in any rendered caption line (case-insensitive and backslash-insensitive substring match, so LaTeX-escaped leaks are caught); extend this array for future releases.",
+      "caption_style": "public",
+      "caption_styles_allowed": [
+        "internal",
+        "public"
+      ],
+      "compile_check_enabled": true,
+      "documentclass": "article",
+      "documentclass_options": [
+        "11pt",
+        "a4paper"
+      ],
+      "engine": "pdflatex",
+      "engine_args": [
+        "-interaction=nonstopmode",
+        "-halt-on-error"
+      ],
+      "engine_timeout_s": 180,
+      "forbidden_caption_tokens": [
+        "releasebin",
+        "body+miss",
+        "coherentprior",
+        "coherent prior",
+        "EMPZ>45",
+        "EMPZ",
+        "P-CRAD-LUMI",
+        "P-CRAD",
+        "DIAGNOSTIC_MANIFEST_LEVEL",
+        "fake-fraction",
+        "fake fraction",
+        "B1 floor",
+        "B1-floored",
+        "b1floor",
+        "c_rad_gen_rel",
+        "c_rad_stat_rel",
+        "c_rad_applied",
+        "c_rad",
+        "c_gamma_born",
+        "ibu_stat_rel",
+        "ibu_model_rel",
+        "ibu_reg_rel",
+        "hfs_jes_rel",
+        "hfs_rces_rel",
+        "hfs_theta_rel",
+        "elec_energy_rel",
+        "elec_theta_rel",
+        "lumi_rel",
+        "tracking_eff_m0p5_rel",
+        "phi_h_gauss_rel",
+        "TUnfold",
+        "PROVISIONAL",
+        "IBU",
+        "BBB",
+        "DJANGOH",
+        "RAPGAP",
+        "H1OO",
+        "zlow005",
+        "zlow",
+        "pT5",
+        "xFGen",
+        "esGen",
+        "E-P_z",
+        "sigma_rad",
+        "sigma_nonrad",
+        "sigma_raw",
+        "no-bgsub",
+        "physics-final",
+        "born_crad",
+        "S0_x0",
+        "S0_x1",
+        "S1_x0",
+        "S1_x1",
+        "S2_x0",
+        "S2_x1",
+        "S3_x0",
+        "S3xmerged",
+        "eta1p6",
+        "radlen5",
+        "nhit5",
+        "output_v6",
+        "sidis_highQ2",
+        "BaryonAsym",
+        "/data/",
+        "/afs/",
+        "sha256",
+        ".csv",
+        ".tex",
+        ".json",
+        "bin_volume_gev3",
+        "x_max_effective",
+        "x_width_effective",
+        "x_cap",
+        "detint",
+        "fakecol",
+        "s2prime",
+        "S2'",
+        "detints2prime",
+        "15comp",
+        "15-component",
+        "total_with_s2prime15_rel",
+        "total_with_crad13_rel",
+        "bookkeeping",
+        "F_EWgamma",
+        "FEWgamma",
+        "EWgamma",
+        "relative_stat_unc",
+        "relstat",
+        "crad_unc_mode",
+        "noz_crad_gen_mode",
+        "scheme spread",
+        "scheme-spread",
+        "scheme unc",
+        "proxy",
+        "fp_crad",
+        "fp_cgb",
+        "factor_pieces",
+        "c_rad_stat_unc",
+        "c_gamma_born_stat_unc",
+        "alphaveto",
+        "legenv",
+        "shiftedlegs",
+        "total_with_cone15_rel"
+      ],
+      "packages": [
+        "booktabs"
+      ],
+      "wrapper_geometry": "margin=2.5cm"
+    },
+    "outputs": {
+      "_comment": "--out overrides out_dir; all other names are relative to out_dir. block/label patterns are printf-style with keys mode, charge (file token), cell (cell label), cellclean (cell label without underscores).",
+      "block_pattern": "block_%(mode)s_%(charge)s_%(cell)s.tex",
+      "blocks_dir": "blocks",
+      "compile_wrapper": "compile_check.tex",
+      "label_pattern": "tab:sidis-crosssections-%(mode)s-%(charge)s-%(cellclean)s",
+      "noZ_tex": "tables_no_Zexchange.tex",
+      "out_dir": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/highQ2_z005_cone_env100_born_public_2026-10-19",
+      "provenance_json": "provenance.json",
+      "sidecar_pattern": "numbers_%(mode)s.csv",
+      "validation_json": "validation.json",
+      "withZ_tex": "tables_with_Zexchange.tex"
+    },
+    "provenance_notes": {
+      "_comment": "Verbatim status lines (no printf applied) written into every .tex header comment.",
+      "incl_crad_stat_noz_note": "NOTE: in no-Z mode the budget component c_rad_stat_rel is the WITH-Z C_rad MC-statistical component, carried as a proxy; it is excluded by the default sys-mode excl_all_stat.",
+      "noz_carry_note": "NO-Z MODE BOOKKEEPING: c_rad_gen_rel is CARRIED OVER from the WITH-Z DJANGOH14-vs-RAPGAP C_rad pair as the scheme-spread proxy for C_gamma_born; no RAPGAP NoZ photon-only sample exists (noz_crad_gen_mode=carry).",
+      "noz_drop_note": "NO-Z MODE BOOKKEEPING: c_rad_gen_rel is EXCLUDED from the systematic quadrature (no RAPGAP NoZ photon-only sample exists); C_gamma_born is quoted with its statistical uncertainty only (noz_crad_gen_mode=drop).",
+      "status_lines": [
+        "PROVISIONAL / NOT PHYSICS-FINAL -- analysis-note tables; values to be tweaked.",
+        "P-CRAD-LUMI: C_rad exposure provenance FILE-SET-RECONCILED (generator-log-open ceiling since 2026-10-09); C_rad is NOT publication-grade.",
+        "Releasebin baseline PROVISIONAL (promotion gate, not publication clearance).",
+        "EMPZ>45 convention decision CLOSED 2026-10-09 (GenEmpz>45 retained, release-matched truth contract; no applied table changed).",
+        "OBSERVABLE BASIS cone-S2' (alphaveto-cone promotion 2026-10-13, CURRENT): S2' det.int. Class 2 removed RESPONSE-INTERNALLY via enlarged per-reco-bin f_i (removable fraction 0.909618 pooled) PLUS the alpha >= 0.2 rad laboratory-frame electron-cone veto on the reco legs (after the e/V0 truth vetoes, before the z-guard / matched-fake classification / det.int. reroute; gen side unchanged; cone-rejected matched legs flow to the miss row); k_parented charged-K DIF kept as signal; external det.int. subtraction is FORBIDDEN (double removal + keeper violation); coherent body+miss prior computed FROM the cone+S2' variant rapgap31 response (R10-asserted).",
+        "Release is raw/no-bgsub with response fake-fraction subtraction only (cone+S2' response-internal RG integrated f_i 11.2335% h+ / 10.8698% h-; no-cone S2' 11.2403% / 10.8737%; superseded pre-S2' scalars 10.7141% / 10.4019%); inherited unsubtracted track-level background is multiplied by the correction factor.",
+        "No species PID (inclusive charged hadrons); multiplicities blocked (no DIS denominator).",
+        "z<0.05 per-bin xF/EMPZ definition sensitivity is CAVEAT-ONLY since 2026-10-09 (no budget component); S2' per-bin definition sensitivity is carried by detint_removal_rel.",
+        "15-component cone-S2' LEG-ENVELOPE budget (2026-10-14): the five detector components (elec_energy, elec_theta, hfs_jes, hfs_rces, hfs_theta) are FULL-CHAIN from the shifted-legs campaign (RAPGAP31 governs; per charge/component the whole per-bin vector of the leg with the larger robust median); tracking_eff_m0p5_rel remains data-side conservative; published total column total_with_cone15_rel (medians 5.8032% h+ / 6.1919% h-).",
+        "Mixed-beam validity only; not valid for any per-beam or e- Born target; do not compare against RAD-level MC predictions without the same correction.",
+        "STAT SOURCE (IBU) CHANGED vs the superseded 2026-10-11b set: the statistical column is toy_stat_unc_nb = (1000-toy sidecar / L_data) x C_rad (the C4b covariance drop-in chain, equal per bin to the budget ibu_stat_rel), NOT the release-job stat_unc_nb used by 2026-10-11b; BBB keeps stat_unc_nb (no BBB toy chain). On this release the two IBU columns agree to -16.9% .. +27.8% per bin (median -0.5%).",
+        "Supersedes the no-cone S2' product highQ2_z005_s2prime_born_public_2026-10-11b; the C_rad / C_gamma_born tables, the 245+245 binning, and the bin-volume convention (dV = dQ2 dx dz dpT_h, x width capped at 1.0 - x_min in the highest-x cell) are UNCHANGED."
+      ]
+    },
+    "release_meta": {
+      "_comment": "Cross-checks against the Born release's and the raw parent's own summary_totals.json (paths = release_dir/inputs.release_born|release_raw . summary_totals_filename); per_charge_totals_pointer is .format(charge=..., method=...) applied to the charges tree of BOTH files.",
+      "crad_applied_expected": true,
+      "crad_applied_field": "c_rad_applied",
+      "ibu_iter_expected_by_method": {
+        "bbb": null,
+        "ibu": 4
+      },
+      "ibu_iter_field": "ibu_selected_iter",
+      "lumi_field": "lumi_nb",
+      "per_charge_totals_pointer": "charges.{charge}.{method}_total_nb"
+    },
+    "schema_version": "1.2",
+    "sidecar_fields": [
+      "mode",
+      "charge",
+      "charge_crad_token",
+      "bin_index",
+      "global_bin_index",
+      "cell_label",
+      "q2_stratum",
+      "q2_min",
+      "q2_max",
+      "x_min",
+      "x_max",
+      "x_max_effective",
+      "x_width_effective",
+      "z_idx",
+      "z_min",
+      "z_max",
+      "pT_idx",
+      "pT_min",
+      "pT_max",
+      "bin_volume_gev3",
+      "yield_unfolded",
+      "retained",
+      "sigma_binned_nb",
+      "stat_unc_binned_nb",
+      "syst_unc_binned_nb",
+      "sigma_density_nb_per_gev3",
+      "stat_unc_density_nb_per_gev3",
+      "syst_unc_density_nb_per_gev3",
+      "stat_rel_percent",
+      "syst_rel_percent",
+      "factor_name",
+      "factor_value",
+      "factor_stat_unc",
+      "factor_gen_scheme_unc",
+      "factor_total_unc",
+      "factor_total_unc_rel_percent",
+      "sigma_raw_nb",
+      "C_rad",
+      "C_rad_stat_unc",
+      "C_rad_gen_scheme_unc",
+      "C_rad_total_unc",
+      "C_rad_total_unc_rel_percent",
+      "C_gamma_born",
+      "C_gamma_born_stat_unc",
+      "C_gamma_born_gen_scheme_unc",
+      "C_gamma_born_total_unc",
+      "C_gamma_born_total_unc_rel_percent",
+      "F_EWgamma",
+      "budget_nominal_cross_section_nb",
+      "budget_published_total_rel",
+      "comp_ibu_stat_rel",
+      "comp_ibu_model_rel",
+      "comp_ibu_reg_rel",
+      "comp_hfs_jes_rel",
+      "comp_hfs_rces_rel",
+      "comp_hfs_theta_rel",
+      "comp_elec_energy_rel",
+      "comp_elec_theta_rel",
+      "comp_lumi_rel",
+      "comp_tracking_eff_m0p5_rel",
+      "comp_phi_h_gauss_rel",
+      "comp_c_rad_gen_rel",
+      "comp_c_rad_stat_rel",
+      "comp_detint_removal_rel",
+      "comp_fakecol_mcstat_rel"
+    ],
+    "systematics": {
+      "_comment": "15-component S2' budget (13 central-mirroring components + detint_removal_rel + fakecol_mcstat_rel). The DEFAULT systematic column is the quadrature of all components minus the sys-mode excludes (i.e. 13 components: ibu_stat_rel and c_rad_stat_rel excluded, detint_removal_rel and fakecol_mcstat_rel included). noz_crad_gen_mode: carry = reuse c_rad_gen_rel as the no-Z scheme-spread proxy (with an explicit .tex comment); drop = exclude it and quote C_gamma_born stat-only. crad_unc_mode: quadrature = factor unc is stat (+ gen) in quadrature; stat_only = factor stat unc only; split = two separate columns.",
+      "component_display": {
+        "c_rad_gen_rel": "C_rad generator scheme (DJANGOH14 vs RAPGAP)",
+        "c_rad_stat_rel": "C_rad MC statistics",
+        "detint_removal_rel": "det.int. Class-2 removal (S2' response variant, response-internal)",
+        "elec_energy_rel": "electron energy",
+        "elec_theta_rel": "electron polar angle",
+        "fakecol_mcstat_rel": "fake-column MC statistics (S2' enlarged-f_i response)",
+        "hfs_jes_rel": "HFS jet-energy scale",
+        "hfs_rces_rel": "HFS RCES",
+        "hfs_theta_rel": "HFS polar angle",
+        "ibu_model_rel": "IBU model (B1-floored cross-closure)",
+        "ibu_reg_rel": "IBU regularization",
+        "ibu_stat_rel": "unfolded-data statistical",
+        "lumi_rel": "luminosity",
+        "phi_h_gauss_rel": "phi_h acceptance (Gaussian smear)",
+        "tracking_eff_m0p5_rel": "tracking efficiency (-0.5%)"
+      },
+      "components": [
+        "ibu_stat_rel",
+        "ibu_model_rel",
+        "ibu_reg_rel",
+        "hfs_jes_rel",
+        "hfs_rces_rel",
+        "hfs_theta_rel",
+        "elec_energy_rel",
+        "elec_theta_rel",
+        "lumi_rel",
+        "tracking_eff_m0p5_rel",
+        "phi_h_gauss_rel",
+        "c_rad_gen_rel",
+        "c_rad_stat_rel",
+        "detint_removal_model_rel",
+        "detint_removal_stat_rel",
+        "detint_removal_rel",
+        "fakecol_mcstat_rel",
+        "bgsub_model_rel",
+        "bgsub_stage_rel",
+        "bgsub_fakefrac_rel",
+        "bgsub_env100_rel"
+      ],
+      "crad_unc_mode": "quadrature",
+      "crad_unc_modes_allowed": [
+        "quadrature",
+        "stat_only",
+        "split"
+      ],
+      "noz_crad_gen_mode": "carry",
+      "raw_parent_stat_mode_by_method": {
+        "bbb": "column",
+        "ibu": "born_over_crad"
+      },
+      "stat_column_by_method": {
+        "bbb": "stat_unc_nb",
+        "ibu": "toy_stat_unc_nb"
+      },
+      "sys_modes": {
+        "excl_all_stat": {
+          "excludes": [
+            "ibu_stat_rel",
+            "c_rad_stat_rel"
+          ]
+        },
+        "incl_crad_stat": {
+          "excludes": [
+            "ibu_stat_rel"
+          ]
+        },
+        "published_total": {
+          "excludes": [],
+          "use_total_column": "total_with_s2prime15_rel"
+        }
+      }
+    }
+  },
+  "config_chain": [
+    {
+      "path": "sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/highQ2_z005_cone_env100_born_public_2026-10-19/table_config_env100_public_2026-10-19.json",
+      "sha256": "c3d05b777a6a582b28b0c7331cf9b2e60441ec08d53cb1c149327df1311d5b2d"
+    },
+    {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/tables/latex_cross_section_tables_2026-10-09/table_config_cone_public_2026-10-16.json",
+      "sha256": "7dd677ae5f959304d59de4026b1eade6f7bc05b44a0ec7791a057e66458a87ac"
+    },
+    {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/tables/latex_cross_section_tables_2026-10-09/table_config_cone_2026-10-16.json",
+      "sha256": "ac83d67ca12fc918c95354fb626ab254e5225b959d206b7b3f9e7b78f4999824"
+    },
+    {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/tables/latex_cross_section_tables_2026-10-09/table_config.json",
+      "sha256": "5eb534e90b7991fd4a3103d8ef355ac68cec4a574d82609cd2c9fe5cc159eb82"
+    }
+  ],
+  "config_path": "sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/highQ2_z005_cone_env100_born_public_2026-10-19/table_config_env100_public_2026-10-19.json",
+  "config_sha256": "c3d05b777a6a582b28b0c7331cf9b2e60441ec08d53cb1c149327df1311d5b2d",
+  "effective_options": {
+    "caption_style": "public",
+    "crad_unc_mode": "quadrature",
+    "digits": 4,
+    "method": "ibu",
+    "mode": "withZ",
+    "noz_crad_gen_mode": "carry",
+    "out_dir": "sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/highQ2_z005_cone_env100_born_public_2026-10-19",
+    "sigma_form": "binned",
+    "sys_mode": "published_total"
+  },
+  "empz_modes": {
+    "crad_noz": [
+      "empz_gt45"
+    ],
+    "crad_withz": [
+      "empz_gt45"
+    ]
+  },
+  "generated_utc": "2026-10-19T03:09:57Z",
+  "generator": "generate_latex_cross_section_tables.py",
+  "generator_sha256": "ad4ae2c028001f1357da5aae52d796709a5b3869a62f8738e71cb27cc6b8bb39",
+  "generator_version": "1.2.2",
+  "identity_residual_max_abs": 2.21616578365196e-16,
+  "inputs": {
+    "budget": {
+      "fieldnames": [
+        "charge",
+        "bin_index",
+        "global_bin_index",
+        "cell_label",
+        "q2_stratum",
+        "z_idx",
+        "pT_idx",
+        "nominal_cross_section_nb",
+        "ibu_stat_rel",
+        "ibu_model_rel",
+        "ibu_reg_rel",
+        "hfs_jes_rel",
+        "hfs_rces_rel",
+        "hfs_theta_rel",
+        "elec_energy_rel",
+        "elec_theta_rel",
+        "lumi_rel",
+        "total_quadrature_rel",
+        "tracking_eff_m0p5_rel",
+        "tracking_eff_m0p5_percent",
+        "tracking_eff_m0p5_abs_nb",
+        "tracking_eff_m0p5_source_abs_nb_central_campaign",
+        "tracking_eff_m0p5_source_nominal_nb_central_campaign",
+        "total_with_tracking_rel",
+        "total_with_tracking_percent",
+        "total_tracking_increment_rel",
+        "total_tracking_increment_percent_points",
+        "phi_h_gauss_rel",
+        "total_with_phih_rel",
+        "c_rad_gen_rel",
+        "c_rad_stat_rel",
+        "total_with_crad13_rel",
+        "total_with_crad13_percent",
+        "total_crad13_increment_rel",
+        "total_crad13_increment_percent_points",
+        "detint_removal_model_rel",
+        "detint_removal_stat_rel",
+        "detint_removal_rel",
+        "fakecol_mcstat_rel",
+        "total_with_cone15_rel",
+        "total_with_cone15_percent",
+        "total_cone15_increment_rel",
+        "total_cone15_increment_percent_points",
+        "bgsub_stat_rel",
+        "bgsub_model_rel",
+        "bgsub_stage_rel",
+        "bgsub_fakefrac_rel",
+        "total_with_bgsub19_rel",
+        "total_with_bgsub19_percent",
+        "total_bgsub19_increment_rel",
+        "total_bgsub19_increment_percent_points",
+        "bgsub_env100_rel",
+        "total_with_env100_rel",
+        "retired_bgsub_stat_rel_audit_only"
+      ],
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/systematics_bgsub_env100_21comp_2026-10-19/bgsub_env100_21comp_budget.csv",
+      "rows": 490,
+      "sha256": "ba9ede68ec7c5d8437780efc766fa4c1a928a572b0694d858aed7e6ad1c52272"
+    },
+    "crad_noz": {
+      "fieldnames": [
+        "bin_index",
+        "charge",
+        "cell",
+        "Q2_min",
+        "Q2_max",
+        "x_min",
+        "x_max",
+        "z_min",
+        "z_max",
+        "pTh_min",
+        "pTh_max",
+        "empz_mode",
+        "sigma_gamma_born",
+        "sigma_rad_mixed",
+        "C_gamma_born",
+        "C_gamma_born_stat_unc",
+        "relative_stat_unc",
+        "gamma_born_n",
+        "rad_mixed_n",
+        "finite_C_gamma_born",
+        "C_rad_mixed_published",
+        "sigma_nonrad_mixed",
+        "F_EWgamma",
+        "identity_residual"
+      ],
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_nozborn_crad_releasebin_2026-10-09/cgammaborn_empz_gt45_nominal_490rows.csv",
+      "rows": 490,
+      "sha256": "7ec901af36d93b7f24e2ec8213b1883ab83a5a61f87a4ca03741b33cbee577e7"
+    },
+    "crad_withz": {
+      "fieldnames": [
+        "bin_index",
+        "charge",
+        "cell",
+        "Q2_min",
+        "Q2_max",
+        "x_min",
+        "x_max",
+        "z_min",
+        "z_max",
+        "pTh_min",
+        "pTh_max",
+        "empz_mode",
+        "sigma_rad",
+        "sigma_nonrad",
+        "C_rad",
+        "C_rad_stat_unc",
+        "relative_stat_unc",
+        "nonrad_n",
+        "rad_n",
+        "finite_C_rad"
+      ],
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_crad_releasebin_2026-10-09/crad_v3_xfgen_lt0_empz_gt45_nominal_490rows.csv",
+      "rows": 490,
+      "sha256": "cf810be44a59ed790ba78e0476eb8f59df96358357cc39e258e034ed31b22ef5"
+    },
+    "previous_noZ_sidecar": {
+      "fieldnames": [
+        "mode",
+        "charge",
+        "charge_crad_token",
+        "bin_index",
+        "global_bin_index",
+        "cell_label",
+        "q2_stratum",
+        "q2_min",
+        "q2_max",
+        "x_min",
+        "x_max",
+        "x_max_effective",
+        "x_width_effective",
+        "z_idx",
+        "z_min",
+        "z_max",
+        "pT_idx",
+        "pT_min",
+        "pT_max",
+        "bin_volume_gev3",
+        "yield_unfolded",
+        "retained",
+        "sigma_binned_nb",
+        "stat_unc_binned_nb",
+        "syst_unc_binned_nb",
+        "sigma_density_nb_per_gev3",
+        "stat_unc_density_nb_per_gev3",
+        "syst_unc_density_nb_per_gev3",
+        "stat_rel_percent",
+        "syst_rel_percent",
+        "factor_name",
+        "factor_value",
+        "factor_stat_unc",
+        "factor_gen_scheme_unc",
+        "factor_total_unc",
+        "factor_total_unc_rel_percent",
+        "sigma_raw_nb",
+        "C_rad",
+        "C_gamma_born",
+        "F_EWgamma",
+        "budget_nominal_cross_section_nb",
+        "budget_published_total_rel",
+        "comp_ibu_stat_rel",
+        "comp_ibu_model_rel",
+        "comp_ibu_reg_rel",
+        "comp_hfs_jes_rel",
+        "comp_hfs_rces_rel",
+        "comp_hfs_theta_rel",
+        "comp_elec_energy_rel",
+        "comp_elec_theta_rel",
+        "comp_lumi_rel",
+        "comp_tracking_eff_m0p5_rel",
+        "comp_phi_h_gauss_rel",
+        "comp_c_rad_gen_rel",
+        "comp_c_rad_stat_rel",
+        "comp_detint_removal_rel",
+        "comp_fakecol_mcstat_rel"
+      ],
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_noZ.csv",
+      "rows": 490,
+      "sha256": "f5d7a56ea12f3841cf7e4cfb4a2ef745721f4a3de940a6f52bda231e87ceec1f"
+    },
+    "previous_withZ_sidecar": {
+      "fieldnames": [
+        "mode",
+        "charge",
+        "charge_crad_token",
+        "bin_index",
+        "global_bin_index",
+        "cell_label",
+        "q2_stratum",
+        "q2_min",
+        "q2_max",
+        "x_min",
+        "x_max",
+        "x_max_effective",
+        "x_width_effective",
+        "z_idx",
+        "z_min",
+        "z_max",
+        "pT_idx",
+        "pT_min",
+        "pT_max",
+        "bin_volume_gev3",
+        "yield_unfolded",
+        "retained",
+        "sigma_binned_nb",
+        "stat_unc_binned_nb",
+        "syst_unc_binned_nb",
+        "sigma_density_nb_per_gev3",
+        "stat_unc_density_nb_per_gev3",
+        "syst_unc_density_nb_per_gev3",
+        "stat_rel_percent",
+        "syst_rel_percent",
+        "factor_name",
+        "factor_value",
+        "factor_stat_unc",
+        "factor_gen_scheme_unc",
+        "factor_total_unc",
+        "factor_total_unc_rel_percent",
+        "sigma_raw_nb",
+        "C_rad",
+        "C_gamma_born",
+        "F_EWgamma",
+        "budget_nominal_cross_section_nb",
+        "budget_published_total_rel",
+        "comp_ibu_stat_rel",
+        "comp_ibu_model_rel",
+        "comp_ibu_reg_rel",
+        "comp_hfs_jes_rel",
+        "comp_hfs_rces_rel",
+        "comp_hfs_theta_rel",
+        "comp_elec_energy_rel",
+        "comp_elec_theta_rel",
+        "comp_lumi_rel",
+        "comp_tracking_eff_m0p5_rel",
+        "comp_phi_h_gauss_rel",
+        "comp_c_rad_gen_rel",
+        "comp_c_rad_stat_rel",
+        "comp_detint_removal_rel",
+        "comp_fakecol_mcstat_rel"
+      ],
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_withZ.csv",
+      "rows": 490,
+      "sha256": "7d1eb0189d11c30ab14e36d9704724dfbad8350866f4a38d22c3554891cb49e9"
+    },
+    "release_born": {
+      "fieldnames": [
+        "charge",
+        "bin_index",
+        "global_bin_index",
+        "cell_label",
+        "q2_stratum",
+        "q2_min",
+        "q2_max",
+        "x_subbin",
+        "x_min",
+        "x_max",
+        "z_idx",
+        "z_min",
+        "z_max",
+        "pT_idx",
+        "pT_min",
+        "pT_max",
+        "yield_unfolded",
+        "cross_section_nb",
+        "stat_unc_yield",
+        "stat_unc_nb",
+        "analytic_stat_unc_yield",
+        "analytic_stat_unc_nb",
+        "model_unc_yield",
+        "model_unc_nb",
+        "reg_unc_yield",
+        "reg_unc_nb",
+        "toy_stat_unc_yield",
+        "toy_stat_unc_nb",
+        "total_unc_yield_diag",
+        "total_unc_nb_diag",
+        "total_unc_yield",
+        "total_unc_nb",
+        "total_unc_rel",
+        "acceptance_rapgap",
+        "prior_gen_rapgap",
+        "supported",
+        "method",
+        "central_response",
+        "response_variant_id",
+        "prior_basis",
+        "cone_status",
+        "observable_basis",
+        "model_response_available",
+        "toy_covariance_json",
+        "toy_correlation_json",
+        "caveat"
+      ],
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/born_crad_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-15/ibu/cross_sections.csv",
+      "rows": 490,
+      "sha256": "b4f26cfc0b6f28279e437a7d3b47d680579b8850c5232688fd73b1dc226f6cd7"
+    },
+    "release_raw": {
+      "fieldnames": [
+        "charge",
+        "bin_index",
+        "global_bin_index",
+        "cell_label",
+        "q2_stratum",
+        "q2_min",
+        "q2_max",
+        "x_subbin",
+        "x_min",
+        "x_max",
+        "z_idx",
+        "z_min",
+        "z_max",
+        "pT_idx",
+        "pT_min",
+        "pT_max",
+        "yield_unfolded",
+        "cross_section_nb",
+        "stat_unc_yield",
+        "stat_unc_nb",
+        "analytic_stat_unc_yield",
+        "analytic_stat_unc_nb",
+        "model_unc_yield",
+        "model_unc_nb",
+        "reg_unc_yield",
+        "reg_unc_nb",
+        "toy_stat_unc_yield",
+        "toy_stat_unc_nb",
+        "total_unc_yield_diag",
+        "total_unc_nb_diag",
+        "total_unc_yield",
+        "total_unc_nb",
+        "total_unc_rel",
+        "acceptance_rapgap",
+        "prior_gen_rapgap",
+        "supported",
+        "method",
+        "central_response",
+        "response_variant_id",
+        "prior_basis",
+        "cone_status",
+        "observable_basis",
+        "model_response_available",
+        "toy_covariance_json",
+        "toy_correlation_json",
+        "caveat"
+      ],
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/bbb_ibu_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-17/ibu/cross_sections.csv",
+      "rows": 490,
+      "sha256": "70cf23a062ed155bac56750484c15a5aa21c43ab22e6afd86023b36784973e44"
+    }
+  },
+  "integrals": {
+    "expected_integrated_C_gamma_born": {
+      "neg": 1.0401468080806677,
+      "pos": 1.040960540463156
+    },
+    "expected_integrated_C_rad": {
+      "neg": 1.1410367377289135,
+      "pos": 1.1415172920054786
+    },
+    "expected_noZ_nb": {
+      "neg": 10.62961231458769,
+      "pos": 10.936684738828891
+    },
+    "expected_withZ_nb": {
+      "neg": 11.663955534683723,
+      "pos": 11.996558161307064
+    },
+    "integrated_C_gamma_born": {
+      "neg": 1.0401468080806677,
+      "pos": 1.040960540463156
+    },
+    "integrated_C_rad": {
+      "neg": 1.1410367377289135,
+      "pos": 1.1415172920054786
+    },
+    "noZ_nb": {
+      "neg": 10.62961231458769,
+      "pos": 10.936684738828891
+    },
+    "raw_from_release_metadata_nb": {
+      "neg": 10.217502550738818,
+      "pos": 10.50881083667206
+    },
+    "raw_nb": {
+      "neg": 10.217502550738827,
+      "pos": 10.508810836672062
+    },
+    "withZ_from_release_metadata_nb": {
+      "neg": 11.663955534683723,
+      "pos": 11.996558161307064
+    },
+    "withZ_nb": {
+      "neg": 11.663955534683728,
+      "pos": 11.996558161307064
+    }
+  },
+  "release_caveats": {
+    "release_born": [
+      "PROVISIONAL BORN-LEVEL CANDIDATE (bgsub set R', cone base) -- c_rad_applied=true (DJANGOH14 xFGen<0 release-safe x_es_gen binning [releasebin 2026-10-09], EMPZ>45); pre-unfold set-R' background subtraction (cone-applied e + V0 gen-avg + lowQ2, as packaged, NO rescale) on the cone data vector (cone-basis S2' observable, electron-cone selection) with the empty-bin guard; response fake fraction unchanged and applied exactly once (11.3063% h+ / 10.9326% h- of data_sub'); integrated f_res' on D_cone 7.1686% h+ / 7.3886% h-; E1b variance recorded, toy/released statistical input Poisson-only (w2 = data_sub'); multiplicities blocked (no DIS denominator); not physics-final; gate pending (26 items); do not compare against RAD-level MC predictions without the same correction."
+    ],
+    "release_raw": [
+      "PROVISIONAL DIAGNOSTIC IBU+BBB -- bgsub_setRprime_conebase: pre-unfold Set R' subtraction (cone-applied electron template AS PACKAGED, no rescale + V0 generator-average + lowQ2) on the CONE-basis S2' variant chain, response fake fraction unchanged and applied exactly once; no C_rad, not Born-level, no final physics approval; multiplicities blocked (no DIS denominator). Prior basis: cone body+miss response truth marginal. Observable basis: cone-basis S2' (bgsub_setRprime data vector). bgsub status: Set R' e+V0+lowQ2. Cone-selection flag: alpha >= 0.2 rad lab-frame electron cone (reco legs only)."
+    ]
+  },
+  "release_summary_totals": {
+    "bgsub_mode_label": "OFFICIAL build (built from the official re-unfold output; still CANDIDATE ONLY)",
+    "c_rad_applied": true,
+    "c_rad_table_key": "DJANGOH14_relbin",
+    "candidate": "born_crad_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-15",
+    "charges": {
+      "neg": {
+        "bbb_total_nb": 11.657483067530787,
+        "bbb_total_yield": 3592432.9415390594,
+        "ibu_total_nb": 11.663955534683723,
+        "ibu_total_unc_nb_quadrature_diag": 0.05460533602946513,
+        "ibu_total_unc_yield_quadrature_diag": 16809.787928096426,
+        "ibu_total_yield": 3586343.3953093253,
+        "nb_g": 245,
+        "nb_r": 490,
+        "supported_bins": 245,
+        "toy_stat_unc_median_yield": 56.40973188978825
+      },
+      "pos": {
+        "bbb_total_nb": 11.982899018247757,
+        "bbb_total_yield": 3693868.967226293,
+        "ibu_total_nb": 11.996558161307064,
+        "ibu_total_unc_nb_quadrature_diag": 0.05308720678141286,
+        "ibu_total_unc_yield_quadrature_diag": 16359.738133436515,
+        "ibu_total_yield": 3688592.603671893,
+        "nb_g": 245,
+        "nb_r": 490,
+        "supported_bins": 245,
+        "toy_stat_unc_median_yield": 56.895392855296215
+      }
+    },
+    "ibu_selected_iter": 4,
+    "lumi_nb": 351000.0,
+    "mode": "sub",
+    "raw_yield_vs_born_cross_section_warning": "YIELD POLICY CHOICE A (inherited): the *_total_yield and *_median_yield keys are RAW data-level unfolded counts of the set-R'-subtracted data vector (cone base), while the *_total_nb keys are BORN-level cross sections (per-bin C_rad applied). lumi_nb = 351000.0 nb^-1 is the data luminosity. yield = cross_section_nb x lumi_nb does NOT hold in this Born candidate. To recover the raw-level relation divide the Born cross section by C_rad(bin) x lumi_nb.",
+    "schema": "sidis_highq2_bgsub_setrprime_conebase_reunfold_summary_v1",
+    "scope": "full"
+  },
+  "stat_column": {
+    "alternative": "stat_unc_nb",
+    "alternative_differs_in_rows": 0,
+    "alternative_populated_rows": 490,
+    "max_rel_difference": 0.0,
+    "note": "alternative column absent or identical",
+    "used": "toy_stat_unc_nb"
+  },
+  "status": "OK -- tables generated, all gates passed",
+  "systematic_components": {
+    "all_budget_components": [
+      "ibu_stat_rel",
+      "ibu_model_rel",
+      "ibu_reg_rel",
+      "hfs_jes_rel",
+      "hfs_rces_rel",
+      "hfs_theta_rel",
+      "elec_energy_rel",
+      "elec_theta_rel",
+      "lumi_rel",
+      "tracking_eff_m0p5_rel",
+      "phi_h_gauss_rel",
+      "c_rad_gen_rel",
+      "c_rad_stat_rel",
+      "detint_removal_model_rel",
+      "detint_removal_stat_rel",
+      "detint_removal_rel",
+      "fakecol_mcstat_rel",
+      "bgsub_model_rel",
+      "bgsub_stage_rel",
+      "bgsub_fakefrac_rel",
+      "bgsub_env100_rel"
+    ],
+    "excluded": null,
+    "included": null,
+    "sys_mode": "published_total"
+  },
+  "validation_json": "sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/highQ2_z005_cone_env100_born_public_2026-10-19/validation.json"
+}

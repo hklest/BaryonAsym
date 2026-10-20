@@ -1,0 +1,77 @@
+% =============================================================================
+%  Section: Monte Carlo Simulation
+%  H1 Charged-Hadron SIDIS High-Q^2 Analysis Note
+% =============================================================================
+\section{Monte Carlo Simulation}
+\label{sec:monte_carlo}
+
+The detector corrections are derived from fully simulated H1 Monte Carlo
+samples processed with the same charged-SIDIS reconstruction chain as the
+data.  The nominal signal-model comparison uses DJANGOH and RAPGAP response
+matrices.  DJANGOH provides a DIS sample with QED radiative effects through
+HERACLES and QCD shower modelling through the standard H1 generator chain;
+RAPGAP provides an independent DIS generator model for the response and model
+uncertainty comparison \cite{Charchula:1994kf,Kwiatkowski:1990es,Jung:1993gf}.
+Detector simulation uses the standard H1 GEANT-based chain \cite{Brun:1987ma}.
+
+MC event weights are applied consistently in the response and data-vector
+construction.  The standard factors are the generator weight, the L5 user
+weight, the trigger weight where applicable, and the nuclear interaction cross section correction weight.
+
+The response builder does not impose final generator-level fiducial cuts such as
+GenPt, GenEta, $x_F$, final-$\Qsq$, $y$, or $E-p_z$ inside the migration-matrix
+construction.  It applies the finite-$z_{\mathrm{gen}}$ filter and the charged
+hadron species/source/V0-veto conventions, while the final physics fiducial is
+imposed at the unfolding and truth-selection stage.  This separation keeps the
+migration matrix reusable for the nominal release and for systematic variants.
+
+\subsection{Generators Used in the Cross-Section Comparison}
+\label{sec:monte_carlo:comparison-generators}
+
+The diagnostic data--MC comparison of
+Sec.~\ref{sec:results:diagnostic-4d-cross-sections} overlays four generator
+predictions on the Born-level unfolded data: the two H1 detector-MC generators
+DJANGOH14 and RAPGAP31, and the two standalone generator-level programs
+PYTHIA~8.317 and SHERPA~3.0.3.
+
+DJANGOH14 \cite{Charchula:1994kf} is the H1 detector-MC signal generator.  QED
+radiation from the lepton line is generated through HERACLES
+\cite{Kwiatkowski:1990es}, the hard DIS scattering through LEPTO
+\cite{Ingelman:1996mq}, and the QCD cascade through the ARIADNE colour-dipole
+model \cite{Lonnblad:1992tz}, using the CTEQ6L parton distribution functions.
+The RAD high-$\Qsq$ (Q2GT60) samples are passed through the full GEANT-based H1
+detector simulation \cite{Brun:1987ma} and the same reconstruction chain as the
+data.  They cover the four HERA-II periods with ReqIDs 7093 (ep0304), 7092
+(em0405), 7072 (em06), and 7091 (ep0607), with a combined MC luminosity of
+$10{,}487{,}495.0~\nbinv$.  DJANGOH14 is also the source of the applied per-bin
+$C_{\mathrm{rad}}$ primary used for the Born-level conversion.
+
+RAPGAP31 \cite{Jung:1993gf} is an independent DIS generator combining
+order-$\alpha_s$ matrix elements with a leading-logarithm parton shower, also
+using CTEQ6L.  QED radiation through HERACLES is included in its RAD sample,
+again for the high-$\Qsq$ (Q2GT60) selection.  Its four HERA-II periods carry
+ReqIDs 7097 (ep0304), 7096 (em0405), 7071 (em06), and 7094 (ep0607), with a
+combined MC luminosity of $9{,}132{,}891.0~\nbinv$.  RAPGAP31 provides the
+central unfolding response of the current release.
+
+PYTHIA~8.317 \cite{Sjostrand:2014zea} and SHERPA~3.0.3 \cite{Sherpa:2019gpd}
+provide standalone generator-level predictions without detector simulation.
+Both are generated rad-off, with no QED radiation from the lepton line.  The
+PYTHIA8 setup uses the dipole shower with Lund string fragmentation and the
+audit-fixed DIS steering \texttt{SpaceShower:dipoleRecoil=on},
+\texttt{SpaceShower:pTmaxMatch=2}, \texttt{PDF:lepton=off}, with the
+lepton-line QED shower switched off.  The SHERPA3 setup uses Comix Born
+leading-order DIS matrix elements with AHADIC cluster hadronization and the
+\texttt{NNPDF31\_lo} parton distribution functions \cite{Ball:2017nwa}, with
+the YFS and \texttt{ME\_QED} QED stages disabled.  Each program was produced
+as a Rivet sample of $10^{7}$ generated events.
+
+The particle-level truth definition in the generators is the same as the analysis convention: final-state $\pi^{\pm}$, $K^{\pm}$, $p$, and $\bar p$ with
+$|\mathrm{PDG}|\in\{211,321,2212\}$ and no ancestor among the long-lived
+states $\{310,130,3122,3222,3112,3312,3322,3334\}$. Decay daughters of
+short-lived resonances and heavy flavors are retained. 
+
+Because PYTHIA8 and SHERPA3 are rad-off, their predictions are compared
+directly with the Born-level data.  The RAPGAP31 and DJANGOH14 truth curves
+are the generators' non-radiative (NORAD) sample predictions. Thus all four
+overlaid curves sit at the non-radiative level of the Born-corrected data.

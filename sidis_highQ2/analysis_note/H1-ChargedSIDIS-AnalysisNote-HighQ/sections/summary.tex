@@ -1,0 +1,57 @@
+% =============================================================================
+%  Section: Summary and Conclusions
+%  H1 Charged-Hadron SIDIS High-Q^2 Analysis Note
+% =============================================================================
+\section{Summary and Conclusions}
+\label{sec:summary}
+
+This note documents the inclusive charged-hadron SIDIS analysis at high
+$\Qsq$ with H1.  The analysis uses the full four-period HERA-II data sample with
+an integrated luminosity of $351~\pbinv$ and measures charge-separated inclusive
+hadrons without PID splitting.  The truth-level charged-hadron convention for
+response and acceptance work is limited to $\pi^{\pm}$, $K^{\pm}$, and $p/\bar p$.
+
+The current analysis release has a validated 490-row published-bin contract,
+with 245 $\hplus$ and 245 $\hminus$ bins, $N_{B,G}=245$ and $N_{B,R}=490$ per
+charge setup, response shape $(491,246)$ per charge, data-vector length 980,
+and a nominal four-iteration iterative Bayesian unfolding.  The selection
+includes the $\alpha\ge0.2~\mathrm{rad}$ laboratory-frame scattered-electron
+cone on the reconstructed legs, the unfolding prior is the response matrix's
+own generator-level distribution, and the electron, V0, and low-$\Qsq$
+background templates are subtracted from the data vector before unfolding.
+Detector, unfolding, tracking-efficiency,
+luminosity, and radiative systematics have been propagated into the total
+summary.  A
+RooUnfoldBayes cross-check reproduces the in-house IBU central yields to
+floating-point precision, with a maximum relative difference of
+$2.6\times10^{-15}$ across 980 rows.
+
+The radiative correction is applied to all released cross sections, which are
+therefore Born-level, and its uncertainty is carried as two systematic
+components; the application of the correction at the multiplicity level remains
+open.  The principal remaining limitations are this multiplicity-level mapping
+and the absence of a corrected inclusive DIS denominator.
+The current release should therefore be treated as a validated working release,
+not yet as a final physics multiplicity release.  The quoted total systematic
+budget of the frozen 2026-10-19 edition combines twenty active uncertainty
+terms on the background-subtracted basis, with median totals of
+$7.320288331169215\%$ ($\hplus$) and $7.637124635311324\%$ ($\hminus$); its
+principal background-related term is a fully correlated $\pm100\%$
+normalization envelope on the subtracted electron and V0 content.  The five
+detector-shift components are full-chain single-sided variations; the HFS legs
+are produced in the plus direction only and their sign symmetry is assumed,
+while the tracking-efficiency component remains a data-side conservative
+shift.  The electron, V0, and low-$\Qsq$ backgrounds are subtracted from the
+data vector before unfolding, while the detector-interaction removable class is
+removed response-internally and must not be subtracted again externally.  The
+applied $C_{\mathrm{rad}}$ is
+mixed-beam only, and the release is not publication-grade: the exposure of the
+simulated radiative samples is reconciled file by file, but the generator-log
+cross-check is permanently blocked externally, and the correction tables
+remain provisional.  The lab-$p_T$, $|\eta|$, and DCA variations provide
+robustness checks rather than central results.
+
+The low-$\Qsq$ charged-SIDIS companion analysis has a separate preliminary
+v3p3p1 TUnfold publication-track result and open systematic follow-ups.  It is
+kept separate from the high-$\Qsq$ analysis and is summarized here only to make
+the charged-SIDIS status across the two regimes explicit.

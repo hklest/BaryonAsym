@@ -1,0 +1,120 @@
+% =============================================================================
+% Appendix table blocks are generated products.  Technical provenance is kept
+% in their comment headers; rendered text below is intentionally reader-facing.
+% =============================================================================
+\section{Charged-hadron cross sections}
+\label{app:born-xsec-tables}
+
+\begingroup\sloppy\hbadness=9999
+
+These tables give cross sections for producing positively and negatively charged
+hadrons in deep-inelastic electron--proton scattering at high four-momentum
+transfer.  They use the $351~\pbinv$ data sample and are presented separately
+for the two charges, in bins of the hadron energy fraction $z$ and the hadron
+transverse momentum $\pTh$, within seven regions of the electron kinematics.
+
+The accepted phase space requires scattered-electron kinematics with
+$\Qsq > 150~\GeVsq$ and $0.1 < y < 0.7$.  Hadrons are required to lie within
+the central tracking acceptance, with $|\eta_h| < 1.6$.
+
+The tabulated values are at Born level.  The raw measurements are corrected for
+detector resolution and efficiency with an iterative Bayesian unfolding, and are
+also corrected for the emission of real photons and for the electroweak
+structure of the interaction.  They therefore refer to the underlying
+lepton--quark scattering process rather than to what the detector recorded.
+
+The tables use the Born-level convention that retains the interference with
+the $Z$ boson.  The photon-exchange-only correction factor is provided for
+reference, but photon-exchange-only cross sections are not tabulated in the
+current table product.
+
+Each row gives the cross section in nb for its bin, its statistical uncertainty,
+and its total systematic uncertainty.  The latter covers the reconstruction of
+hadron kinematics, the beam-energy and luminosity calibrations, tracking
+efficiency, the modelling of the interaction used in the detector corrections,
+the modelling of the radiative correction, and the detector-interaction removal
+and fake-column statistical components.  Both correction factors and their uncertainties are tabulated; the factor for
+the convention of each table has already been applied to its cross section, and
+the ratio of the two factors converts a cross section between the two conventions.
+
+Every entry is integrated over its four-dimensional bin.  The bin volume is
+given in the last column, and a theoretical prediction must first be integrated
+over the same volume before it is compared with a table entry.  Dividing the
+cross section by this volume gives a bin-averaged density; this derived quantity
+is deliberately not tabulated.  In the block at the highest $\Qsq$ and highest
+$x$, the physically allowed range ends at $x=1$, and the tabulated volumes
+already respect that limit.
+
+The values are preliminary and remain subject to revision.  These tables were
+generated on 2026-10-19 on the current observable basis: the
+$\alpha\ge0.2~\mathrm{rad}$ laboratory-frame
+scattered-electron cone is applied on the reconstructed legs, the electron,
+V0, and low-$\Qsq$ backgrounds are subtracted from the data vector before
+unfolding, detector-interaction removal is performed response-internally, and
+the charged-kaon decay-in-flight keeper is retained as signal.  They are
+Born-level
+($\texttt{c\_rad\_applied}=\texttt{TRUE}$) tables using the applied primary
+DJANGOH14 radiative correction in $(Q^2_{\mathrm{esGen}},x_{\mathrm{es,gen}})$,
+the iterative Bayesian unfolding, and, as the unfolding prior, the response
+matrix's own generator-level distribution from the RAPGAP31
+response.  The normalization is $L_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$;
+the 490 bins comprise 245 $h^+$ and 245 $h^-$ bins, beginning at
+$0.0<z<0.05$.  The integrated Born-level IBU cross sections are
+$11.997~\mathrm{nb}$ ($\hplus$) and $11.664~\mathrm{nb}$ ($\hminus$).
+Their raw IBU parent values are $10.508811~\mathrm{nb}$ and
+$10.217503~\mathrm{nb}$, respectively.  The highest-$x$ published cell is
+$0.021\leq x<1.0$, with $\Delta x=0.979$ in its tabulated volume.
+
+Per-bin total uncertainties use the frozen 2026-10-19 uncertainty budget
+\texttt{systematics\_bgsub\_env100\_21comp\_2026-10-19}, column
+\texttt{total\_with\_env100\_rel}.  It contains 21 inventory columns, with
+20 active quadrature terms and \texttt{bgsub\_stat\_rel} retained audit-only;
+its medians are $7.320288331169215\%$ for $h^+$ and
+$7.637124635311324\%$ for $h^-$.  The table-to-budget comparison covers all
+490 rows and has maximum absolute deviation zero.  Full technical provenance
+is retained in the comment headers of the generated table files.
+
+\subsection{Cross sections including $Z$-boson exchange}
+\label{app:born-xsec:withZ}
+
+These tables use the Born-level convention that retains the interference with
+the $Z$ boson.  Positively charged hadrons are listed first, followed by
+negatively charged hadrons.
+
+% The generated eight-column tables are set at \small through the note's
+% existing scoped float reset; the blocks set their own column spacing.
+\begingroup
+\makeatletter
+\def\@floatboxreset{\reset@font\small\@setminipage}
+\makeatother
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_pos_S0_x0}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_pos_S0_x1}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_pos_S1_x0}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_pos_S1_x1}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_pos_S2_x0}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_pos_S2_x1}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_pos_S3_x0}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_neg_S0_x0}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_neg_S0_x1}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_neg_S1_x0}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_neg_S1_x1}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_neg_S2_x0}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_neg_S2_x1}
+\clearpage
+\input{tables/highQ2_z005_cone_env100_born_public_2026-10-19/blocks/block_withZ_neg_S3_x0}
+\clearpage
+
+\endgroup
+\endgroup

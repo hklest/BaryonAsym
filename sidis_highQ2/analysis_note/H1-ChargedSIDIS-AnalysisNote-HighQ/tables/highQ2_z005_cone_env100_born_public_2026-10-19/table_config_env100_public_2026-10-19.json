@@ -1,0 +1,71 @@
+{
+  "_extends": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/tables/latex_cross_section_tables_2026-10-09/table_config_cone_public_2026-10-16.json",
+  "inputs": {
+    "release_born": {
+      "release_dir": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/born_crad_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-15"
+    },
+    "release_raw": {
+      "release_dir": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/bbb_ibu_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-17"
+    },
+    "budget": {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/systematics_bgsub_env100_21comp_2026-10-19/bgsub_env100_21comp_budget.csv"
+    }
+  },
+  "columns": {
+    "budget": {
+      "total_with_s2prime15_rel": "total_with_env100_rel"
+    }
+  },
+  "expected": {
+    "withZ_integrals_nb_by_method": {
+      "ibu": {
+        "pos": 11.996558161307064,
+        "neg": 11.663955534683723
+      },
+      "bbb": {
+        "pos": 11.982899018247757,
+        "neg": 11.657483067530787
+      }
+    },
+    "noZ_integrals_nb_by_method": {
+      "ibu": {
+        "pos": 10.936684738828891,
+        "neg": 10.62961231458769
+      }
+    }
+  },
+  "outputs": {
+    "out_dir": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/highQ2_z005_cone_env100_born_public_2026-10-19"
+  },
+  "systematics": {
+    "components": [
+      "ibu_stat_rel",
+      "ibu_model_rel",
+      "ibu_reg_rel",
+      "hfs_jes_rel",
+      "hfs_rces_rel",
+      "hfs_theta_rel",
+      "elec_energy_rel",
+      "elec_theta_rel",
+      "lumi_rel",
+      "tracking_eff_m0p5_rel",
+      "phi_h_gauss_rel",
+      "c_rad_gen_rel",
+      "c_rad_stat_rel",
+      "detint_removal_model_rel",
+      "detint_removal_stat_rel",
+      "detint_removal_rel",
+      "fakecol_mcstat_rel",
+      "bgsub_model_rel",
+      "bgsub_stage_rel",
+      "bgsub_fakefrac_rel",
+      "bgsub_env100_rel"
+    ],
+    "sys_modes": {
+      "published_total": {
+        "use_total_column": "total_with_s2prime15_rel",
+        "excludes": []
+      }
+    }
+  }
+}

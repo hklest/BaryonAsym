@@ -1,0 +1,13 @@
+%% AUTO-GENERATED one-shot compile-check wrapper.
+%% Syntax AND width check: the wrapper mimics the analysis-note
+%% page geometry (documentclass options and the optional geometry
+%% package setting all come from the config), so the overfull-
+%% hbox count in the log measures fit against the note's text
+%% width. The AN \input's the blocks or the combined files.
+\documentclass[11pt,a4paper]{article}
+\usepackage{booktabs}
+\usepackage[margin=2.5cm]{geometry}
+\begin{document}
+\typeout{TEXTWIDTH_PT=\the\textwidth}
+\input{tables_with_Zexchange.tex}
+\end{document}

@@ -1,0 +1,33 @@
+% =============================================================================
+%  Section: Acceptance Corrections
+%  H1 Charged-Hadron SIDIS High-Q^2 Analysis Note
+% =============================================================================
+\section{Acceptance Corrections}
+\label{sec:acceptance}
+
+Detector acceptance and bin migration are treated together through the response
+matrices used by the unfolding.  The z005 release stores both bin-by-bin (BBB)
+and iterative Bayesian unfolding (IBU) products.  The BBB correction is retained
+as a transparent diagonal reference and as a release cross-check, while the
+current central z005 working result uses IBU with nominal iteration $k=4$.
+
+The response is built separately for the two charges.  For each charge, the
+validated response shape is $(491,246)$, with 490 reconstructed bins and 245
+generator bins plus the unfolding bookkeeping bins.  The data vector combines
+the two charges and has length 980.  This structure allows the reconstructed
+resolution to be finer than the published generator grid while preserving a
+compact 245-bin result per charge.
+
+The response-builder stage deliberately avoids imposing final generator-level
+physics cuts inside the migration matrix.  It applies only the finite-$z_{\rm gen}$
+filter and the fixed charged-hadron species/source/V0-veto conventions.  The
+final fiducial requirements defining the published phase space are applied at
+the truth-selection and unfolding stage.  This avoids mixing detector-acceptance
+inefficiency with a generator-side detector-geometry cut.
+
+The nominal z005 release and all current shifted systematic releases use the
+same release contract: 245 generator bins per charge, 490 reconstructed bins per
+charge, and 490 published rows after the two charges are combined.  Validation
+checks require finite cross sections in all 490 IBU rows and no negative bins in
+the study-local shifted releases used for the detector/track-selection
+robustness comparisons.

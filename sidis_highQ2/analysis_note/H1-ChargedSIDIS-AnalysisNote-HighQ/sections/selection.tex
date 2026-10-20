@@ -1,0 +1,132 @@
+% =============================================================================
+%  Section: Event and Track Selection
+%  H1 Charged-Hadron SIDIS High-Q^2 Analysis Note
+% =============================================================================
+\section{Event and Track Selection}
+\label{sec:selection}
+
+The analysis uses the standard H1 high-$\Qsq$ neutral-current DIS event
+selection followed by a reconstructed-particle selection for the
+charged-hadron measurement.  The event preselection defines the accepted event
+sample that is passed to the skimmed analysis TTree and, for simulated samples, keeps additional reconstructed and generator-level
+information needed to model detector migrations.  The final analysis selection
+is applied identically to the measured reconstructed-particle sample and to the
+reconstructed side of the response-matrix construction.
+
+\subsection{DIS Event Preselection}
+\label{sec:selection:preselection}
+
+The DIS event preselection requires a well reconstructed scattered-electron
+candidate, a good primary vertex, and rejection of non-$ep$ and QED-Compton-like
+backgrounds.  The requirements are:
+\begin{itemize}
+  \item The good-run list and detector-status requirements are applied;
+  \item The S67 trigger (electron in the LAr calorimeter) is required;
+  \item The scattered-electron energy satisfies $E_e \ge 11.0~\GeV$, and the
+        scattered-electron polar angle satisfies $\theta_e < 2.7$ rad;
+  \item The event vertex is available from the standard neutral-current vertex
+        reconstruction: for forward electrons with $\theta_e<30^\circ$, the CJC
+        fallback vertex is also accepted; in either case
+        $|z_{\mathrm{vtx}}| \le 35.0~\mathrm{cm}$ is required;
+  \item The loose cut envelope used in generation of the skimmed analysis TTree is
+        $100 < Q^2_{e\Sigma} \le 20000~\GeVsq$,
+        $0.05 < y_{e\Sigma} < 0.9$, $30 < E-p_z < 75~\GeV$, and
+        $y_e < 0.94$;
+  \item When bunch-type information is available, the colliding-bunch (i.e. not the pilot bunches) category 
+        is required.
+\end{itemize}
+
+The scattered electron is required to fall in well instrumented regions of the
+liquid-argon calorimeter.  The longitudinal impact coordinate must satisfy
+\begin{equation}
+  -190.0 < z_{\mathrm{impact}} < 15.0
+  \quad\mathrm{or}\quad
+  z_{\mathrm{impact}} > 25.0,
+\end{equation}
+and the azimuthal position within a calorimeter octant must avoid the octant
+cracks according to
+\begin{equation}
+  2^\circ < \phi_{\mathrm{octant}} < 43^\circ
+  \quad\mathrm{or}\quad
+  z_{\mathrm{impact}} > 300.0.
+\end{equation}
+In addition, a run-dependent electromagnetic-calorimeter fiducial veto is
+applied.  The veto is defined by the run number, the electron azimuthal position
+at the liquid-argon calorimeter edge, the electron longitudinal impact
+coordinate, and the electron energy.  It removes regions where the electron
+trigger efficiency is below 100\%.
+
+% Provenance for the non-ep veto fractions quoted here:
+% /data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/studies/bgfinder_ptratio_cutflow_2026-10-06/merged/summary_bgfinder_cutflow.json
+A small fraction of the recorded events do not originate from $ep$ collisions,
+but from interactions of the proton beam with residual gas in the beam pipe,
+from beam-halo muons, or from cosmic rays traversing the detector.  Such
+non-$ep$ backgrounds can mimic DIS events, for example when an unrelated
+energy deposit is reconstructed as the scattered electron, but they are
+characterised by event times inconsistent with the nominal beam crossing
+and by a hadronic system that does not balance the transverse momentum of
+the apparent electron candidate.  These events are rejected with the standard H1
+timing vetoes: events flagged by the background finders
+(flags 0, 1, 5, 6, 7), which combine timing information from the central tracker and the LAr calorimeter with topological information, are removed in
+combination with the hadronic-to-electromagnetic transverse-momentum balance
+$R=p_T^{\mathrm{had}}/p_T^{e}$.  
+
+A single finder flag is treated as weak
+evidence, since the finders occasionally also flag genuine $ep$ events, and
+leads to rejection only when corroborated by a significant momentum
+imbalance, $R<0.1$ for finder 7 and $R<0.5$ for finders 5 or 6, whereas two
+simultaneous finder flags are treated as sufficient evidence and lead to
+rejection for events with $R>0.1$.  The veto rejects 0.29\% of the events
+passing all preceding selection requirements, while 1.61\% of these events
+have $R<0.5$ (0.06\% have $R<0.1$) and are retained in the absence of a
+corroborating finder flag, so the timing and kinematic criteria act jointly
+rather than as independent requirements.  The anti-QED-
+Compton veto rejects events with two electromagnetic particles when the two
+leading electron candidates each have energy above $4~\GeV$, their summed energy
+is above $18~\GeV$, and the two candidates are nearly back-to-back in azimuth,
+$-\cos(|\phi_1-\phi_2|)>0.95$.
+
+\subsection{Final Reconstructed-Event Selection}
+\label{sec:selection:final-events}
+
+The final reconstructed-event selection tightens the DIS phase space used for
+the measurement:
+\begin{itemize}
+  \item $150 < Q^2 < 20000~\GeVsq$;
+  \item $0.1 < y < 0.7$;
+  \item $E-p_z > 45~\GeV$;
+  \item $|z_{\mathrm{vtx}}| < 35~\mathrm{cm}$;
+\end{itemize}
+The same reconstructed-event requirements are used for the response-matrix
+construction and for the measured event sample.
+
+\subsection{Final Reconstructed-Track Selection}
+\label{sec:selection:final-tracks}
+
+The measured charged-hadron sample consists of reconstructed charged tracks
+passing the track-quality, topology, and analysis-bin requirements.  Accepted tracks are counted only as inclusive $\hplus$ or $\hminus$ candidates according to the sign of their electric charge.
+The truth-level charged-hadron convention used for acceptance and migration
+modeling is documented in Sec.~\ref{sec:species_definition}.
+
+The final reconstructed-track cuts are:
+\begin{itemize}
+  \item Lab-frame transverse momentum $p_T>0.15~\GeV$ and pseudorapidity $|\eta|<1.6$;
+  \item At least 5 hits in the CJC
+  \item Radial track length at least 5 cm;
+  \item $|\mathrm{DCA}'|\sin\theta < 2$ cm,
+  \item The track is labeled as originating from the primary vertex in H1OO;
+  \item The reconstructed track is in the current hemisphere, i.e. $x_F<0$ in the H1 convention;
+  \item The reconstructed $z$ and $\gamma^*p$-frame $\pTh$ are finite and inside
+        the analysis binning.
+   \item The opening angle between the track and the scattered electron is more than 0.2 radians.
+\end{itemize}
+The analysis binning uses
+$z=[0.0,0.05,0.1,0.2,0.3,0.5,0.7,1.0]$ and reconstructed
+$\pTh=[0.0,0.25,0.5,0.75,1.0,1.5,2.0,3.0,4.0,6.0,8.0]~\GeV$ edges.  The first
+physical $z$ bin is $0.0 \le z < 0.05$.
+
+A reconstructed-side opening-angle requirement suppresses tracks close to the
+scattered-electron direction, which can come from final-state radiated photon conversions or mis-identification of the scattered electron track.  For each reconstructed track, the opening angle
+to the scattered-electron three-vector, $\alpha$, is calculated in the lab frame. Accepted tracks must satisfy
+$\alpha(\mathrm{track},e') \ge 0.2~\mathrm{rad}$.  This requirement is applied
+only to reconstructed tracks; the corresponding generator-level loss of true charged hadrons is 0.106\% for RAPGAP and 0.114\% for DJANGOH.

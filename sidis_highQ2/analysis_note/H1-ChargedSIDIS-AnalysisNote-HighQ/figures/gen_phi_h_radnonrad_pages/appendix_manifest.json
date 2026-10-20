@@ -1,0 +1,318 @@
+{
+  "source_directory": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03",
+  "crop_method": "pypdf content-rectangle crop from renderer tight_layout; shifted content by -bottom",
+  "renderer_crop_kept_y_points": [
+    38.07864,
+    734.917752
+  ],
+  "figures": [
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell1_plus.pdf",
+      "cell_index": 1,
+      "label": "cell1",
+      "Q2_range_GeV2": [
+        150.0,
+        300.0
+      ],
+      "x_range": [
+        0.0021,
+        0.0071
+      ],
+      "charge": "plus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_plus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "248c016e83edb3317cdf66c238be1da21b4317fa833925d02d8efb3fb92f845c"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell2_plus.pdf",
+      "cell_index": 2,
+      "label": "cell2",
+      "Q2_range_GeV2": [
+        150.0,
+        300.0
+      ],
+      "x_range": [
+        0.0071,
+        0.03
+      ],
+      "charge": "plus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_plus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "fe53f1a654179ba1e0f57878b3f4057f44a2dda0d8bb4e640e196e9be6ce6fab"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell3_plus.pdf",
+      "cell_index": 3,
+      "label": "cell3",
+      "Q2_range_GeV2": [
+        300.0,
+        700.0
+      ],
+      "x_range": [
+        0.0042,
+        0.016
+      ],
+      "charge": "plus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_plus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "7979886605371e7b921215b9a37b690659169695c867792deb4bfc7b5741deb6"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell4_plus.pdf",
+      "cell_index": 4,
+      "label": "cell4",
+      "Q2_range_GeV2": [
+        300.0,
+        700.0
+      ],
+      "x_range": [
+        0.016,
+        0.069
+      ],
+      "charge": "plus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_plus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "cda045bccb40cfabea7f4c7b19123ca933d8363bc4ecef2cf6273915e4fbc610"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell5_plus.pdf",
+      "cell_index": 5,
+      "label": "cell5",
+      "Q2_range_GeV2": [
+        700.0,
+        1500.0
+      ],
+      "x_range": [
+        0.0099,
+        0.034
+      ],
+      "charge": "plus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_plus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "a75738df164a1357d1a12db71a89465774e7e31cf44638e64001273985a0489b"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell6_plus.pdf",
+      "cell_index": 6,
+      "label": "cell6",
+      "Q2_range_GeV2": [
+        700.0,
+        1500.0
+      ],
+      "x_range": [
+        0.034,
+        0.15
+      ],
+      "charge": "plus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_plus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "4038199128a6ab9a8740e28c560b38dd905b459a050f8e3cf829fa3809d1ec73"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell7_plus.pdf",
+      "cell_index": 7,
+      "label": "cell7",
+      "Q2_range_GeV2": [
+        1500.0,
+        20000.0
+      ],
+      "x_range": [
+        0.021,
+        1.5
+      ],
+      "charge": "plus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_plus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "260bb128915c5a020cba671efdc4c8bf8f4b1b6089d326dd05b94dca900a1d44"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell1_minus.pdf",
+      "cell_index": 1,
+      "label": "cell1",
+      "Q2_range_GeV2": [
+        150.0,
+        300.0
+      ],
+      "x_range": [
+        0.0021,
+        0.0071
+      ],
+      "charge": "minus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_minus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "2a6a6f13a8ae02aa057b67f3795a33ba600981c139be875e3846ac35d36c65e1"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell2_minus.pdf",
+      "cell_index": 2,
+      "label": "cell2",
+      "Q2_range_GeV2": [
+        150.0,
+        300.0
+      ],
+      "x_range": [
+        0.0071,
+        0.03
+      ],
+      "charge": "minus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_minus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "5764fad0292b919c5c6be5bc77db3afe76e10146d25a69b66ec41aeb6554c25c"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell3_minus.pdf",
+      "cell_index": 3,
+      "label": "cell3",
+      "Q2_range_GeV2": [
+        300.0,
+        700.0
+      ],
+      "x_range": [
+        0.0042,
+        0.016
+      ],
+      "charge": "minus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_minus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "fd97452c44e58a0c3f0a2fff70da9dd9f7e68c0fa15eb07cbe3c9fa1434d60ef"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell4_minus.pdf",
+      "cell_index": 4,
+      "label": "cell4",
+      "Q2_range_GeV2": [
+        300.0,
+        700.0
+      ],
+      "x_range": [
+        0.016,
+        0.069
+      ],
+      "charge": "minus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_minus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "06f2037670fd3301523ca27b127c0af7e23a12ca7a82a92a8cfa49445dd2fb43"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell5_minus.pdf",
+      "cell_index": 5,
+      "label": "cell5",
+      "Q2_range_GeV2": [
+        700.0,
+        1500.0
+      ],
+      "x_range": [
+        0.0099,
+        0.034
+      ],
+      "charge": "minus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_minus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "054ea7313144ea5c98a43c45e7fe34ba36f7ee07c177f7e5c3067350d1b49e57"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell6_minus.pdf",
+      "cell_index": 6,
+      "label": "cell6",
+      "Q2_range_GeV2": [
+        700.0,
+        1500.0
+      ],
+      "x_range": [
+        0.034,
+        0.15
+      ],
+      "charge": "minus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_minus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "08889f12602591873ebdcc17d8bd2e1265aaef232645cbe6b7d35f887104b7a9"
+    },
+    {
+      "file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/appendix/fig_phih_gen_radnonrad_cell7_minus.pdf",
+      "cell_index": 7,
+      "label": "cell7",
+      "Q2_range_GeV2": [
+        1500.0,
+        20000.0
+      ],
+      "x_range": [
+        0.021,
+        1.5
+      ],
+      "charge": "minus",
+      "page_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/phi_h/rad_vs_nonrad_v3_cm_2026-10-03/phi_rad_nonrad_gen_v3_cm_distributions_minus.pdf",
+      "crop_bbox_points": [
+        0.0,
+        38.07864,
+        861.86875,
+        734.917752
+      ],
+      "sha256": "b2457bd0b78a2d6889d1b442022580dd65eaa941689621d70f892bac4c43b869"
+    }
+  ]
+}

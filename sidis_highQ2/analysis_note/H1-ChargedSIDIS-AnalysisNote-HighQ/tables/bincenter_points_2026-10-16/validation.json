@@ -1,0 +1,565 @@
+{
+ "generator": "generate_bincenter_note_table.py",
+ "generator_version": "1.1",
+ "generated_utc": "2026-10-16T19:30:41Z",
+ "inputs": {
+  "bincenter_averages": {
+   "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/bincentering/bincenter_averages_eps_2026-10-16/final/bincenter_averages.csv",
+   "rows": 490,
+   "sha256": "8b2ffe14e73113141acda38cc3716981fce9d58a8052c7eb9615f71575ff424d",
+   "n_duplicate_keys": 0
+  },
+  "bincenter_uncertainty_sidecar": {
+   "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/bincentering/bincenter_averages_eps_2026-10-16/uncertainty_sidecar/bincenter_uncertainty.csv",
+   "rows": 490,
+   "sha256": "86f8ab444a14c8ca500c95611ab76561242d4fd0bd7a378ec4f7279c81b3e033",
+   "n_duplicate_keys": 0
+  },
+  "born_release": {
+   "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/born_crad_dj14relbin_detints2prime_alphaveto_cone_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-13/ibu/cross_sections.csv",
+   "rows": 490,
+   "sha256": "ab53e9b6695dd85f38629bd7cc6f672a65a05ed8fcef8bb28ed9a1aacaecbf5c",
+   "n_duplicate_keys": 0
+  },
+  "budget_legenv": {
+   "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/systematics_cone_s2prime_15comp_shiftedlegs_legenv_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-14/total_uncertainty_summary_cone_variant_15comp.csv",
+   "rows": 490,
+   "sha256": "568040fefb868680faef9aeebdfc0767b8dfc9083d7a47c24ce950b8ae5f076a",
+   "n_duplicate_keys": 0
+  },
+  "budget_shiftedlegs_given_path_report_only": {
+   "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/systematics_cone_s2prime_15comp_shiftedlegs_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-14/total_uncertainty_summary_cone_variant_15comp.csv",
+   "rows": 490,
+   "sha256": "f974b9d1bbda3acbc5daa7038cf9eac1a64847d44c2749721d24967cbe648663",
+   "n_duplicate_keys": 0
+  }
+ },
+ "gates": [
+  {
+   "name": "row_counts",
+   "description": "every consumed input has 490 rows, 245 per charge",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 0.0,
+   "worst_deviation": 0.0,
+   "not_evaluated_reason": null,
+   "details": {
+    "per_charge": {
+     "avg": {
+      "pos": 245,
+      "neg": 245
+     },
+     "unc": {
+      "pos": 245,
+      "neg": 245
+     },
+     "born": {
+      "pos": 245,
+      "neg": 245
+     },
+     "budget": {
+      "pos": 245,
+      "neg": 245
+     }
+    }
+   }
+  },
+  {
+   "name": "join_one_to_one",
+   "description": "identical (charge, bin_index) key sets across all four sources; no duplicate keys",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 0.0,
+   "worst_deviation": 0.0,
+   "not_evaluated_reason": null,
+   "details": {
+    "first_mismatches": {
+     "unc": {
+      "missing_vs_avg": [],
+      "extra_vs_avg": []
+     },
+     "born": {
+      "missing_vs_avg": [],
+      "extra_vs_avg": []
+     },
+     "budget": {
+      "missing_vs_avg": [],
+      "extra_vs_avg": []
+     }
+    }
+   }
+  },
+  {
+   "name": "geometry_consistency",
+   "description": "cell label, stratum, z/pT indices and all eight bin edges identical across sources (budget checked on label/stratum/indices)",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 1e-12,
+   "worst_deviation": 0,
+   "not_evaluated_reason": null,
+   "details": {
+    "n_violations": 0,
+    "first_violations": []
+   }
+  },
+  {
+   "name": "finiteness_and_ranges",
+   "description": "all consumed cells finite; sigma_stat/model >= 0; Born cross section > 0; budget total rel > 0; 0 < avg_eps < 1; every (charge,var) iteration converged",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 0.0,
+   "worst_deviation": 0.0,
+   "not_evaluated_reason": null,
+   "details": {
+    "n_nonfinite": 0,
+    "first_nonfinite": [],
+    "n_nonpositive_sigma_or_rel": 0,
+    "n_eps_range_violations": 0,
+    "n_not_converged": 0
+   }
+  },
+  {
+   "name": "sidecar_consistency_and_notilt_zeros",
+   "description": "sidecar level_borndelta_v == averages borndelta_v and shift_v == averages shift_v (rel 1e-12); on no-tilt bins sigma_stat == 0 EXACTLY (structural, METHOD_SPEC 11.1); on tiltable bins sigma_stat > 0",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 1e-12,
+   "worst_deviation": 0.0,
+   "not_evaluated_reason": null,
+   "details": {
+    "n_level_mismatches": 0,
+    "n_shift_mismatches": 0,
+    "n_notilt_entries": 70,
+    "n_notilt_with_nonzero_stat": 0,
+    "n_tiltable_with_zero_stat": 0,
+    "notilt_rule": "no-tilt families (x in the single-slot S3 cell): the untilted average is D-invariant, the toy ensemble is bitwise constant and sigma_stat is exactly 0"
+   }
+  },
+  {
+   "name": "release_integrals",
+   "description": "per-charge Born cross-section sums reproduce the release totals 13.026987454844365 / 12.697511232683578 nb and the budget nominal (raw parent) sums reproduce 11.412232615528730 / 11.123626367451840 nb (rel 1e-9)",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 1e-09,
+   "worst_deviation": 4.1969409757115607e-16,
+   "not_evaluated_reason": null,
+   "details": {
+    "computed_born_nb": {
+     "pos": 13.026987454844361,
+     "neg": 12.697511232683583
+    },
+    "computed_budget_nominal_nb": {
+     "pos": 11.41223261552873,
+     "neg": 11.123626367451841
+    },
+    "expected_born_nb": {
+     "pos": 13.026987454844365,
+     "neg": 12.697511232683578
+    },
+    "expected_budget_nominal_nb": {
+     "pos": 11.41223261552873,
+     "neg": 11.12362636745184
+    }
+   }
+  },
+  {
+   "name": "budget_column_and_variant",
+   "description": "budget total column total_with_cone15_rel present and its per-charge medians reproduce the canonical STATE.md values 5.8032% / 6.1919% (rel 5e-5); the task-given single-sided budget is compared report-only",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 6.187308441717935e-06,
+   "worst_deviation": null,
+   "not_evaluated_reason": null,
+   "details": {
+    "canonical_budget_used": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/systematics_cone_s2prime_15comp_shiftedlegs_legenv_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-14/total_uncertainty_summary_cone_variant_15comp.csv",
+    "task_given_budget_path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/systematics_cone_s2prime_15comp_shiftedlegs_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-14/total_uncertainty_summary_cone_variant_15comp.csv",
+    "supersession": "STATE.md 2026-10-16: the single-sided shifted-legs budget (task-given path) is SUPERSEDED same-day by the LEG-ENVELOPE successor; the note (sections/systematics.tex) and the 2026-10-16 public cross-section tables use the leg-envelope budget",
+    "n_bins_differing_total_with_cone15_rel": 245,
+    "medians_given_path": {
+     "pos": 0.05877631789413224,
+     "neg": 0.061919165864049774
+    },
+    "medians_used": {
+     "pos": 0.05803235906188349,
+     "neg": 0.061919165864049774
+    },
+    "supervisor_acknowledgment_2026-10-16": "ACCEPTED (supervisor decision, relayed 2026-10-16): the budget-column deviation is acknowledged -- the leg-envelope successor budget (total_with_cone15_rel, medians h+ 5.8032% / h- 6.1919%) is the correct current basis per STATE.md 2026-10-16; the originally-given single-sided shiftedlegs path stays report-only."
+   }
+  },
+  {
+   "name": "framing_reproduction",
+   "description": "report-only reproduction of the caption framing numbers from the emitted data",
+   "passed": true,
+   "report_only": true,
+   "tolerance": null,
+   "worst_deviation": null,
+   "not_evaluated_reason": null,
+   "details": {
+    "caption_numbers": {
+     "point_ii": "y derived from (avg_Q2, avg_x) differs from the quoted avg_y (excess of the quoted over the derived value) by +8 to +10% typically in the narrow S0-S2 cells (per-stratum medians; individual bins to +22.4%), by up to +63% in populated S3 bins and by up to +96% in the worst affected sparse S3 corner (data_n=16); W shifted by up to +42% [measured hierarchy; supervisor honesty fix 2026-10-16]",
+     "point_iii": "level_borndelta states the Born-vs-RAW sensitivity, up to ~+/-10% of avg_Q2 in S3 [critic verdict, mandated framing]"
+    },
+    "reproduction_definition": "y_derived = avg_Q2/(avg_x * s), s = 4*27.6*920 GeV^2; W_derived = sqrt(m_p^2 + s*y_derived - avg_Q2)",
+    "y_max_excess_over_derived": {
+     "bin": [
+      "neg",
+      244,
+      "S3_x0",
+      "6",
+      "4",
+      "16"
+     ],
+     "rel": 0.9586856631072439
+    },
+    "y_max_excess_over_quoted": {
+     "bin": [
+      "neg",
+      244,
+      "S3_x0",
+      "6",
+      "4",
+      "16"
+     ],
+     "rel": 0.489453556108841
+    },
+    "W_max_excess_over_derived": {
+     "bin": [
+      "neg",
+      244,
+      "S3_x0",
+      "6",
+      "4",
+      "16"
+     ],
+     "rel": 0.41769147689592945
+    },
+    "W_max_excess_over_quoted": {
+     "bin": [
+      "neg",
+      244,
+      "S3_x0",
+      "6",
+      "4",
+      "16"
+     ],
+     "rel": 0.29462791002346667
+    },
+    "y_excess_over_derived_per_stratum_range": {
+     "S0": [
+      0.012939985775080164,
+      0.16163420742476547
+     ],
+     "S1": [
+      -0.0031849681280436276,
+      0.17966916647511888
+     ],
+     "S2": [
+      0.013609449042757163,
+      0.22443786610412714
+     ],
+     "S3": [
+      -0.01562775271819683,
+      0.9586856631072439
+     ]
+    },
+    "bins_with_y_excess_over_derived_near_52pct": [
+     [
+      "pos",
+      214,
+      "S3_x0",
+      "0",
+      "4",
+      0.5176
+     ],
+     [
+      "neg",
+      236,
+      "S3_x0",
+      "5",
+      "1",
+      0.5265
+     ]
+    ],
+    "y_median_excess_per_stratum": {
+     "S0": 0.0839162657527053,
+     "S1": 0.0899690440500069,
+     "S2": 0.09974460784441083,
+     "S3": 0.2811335948757595
+    },
+    "y_max_excess_s0_s2": 0.22443786610412714,
+    "s3_bins_with_excess_above_52pct": [
+     [
+      "neg",
+      244,
+      "S3_x0",
+      "z6",
+      "pT4",
+      "data_n=16",
+      0.9587
+     ],
+     [
+      "neg",
+      243,
+      "S3_x0",
+      "z6",
+      "pT3",
+      "data_n=20",
+      0.7745
+     ],
+     [
+      "neg",
+      242,
+      "S3_x0",
+      "z6",
+      "pT2",
+      "data_n=8",
+      0.7064
+     ],
+     [
+      "pos",
+      244,
+      "S3_x0",
+      "z6",
+      "pT4",
+      "data_n=46",
+      0.6277
+     ],
+     [
+      "neg",
+      237,
+      "S3_x0",
+      "z5",
+      "pT2",
+      "data_n=48",
+      0.6218
+     ],
+     [
+      "pos",
+      243,
+      "S3_x0",
+      "z6",
+      "pT3",
+      "data_n=41",
+      0.6129
+     ],
+     [
+      "pos",
+      238,
+      "S3_x0",
+      "z5",
+      "pT3",
+      "data_n=153",
+      0.61
+     ],
+     [
+      "pos",
+      237,
+      "S3_x0",
+      "z5",
+      "pT2",
+      "data_n=104",
+      0.5648
+     ],
+     [
+      "neg",
+      236,
+      "S3_x0",
+      "z5",
+      "pT1",
+      "data_n=14",
+      0.5265
+     ]
+    ],
+    "s3_populated_min_data_n": 40,
+    "s3_max_excess_populated": {
+     "bin": [
+      "pos",
+      244,
+      "S3_x0"
+     ],
+     "data_n": 46,
+     "rel": 0.6277
+    },
+    "s3_min_positive_data_n": {
+     "bin": [
+      "pos",
+      240,
+      "S3_x0"
+     ],
+     "data_n": 2,
+     "rel": 0.2482
+    },
+    "note": "the caption states the MEASURED hierarchy under this definition (2026-10-16 supervisor honesty fix): typical S0-S2 excess +8 to +10% (per-stratum medians; individual bins to +22.4%), populated S3 bins (data_n >= 40) to +62.8%, and +95.9% at the worst affected sparse S3 corner (data_n=16). The formerly quoted '+52%' figure understated both the populated-S3 maximum (five S3 bins with data_n >= 40 exceed +52%) and the sparse-corner worst case, and the instructed '+6 to +7%' typical is contradicted by the measured per-stratum medians (+8.4/+9.0/+10.0%); the caption therefore quotes the measured values. The worst-affected corner is sparse but not the absolute sparsest positive-data S3 bin (minimum data_n=2, excess +24.8%). All worst bins are in S3 (broadest x cell, 0.021 < x < 1.5 bookkeeping / x < 1.0 physical).",
+    "level_borndelta_Q2_over_avg_Q2_in_S3": {
+     "min": -0.13781196740463753,
+     "max": 0.12041255549805459,
+     "n_bins_beyond_5pct": 32,
+     "n_bins": 70
+    },
+    "data_n_zero_bins": [
+     [
+      "neg",
+      240,
+      "S3_x0",
+      "6",
+      "0"
+     ],
+     [
+      "pos",
+      109,
+      "S1_x1",
+      "0",
+      "4"
+     ],
+     [
+      "pos",
+      179,
+      "S2_x1",
+      "0",
+      "4"
+     ]
+    ]
+   }
+  },
+  {
+   "name": "width_budget",
+   "description": "estimated natural width of the 28-column longtable typeset at \\fontsize{5}{6} (cmr5) with \\tabcolsep 0.75pt and @{} outer edges fits the landscape text width (<= 695 pt of 701.6 pt = A4 landscape, 2.5 cm margins); glyph model calibrated on measured cmr5/cmr6 widths",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 695.0,
+   "worst_deviation": 682.987825,
+   "not_evaluated_reason": null,
+   "details": {
+    "estimated_width_pt": 682.987825,
+    "per_column_est_pt": [
+     11.2,
+     10.24,
+     16.88,
+     24.41,
+     15.62,
+     29.28,
+     29.28,
+     15.62,
+     19.04,
+     19.04,
+     25.86,
+     32.69,
+     32.69,
+     19.04,
+     25.86,
+     32.69,
+     22.45,
+     29.28,
+     29.28,
+     19.04,
+     25.86,
+     25.86,
+     15.62,
+     15.62,
+     22.45,
+     19.04,
+     29.28,
+     29.28
+    ],
+    "tabcolsep_pt": 0.75,
+    "cm5_scale": 0.931,
+    "textwidth_pt": 701.6,
+    "note": "analytic pre-flight estimate calibrated against measured cmr6/cmr5 glyph widths; compile_check is the authoritative width test"
+   }
+  },
+  {
+   "name": "latex_roundtrip",
+   "description": "emitted longtable has 490 data rows x 28 cells (data rows identified by a $h^{+}$/$h^{-}$ first cell); every cell validates against its column type (charge, integer, escaped label, lo--hi range, plain digits; exponent/NaN/inf/None tokens impossible); deterministic spot subset (every 49th row + first/last + zero-data bins + framing-extreme bins) round-trips cell-by-cell to the formatted source",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 0.0,
+   "worst_deviation": 0.0,
+   "not_evaluated_reason": null,
+   "details": {
+    "n_data_rows": 490,
+    "rows_with_wrong_cell_count": [],
+    "n_bad_cells": 0,
+    "first_bad_cells": [],
+    "n_spot_rows_checked": 17,
+    "spot_mismatches": []
+   }
+  },
+  {
+   "name": "csv_roundtrip",
+   "description": "CSV companion re-parses: 490 unique keys; every passthrough column string-identical to its source; sigma_born_total_unc_nb == total_with_cone15_rel * sigma_born_nb (rel 1e-10)",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 1e-10,
+   "worst_deviation": 0.0,
+   "not_evaluated_reason": null,
+   "details": {
+    "n_rows": 490,
+    "n_violations": 0,
+    "first_violations": []
+   }
+  },
+  {
+   "name": "compile_check",
+   "description": "pdflatex wrapper compiles the longtable standalone (3 passes; returncode 0) with no overfull hbox worse than 5 pt",
+   "passed": true,
+   "report_only": false,
+   "tolerance": 5.0,
+   "worst_deviation": 0.0,
+   "not_evaluated_reason": null,
+   "details": {
+    "attempted": true,
+    "engine": "/cvmfs/sft.cern.ch/lcg/external/texlive/2025/bin/x86_64-linux/pdflatex",
+    "returncodes": [
+     0,
+     0,
+     0
+    ],
+    "n_overfull_hbox": 0,
+    "worst_overfull_pt": 0.0,
+    "note": "compile PASSED (last returncode 0); overfull \\hbox: 0 (worst 0.00 pt; landscape textwidth 701.6 pt)"
+   }
+  }
+ ],
+ "outputs": [
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/bincenter_points_2026-10-16/bincenter_points_longtable.tex",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/bincenter_points_2026-10-16/bincenter_points.csv",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/bincenter_points_2026-10-16/compile_check.tex",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/bincenter_points_2026-10-16/compile_check.log",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/bincenter_points_2026-10-16/compile_check.pdf",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/bincenter_points_2026-10-16/compile_check.aux",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/tables/bincenter_points_2026-10-16/validation.json"
+ ],
+ "compile_check": {
+  "attempted": true,
+  "engine": "/cvmfs/sft.cern.ch/lcg/external/texlive/2025/bin/x86_64-linux/pdflatex",
+  "returncodes": [
+   0,
+   0,
+   0
+  ],
+  "n_overfull_hbox": 0,
+  "worst_overfull_pt": 0.0,
+  "note": "compile PASSED (last returncode 0); overfull \\hbox: 0 (worst 0.00 pt; landscape textwidth 701.6 pt)"
+ },
+ "units": {
+  "Q2": "GeV^2",
+  "pT": "GeV",
+  "W": "GeV",
+  "x": "dimensionless",
+  "y": "dimensionless",
+  "z": "dimensionless",
+  "eps": "dimensionless (virtual-photon polarisation parameter)",
+  "sigma_born_nb": "nb (per-bin integrated Born-level cross section; NOT a density)",
+  "sigma_born_total_unc_nb": "nb (total_with_cone15_rel x sigma_born_nb; includes the statistical component)",
+  "level_borndelta_v": "same unit as avg_v (signed position delta, NOT an uncertainty to be combined)"
+ },
+ "nan_empty_policy": "All consumed columns are gated finite before emission (gate finiteness_and_ranges); a non-finite consumed cell would abort the run with no outputs. No NaN or empty cell is emitted in either product. Structural zeros are explicit: sigma_stat is exactly 0 on no-tilt bins (70 entries, all variable x in the single-slot S3 cell; the untilted average is invariant to the data spectrum), and three bins (pos 109, pos 179, neg 240) have data_n = 0 -- their positions remain defined from the tilted MC population (their data-reco diagnostic columns in the source averages file are NaN by construction and are not consumed here).",
+ "summary": {
+  "all_gates_pass": true,
+  "n_gates": 12,
+  "n_passed": 12,
+  "n_report_only": 1,
+  "n_failed": 0,
+  "n_not_evaluated": 0
+ }
+}

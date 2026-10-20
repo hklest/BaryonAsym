@@ -1,0 +1,2 @@
+no-cone S2' detint-fake basis, raw level; TUnfold tau 1e-5, delivered = max(x,0); diagnostic cross-check vs IBU k=4 (P-METHOD closed 2026-10-14, IBU nominal)
+pull = (x_TU - x_IBU)/sigma_combined

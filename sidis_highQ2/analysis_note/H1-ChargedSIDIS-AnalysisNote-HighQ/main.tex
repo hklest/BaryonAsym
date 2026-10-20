@@ -1,0 +1,110 @@
+% =============================================================================
+%  H1 Analysis Note
+%  Inclusive Charged-Particle Semi-Inclusive Deep-Inelastic Scattering
+%  at High Q^2 with H1
+% =============================================================================
+\documentclass[11pt,a4paper]{article}
+
+% --- Geometry --------------------------------------------------------------
+\usepackage[margin=2.5cm]{geometry}
+
+% --- Math and symbols ------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% --- Graphics, color, captions --------------------------------------------
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[most]{tcolorbox}
+
+% --- Tables ----------------------------------------------------------------
+\usepackage{booktabs}
+
+% --- Units -----------------------------------------------------------------
+\usepackage{siunitx}
+\sisetup{detect-all = true}
+
+% --- Hyperlinks (load late, before cleveref) ------------------------------
+\usepackage[colorlinks=true,
+            linkcolor=blue!60!black,
+            citecolor=green!50!black,
+            urlcolor=blue!70!black]{hyperref}
+\usepackage{cleveref}
+
+% --- Appendices ------------------------------------------------------------
+\usepackage[toc,page]{appendix}
+
+% --- Convenience macros ---------------------------------------------------
+\newcommand{\Qsq}{Q^{2}}
+\newcommand{\pTh}{p_{T,h}}
+\newcommand{\phih}{\phi_{h}}
+\newcommand{\Mh}{M^{h}}
+\newcommand{\Mhpm}{M^{h^{\pm}}}
+\newcommand{\Mhplus}{M^{h^{+}}}
+\newcommand{\Mhminus}{M^{h^{-}}}
+\newcommand{\Ah}{A^{h}}
+\newcommand{\hpm}{h^{\pm}}
+\newcommand{\hplus}{h^{+}}
+\newcommand{\hminus}{h^{-}}
+\newcommand{\ep}{ep}
+\newcommand{\rts}{\sqrt{s}}
+\newcommand{\MeV}{\ensuremath{\text{MeV}}}
+\newcommand{\GeV}{\ensuremath{\text{GeV}}}
+\newcommand{\GeVsq}{\ensuremath{\text{GeV}^{2}}}
+\newcommand{\nbinv}{\ensuremath{\text{nb}^{-1}}}
+\newcommand{\pbinv}{\ensuremath{\text{pb}^{-1}}}
+
+% =============================================================================
+\begin{document}
+% =============================================================================
+
+\title{4D Semi-Inclusive Deep-Inelastic Scattering
+       at High $\Qsq$\\[0.3em]
+       \large Analysis Note}
+\author{H.~Klest \\ \textit{(for the H1 Collaboration)}}
+\date{\today}
+\maketitle
+
+% -----------------------------------------------------------------------------
+\begin{abstract}
+This note documents the charge-separated 4D charged-hadron SIDIS
+analysis in the high-$\Qsq$ region using the full HERA-II dataset at $\rts=319~\GeV$.  The integrated luminosity is 351$~\pbinv$. The truth-level charged-hadron convention is restricted to primary vertex
+$\pi^{\pm}$, $K^{\pm}$, and $p/\bar p$. The analysis contains 490 published bins in total
+(245 $\hplus$ and 245 $\hminus$ bins).
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% =============================================================================
+\input{sections/introduction}
+\input{sections/experimental_setup}
+\input{sections/selection}
+\input{sections/monte_carlo}
+\input{sections/observables}
+\input{sections/species_definition}
+\input{sections/backgrounds}
+\input{sections/binning}
+%\input{sections/acceptance}
+\input{sections/unfolding}
+\input{sections/radiative_corrections}
+\input{sections/systematics}
+\input{sections/results}
+\input{sections/summary}
+
+% --- Appendices ------------------------------------------------------------
+\begin{appendices}
+\input{sections/appendix_reco_phi_h}
+\input{sections/appendix_gen_phi_h}
+\input{sections/appendix_cross_section_tables}
+\end{appendices}
+
+% --- Bibliography ----------------------------------------------------------
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+% =============================================================================
+\end{document}
+% =============================================================================

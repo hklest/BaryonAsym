@@ -1,0 +1,2933 @@
+{
+  "created_from": "accepted compact high-Q2 inclusive charged-hadron SIDIS reco-phi_h alpha0p2 multi-page PDFs",
+  "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+  "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+  "total_split_pdfs": 28,
+  "sources": [
+    {
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_plus.pdf",
+      "plot_type": "distributions",
+      "charge": "hplus",
+      "page_count": 7
+    },
+    {
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_minus.pdf",
+      "plot_type": "distributions",
+      "charge": "hminus",
+      "page_count": 7
+    },
+    {
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_plus.pdf",
+      "plot_type": "ratios",
+      "charge": "hplus",
+      "page_count": 7
+    },
+    {
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_minus.pdf",
+      "plot_type": "ratios",
+      "charge": "hminus",
+      "page_count": 7
+    }
+  ],
+  "metadata_copied": {
+    "cuts": {
+      "abs_eta_lt": 1.6,
+      "RadLength_ge": 5.0,
+      "NHitDedx_ge": 5,
+      "Q2es_ge": 150.0,
+      "Yes_range": [
+        0.1,
+        0.7
+      ],
+      "Empz_range": [
+        35.0,
+        70.0
+      ],
+      "alpha0p2_cut": true,
+      "alpha_cut_rad": 0.2,
+      "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+      "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+      "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+      "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+    },
+    "normalization": {
+      "L_data_nb_inv": 351000.0,
+      "L_MC_nb_inv": {
+        "djangoh14": 10487495.0,
+        "rapgap31": 9132891.0
+      },
+      "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+      "data_weight_formula": "1",
+      "excluded_baseline_weights": [
+        "TrigWeightAC",
+        "NucliaWeight"
+      ]
+    },
+    "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+    "layout": {
+      "page_mode": "qx",
+      "page_grouping": "one page per (Q2,x) block",
+      "grid": {
+        "rows": "z bins",
+        "columns": "pT_h bins",
+        "shared_x_by_column": true,
+        "bottom_row_xlabels_only": true
+      },
+      "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+      "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+      "top_text": "removed",
+      "styling": {
+        "data": "black points with per-bin statistical errors",
+        "djangoh14": "blue step line",
+        "rapgap31": "orange step line",
+        "ratio_reference_line": "y=1",
+        "distribution_ylabel": "tracks / bin",
+        "ratio_ylabel": "MC / Data",
+        "distribution_ymax_scale": 1.5,
+        "fig_width_scale": 1.12,
+        "base_figsize_inches": [
+          11.2,
+          10.6
+        ],
+        "effective_figsize_inches": [
+          12.544,
+          10.6
+        ],
+        "panel_text_x": 0.08,
+        "panel_text_y": 0.9,
+        "numeric_y_tick_labels": true,
+        "numeric_x_tick_labels": "bottom row only"
+      }
+    }
+  },
+  "pages": [
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_page_number": 1,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hplus_page01.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page01.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page01.pdf",
+      "plot_type": "distributions",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell1",
+        "q2": [
+          150.0,
+          300.0
+        ],
+        "x": [
+          0.0021,
+          0.0071
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_page_number": 2,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hplus_page02.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page02.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page02.pdf",
+      "plot_type": "distributions",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell2",
+        "q2": [
+          150.0,
+          300.0
+        ],
+        "x": [
+          0.0071,
+          0.03
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_page_number": 3,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hplus_page03.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page03.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page03.pdf",
+      "plot_type": "distributions",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell3",
+        "q2": [
+          300.0,
+          700.0
+        ],
+        "x": [
+          0.0042,
+          0.016
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_page_number": 4,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hplus_page04.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page04.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page04.pdf",
+      "plot_type": "distributions",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell4",
+        "q2": [
+          300.0,
+          700.0
+        ],
+        "x": [
+          0.016,
+          0.069
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_page_number": 5,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hplus_page05.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page05.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page05.pdf",
+      "plot_type": "distributions",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell5",
+        "q2": [
+          700.0,
+          1500.0
+        ],
+        "x": [
+          0.0099,
+          0.034
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_page_number": 6,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hplus_page06.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page06.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page06.pdf",
+      "plot_type": "distributions",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell6",
+        "q2": [
+          700.0,
+          1500.0
+        ],
+        "x": [
+          0.034,
+          0.15
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_plus.pdf",
+      "source_page_number": 7,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hplus_page07.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page07.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hplus_page07.pdf",
+      "plot_type": "distributions",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell7",
+        "q2": [
+          1500.0,
+          20000.0
+        ],
+        "x": [
+          0.021,
+          1.5
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_page_number": 1,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hminus_page01.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page01.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page01.pdf",
+      "plot_type": "distributions",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell1",
+        "q2": [
+          150.0,
+          300.0
+        ],
+        "x": [
+          0.0021,
+          0.0071
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_page_number": 2,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hminus_page02.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page02.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page02.pdf",
+      "plot_type": "distributions",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell2",
+        "q2": [
+          150.0,
+          300.0
+        ],
+        "x": [
+          0.0071,
+          0.03
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_page_number": 3,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hminus_page03.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page03.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page03.pdf",
+      "plot_type": "distributions",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell3",
+        "q2": [
+          300.0,
+          700.0
+        ],
+        "x": [
+          0.0042,
+          0.016
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_page_number": 4,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hminus_page04.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page04.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page04.pdf",
+      "plot_type": "distributions",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell4",
+        "q2": [
+          300.0,
+          700.0
+        ],
+        "x": [
+          0.016,
+          0.069
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_page_number": 5,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hminus_page05.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page05.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page05.pdf",
+      "plot_type": "distributions",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell5",
+        "q2": [
+          700.0,
+          1500.0
+        ],
+        "x": [
+          0.0099,
+          0.034
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_page_number": 6,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hminus_page06.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page06.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page06.pdf",
+      "plot_type": "distributions",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell6",
+        "q2": [
+          700.0,
+          1500.0
+        ],
+        "x": [
+          0.034,
+          0.15
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_distributions_minus.pdf",
+      "source_page_number": 7,
+      "split_output_filename": "reco_phi_h_alpha0p2_distributions_hminus_page07.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page07.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_distributions_hminus_page07.pdf",
+      "plot_type": "distributions",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell7",
+        "q2": [
+          1500.0,
+          20000.0
+        ],
+        "x": [
+          0.021,
+          1.5
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_page_number": 1,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hplus_page01.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page01.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page01.pdf",
+      "plot_type": "ratios",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell1",
+        "q2": [
+          150.0,
+          300.0
+        ],
+        "x": [
+          0.0021,
+          0.0071
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_page_number": 2,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hplus_page02.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page02.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page02.pdf",
+      "plot_type": "ratios",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell2",
+        "q2": [
+          150.0,
+          300.0
+        ],
+        "x": [
+          0.0071,
+          0.03
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_page_number": 3,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hplus_page03.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page03.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page03.pdf",
+      "plot_type": "ratios",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell3",
+        "q2": [
+          300.0,
+          700.0
+        ],
+        "x": [
+          0.0042,
+          0.016
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_page_number": 4,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hplus_page04.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page04.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page04.pdf",
+      "plot_type": "ratios",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell4",
+        "q2": [
+          300.0,
+          700.0
+        ],
+        "x": [
+          0.016,
+          0.069
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_page_number": 5,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hplus_page05.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page05.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page05.pdf",
+      "plot_type": "ratios",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell5",
+        "q2": [
+          700.0,
+          1500.0
+        ],
+        "x": [
+          0.0099,
+          0.034
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_page_number": 6,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hplus_page06.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page06.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page06.pdf",
+      "plot_type": "ratios",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell6",
+        "q2": [
+          700.0,
+          1500.0
+        ],
+        "x": [
+          0.034,
+          0.15
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_plus.pdf",
+      "source_page_number": 7,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hplus_page07.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page07.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hplus_page07.pdf",
+      "plot_type": "ratios",
+      "charge": "hplus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell7",
+        "q2": [
+          1500.0,
+          20000.0
+        ],
+        "x": [
+          0.021,
+          1.5
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_page_number": 1,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hminus_page01.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page01.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page01.pdf",
+      "plot_type": "ratios",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell1",
+        "q2": [
+          150.0,
+          300.0
+        ],
+        "x": [
+          0.0021,
+          0.0071
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_page_number": 2,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hminus_page02.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page02.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page02.pdf",
+      "plot_type": "ratios",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell2",
+        "q2": [
+          150.0,
+          300.0
+        ],
+        "x": [
+          0.0071,
+          0.03
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_page_number": 3,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hminus_page03.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page03.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page03.pdf",
+      "plot_type": "ratios",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell3",
+        "q2": [
+          300.0,
+          700.0
+        ],
+        "x": [
+          0.0042,
+          0.016
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_page_number": 4,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hminus_page04.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page04.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page04.pdf",
+      "plot_type": "ratios",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell4",
+        "q2": [
+          300.0,
+          700.0
+        ],
+        "x": [
+          0.016,
+          0.069
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_page_number": 5,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hminus_page05.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page05.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page05.pdf",
+      "plot_type": "ratios",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell5",
+        "q2": [
+          700.0,
+          1500.0
+        ],
+        "x": [
+          0.0099,
+          0.034
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_page_number": 6,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hminus_page06.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page06.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page06.pdf",
+      "plot_type": "ratios",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell6",
+        "q2": [
+          700.0,
+          1500.0
+        ],
+        "x": [
+          0.034,
+          0.15
+        ]
+      }
+    },
+    {
+      "source_directory": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702",
+      "source_manifest_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/manifest.json",
+      "source_pdf_name": "phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_pdf_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/plots/phi_angular_overlays_reco_luminorm_v6/compact_alpha0p2_wider_ticks_corrected_20260702/phi_reco_luminorm_compact_ratios_minus.pdf",
+      "source_page_number": 7,
+      "split_output_filename": "reco_phi_h_alpha0p2_ratios_hminus_page07.pdf",
+      "split_output_path": "/Users/hklest/Desktop/opencode/H1/sidis_highQ2/analysis_note/figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page07.pdf",
+      "analysis_note_relative_path": "figures/reco_phi_h_alpha0p2_pages/reco_phi_h_alpha0p2_ratios_hminus_page07.pdf",
+      "plot_type": "ratios",
+      "charge": "hminus",
+      "cuts": {
+        "alpha0p2_cut": true,
+        "alpha_cut_rad": 0.2,
+        "cuts": {
+          "abs_eta_lt": 1.6,
+          "RadLength_ge": 5.0,
+          "NHitDedx_ge": 5,
+          "Q2es_ge": 150.0,
+          "Yes_range": [
+            0.1,
+            0.7
+          ],
+          "Empz_range": [
+            35.0,
+            70.0
+          ],
+          "alpha0p2_cut": true,
+          "alpha_cut_rad": 0.2,
+          "alpha_selection_convention": "keep tracks with alpha(track,e) >= threshold; reject tracks with alpha(track,e) < threshold",
+          "alpha_definition": "3D opening angle between reco track momentum (Px,Py,Pz) and reco scattered-electron momentum (scatEX,scatEY,scatEZ): arccos((p_track\u00b7p_e)/(|p_track||p_e|))",
+          "alpha_source": "implemented locally in compute_track_scattered_electron_alpha(); matches the established alpha(track,e) 3D opening-angle convention documented in sidis_highQ2/context-handoff.md Near-Electron / Alpha-Veto Study Save Point",
+          "input_cut_statement": "Preserves the existing reco-luminorm input defaults and selection logic, with optional reco-only alpha(track,e) survivor cut applied before histogram filling when requested."
+        }
+      },
+      "normalization": {
+        "L_data_nb_inv": 351000.0,
+        "normalization": {
+          "L_data_nb_inv": 351000.0,
+          "L_MC_nb_inv": {
+            "djangoh14": 10487495.0,
+            "rapgap31": 9132891.0
+          },
+          "mc_weight_formula": "weight1 * weight2 * (L_data / L_MC)",
+          "data_weight_formula": "1",
+          "excluded_baseline_weights": [
+            "TrigWeightAC",
+            "NucliaWeight"
+          ]
+        }
+      },
+      "style_metadata": {
+        "style_mode": "compact_note_friendly_separate_distribution_and_ratio_pdfs",
+        "layout": {
+          "page_mode": "qx",
+          "page_grouping": "one page per (Q2,x) block",
+          "grid": {
+            "rows": "z bins",
+            "columns": "pT_h bins",
+            "shared_x_by_column": true,
+            "bottom_row_xlabels_only": true
+          },
+          "legend": "DJANGOH/RAPGAP line legend only in top-left panel, lower-left inside axes",
+          "panel_labels": "compact numeric Q2, x, z, pT_h, charge labels inside each panel",
+          "top_text": "removed",
+          "styling": {
+            "data": "black points with per-bin statistical errors",
+            "djangoh14": "blue step line",
+            "rapgap31": "orange step line",
+            "ratio_reference_line": "y=1",
+            "distribution_ylabel": "tracks / bin",
+            "ratio_ylabel": "MC / Data",
+            "distribution_ymax_scale": 1.5,
+            "fig_width_scale": 1.12,
+            "base_figsize_inches": [
+              11.2,
+              10.6
+            ],
+            "effective_figsize_inches": [
+              12.544,
+              10.6
+            ],
+            "panel_text_x": 0.08,
+            "panel_text_y": 0.9,
+            "numeric_y_tick_labels": true,
+            "numeric_x_tick_labels": "bottom row only"
+          }
+        }
+      },
+      "page_q2x_block": {
+        "label": "cell7",
+        "q2": [
+          1500.0,
+          20000.0
+        ],
+        "x": [
+          0.021,
+          1.5
+        ]
+      }
+    }
+  ]
+}

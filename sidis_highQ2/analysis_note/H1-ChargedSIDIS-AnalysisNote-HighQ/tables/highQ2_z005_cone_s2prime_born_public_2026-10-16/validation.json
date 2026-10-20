@@ -1,0 +1,566 @@
+{
+  "caption_style": "public",
+  "compile_check": {
+    "attempted": true,
+    "engine": "pdflatex",
+    "n_overfull_hbox": 0,
+    "note": "compile PASSED (returncode 0); wrapper PDF and log kept beside the tables; overfull \\hbox: 0 (worst 0.00pt, textwidth 455.24pt, margin 455.24pt)",
+    "passed": true,
+    "returncode": 0,
+    "textwidth_pt": 455.24411,
+    "width_margin_pt": 455.24411,
+    "worst_overfull_pt": 0.0
+  },
+  "config": "table_config_cone_public_2026-10-16.json",
+  "config_chain": [
+    "table_config_cone_public_2026-10-16.json",
+    "table_config_cone_2026-10-16.json",
+    "table_config.json"
+  ],
+  "crad_unc_mode": "quadrature",
+  "expected_counts": {
+    "per_charge": 245,
+    "total": 490
+  },
+  "gates": [
+    {
+      "description": "every input has 490 rows, 245 per charge (derived from config grid)",
+      "details": {
+        "budget": {
+          "expected_rows": 490,
+          "per_charge": {
+            "neg": 245,
+            "pos": 245
+          },
+          "rows": 490
+        },
+        "crad_noz": {
+          "expected_rows": 490,
+          "per_charge": {
+            "h+": 245,
+            "h-": 245
+          },
+          "rows": 490
+        },
+        "crad_withz": {
+          "expected_rows": 490,
+          "per_charge": {
+            "h+": 245,
+            "h-": 245
+          },
+          "rows": 490
+        },
+        "previous_noZ_sidecar": {
+          "expected_rows": 490,
+          "per_charge": {
+            "neg": 245,
+            "pos": 245
+          },
+          "rows": 490
+        },
+        "previous_withZ_sidecar": {
+          "expected_rows": 490,
+          "per_charge": {
+            "neg": 245,
+            "pos": 245
+          },
+          "rows": 490
+        },
+        "release_born": {
+          "expected_rows": 490,
+          "per_charge": {
+            "neg": 245,
+            "pos": 245
+          },
+          "rows": 490
+        },
+        "release_raw": {
+          "expected_rows": 490,
+          "per_charge": {
+            "neg": 245,
+            "pos": 245
+          },
+          "rows": 490
+        }
+      },
+      "name": "row_counts",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 0.0,
+      "worst_deviation": 0.0
+    },
+    {
+      "description": "every expected (charge, cell_label, z_idx, pT_idx) key is present exactly once in all five inputs (crad tables matched via kinematic edges)",
+      "details": {
+        "budget": {
+          "first_duplicate": [],
+          "first_missing": [],
+          "n_duplicate": 0,
+          "n_keys": 490,
+          "n_missing": 0,
+          "n_unexpected": 0
+        },
+        "crad_noz": {
+          "first_missing": [],
+          "n_duplicate": 0,
+          "n_edge_unmatched": 0,
+          "n_keys": 490,
+          "n_missing": 0
+        },
+        "crad_withz": {
+          "first_missing": [],
+          "n_duplicate": 0,
+          "n_edge_unmatched": 0,
+          "n_keys": 490,
+          "n_missing": 0
+        },
+        "release_born": {
+          "first_duplicate": [],
+          "first_missing": [],
+          "n_duplicate": 0,
+          "n_keys": 490,
+          "n_missing": 0,
+          "n_unexpected": 0
+        },
+        "release_raw": {
+          "first_duplicate": [],
+          "first_missing": [],
+          "n_duplicate": 0,
+          "n_keys": 490,
+          "n_missing": 0,
+          "n_unexpected": 0
+        }
+      },
+      "name": "grid_key_completeness",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 0.0,
+      "worst_deviation": 0.0
+    },
+    {
+      "description": "exact key alignment across all inputs on mapped charge + canonical bin key; C_rad-table kinematic edges match the release edges per (charge, bin)",
+      "details": {
+        "bin_index_vs_global_violations": 0,
+        "edge_tolerance": 1e-09,
+        "edge_violations": 0,
+        "keys_extra_vs_born": {
+          "budget": 0,
+          "crad_noz": 0,
+          "crad_withz": 0,
+          "release_born": 0,
+          "release_raw": 0
+        },
+        "keys_missing_vs_born": {
+          "budget": 0,
+          "crad_noz": 0,
+          "crad_withz": 0,
+          "release_born": 0,
+          "release_raw": 0
+        },
+        "worst_edge_abs_diff": 0.0
+      },
+      "name": "key_alignment_edges",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 0.0,
+      "worst_deviation": 0.0
+    },
+    {
+      "description": "all C_rad / C_gamma_born / cross sections / uncertainties finite; finite flags true; relative uncertainties in [0.0, 10.0); cross sections > 0 in every retained bin (zero-yield empty bins are recorded, not retained)",
+      "details": {
+        "finite_flag_violations": 0,
+        "first_violations": [],
+        "max_relative_component": 0.6975926026972536,
+        "min_retained_sigma_nb": 1.7193305246235995e-05,
+        "n_empty_zero_yield_bins": 0,
+        "n_violations": 0
+      },
+      "name": "finiteness_and_ranges",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 10.0,
+      "worst_deviation": 0.6975926026972536
+    },
+    {
+      "description": "Born release cross_section_nb == raw parent cross_section_nb x C_rad per bin (documented max deviation 0.0)",
+      "details": {
+        "n_bins_skipped_empty": 0
+      },
+      "name": "identity_born_eq_raw_times_crad",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-12,
+      "worst_deviation": 0.0
+    },
+    {
+      "description": "sigma_Born_gamma = C_gamma_born x sigma_raw equals sigma_Born_withZ x F_EWgamma per bin",
+      "details": {
+        "n_bins_skipped_empty": 0
+      },
+      "name": "noz_crosscheck_FEWgamma",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-09,
+      "worst_deviation": 3.785519403066069e-16
+    },
+    {
+      "description": "budget quadrature arithmetic reproduces its published totals; c_rad_stat_rel == applied-table relative_stat_unc; nozborn C_rad_mixed_published == applied C_rad; factor stat columns consistent; budget nominal == raw parent (tolerance 1e-09)",
+      "details": {
+        "budget_nominal_check_report_only": false,
+        "worst_allcomp_vs_published_total_rel": 4.2851329716289975e-16,
+        "worst_budget_nominal_vs_raw_rel": 1.4974117661881926e-15,
+        "worst_crad_stat_unc_rel": 0.0,
+        "worst_craddouble_vs_nozpub_abs": 0.0,
+        "worst_cradstat_vs_budget_abs": 0.0,
+        "worst_gb_stat_unc_rel": 0.0,
+        "worst_sqrt_nostat_plus_stat_vs_published_total_rel": 4.3226029335554893e-16
+      },
+      "name": "budget_internal_consistency",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-12,
+      "worst_deviation": 1.4974117661881926e-15
+    },
+    {
+      "description": "per-charge integrated Born cross sections vs config-declared expected values (method ibu)",
+      "details": {
+        "computed": {
+          "neg": 12.697511232683583,
+          "pos": 13.026987454844361
+        },
+        "expected": {
+          "neg": 12.697511232683578,
+          "pos": 13.026987454844365
+        }
+      },
+      "name": "integrals_withZ",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-06,
+      "worst_deviation": 4.1969409757115607e-16
+    },
+    {
+      "description": "per-charge integrated photon-Born (no-Z) cross sections vs config-declared expected values (method ibu)",
+      "details": {
+        "computed": {
+          "neg": 11.571279841578749,
+          "pos": 11.875721547639863
+        },
+        "expected": {
+          "neg": 11.571279841578749,
+          "pos": 11.875721547639863
+        }
+      },
+      "name": "integrals_noZ",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-09,
+      "worst_deviation": 0.0
+    },
+    {
+      "description": "integrated C_rad (= sum sigma_nonrad / sum sigma_rad) and integrated C_gamma_born (= sum sigma_gamma_born / sum sigma_rad_mixed) per charge vs config-declared and campaign-summary values",
+      "details": {
+        "campaign_summary_C_gamma_born": {
+          "neg": 1.0401468080806677,
+          "pos": 1.040960540463156
+        },
+        "campaign_summary_C_rad": {
+          "neg": 1.1410367377289135,
+          "pos": 1.1415172920054786
+        },
+        "expected_C_gamma_born": {
+          "neg": 1.0401468080806677,
+          "pos": 1.040960540463156
+        },
+        "expected_C_rad": {
+          "neg": 1.1410367377289135,
+          "pos": 1.1415172920054786
+        },
+        "integrated_C_gamma_born": {
+          "neg": 1.0401468080806677,
+          "pos": 1.040960540463156
+        },
+        "integrated_C_rad": {
+          "neg": 1.1410367377289135,
+          "pos": 1.1415172920054786
+        },
+        "worst_vs_campaign_summary": 0.0,
+        "worst_vs_config": 0.0
+      },
+      "name": "integrated_crad_and_cgamma_born",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-09,
+      "worst_deviation": 0.0
+    },
+    {
+      "description": "release summary_totals luminosity == config-declared L_data; c_rad_applied flag true; IBU iteration matches (method ibu); release CSV method column agrees; computed per-charge withZ (Born) and raw-parent integrals reproduce the releases' own summary_totals.json totals (pointer charges.{charge}.{method}_total_nb, tolerance 1e-09)",
+      "details": {
+        "c_rad_applied": true,
+        "computed_raw_nb": {
+          "neg": 11.12362636745184,
+          "pos": 11.41223261552873
+        },
+        "computed_withZ_nb": {
+          "neg": 12.697511232683583,
+          "pos": 13.026987454844361
+        },
+        "config_lumi_nb": 351000.0,
+        "ibu_iter_check": "evaluated",
+        "ibu_iter_expected": 4,
+        "ibu_selected_iter": 4,
+        "metadata_raw_nb": {
+          "neg": 11.123626367451845,
+          "pos": 11.41223261552874
+        },
+        "metadata_withZ_nb": {
+          "neg": 12.697511232683578,
+          "pos": 13.026987454844365
+        },
+        "per_charge_totals_pointer": "charges.{charge}.{method}_total_nb",
+        "release_lumi_nb": 351000.0,
+        "release_meta_integral_tol_rel": 1e-09,
+        "release_method_column_tokens": [
+          "ibu"
+        ],
+        "worst_raw_vs_metadata_rel": 9.339225194112204e-16,
+        "worst_withZ_vs_metadata_rel": 4.1969409757115607e-16
+      },
+      "name": "release_meta",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-09,
+      "worst_deviation": 9.339225194112204e-16
+    },
+    {
+      "description": "chosen release statistical column is populated and positive in retained bins; the alternative column is compared and reported (choice is a config/CLI concern, reported in provenance)",
+      "details": {
+        "alternative_column": "stat_unc_nb",
+        "alternative_differs_in": 490,
+        "alternative_populated": 490,
+        "max_rel_difference_vs_used": 0.21750803554254342,
+        "stat_column_used": "toy_stat_unc_nb"
+      },
+      "name": "stat_column_choice",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": true,
+      "tolerance": null,
+      "worst_deviation": 0.21750803554254342
+    },
+    {
+      "description": "noZ absolute stat = raw_parent_stat x C_gamma_born per bin (= withZ_stat x sigma_noZ/sigma_withZ): relative statistical uncertainty identical between the withZ and noZ table sets, absolute form equivalent; hard gate over the emitted table rows (guards against C_rad double-counting)",
+      "details": {
+        "n_checked": 490,
+        "n_skipped_empty_or_missing": 0,
+        "worst_abs_form_deviation": 3.6192800133749854e-16,
+        "worst_abs_form_key": [
+          "pos",
+          "S3_x0",
+          2,
+          2
+        ],
+        "worst_rel_form_deviation": 3.6981801747082174e-16,
+        "worst_rel_form_key": [
+          "pos",
+          "S0_x0",
+          6,
+          0
+        ]
+      },
+      "name": "noZ_stat_rel_matches_withZ",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-09,
+      "worst_deviation": 3.6981801747082174e-16
+    },
+    {
+      "description": "both radiative-correction factors (C_rad then C_gamma_Born) are tabulated in BOTH table sets: the own-convention factor per bin (withZ C_rad / noZ C_gamma_Born, value and total uncertainty) reproduces the previously published product exactly (previous sidecars /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_withZ.csv, /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_noZ.csv; tolerance 0) and C_gamma_born / C_rad == F_EWgamma from the NoZ table per bin (490 bins, tolerance 1e-12)",
+      "details": {
+        "factor_ratio_tol_rel": 1e-12,
+        "n_own_missing": 0,
+        "n_own_name_mismatches": 0,
+        "n_own_rows_checked": 980,
+        "n_own_rows_expected": 980,
+        "n_own_unc_violations": 0,
+        "n_own_value_violations": 0,
+        "n_ratio_bins_checked": 490,
+        "n_ratio_violations": 0,
+        "previous_factor_tol_rel": 0.0,
+        "previous_noZ_sidecar": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_noZ.csv",
+        "previous_withZ_sidecar": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_withZ.csv",
+        "worst_own_key": null,
+        "worst_own_unc_dev": 0.0,
+        "worst_own_value_dev": 0.0,
+        "worst_ratio_dev": 2.5993009786635075e-16,
+        "worst_ratio_key": [
+          "pos",
+          "S3_x0",
+          5,
+          2
+        ]
+      },
+      "name": "factor_columns_consistency",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 1e-12,
+      "worst_deviation": 2.5993009786635075e-16
+    },
+    {
+      "description": "final column = four-dimensional bin volume dQ2*dx*dz*dpT_h (GeV^3): every emitted volume (sidecar bin_volume_gev3 and the printed volume cell; 490 bins per charge pair) is the product of the release edge widths with the x width capped at 1 - x_min; every capped-cell volume (capped cells: ['S3_x0']) uses the capped width and no volume anywhere uses the bookkeeping width x_max - x_min; the printed caption cell edges, row edges and volume column are mutually consistent (re-parsed from the rendered blocks, tolerance 0.001 covering the printed significant-digit rounding)",
+      "details": {
+        "cap_margin_rel": 0.1,
+        "capped_cells": [
+          "S3_x0"
+        ],
+        "capped_dx": 0.979,
+        "capped_vs_uncapped_factor": 1.5107252298263536,
+        "expected_bins": 490,
+        "n_bins_checked": 490,
+        "n_capped_bins": 70,
+        "n_effective_width_violations": 0,
+        "n_parse_failures": 0,
+        "n_print_capped_rows": 140,
+        "n_print_uncapped_violations": 0,
+        "n_printed_consistency_violations": 0,
+        "n_printed_rows_checked": 980,
+        "n_recompute_violations": 0,
+        "n_uncapped_width_violations": 0,
+        "printed_consistency_tolerance": 0.001,
+        "printed_rows_per_mode": {
+          "noZ": 490,
+          "withZ": 490
+        },
+        "recompute_tolerance": 1e-12,
+        "uncapped_dx": 1.479,
+        "worst_printed_vs_edges_rel": 0.00048520135856375057,
+        "worst_recompute_rel": 0.0
+      },
+      "name": "bin_volume_consistency",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 0.001,
+      "worst_deviation": 0.00048520135856375057
+    },
+    {
+      "description": "public caption style only: no token from config latex.forbidden_caption_tokens (case- and backslash-insensitive substring match) appears in any rendered \\caption{...} line of any block; a single leak is a hard failure and blocks emission of all .tex products",
+      "details": {
+        "first_leaks": [],
+        "n_caption_lines_checked": 28,
+        "n_forbidden_tokens": 103,
+        "n_leaks": 0
+      },
+      "name": "caption_forbidden_tokens",
+      "not_evaluated_reason": null,
+      "passed": true,
+      "report_only": false,
+      "tolerance": 0.0,
+      "worst_deviation": 0.0
+    }
+  ],
+  "generated_utc": "2026-10-16T12:28:14Z",
+  "generator": "generate_latex_cross_section_tables.py",
+  "generator_version": "1.2.2",
+  "inputs": {
+    "budget": {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/systematics_cone_s2prime_15comp_shiftedlegs_legenv_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-14/total_uncertainty_summary_cone_variant_15comp.csv",
+      "rows": 490,
+      "sha256": "568040fefb868680faef9aeebdfc0767b8dfc9083d7a47c24ce950b8ae5f076a"
+    },
+    "crad_noz": {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_nozborn_crad_releasebin_2026-10-09/cgammaborn_empz_gt45_nominal_490rows.csv",
+      "rows": 490,
+      "sha256": "7ec901af36d93b7f24e2ec8213b1883ab83a5a61f87a4ca03741b33cbee577e7"
+    },
+    "crad_withz": {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_crad_releasebin_2026-10-09/crad_v3_xfgen_lt0_empz_gt45_nominal_490rows.csv",
+      "rows": 490,
+      "sha256": "cf810be44a59ed790ba78e0476eb8f59df96358357cc39e258e034ed31b22ef5"
+    },
+    "previous_noZ_sidecar": {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_noZ.csv",
+      "rows": 490,
+      "sha256": "f5d7a56ea12f3841cf7e4cfb4a2ef745721f4a3de940a6f52bda231e87ceec1f"
+    },
+    "previous_withZ_sidecar": {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/tables/highQ2_z005_s2prime_born_public_2026-10-11/numbers_withZ.csv",
+      "rows": 490,
+      "sha256": "7d1eb0189d11c30ab14e36d9704724dfbad8350866f4a38d22c3554891cb49e9"
+    },
+    "release_born": {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/born_crad_dj14relbin_detints2prime_alphaveto_cone_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-13/ibu/cross_sections.csv",
+      "rows": 490,
+      "sha256": "ab53e9b6695dd85f38629bd7cc6f672a65a05ed8fcef8bb28ed9a1aacaecbf5c"
+    },
+    "release_raw": {
+      "path": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/bbb_ibu_detints2prime_alphaveto_cone_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-13/ibu/cross_sections.csv",
+      "rows": 490,
+      "sha256": "53bd0b568e7a9f09bf3d379840548d944d7980e79d1d4f74335b8c7408dc35ea"
+    }
+  },
+  "method": "ibu",
+  "modes_requested": "both",
+  "noz_crad_gen_mode": "carry",
+  "outputs": [
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/numbers_withZ.csv",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_pos_S0_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_pos_S0_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_pos_S1_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_pos_S1_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_pos_S2_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_pos_S2_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_pos_S3_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_neg_S0_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_neg_S0_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_neg_S1_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_neg_S1_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_neg_S2_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_neg_S2_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_withZ_neg_S3_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/tables_with_Zexchange.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/numbers_noZ.csv",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_pos_S0_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_pos_S0_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_pos_S1_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_pos_S1_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_pos_S2_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_pos_S2_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_pos_S3_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_neg_S0_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_neg_S0_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_neg_S1_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_neg_S1_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_neg_S2_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_neg_S2_x1.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/blocks/block_noZ_neg_S3_x0.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/tables_no_Zexchange.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/compile_check.tex",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/provenance.json",
+    "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/results/cone_s2prime_born_public_tables_2026-10-16/validation.json"
+  ],
+  "sigma_form": "binned",
+  "significant_digits": 4,
+  "summary": {
+    "all_gates_pass": true,
+    "n_failed": 0,
+    "n_gates": 16,
+    "n_not_evaluated": 0,
+    "n_passed": 16,
+    "n_report_only": 1
+  },
+  "sys_mode": "excl_all_stat"
+}
