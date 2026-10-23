@@ -30,6 +30,94 @@ Figure~\ref{fig:unfolding:alpha0p2-allfake-migration-matrix} shows the diagnosti
 
 The IBU cross-generator closure diagnostic is shown in Figs.~\ref{fig:unfolding:ibu-crossclosure-fullrange} and~\ref{fig:unfolding:ibu-crossclosure-zoom}. These plots use the canonical seven-column $\pTh$ layout and include both cross directions, with $\mathrm{DJ}\to\mathrm{RG}=N^{\mathrm{DJ\ reco,\ unfolded\ with\ RG\ response}}/N^{\mathrm{DJ\ truth}}$ and $\mathrm{RG}\to\mathrm{DJ}=N^{\mathrm{RG\ reco,\ unfolded\ with\ DJ\ response}}/N^{\mathrm{RG\ truth}}$. The comparison is a cross-generator closure check only, with no self-closure component; the full-range version displays ratios from 0 to 2 and the zoomed version displays 0.75 to 1.25. These figures are note-ready diagnostics derived from the validated cross-closure input table.
 
+\subsection{Response Truth Contract}
+\label{sec:unfolding:truth-contract}
+
+The response and the radiative correction share one truth contract, harmonized
+in the 2026-10-20 OPT-A baseline promotion of the central value.  The matched
+body of the response books its generator-level $\Qsq$ cell index with the
+calculator quantity $Q^2_{\mathrm{esGen}}$ (the event-kinematics calculator
+evaluated with the nominal beam energies, i.e.\ the radiative level),
+harmonized to the pool and miss gen binning and to the radiative-correction
+worker booking $(Q^2_{\mathrm{esGen}}, x_{\mathrm{es,gen}}, z, \pTh)$: the
+response is an exact mirror of the booking at which $C_{\mathrm{rad}}$ is
+derived and applied
+(Sec.~\ref{sec:radiative_corrections:application}).  Before the promotion the
+matched body was binned at the rad-safe estimator
+$Q^2_{\mathrm{es,gen}}$ while the pool, the miss row, and the correction legs
+were binned at $Q^2_{\mathrm{esGen}}$.  Under initial-state radiation
+$Q^2_{\mathrm{esGen}}$ exceeds the photon-subtracted
+$Q^2_{\mathrm{es,gen}}$ one-directionally, so radiative generator rows
+straddled upward across cell boundaries between the body and the pool,
+leaving a sign-definite per-cell bias in the released values; the promotion
+removes this bias as a one-time central-value correction.
+
+Everything else in the response build is unchanged by the harmonization: the
+pool and miss binning (already $Q^2_{\mathrm{esGen}}$), the rad-safe
+generator-level fiducial
+($Q^2_{\mathrm{es,gen}}$, $Y_{\mathrm{es,gen}}$, $x_{\mathrm{es,gen}}$, the
+$E-p_z>45~\GeV$ requirement, and the recomputed nominal-beam
+current-hemisphere cut), the generator-level $z$ (\texttt{zGen}), the
+generator-level $\pTh$ (nominal-beam construction), the $x$ operand, the
+$\alpha\ge0.2~\mathrm{rad}$ cone, the detector-interaction treatment, the
+matching and count identity, the entire reconstructed side, and the weights:
+the pool, miss, and prior legs use $w_{1}w_{2}$, and the matched-body and
+fake reconstructed legs use $w_{1}w_{2}$ times the NucliaWeight, the
+per-reconstructed-track nuclear-interaction correction, applied exactly once
+and clipped to $[0,10]$.  The background-subtracted data vector is consumed
+unchanged, and the applied DJANGOH14 correction table required no
+re-derivation: it was verified to be natively consistent with this contract
+and was re-verified byte-identical.
+
+The generator-level $z$ convention is declared, not switched.  Keeping
+\texttt{zGen} and the nominal-beam $\pTh$ leaves the $z$ and $\pTh$ axes
+exactly matched to the radiative correction, and \texttt{zGen} is the correct
+truth definition under this contract.  On the quantified single-slice MC
+study, $3.25\%$ of generator-level rows ($3.41\%$ weighted) would change $z$
+bin under the rad-safe definition of $z$, all upward toward the rad-safe $z$
+and concentrated in the two lowest $z$ rows; this $z$-bin-row shift is
+carried as a declared bin-coordinate convention, and its systematic
+treatment---caveat only or a budget component---is decided in the budget
+regeneration (Sec.~\ref{sec:syst:budget-regeneration}).
+
+The harmonized response was validated by a full-sample per-cell straddle and
+matched-fraction study over the complete response campaign (73 RAPGAP31 and
+101 DJANGOH14 shards), together with an independent physics-consistency
+adjudication of the per-cell shift pattern.  The manifest reconciliation of
+the study is exact on both generator legs: 1{,}357{,}250 RAPGAP31 and
+1{,}574{,}230 DJANGOH14 body-cell changes, checked against 58{,}768{,}556 and
+69{,}695{,}815 rows, with three benign $\pTh$-edge bit-flip mismatches on the
+RAPGAP31 leg and none on the DJANGOH14 leg; the overall unweighted straddle
+rates are $1.774\%$ (RAPGAP31) and $1.737\%$ (DJANGOH14).  The per-cell
+unfolded shifts are consistent with the binning-bias removal---sign pattern,
+magnitudes, charge symmetry, and integrated near-conservation all agree with
+the mechanism---and every well-populated bin shift is bounded by its
+full-sample per-cell straddle rate; the largest populated shift,
+$+4.2051\%$ (negative charge, global bin 159), sits at $0.855$ of its own
+rate.  The complete exception set is a flagged list of 48 cells, adjudicated
+cell by cell: 44 of
+the 48 sit in two near-balanced cells where the in- and out-flux nearly cancel
+(a small-denominator artifact), and the three corner bins b39, b109, and b179
+are noise-dominated---driven by prior redistribution in near-empty bins, with
+charge-opposite excursions that rule out a coherent systematic---so no bin is
+masked and no pre-promotion treatment is required.  Two independent critic
+reviews of the study passed, the second with all seven record conditions
+satisfied by an appended erratum that corrects the quoted maxima and the
+dilution characterizations.  The promotion gate trail---the full-shard smoke,
+the response rebuild, the merge, the official re-unfold, and a verification
+re-run whose 15 product files are bit-identical to the official candidate,
+with the removal-window gate re-derived on the OPT-A fake fractions (centers
+$11.308567\%$ for $\hplus$ and $10.934567\%$ for $\hminus$; the measured
+values on the subtracted data vector fall inside the re-derived
+windows)---is recorded in the promotion record
+\path{H1ChargedSidis_HighQ2/output_v6/central/data_release/bbb_ibu_bgsub_setRprime_conebase_optA_q2esgen_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-20/PROMOTION_RECORD.md};
+the full audit chain is retained under
+\path{sidis_highQ2/docs/critiques/scriptaudit_2026-10-19/}.
+
+The response and closure figures of this section predate the harmonization
+and are retained as diagnostics; they have not been regenerated on the
+harmonized response.
+
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.92\textwidth]{figures/fig_alpha0p2_allfake_migration_matrix_z005_diagnostic_log_unstretched.pdf}

@@ -109,11 +109,11 @@ any result in this note.
 Variant & $\hplus$ & $\hminus$ \\
 \midrule
 Mixed-beam (applied primary, DJANGOH14 releasebin)$^{a}$ &
-  $1.142 \pm 0.000123$ (stat) $\pm 0.00728$ (gen) &
-  $1.141 \pm 0.000124$ (stat) $\pm 0.00736$ (gen) \\
+  $1.142 \pm 0.000124$ (stat) $\pm 0.00728$ (gen) &
+  $1.141 \pm 0.000125$ (stat) $\pm 0.00737$ (gen) \\
 $e^{-}p$ WithZ (per-beam target, DJANGOH14)$^{b}$ &
-  $1.148 \pm 0.000151$ (stat) $\pm 0.0106$ (gen) &
-  $1.147 \pm 0.000151$ (stat) $\pm 0.0101$ (gen) \\
+  $1.148 \pm 0.000151$ (stat) $\pm 0.0107$ (gen) &
+  $1.147 \pm 0.000152$ (stat) $\pm 0.0101$ (gen) \\
 NoZ photon-Born $C_{\gamma\mathrm{Born}}$ (DJANGOH14)$^{c}$ &
   $1.041 \pm 0.000143$ (stat) &
   $1.040 \pm 0.000144$ (stat) \\
@@ -178,6 +178,16 @@ Sec.~\ref{sec:results:z005-release}.  The correction has been applied to
 all released cross sections since its derivation was completed in
 October 2026; cross sections produced before the correction was applied
 are superseded.
+
+Since the 2026-10-20 OPT-A baseline promotion, the response books its
+generator-level truth at exactly the cell booking at which this correction
+is derived and applied (Sec.~\ref{sec:unfolding:truth-contract}): the
+unfolded radiative-level generator cells and the per-bin correction factors
+share the $(Q^2_{\mathrm{esGen}},x_{\mathrm{es,gen}},z,\pTh)$ booking, so
+the per-bin application is level-exact end to end.  The applied DJANGOH14
+releasebin table required no re-derivation for the promotion; it was
+verified to be natively consistent with the harmonized contract and was
+re-verified byte-identical.
 
 \subsection{Uncertainties}
 \label{sec:radiative_corrections:uncertainties}

@@ -21,21 +21,77 @@ relative component.  The frozen 2026-10-19 edition is
 $\hplus$ and $7.637124635311324\%$ for $\hminus$, maxima of
 $73.65119705575378\%$ and $88.43670499154085\%$, and no bins above $100\%$.
 The frozen input, median, integrated-effect, and no-bin-above-$100\%$ gates
-all passed.  This edition supersedes the 2026-10-17 19-component
+all passed.  This edition had superseded the 2026-10-17 19-component
 clean-denominator budget as the quoted systematic; the latter is retained as
-historical provenance.  Global covariance matrices constructed from the
-current budget are described in Sec.~\ref{sec:syst:global-covariance}.  The
+historical provenance.  Both frozen editions were computed on the central
+values that the 2026-10-20 OPT-A baseline promotion superseded
+(Sec.~\ref{sec:results:z005-release}): they are superseded as a quoting
+basis, are retained unchanged as provenance, and the budget is being
+regenerated on the OPT-A nominal
+(Sec.~\ref{sec:syst:budget-regeneration}); until the regenerated budget
+passes review, no per-bin uncertainty and no uncertainty total is final.
+Global covariance matrices constructed from the frozen 2026-10-19 budget are
+described in Sec.~\ref{sec:syst:global-covariance}.  The
 radiative correction $C_{\mathrm{rad}}$ is applied to the cross section at
 Born level, with its uncertainty carried as the two systematic components
 described in Sec.~\ref{sec:radiative_corrections} and listed in
 Table~\ref{tab:syst:z005-components}.  The remaining open item for the
 radiative correction is its application at the multiplicity level.
 
+\subsection{Budget Regeneration on the OPT-A Nominal}
+\label{sec:syst:budget-regeneration}
+
+The systematic budget is being regenerated on the OPT-A nominal central
+values (Sec.~\ref{sec:results:z005-release}).  Until the regenerated budget
+passes review, no per-bin uncertainty and no uncertainty total of the frozen
+editions may be quoted as final.  The regeneration and its companion open
+items are:
+\begin{itemize}
+  \item the re-derivation of the affected components on the OPT-A nominal,
+        together with the fix of the detector-interaction double count in
+        the twenty-active-term total: the removal term enters the quadrature
+        sum twice, an inflation proven exactly in three independent
+        re-derivations, of at most about $1.71\times10^{-4}$ relative and
+        never deflating, so the frozen totals are strictly conservative;
+  \item the per-bin treatment of the 56 published bins whose OPT-A Born
+        shift exceeds the per-bin background-envelope component of the
+        frozen budget (largest ratio 2.58; no bin exceeds the frozen
+        edition totals, with maximum ratios 0.86 and 0.70 against the
+        nineteen- and twenty-active-term editions, a statement robust to
+        the double-count fix), and the assignment of a systematic home to
+        the residual straddle-rate model dependence---the residual mismatch
+        of the per-cell straddle rates between simulation and data, bounded
+        by the same straddle logic;
+  \item the form of the declared $z$-bin-row shift convention
+        (Sec.~\ref{sec:unfolding:truth-contract}): caveat only, or a budget
+        component; if a component is chosen, the only sound derivation is a
+        self-consistent scheme pair---a response variant with the rad-safe
+        generator $z$ together with a co-derived correction on the same
+        basis---and never a rad-safe-$z$ response combined with the current
+        correction table, which would double-count the $z$ migration;
+  \item the reconstruction of the frozen-edition budget builder, whose
+        provenance could not be located; the acceptance condition is the
+        exact reproduction of the nineteen-component total on the three
+        empty-subtracted-data bins (positive charge, bins 109 and 179;
+        negative charge, bin 240);
+  \item the missing HFS--$E-p_z$ systematic channel: the
+        hadronic-final-state shifts leave $E-p_z$ bit-identical, so the
+        quoted HFS-leg errors do not cover the $E-p_z>45~\GeV$ requirement;
+  \item the re-basing of the fractional covariance product of
+        Sec.~\ref{sec:syst:global-covariance} to the OPT-A nominal;
+  \item the re-pointing and repair of the registered canonical plotting
+        chain, whose script audit failed with 24 defects and whose
+        registered Born plotter still reads a superseded release, and the
+        remaining publication-facing canonical plot categories, which
+        depend on the regenerated budget.
+\end{itemize}
+
 \subsection{List of Systematics}
 \label{sec:syst:z005-components}
 
-Table~\ref{tab:syst:z005-components} lists the components currently included in
-the total uncertainty. The HFS and electron sources of uncertainty are calculated using the standard H1CalcSystematic framework.
+Table~\ref{tab:syst:z005-components} lists the components of the total
+uncertainty as combined in the frozen budget editions
+(Sec.~\ref{sec:syst:budget-regeneration}). The HFS and electron sources of uncertainty are calculated using the standard H1CalcSystematic framework.
 
 \begin{table}[h]
 \centering
@@ -65,7 +121,7 @@ Background-subtraction envelope & Fully correlated $\pm100\%$ normalization enve
 Luminosity & flat $2.7\%$ \\
 \bottomrule
 \end{tabular}
-\caption{The systematic-uncertainty components of the current total budget and how they are calculated.  The detector-integration removal entry comprises two terms, its model and statistical parts, so the inventory holds twenty active quadrature terms in total.  The audit-only retired \texttt{bgsub\_stat\_rel} column is not included in the quadrature sum.}
+\caption{The systematic-uncertainty components of the frozen budget editions and how they are calculated.  The detector-integration removal entry comprises two terms, its model and statistical parts, so the inventory holds twenty active quadrature terms in total.  The audit-only retired \texttt{bgsub\_stat\_rel} column is not included in the quadrature sum.}
 \label{tab:syst:z005-components}
 \end{table}
 
@@ -140,8 +196,9 @@ column is not plotted or included in this total.
 
 The three fixed vertical ranges provide the full 0--100\% range, the 0--15\%
 zoom, and the intermediate 0--50\% range.  The figures are dated
-candidate renderings of the frozen 2026-10-19 budget; the publication-version
-plotting script for these panels is not yet registered.
+candidate renderings of the frozen 2026-10-19 budget, which is superseded as
+a quoting basis (Sec.~\ref{sec:syst:budget-regeneration}); the
+publication-version plotting script for these panels is not yet registered.
 
 \begin{figure}[p]
   \centering
@@ -236,7 +293,10 @@ The product is retained at
 It contains the per-charge and cross-charge fractional systematic covariance
 matrices, the separately stored IBU-statistical matrices, a total-correlation
 rendering, and the gate record.  The gate record and release status report
-all covariance/correlation checks as passed.
+all covariance/correlation checks as passed.  The package was constructed on
+the superseded central values and is pending re-basing to the OPT-A nominal
+(Sec.~\ref{sec:syst:budget-regeneration}); its diagonals also carry the
+conservative detector-interaction double count of the frozen total.
 
 \subsection{Detector and Track-Selection Robustness Cross-Checks}
 \label{sec:syst:cut-variations}
