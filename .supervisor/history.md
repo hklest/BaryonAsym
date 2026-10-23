@@ -1,3 +1,5 @@
 - 2026-10-23 executor: Phase A A1–A7 done, all gates PASS
 - 2026-10-23 executor: B, C, D1–D3 done (budget v2 8.34/8.89%, critic round 3 C1 fixed)
 - 2026-10-23 executor (Phase E): release candidate packaged, covariance gates PASS, critic round 4 REVISE→fixed, round 5 PASS; deferred Phase F (user-gated), Phase G
+- 2026-10-23 executor (Phase F): installed + promoted, audit PASS
+- 2026-10-23 executor (Phase G): budget plots + note done; other plots need new plotters
