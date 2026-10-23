@@ -7,3 +7,4 @@ source: user 2026-10-23 (sidis_highQ2/docs/handoffs/esigma_release_2026-10-22/es
 supersedes:
 ---
 JES uses the symmetrized (up-down)/2 shift for both the systematic budget and the covariance. Supervisor default; user did not object.
+superseded by: memory/decisions/2026-10-23-esigma-jes-rg-only-symmetrized.md
