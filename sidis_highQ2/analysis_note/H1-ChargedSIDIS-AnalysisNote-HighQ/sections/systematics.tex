@@ -5,66 +5,59 @@
 \section{Systematic Uncertainties}
 \label{sec:systematics}
 
-The current high-$\Qsq$ analysis release has detector, unfolding,
+The systematic uncertainties of this measurement comprise detector, unfolding,
 tracking-efficiency, hadron-azimuth, luminosity, radiative, and
-background-subtraction systematic components assembled on the validated
-490-row release contract.  It uses the near-electron cone selection with the
-detector-interaction-corrected response, the pre-unfold subtraction of the
-electron, V0, and low-$\Qsq$ background templates, and the $e\Sigma$
-reconstructed photon for $z$, $\pTh$, and the $\gamma^{*}p$ frame; the
-iterative Bayesian unfolding of the subtracted data vector is the single
-denominator for every relative component.  The quoted budget is the installed
-eSigma edition \path{systematics_bgsub_env100hyp_nonprimary_nw_optA_esigmaphoton_2026-10-23/}
-under \path{H1ChargedSidis_HighQ2/output_v6/central/data_release/}, column
-\texttt{total\_quoted\_esph\_rel}.  Over the 245 bins per charge its medians are
-$8.343\%$ for $\hplus$ and $8.890\%$ for $\hminus$.  The electron-frame OPT-A
-budget of 2026-10-21 and the frozen 2026-10-19 edition are superseded as a
-quoting basis and retained unchanged as provenance.  All relative values are fractions of the
+background-subtraction components, evaluated on all 490 bins.  They use the
+near-electron cone selection with the response corrected for secondary
+interactions in the detector, the subtraction of the electron, V0, and
+low-$\Qsq$ background templates before unfolding, and the virtual photon
+reconstructed with the $e\Sigma$ method for $z$, $\pTh$, and the $\gamma^{*}p$
+frame.  The unfolded, background-subtracted data are the single denominator
+for every relative component.  Over the 245 bins per charge the median total
+uncertainty is $8.3\%$ for $\hplus$ and $8.9\%$ for $\hminus$.  All relative values are fractions of the
 cross section, so the same percentage holds for the raw and for the Born
-table; the budget is built against the raw release tables.  Global covariance
-matrices are provided as the edition
-\texttt{z005\_covariance\_optA\_esigmaphoton\_2026-10-23}
-(Sec.~\ref{sec:syst:global-covariance}).  The radiative correction
+table; the budget is built against the raw cross-section tables.  Global covariance
+matrices are provided (Sec.~\ref{sec:syst:global-covariance}).  The radiative correction
 $C_{\mathrm{rad}}$ is applied to the cross section at Born level, with its
 uncertainty carried as the two systematic components described in
 Sec.~\ref{sec:radiative_corrections} and listed in
 Table~\ref{tab:syst:z005-components}.  The remaining open item for the
 radiative correction is its application at the multiplicity level.
 
-\subsection{Budget on the eSigma Release}
+\subsection{Budget with the $e\Sigma$ Method}
 \label{sec:syst:budget-regeneration}
 
-The budget is the installed eSigma edition described above, with the
-electron-energy lever arm reduced because $z$ and $\pTh$ no longer follow the
-electron-only photon: for the electron-only $q$, a $1\%$ shift of $E_{e'}$
+With the $e\Sigma$ method the electron-energy lever arm is reduced, because
+$z$ and $\pTh$ no longer follow the photon reconstructed from the electron alone.
+For the electron-only $q$, a $1\%$ shift of $E_{e'}$
 moves $z$ by about $11\%$ at $y_e\approx0.09$ and by $1.3\%$ at $y_e\approx0.45$, and the
-median of the electron-energy term in the electron frame is $4.08\%$ ($\hplus$) and
-$4.23\%$ ($\hminus$), against $2.68\%$ and $2.88\%$ with the $e\Sigma$ photon.
-The changes with respect to the electron-frame OPT-A budget and their limits are:
+median of the electron-energy term with the electron-only photon is $4.1\%$ ($\hplus$) and
+$4.2\%$ ($\hminus$), against $2.7\%$ and $2.9\%$ with the $e\Sigma$ photon.
+The changes with respect to the budget with the electron-only photon, and their limits, are:
 \begin{itemize}
-  \item the new $\Sigma_h$ smear term, a smear of the hadronic $\Sigma_h$ applied in
+  \item the new hadronic $E-p_z$ resolution term, a smear of the hadronic $\Sigma_h$ applied in
         simulation only, from a single draw, with a noise level, estimated as the median
         $|\mathrm{RAPGAP}-\mathrm{DJANGOH}|/2$ (a generator-difference proxy, not a
         repeat-draw spread), of $0.17\%$ ($\hplus$) and $0.14\%$ ($\hminus$);
-  \item the JES term is taken from RAPGAP only and symmetrized as
+  \item the hadronic energy scale (JES) term is taken from RAPGAP only and symmetrized as
         $(\mathrm{up}-\mathrm{down})/2$, because the generator test gives
         $p=1.3\times10^{-6}$ for the RAPGAP--DJANGOH disagreement; the DJANGOH
         difference is stated, not added, and the test ignores bin correlations;
-  \item the detector-integration removal is carried from the electron frame (median
-        $0.03\%$, not recomputed in the $e\Sigma$ frame), and a $\pm100\%$
+  \item the secondary-interaction removal term is taken from the analysis with the
+        electron-only photon (median $0.03\%$, not recomputed with the $e\Sigma$ method), and a $\pm100\%$
         normalization term is added to it;
-  \item the hadron-azimuth term uses the legacy-convention column (native $e\Sigma$);
+  \item the hadron azimuthal-angle prior term is evaluated with the $e\Sigma$ method;
   \item there is no ISR/QED term: following standard H1 practice, radiative effects
         are corrected with $C_{\mathrm{rad}}$, which is applied, and the ISR residual
-        of the $z$-shift term, itself identically zero, is unquoted;
-  \item the missing HFS--$E-p_z$ systematic channel remains: the
+        of the initial-state-radiation $z$-shift term, itself identically zero, is not quoted;
+  \item a hadronic-final-state $E-p_z$ systematic variation is still missing: the
         hadronic-final-state shifts leave $E-p_z$ bit-identical, so the quoted
-        HFS-leg errors do not cover the $E-p_z>45~\GeV$ requirement.
+        hadronic-final-state uncertainties do not cover the $E-p_z>45~\GeV$ requirement.
 \end{itemize}
 \subsection{List of Systematics}
 \label{sec:syst:z005-components}
 
-Table~\ref{tab:syst:z005-components} lists the 24 terms of the quoted total uncertainty with the median of each over the 245 bins per charge, taken from the installed eSigma budget
+Table~\ref{tab:syst:z005-components} lists the 24 terms of the quoted total uncertainty with the median of each over the 245 bins per charge, evaluated with the $e\Sigma$ method
 (Sec.~\ref{sec:syst:budget-regeneration}). The HFS and electron sources of uncertainty are calculated using the standard H1CalcSystematic framework.
 
 \begin{table}[h]
@@ -76,46 +69,45 @@ Table~\ref{tab:syst:z005-components} lists the 24 terms of the quoted total unce
 Component & Treatment & $\hplus$ [\%] & $\hminus$ [\%] \\
 \midrule
 \multicolumn{4}{l}{\textit{Unfolding and model}} \\
-Unfolding: data statistics & $\sigma$ of 1000 Poisson-only toy replicas on the subtracted data vector & $3.8$ & $4.2$ \\
-Unfolding: MC model dependence & Difference in unfolded data with different model migration matrices & $1.4$ & $1.6$ \\
+Unfolding: data statistics & Standard deviation over 1000 Poisson toy replicas of the background-subtracted data & $3.8$ & $4.2$ \\
+Unfolding: MC model dependence & Difference in unfolded data with migration matrices from different MC models & $1.4$ & $1.6$ \\
 Unfolding: regularisation & $\pm1$ iteration around nominal $N_{\mathrm{iter}}=4$ & $0.64$ & $0.59$ \\
-Hadron azimuthal-angle prior & Flat-$\phih$ IBU prior; half the larger generator deviation; legacy-convention column & $1.2$ & $1.3$ \\
+Hadron azimuthal-angle prior & Unfolding prior flat in $\phih$; half the larger deviation of the two generators & $1.2$ & $1.3$ \\
 \midrule
 \multicolumn{4}{l}{\textit{Lepton reconstruction}} \\
-Electron energy scale & $\pm1\%$ shift of $E_{e'}$, MC-only leg & $2.7$ & $2.9$ \\
-Electron polar angle & Shift of $\theta_{e'}$ by $1~\mathrm{mrad}$, MC-only leg & $0.27$ & $0.28$ \\
-$Q^2$, $x$ bin-edge migration residual & Residual mismatch of the per-cell straddle rates between simulation and data & $0.13$ & $0.13$ \\
-Initial-state-radiation $z$ shift (zero) & Identically zero; its ISR residual is unquoted & $0$ & $0$ \\
+Electron energy scale & $\pm1\%$ shift of $E_{e'}$ in simulation only & $2.7$ & $2.9$ \\
+Electron polar angle & Shift of $\theta_{e'}$ by $1~\mathrm{mrad}$ in simulation only & $0.27$ & $0.28$ \\
+$Q^2$, $x$ bin-edge migration residual & Residual simulation--data difference in the rate of migrations across the $Q^2$ and $x$ bin edges & $0.13$ & $0.13$ \\
+Initial-state-radiation $z$ shift (zero) & Identically zero; the residual initial-state-radiation effect is not quoted & $0$ & $0$ \\
 \midrule
 \multicolumn{4}{l}{\textit{Hadronic final state}} \\
-Hadronic energy scale & Shift of JES by 2\%, MC-only, RAPGAP only, symmetrized $(\mathrm{up}-\mathrm{down})/2$ & $0.59$ & $0.65$ \\
-Calorimeter cluster energy scale & Shift of RCES by 2\%, MC-only & $0.14$ & $0.15$ \\
-Hadronic polar angle & Shift of HFS $\theta$ by 1 mrad, MC-only & $0.10$ & $0.11$ \\
-Hadronic $E-p_z$ resolution & MC-only smear of $\Sigma_h$, single draw & $0.44$ & $0.42$ \\
+Hadronic energy scale & Shift of the hadronic energy scale by 2\% in simulation only, RAPGAP only, symmetrized $(\mathrm{up}-\mathrm{down})/2$ & $0.59$ & $0.65$ \\
+Calorimeter cluster energy scale & Shift of the calorimeter cluster energy scale by 2\% in simulation only & $0.14$ & $0.15$ \\
+Hadronic polar angle & Shift of the hadronic polar angle by 1 mrad in simulation only & $0.10$ & $0.11$ \\
+Hadronic $E-p_z$ resolution & Smearing of $\Sigma_h$ in simulation only, from a single random draw & $0.44$ & $0.42$ \\
 \midrule
 \multicolumn{4}{l}{\textit{Tracking}} \\
-Track-finding efficiency & $-0.5\%$ tracking-efficiency shift & $0.51$ & $0.51$ \\
-Secondary-interaction removal & Removal-increment isolation of the detector-interaction reroute, carried from the electron frame, with a $\pm100\%$ normalization term & $0.20$ & $0.17$ \\
-Non-primary track normalisation & Non-primary normalization term of the v5 edition & $0.069$ & $0.058$ \\
-Hadron loss in detector material & $\pm100\%$ on $(1-\mathrm{NucliaWeight})$, loss-to-miss form & $0.74$ & $0.77$ \\
+Track-finding efficiency & $-0.5\%$ shift of the track-finding efficiency & $0.51$ & $0.51$ \\
+Secondary-interaction removal & Effect of removing secondary-interaction tracks, taken from the analysis with the electron-only photon, with a $\pm100\%$ normalization term & $0.20$ & $0.17$ \\
+Non-primary track normalisation & Normalization uncertainty of the non-primary track contribution & $0.069$ & $0.058$ \\
+Hadron loss in detector material & $\pm100\%$ variation of the simulated hadron-loss probability, with lost hadrons treated as unreconstructed & $0.74$ & $0.77$ \\
 \midrule
 \multicolumn{4}{l}{\textit{Background}} \\
-Background: generator model & V0 and electron generator half-spreads in quadrature with a $\pm30\%$ low-$\Qsq$ scale term & $0.22$ & $0.25$ \\
-Background: subtraction stage & Pre-versus-post-unfold stage difference measured on the cone chain & $0.18$ & $0.19$ \\
-Background: fake-track fraction & Fake-fraction common-model dependence $|1-r_{\min}|\,f_i$ with the proxy $r_{\min}=0.982$ (NucliaWeight caveat) & $0.18$ & $0.18$ \\
-Background: normalisation & Fully correlated $\pm100\%$ normalization envelope on the subtracted electron and V0 content, in its \texttt{env100\_hyp} form & $3.6$ & $3.7$ \\
+Background: generator model & Half the generator spread of the V0 and electron backgrounds, in quadrature with a $\pm30\%$ scale variation of the low-$\Qsq$ background & $0.22$ & $0.25$ \\
+Background: subtraction stage & Difference between subtracting the background before and after the unfolding & $0.18$ & $0.19$ \\
+Background: fake-track fraction & Model dependence of the fake-track fraction, $|1-r_{\min}|\,f_i$, with the proxy $r_{\min}=0.982$ (minimum hadron-survival weight) & $0.18$ & $0.18$ \\
+Background: normalisation & Fully correlated $\pm100\%$ normalization variation of the subtracted electron and V0 background & $3.6$ & $3.7$ \\
 \midrule
 \multicolumn{4}{l}{\textit{Normalisation and corrections}} \\
-Luminosity & flat $2.7\%$ & $2.7$ & $2.7$ \\
-QED radiative correction: model & DJANGOH vs RAPGAP $C_{\mathrm{rad}}$ difference & $0.58$ & $0.55$ \\
+Luminosity & Flat $2.7\%$ & $2.7$ & $2.7$ \\
+QED radiative correction: model & Difference of $C_{\mathrm{rad}}$ between DJANGOH and RAPGAP & $0.58$ & $0.55$ \\
 QED radiative correction: MC statistics & Statistical uncertainty of the applied $C_{\mathrm{rad}}$ & $0.43$ & $0.44$ \\
-Fake-track correction: MC statistics & Cone fake-column $\sigma(f_i)$ propagated through the unfolding Jacobian on the subtracted data vector & $0.32$ & $0.33$ \\
+Fake-track correction: MC statistics & MC statistical uncertainty $\sigma(f_i)$ of the fake-track fractions, propagated through the unfolding & $0.32$ & $0.33$ \\
 \midrule
-Total (all 24 terms in quadrature) & \texttt{total\_quoted\_esph\_rel} & $8.3$ & $8.9$ \\
+Total (all 24 terms in quadrature) & Quadrature sum of the 24 terms & $8.3$ & $8.9$ \\
 \bottomrule
 \end{tabular}
-\caption{The 24 systematic-uncertainty terms of the installed eSigma budget
-(\texttt{esph\_budget\_v2.csv}), grouped by source, how they are calculated, and their medians per
+\caption{The 24 systematic-uncertainty terms, grouped by source, with how each is evaluated and its median per
 charge in percent of the cross section (two significant figures).  The relative values hold for the raw and
 for the Born (\texorpdfstring{$C_{\mathrm{rad}}$}{C\_rad} applied) table alike.
 The 95th percentiles of the quoted total are $30\%$ ($\hplus$) and
@@ -127,18 +119,17 @@ $35\%$ ($\hminus$).}
 The five detector components (scattered-electron energy and polar angle, and
 HFS JES, RCES, and polar angle) are full-chain MC-only variations: the
 shift is applied at the reconstructed electron or HFS in the simulation and
-propagated through the shifted-chain response and unfolding of the nominal data
-vector, $\Delta=\mathrm{IBU}(D_{\mathrm{nom}};M_{\mathrm{leg}})-
-\mathrm{IBU}(D_{\mathrm{nom}};M_{\mathrm{nom}})$, with RAPGAP31 governing; on
-the current background-subtracted release the background templates are
-subtracted from the data vector.  For the
+propagated through the shifted response and the unfolding $\mathcal{U}$ of the nominal data,
+$\Delta=\mathcal{U}(D_{\mathrm{nom}};M_{\mathrm{shift}})-
+\mathcal{U}(D_{\mathrm{nom}};M_{\mathrm{nom}})$, with RAPGAP31 governing; the
+background templates are subtracted from the data before unfolding.  For the
 scattered-electron energy component
-the leg with the larger robust median is used per charge, the leg-level
-envelope; the JES leg is the exception: it is taken from RAPGAP only and symmetrized
+the shift direction with the larger robust median is used per charge; the
+hadronic energy scale is the exception: it is taken from RAPGAP only and symmetrized
 as $(\mathrm{up}-\mathrm{down})/2$.  The tracking-efficiency component
-remains a data-side conservative shift, with medians $0.5104\%$
-($\hplus$) and $0.5108\%$ ($\hminus$) on the background-subtracted denominator.  The
-applied $C_{\mathrm{rad}}$ table is not rerun for the $e\Sigma$ frame, and its two
+remains a data-side conservative shift, with medians $0.51\%$
+($\hplus$) and $0.51\%$ ($\hminus$) on the background-subtracted denominator.  The
+applied $C_{\mathrm{rad}}$ table is not recomputed with the $e\Sigma$ method, and its two
 radiative components enter with the medians of Table~\ref{tab:syst:z005-components}.
 
 The shifts applied to the HFS primarily enter the measurement through the calculation of $E-P_z$. They do not affect the tracks.
@@ -146,47 +137,47 @@ The shifts applied to the HFS primarily enter the measurement through the calcul
 The electron and V0 background templates used in the pre-unfold subtraction
 are MC-derived and their normalization
 could not be measured by the dedicated control-region fits: in the
-$|\mathrm{DcaPrime}|>0.25~\mathrm{cm}$ tail, the two-class model is
+$|\mathrm{DCA}'|>0.25~\mathrm{cm}$ tail, the two-class model is
 unidentifiable, with the V0 normalization at its lower bound and the electron
 normalization drifting to $2.5$--$3.5$ in the failed groups, while five of the
-eight fits fail and the accepted groups remain compatible with unity.  The
-nominal subtraction of the electron-frame OPT-A release corresponds to $7.28\%$ of the cone data vector, composed
-of $3.85\%$ electron and $3.42\%$ V0 content; it is therefore assigned the
+eight fits fail and the accepted groups remain compatible with unity.  In the
+analysis with the electron-only photon, the nominal subtraction corresponds to $7.3\%$ of the data after the cone selection, composed
+of $3.9\%$ electron and $3.4\%$ V0 content.  It is therefore assigned the
 fully correlated $\pm100\%$ envelope
-$\texttt{bgsub\_env100\_rel}=(e_{\mathrm{avg}}+V0_{\mathrm{avg}})/\mathrm{data}_{\mathrm{sub}}'$
-rather than using the retired template-statistics term.  The tightened-chain
-check, in which $|\mathrm{DcaPrime}|<0.3~\mathrm{cm}$ is propagated through
+$\delta_{\mathrm{bg}}=(e_{\mathrm{avg}}+V0_{\mathrm{avg}})/\mathrm{data}_{\mathrm{sub}}'$,
+which replaces the earlier template-statistics term.  The tightened-selection
+check, in which $|\mathrm{DCA}'|<0.3~\mathrm{cm}$ is propagated through
 data, response, templates, and unfolding, finds 87 shifts above $3\sigma$
-where 1.21 are expected from statistical fluctuations; its integrated Born
-changes, $-2.37\%$ ($\hplus$) and $-1.40\%$ ($\hminus$), require correlated
-content uncertainties of $30.7\%$ and $17.6\%$, respectively.  In the
+where 1.2 are expected from statistical fluctuations; its integrated Born
+changes, $-2.4\%$ ($\hplus$) and $-1.4\%$ ($\hminus$), require correlated
+content uncertainties of $31\%$ and $18\%$, respectively.  In the
 per-bin requirement study, 23 significant shifts require more than $30\%$,
 10 require more than $50\%$, and the largest requirement is $97\%$; every
 significant shift is contained by the $\pm100\%$ envelope.  The earlier DCA
-scan is a diagnostic-only far-tail study, not a component of the quoted
+scan is a diagnostic study of the far tail and does not enter the quoted
 budget; crediting even its one-sided tightening does not remove the need for
 the envelope.  The DCA removal itself rejects $200\%$--$300\%$ more tracks
 than the associated template background, so the residual tail excess is of
 unknown composition and can include displaced signal.  The residual risk is
 therefore recorded rather than interpreted as a background measurement.  In the
-installed budget the envelope enters as \texttt{bgsub\_env100\_hyp\_rel}, with
-medians $3.55\%$ ($\hplus$) and $3.73\%$ ($\hminus$) and 95th percentiles
-$8.78\%$ and $8.85\%$.
+quoted budget the envelope enters as the term ``Background: normalisation'', with
+medians $3.6\%$ ($\hplus$) and $3.7\%$ ($\hminus$) and 95th percentiles
+$8.8\%$ and $8.9\%$.
 The fully correlated treatment is retained across bins and charges.  It does
 not remove the standing caveats on the low-$\Qsq$ template scale, the
-NucliaWeight fake-fraction proxy, or the blocked DIFFVM and photoproduction
-register rows; the near-electron cone remains motivated by the previous H1
+hadron-loss proxy for the fake-track fraction, or the still unevaluated DIFFVM and photoproduction
+background contributions; the near-electron cone remains motivated by the previous H1
 charged-particle measurement~\cite{H1:2013qsm}.
 
-\subsection{Per-Source Fractional-Uncertainties}
+\subsection{Fractional Uncertainties by Source}
 \label{sec:syst:source-plots}
 
 Figures~\ref{fig:syst:sources-hplus-env100-fullrange}--\ref{fig:syst:sources-hminus-env100-midrange}
 display the per-source fractional systematic uncertainties and their quadrature
-sum for $\hplus$ and $\hminus$ in percent units, for the installed eSigma
-budget of Table~\ref{tab:syst:z005-components} (24 quoted terms, total
-\texttt{total\_quoted\_esph\_rel}; release esigmaphoton 2026-10-23).  The
-dashed curve is the electron-photon final budget, shown for reference.  The
+sum for $\hplus$ and $\hminus$ in percent units, for the
+budget of Table~\ref{tab:syst:z005-components} (24 terms and their total).  The
+dashed curve is the total of the earlier budget with the photon reconstructed
+from the electron alone, shown for reference.  The
 relative uncertainties are the same for the raw and the Born ($C_{\mathrm{rad}}$
 applied) cross sections.
 
@@ -207,7 +198,7 @@ zoom, and the intermediate 0--50\% range.
     \caption{0--15\% zoom.}
   \end{subfigure}
   \caption{Per-source fractional systematic uncertainties for $\hplus$ versus
-  $\pTh$ on the installed eSigma budget (esigmaphoton 2026-10-23), shown in percent units.}
+  $\pTh$, shown in percent units.}
   \label{fig:syst:sources-hplus-env100-fullrange}
 \end{figure}
 
@@ -215,7 +206,7 @@ zoom, and the intermediate 0--50\% range.
   \centering
   \includegraphics[width=0.98\textwidth,height=0.82\textheight,keepaspectratio]{figures/fig_syst_uncertainty_sources_esigmaphoton_20261023_ylim050.pdf}
   \caption{Per-source fractional systematic uncertainties for $\hplus$ versus
-  $\pTh$ on the installed eSigma budget (esigmaphoton 2026-10-23), shown in percent units with a fixed
+  $\pTh$, shown in percent units with a fixed
   0--50\% vertical range.}
   \label{fig:syst:sources-hplus-env100-midrange}
 \end{figure}
@@ -234,7 +225,7 @@ zoom, and the intermediate 0--50\% range.
     \caption{0--15\% zoom.}
   \end{subfigure}
   \caption{Per-source fractional systematic uncertainties for $\hminus$ versus
-  $\pTh$ on the installed eSigma budget (esigmaphoton 2026-10-23), shown in percent units.}
+  $\pTh$, shown in percent units.}
   \label{fig:syst:sources-hminus-env100-fullrange}
 \end{figure}
 
@@ -242,13 +233,13 @@ zoom, and the intermediate 0--50\% range.
   \centering
   \includegraphics[page=2,width=0.98\textwidth,height=0.82\textheight,keepaspectratio]{figures/fig_syst_uncertainty_sources_esigmaphoton_20261023_ylim050.pdf}
   \caption{Per-source fractional systematic uncertainties for $\hminus$ versus
-  $\pTh$ on the installed eSigma budget (esigmaphoton 2026-10-23), shown in percent units with a fixed
+  $\pTh$, shown in percent units with a fixed
   0--50\% vertical range.}
   \label{fig:syst:sources-hminus-env100-midrange}
 \end{figure}
 
 % BEGIN generated: grouped figures (budget_grouped/make_syst_table_esph.py)
-\subsection{Per-Group Fractional Uncertainties}
+\subsection{Fractional Uncertainties by Source Group}
 \label{sec:syst:group-plots}
 
 \begin{figure}[p]
@@ -365,56 +356,48 @@ zoom, and the intermediate 0--50\% range.
 \subsection{Fractional Covariance Matrices}
 \label{sec:syst:global-covariance}
 
-The installed covariance edition
-\texttt{z005\_covariance\_optA\_esigmaphoton\_2026-10-23} provides
-cross-section covariance matrices, in $\mathrm{nb}^2$ with fractional twins, on the 245 published bins per
+Cross-section covariance matrices are provided, in $\mathrm{nb}^2$ with fractional counterparts, on the 245 published bins per
 charge (490 bins, charge-major order).  They are constructed for the current
 observable basis, with the near-electron cone selection, the $e\Sigma$ photon,
 and the electron, V0, and low-$\Qsq$ backgrounds subtracted from the data before
 unfolding.  Every nonzero term of the 24-term budget appears (the identically zero $z$-shift term is omitted), with two named
-replacements: the fake-column MC statistics are carried inside the full
+replacements: the fake-track correction MC statistics are carried inside the full
 response-replica MC-statistical covariance (200 replicas), and the
-detector-interaction removal is split into its model, statistical, and
+secondary-interaction removal is split into its model, statistical, and
 normalization parts.
 
-Each term has a declared correlation form.  The detector, $\Sigma_h$-smear,
-IBU model and regularization, detector-interaction model, radiative-generator,
-background-envelope, NucliaWeight, and luminosity terms are rank-one
+Each term has a declared correlation form.  The detector, hadronic $E-p_z$ resolution,
+unfolding model and regularization, secondary-interaction model, radiative-correction model,
+background normalisation, hadron-loss, and luminosity terms are rank-one
 and fully correlated across bins, with signs from the signed MC-only shift
 vectors where they exist (JES symmetrized $(\mathrm{up}-\mathrm{down})/2$).
 The non-primary term is rank-one per charge and uncorrelated across charges, plus a
-STR-mu rank-one piece across charges.  The straddle residual is a $2\times2$
+STR-mu rank-one piece across charges.  The bin-edge migration residual is a $2\times2$
 $\hplus/\hminus$ block per generator bin.
-The $\pm100\%$ detector-interaction normalization term is rank-one and fully
+The $\pm100\%$ secondary-interaction normalization term is rank-one and fully
 correlated across bins and charges with a uniform negative sign; this form
-(\texttt{cov\_detint\_norm\_rank1}) replaces the earlier diagonal one.  The sign is inferred, not
+replaces the earlier diagonal one.  The sign is inferred, not
 read from a per-bin signed vector: the sum over bins of the per-bin magnitudes
-equals the magnitude of the signed integrated increment, $0.032753~\mathrm{nb}$
-($\hplus$) and $0.028001~\mathrm{nb}$ ($\hminus$), which holds only if all bins share
+equals the magnitude of the signed integrated increment, $0.033~\mathrm{nb}$
+($\hplus$) and $0.028~\mathrm{nb}$ ($\hminus$), which holds only if all bins share
 that sign.  The tracking, hadron-azimuth, radiative-statistics, and
 background-subtraction model, stage, and fake-fraction terms are bin-diagonal, as in
-the previous edition, because no validated inter-bin correlation model exists for them.
+the previous version, because no validated inter-bin correlation model exists for them.
 The statistical covariance combines the per-charge Poisson blocks with a
 cross-charge block from 1000 joint event-cluster toys.  Four rank-one signs
-(IBU model and regularization, detector-interaction model, radiative generator)
-are carried from the previous edition.
+(unfolding model and regularization, secondary-interaction model, radiative-correction model)
+are carried from the previous version.
 
-The gate record reports all checks as passed, including the reproduction of the
+All validation checks pass, including the reproduction of the
 budget terms and the diagonal of the total covariance, which equals the squared
 budget to a relative deviation of $3.3\times10^{-16}$ after the two named
 replacements.  The statistical covariance has a minimum eigenvalue of
-$-2.5949\times10^{-6}$, at the edge of its tolerance, and the joint-toy
-clipping distorts the correlations in 42 reconstructed bins; both are flagged,
-not corrected.  The covariance provides the declared correlation model only and
+$-2.6\times10^{-6}$, at the edge of its tolerance, and the joint-toy
+clipping distorts the correlations in 42 reconstructed bins; both are flagged
+and left uncorrected.  The covariance provides the declared correlation model only and
 no correlation model for the bin-diagonal terms.  Any use must state the
 Born-versus-raw level of the nominal cross section used to convert fractional
 covariance to cross-section units.
-
-The edition is retained at
-\path{/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/data/covariance/z005_covariance_optA_esigmaphoton_2026-10-23/}.
-It supersedes the electron-frame edition
-\texttt{z005\_covariance\_optA\_nonprimary\_v5\_nw\_2026-10-21} and the frozen
-2026-10-19 product, which are retained as provenance.
 
 \subsection{Detector and Track-Selection Robustness Cross-Checks}
 \label{sec:syst:cut-variations}
@@ -425,14 +408,14 @@ rather than central results. Ideally, the measurement would be insensitive to
 small changes in detector-level cuts. We study the effect of varying the $E-p_z$
 cut, the minimum lab-frame $p_T$, the $\eta$ cut, and the cut on the distance of
 closest approach, generating a new migration matrix with these reconstructed-level
-cuts and then repeating the IBU unfolding procedure on the data. The results are
+cuts and then repeating the unfolding on the data. The results are
 shown as the ratio of the unfolded cross section with the nominal cut to the
 measured cross section with the varied cut for all bins in
-\cref{fig:syst:cutvar-empz25,fig:syst:cutvar-labpt,fig:syst:cutvar-eta,fig:syst:cutvar-dca1,fig:syst:cutvar-dca3}. The uncertainties on the points in these figures show the model, statistical, and regularization uncertainties of the IBU unfolding.
-These variants were produced before the coherent-prior re-release and the
-subsequent detector-interaction and cone-baseline promotions, on an earlier
-release lineage; they are retained as robustness checks of the cut scheme and
-have not been repeated on the current cone-based release.
+\cref{fig:syst:cutvar-empz25,fig:syst:cutvar-labpt,fig:syst:cutvar-eta,fig:syst:cutvar-dca1,fig:syst:cutvar-dca3}. The uncertainties on the points in these figures show the model, statistical, and regularization uncertainties of the unfolding.
+These variants were produced with an earlier version of the analysis, before
+the coherent unfolding prior, the secondary-interaction correction, and the
+near-electron cone selection were adopted; they are retained as robustness checks of the cut scheme and
+have not been repeated with the current selection.
 
 The loosening or tightening of the DCA cut is observed to have essentially no impact on the result. The lab $p_T$ cut has a 3-4\% effect on the lowest $\pTh$ bins, with one bin (with huge statistical uncertainties) exhibiting a 10\% shift. The lab $\eta$ cut has the most significant impact, due to the fact that it removes a much larger number of particles. A few bins are reduced to having low statistics after imposing the $|\eta|<1.4$ cut, so large fluctuations in the unfolded data in these bins can be expected. As before, these bins generally already have a large systematic and statistical uncertainty. Even in the worse case, all bins lie within 2 sigma of the unvaried results.
 
@@ -454,12 +437,12 @@ DCA$<3$ & $\mathrm{DCA}'\sin\theta < 3.0\,\mathrm{cm}$ & 0.999 & 1.000 & 1.000 \
 \label{tab:syst:cut-variation-summary}
 \end{table}
 
-Each variant satisfies the same basic validation contract as the nominal
-analysis products: 490 IBU rows, $N_{B,G}=245$, $N_{B,R}=490$, finite central
+Each variant satisfies the same basic validation requirements as the nominal
+analysis: 490 unfolded bins, $N_{B,G}=245$, $N_{B,R}=490$, finite central
 values, and no negative cross sections.  The lab-$p_T$ and $|\eta|$ variants and
-the two DCA variants each have complete migration-QA plot bundles with 42 PDF
-and 42 PNG outputs.  The DCA variants were additionally checked to have 490/490
-finite IBU rows and zero missing ratio rows.
+the two DCA variants each have complete sets of 42 migration-matrix quality plots.
+The DCA variants were additionally checked to have finite unfolded values in
+all 490 bins and no missing ratios.
 
 \begin{figure}[p]
   \centering
@@ -507,16 +490,16 @@ finite IBU rows and zero missing ratio rows.
 \label{sec:syst:near-electron-alpha}
 The previous H1 results (Refs.~\cite{H1:2013qsm,H1:2020zpd}) use a track--scattered-electron angle requirement larger than 0.2 rad to suppress anomalous tracks appearing near the scattered electron. These tracks could arise from photon conversions of final-state radiation (at the vertex or in detector material) off the electron, or tracks from the scattered electron which are mis-identified as not belonging to the scattered electron~\cite{Grebenyuk:2012thesis}. In the latter case, it would be expected that the track energy would be relatively close to the scattered electron energy measured in the calorimeter. The reconstructed momentum of the tracks very near to the scattered electron does not correlate strongly to the scattered electron energy, supporting the photon conversion hypothesis over the electron track mis-ID hypothesis.
 
-Since the cone-baseline promotion of 2026-10-13, the
-$\alpha\ge0.2~\mathrm{rad}$ laboratory-frame cone on the reconstructed legs is
-part of the central selection basis rather than a diagnostic variant.  The
+The
+$\alpha\ge0.2~\mathrm{rad}$ laboratory-frame cone on the reconstructed tracks is
+part of the central selection.  The
 cone is applied after the electron and V0 truth vetoes and before the
-matched-fake classification; cone-rejected matched legs flow to the miss row
-of the response, and the coherent prior is computed from the response variant
+matched-fake classification; matched tracks rejected by the cone enter the
+response as misses, and the coherent prior is computed from the response variant
 that carries both the cone selection and the detector-interaction correction.
 The diagnostic ratios in
-Table~\ref{tab:syst:alpha-veto-integrated} were produced before that
-promotion and are retained as motivation for the cone requirement.
+Table~\ref{tab:syst:alpha-veto-integrated} were produced before the cone was
+adopted and are retained as motivation for the cone requirement.
 
 \begin{table}[h]
 \centering
@@ -525,10 +508,10 @@ promotion and are retained as motivation for the cone requirement.
 \toprule
 Quantity for $\alpha<0.2$ & RAPGAP & DJANGOH \\
 \midrule
-Integrated true $\pi/K/p$ loss & 0.106\% & 0.114\% \\
+Integrated true $\pi/K/p$ loss & 0.11\% & 0.11\% \\
 Residual $e^{\pm}$ / true $\pi/K/p$
-  & $4.38\%$
-  & $4.39\%$ \\
+  & $4.4\%$
+  & $4.4\%$ \\
 %V0-daughter / true $\pi/K/p$
 %  & $3.90\%$
 %  & $3.88\%$ \\

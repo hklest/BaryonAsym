@@ -57,8 +57,8 @@ $150<\Qsq<20\,000~\GeVsq$ and $0.1<y<0.7$
 total hadronic final-state energy--momentum balance, $E-p_z>45~\GeV$; and
 the current-hemisphere requirement that the hadron lie in the
 current-fragmentation hemisphere of the $\gamma^{*}p$ center-of-mass
-frame---the hemisphere into which the struck quark fragments, opposite
-the proton-remnant direction---which corresponds to $x_F<0$ in the H1
+frame (the hemisphere into which the struck quark fragments, opposite
+the proton-remnant direction), which corresponds to $x_F<0$ in the H1
 sign convention used throughout this analysis
 (Sec.~\ref{sec:selection:final-tracks}).  Every element of the selection,
 in particular the current-hemisphere requirement, is imposed identically
@@ -68,14 +68,12 @@ as in the measurement (Sec.~\ref{sec:species_definition}), and the two
 beam charges are combined in both samples, matching the combined
 $e^{+}p$ and $e^{-}p$ data set of the measurement.
 
-The current correction tables supersede all earlier versions.  They are the
-releasebin tables, in which events are assigned to $(Q2esGen,x_{\mathrm{es,gen}})$
-bins with the same definition of $x$ as the release binning.  The applied
-DJANGOH14 table is
-\path{/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_crad_releasebin_2026-10-09/crad_v3_xfgen_lt0_empz_gt45_nominal_490rows.csv};
-the formal RAPGAP31 alternative is
-\path{/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/rapgap_crad_releasebin_emfix_2026-10-09/crad_v3_xfgen_lt0_empz_gt45_nominal_490rows.csv}.
-The current-hemisphere requirement and the EMPZ$>$45 convention are unchanged.
+The correction tables used here supersede all earlier versions.  In them,
+events are assigned to $(Q^2_{\mathrm{esGen}},x_{\mathrm{es,gen}})$ bins with
+the same definition of $x$ as the binning of the measurement.  The DJANGOH14
+table is applied; the RAPGAP31 table is the formal alternative.  The
+current-hemisphere requirement and the $E-p_z>45~\GeV$ requirement are
+unchanged.
 
 \subsection{Correction Factors}
 \label{sec:radiative_corrections:values}
@@ -86,13 +84,13 @@ $\hminus$.  The corresponding RAPGAP factors are $1.134$
 for $\hplus$ and $1.134$ for $\hminus$.  For both
 generators, every one of the 490 bins (245 per charge) has a finite
 entry.  Integrated over all bins, the DJANGOH correction exceeds the
-RAPGAP correction by $0.6419\%$ for $\hplus$ and $0.6499\%$ for
+RAPGAP correction by $0.64\%$ for $\hplus$ and $0.65\%$ for
 $\hminus$.
 
 The precision of the correction itself is limited by the number of
 simulated events.  The per-bin relative statistical uncertainty of the
-applied correction has a median of $0.4272\%$ for $\hplus$ and
-$0.4429\%$ for $\hminus$.
+applied correction has a median of $0.43\%$ for $\hplus$ and
+$0.44\%$ for $\hminus$.
 
 Table~\ref{tab:crad:integrated-variants} compares the integrated factors of
 the applied mixed-beam correction with those of the two derived Born-target
@@ -108,30 +106,30 @@ any result in this note.
 \toprule
 Variant & $\hplus$ & $\hminus$ \\
 \midrule
-Mixed-beam (applied primary, DJANGOH14 releasebin)$^{a}$ &
-  $1.142 \pm 0.000124$ (stat) $\pm 0.00728$ (gen) &
-  $1.141 \pm 0.000125$ (stat) $\pm 0.00737$ (gen) \\
-$e^{-}p$ WithZ (per-beam target, DJANGOH14)$^{b}$ &
-  $1.148 \pm 0.000151$ (stat) $\pm 0.0107$ (gen) &
-  $1.147 \pm 0.000152$ (stat) $\pm 0.0101$ (gen) \\
-NoZ photon-Born $C_{\gamma\mathrm{Born}}$ (DJANGOH14)$^{c}$ &
-  $1.041 \pm 0.000143$ (stat) &
-  $1.040 \pm 0.000144$ (stat) \\
+Mixed-beam (applied, DJANGOH14)$^{a}$ &
+  $1.142 \pm 0.00012$ (stat) $\pm 0.0073$ (gen) &
+  $1.141 \pm 0.00013$ (stat) $\pm 0.0074$ (gen) \\
+$e^{-}p$ with $Z$ exchange (per-beam target, DJANGOH14)$^{b}$ &
+  $1.148 \pm 0.00015$ (stat) $\pm 0.011$ (gen) &
+  $1.147 \pm 0.00015$ (stat) $\pm 0.010$ (gen) \\
+Photon-only Born $C_{\gamma\mathrm{Born}}$ (DJANGOH14)$^{c}$ &
+  $1.041 \pm 0.00014$ (stat) &
+  $1.040 \pm 0.00014$ (stat) \\
 \bottomrule
 \end{tabular}
 
 {\footnotesize
-$^{a}$The applied primary: the per-bin DJANGOH14 releasebin tables applied
-to the Born release (Sec.~\ref{sec:radiative_corrections:application}); the
+$^{a}$The applied correction: the per-bin DJANGOH14 tables applied to obtain
+the Born-level cross sections
+(Sec.~\ref{sec:radiative_corrections:application}); the
 Born level is the luminosity-weighted mixture of the $e^{+}p$ and $e^{-}p$
 Born cross sections.
 
 \smallskip
-$^{b}$A pure $e^{-}p$ full-electroweak (WithZ) Born target, derived with the
-per-bin factor $F_{\mathrm{exact}}$ and the current beam split
-$f_{e^{+}p} = 0.5440407473$, $f_{e^{-}p} = 0.4559592527$; provisional
-diagnostic, not applied (derivation record
-\path{/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/docs/radiative/EMINUS_WITHZ_CRAD_DERIVATION_2026-10-19.md}).
+$^{b}$A pure $e^{-}p$ full-electroweak Born target (photon and $Z$
+exchange), derived with the per-bin factor $F_{\mathrm{exact}}$ and the beam
+split $f_{e^{+}p} = 0.544$, $f_{e^{-}p} = 0.456$; provisional diagnostic, not
+applied.
 
 \smallskip
 $^{c}$The photon-only Born target, with the $Z$-boson couplings zeroed
@@ -140,12 +138,10 @@ because no corresponding photon-only RAPGAP sample exists, so that no
 generator uncertainty is derivable; provisional diagnostic, not applied.
 
 \smallskip
-$^{d}$The integrated statistical uncertainties are leg-level bookkeeping
-numbers that assume per-leg weighted statistics independent across bins;
-they are not an event-level covariance propagation (method record
-\path{/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/docs/radiative/integrated_stat_unc_method_2026-10-19.md};
-full-precision source
-\path{/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/eminus_withz_crad_releasebin_2026-10-19/integrated_stat_unc_for_note_2026-10-19.json}).
+$^{d}$The integrated statistical uncertainties are computed from the
+weighted statistics of the radiative and non-radiative samples, assumed
+independent across bins; they do not include an event-level covariance
+propagation.
 \par}
 
 \caption{Comparison of the integrated $C_{\mathrm{rad}}$ values of the
@@ -153,7 +149,7 @@ applied correction and of the two derived Born-target variants, in the
 ratio-of-integrals convention over the 245 published bins of each charge.
 The central value is the DJANGOH14 factor; the first uncertainty is the
 integrated statistical uncertainty propagated from the DJANGOH14
-legs,$^{d}$ and the second is the full integrated absolute
+radiative and non-radiative samples,$^{d}$ and the second is the full integrated absolute
 DJANGOH14--RAPGAP31 difference.}
 \label{tab:crad:integrated-variants}
 \end{table}
@@ -161,7 +157,7 @@ DJANGOH14--RAPGAP31 difference.}
 \subsection{Application to the Measurement}
 \label{sec:radiative_corrections:application}
 
-For the current release, in which the background-subtracted data vector is
+For the final cross sections, in which the background-subtracted data are
 unfolded with the response's own generator-level prior, the correction is
 applied bin by bin
 after the unfolding of the detector response and converts the unfolded cross
@@ -172,43 +168,47 @@ section to the Born level:
   \sigma_{\mathrm{unfolded}}(\mathrm{bin}).
 \end{equation}
 All cross sections quoted in this note are Born-level cross sections
-obtained in this way, unless explicitly stated otherwise.  The release to
-which the correction is applied is described in
+obtained in this way, unless explicitly stated otherwise.  The cross sections
+to which the correction is applied are described in
 Sec.~\ref{sec:results:z005-release}.  The correction has been applied to
-all released cross sections since its derivation was completed in
+all cross sections since its derivation was completed in
 October 2026; cross sections produced before the correction was applied
 are superseded.
 
-Since the 2026-10-20 OPT-A baseline promotion, the response books its
-generator-level truth at exactly the cell booking at which this correction
-is derived and applied (Sec.~\ref{sec:unfolding:truth-contract}): the
-unfolded radiative-level generator cells and the per-bin correction factors
-share the $(Q^2_{\mathrm{esGen}},x_{\mathrm{es,gen}},z,\pTh)$ booking, so
-the per-bin application is level-exact end to end.  The applied DJANGOH14
-releasebin table required no re-derivation for the promotion; it was
-verified to be natively consistent with the harmonized contract and was
-re-verified byte-identical.  For the 2026-10-23 eSigma release the same table is
-applied, not rerun: the correction is booked at the generator level, and the
-generator target is unchanged by the $e\Sigma$ reconstructed photon.
+Since the harmonization of the generator-level definitions
+(Sec.~\ref{sec:unfolding:truth-contract}), the response assigns its
+generator-level truth to exactly the bins in which this correction is
+derived and applied: the unfolded radiative-level generator bins and the
+per-bin correction factors share the
+$(Q^2_{\mathrm{esGen}},x_{\mathrm{es,gen}},z,\pTh)$ binning, so the per-bin
+application is exact at the generator level.  The applied DJANGOH14 table
+required no re-derivation for this change; it was verified to be consistent
+with the harmonized definitions and identical to the table used before.  The
+same table is applied unchanged to the cross sections measured with the
+$e\Sigma$ method: the correction is defined at the generator level, and the
+$e\Sigma$ reconstruction of the photon leaves the generator-level target
+unchanged.
 
 \subsection{Uncertainties}
 \label{sec:radiative_corrections:uncertainties}
 
 Two components of the systematic uncertainty are associated with the
 radiative correction and enter the total systematic budget of
-Sec.~\ref{sec:systematics}.  The first component describes the difference
-between the two generators: the bin-by-bin difference between the DJANGOH
-and RAPGAP corrections is carried as a systematic uncertainty, with a
-median of $0.5793\%$ ($\hplus$) and $0.5467\%$ ($\hminus$) and a maximum
-of $5.608\%$ and $5.835\%$, respectively, in the installed eSigma budget.  The second component is the
-statistical uncertainty of the correction itself, carried as a separate
+Sec.~\ref{sec:systematics}.  The first component, ``QED radiative
+correction: model'', describes the difference between the two generators:
+the bin-by-bin difference between the DJANGOH and RAPGAP corrections is
+carried as a systematic uncertainty, with a median of $0.58\%$ ($\hplus$)
+and $0.55\%$ ($\hminus$) and a maximum of $5.6\%$ and $5.8\%$,
+respectively, in the final uncertainty budget.  The second component, ``QED
+radiative correction: MC statistics'', is the statistical uncertainty of the
+correction itself, carried as a separate
 systematic uncertainty bin by bin, with the per-bin medians quoted
 above.
 
 \subsection{Status and Caveats}
 \label{sec:radiative_corrections:caveats}
 
-The correction is applied to all released cross sections, but it does not
+The correction is applied to all cross sections in this note, but it does not
 yet have publication-grade status.  The following caveats apply:
 \begin{itemize}
   \item the correction tables retain provisional status pending a final
@@ -256,8 +256,8 @@ and binning, mapping the measured cross section instead to a Born level
 of pure photon exchange, in which the $Z$-boson contribution is absent.
 Its integrated factors are $1.041$ for $\hplus$ and
 $1.040$ for $\hminus$; they are smaller than the
-$C_{\mathrm{rad}}$ factors because the target level itself is lower, not
-because of a different treatment of the photon radiation.  This variant
+$C_{\mathrm{rad}}$ factors because the target level itself is lower; the
+photon radiation is treated identically.  This variant
 is a provisional diagnostic product: it is not applied to any result in
 this note, and it is derived with DJANGOH only, because no corresponding
 photon-only RAPGAP sample exists, so the generator comparison that backs

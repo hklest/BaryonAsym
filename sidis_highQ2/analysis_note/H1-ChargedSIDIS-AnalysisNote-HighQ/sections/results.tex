@@ -2,103 +2,97 @@
 \section{Results}
 \label{sec:results}
 
-\begin{tcolorbox}[colback=yellow!8,colframe=orange!70,title={\bfseries Current release status}]
-The current nominal central-value chain is the 2026-10-23 eSigma release
-(\texttt{esigmaphoton}), in which $z$, $\pTh$, and the $\gamma^{*}p$ frame
-follow the $e\Sigma$ reconstructed photon (built from the electron and the
-hadronic final state) instead of the electron-only photon.  It builds on the
-2026-10-20 OPT-A baseline, in which the response truth contract is harmonized
-to the radiative correction (Sec.~\ref{sec:unfolding:truth-contract}); its
-reconstructed-level definition combines the $\alpha\ge0.2~\mathrm{rad}$
+\begin{tcolorbox}[colback=yellow!8,colframe=orange!70,title={\bfseries Current status of the measurement}]
+The nominal central values use the $e\Sigma$ method for the photon: $z$, $\pTh$,
+and the $\gamma^{*}p$ frame follow the $e\Sigma$ reconstructed photon (built
+from the electron and the hadronic final state) instead of the electron-only
+photon.  The truth-level definition of the response is harmonized
+to the radiative correction (Sec.~\ref{sec:unfolding:truth-contract}); the
+reconstructed-level selection combines the $\alpha\ge0.2~\mathrm{rad}$
 laboratory-frame scattered-electron cone with the
 detector-interaction-corrected response, and the electron, V0, and
 low-$\Qsq$ background templates are subtracted from the data vector before
 unfolding.  The cross section is Born-level provisional:
-$C_{\mathrm{rad}}$ is applied per-bin post-unfold from the DJANGOH14 table
-binned as the release (applied, not rerun for the $e\Sigma$ frame), with its uncertainty carried as the radiative
-generator-difference and radiative-statistics components.  The
-$E-p_z>45~\GeV$ convention is retained.  The quoted systematic budget is the
-installed eSigma edition, column \texttt{total\_quoted\_esph\_rel}, with median
-totals of $8.343\%$ ($\hplus$) and $8.890\%$ ($\hminus$)
-(Sec.~\ref{sec:syst:budget-regeneration}).  The electron-frame OPT-A release of
-2026-10-20, the 2026-10-17 clean release, and the 2026-10-15 Born release are
-superseded for the nominal and retained untouched as provenance.  The low-$\Qsq$ analysis
+$C_{\mathrm{rad}}$ is applied per bin after the unfolding from the DJANGOH14 table
+in the measurement binning (applied as is, without recomputation in the $e\Sigma$ frame), with its uncertainty carried as the components
+``QED radiative correction: model'' and ``QED radiative correction: MC statistics''.  The
+$E-p_z>45~\GeV$ convention is retained.  The quoted systematic budget has median
+totals of $8.3\%$ ($\hplus$) and $8.9\%$ ($\hminus$)
+(Sec.~\ref{sec:syst:budget-regeneration}).  Earlier central values, from before the switch to the $e\Sigma$ photon and the
+harmonization of the truth-level definition, are
+superseded for the nominal and kept unchanged for reference.  The low-$\Qsq$ analysis
 still uses the electron photon, a documented difference between the two
 analyses.  The exposure of the simulated
 radiative samples is reconciled file by file, but the generator-log
 cross-check is permanently blocked externally, so the radiative correction
-remains provisional and the release is not publication-grade.  The
+remains provisional and the result is not publication-grade.  The
 $C_{\mathrm{rad}}$ multiplicity mapping and the
 corrected inclusive DIS denominator are still pending.  Numerical
 multiplicities and final physics tables should therefore be regarded as
 preliminary until the denominator is available.
 \end{tcolorbox}
 
-\subsection{Working Release}
+\subsection{Nominal Cross Sections}
 \label{sec:results:z005-release}
 
-The current high-$\Qsq$ working release contains 490 published bins in total,
-with 245 $\hplus$ rows and 245 $\hminus$ rows.  The nominal unfolding method is
+The nominal measurement contains 490 published bins in total,
+with 245 $\hplus$ bins and 245 $\hminus$ bins.  The nominal unfolding method is
 iterative Bayesian unfolding with four selected iterations.  The data vector
 length is 980, and the per-charge response shape is $(491,246)$.
 
-The canonical raw release is
-\path{bbb_ibu_bgsub_setRprime_conebase_optA_q2esgen_esigmaphoton_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-23/}
-under \path{H1ChargedSidis_HighQ2/output_v6/central/data_release/}, and its
-Born-level product is the in-tree \path{born_crad_applied/} directory of the
-same release ($C_{\mathrm{rad}}$ applied).  Both use the response matrix's own generator-level
+The raw unfolded cross sections and the Born-level cross sections derived from
+them ($C_{\mathrm{rad}}$ applied) both use the response matrix's own generator-level
 distribution as the unfolding prior, on the harmonized response of
 Sec.~\ref{sec:unfolding:truth-contract}.  Integrated over the 245 supported bins
 per charge at $\mathcal{L}_{\mathrm{data}}=350890.85~\mathrm{nb}^{-1}$, the raw
-release (before $C_{\mathrm{rad}}$) gives IBU $10.5392~\mathrm{nb}$ ($\hplus$) and
-$10.2471~\mathrm{nb}$ ($\hminus$); the Born-level product
-($C_{\mathrm{rad}}$ applied) gives IBU
-$12.0185~\mathrm{nb}$ ($\hplus$) and $11.6855~\mathrm{nb}$
+cross sections (before $C_{\mathrm{rad}}$) are $10.54~\mathrm{nb}$ ($\hplus$) and
+$10.25~\mathrm{nb}$ ($\hminus$); the Born-level cross sections
+($C_{\mathrm{rad}}$ applied) are
+$12.02~\mathrm{nb}$ ($\hplus$) and $11.69~\mathrm{nb}$
 ($\hminus$).
 
-The OPT-A baseline superseded for the nominal the 2026-10-17 clean release
-\path{bbb_ibu_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-17/}
-and its 2026-10-15 Born parent
-\path{born_crad_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-15/},
-which are retained untouched as provenance; their integrated values
-($10.508811~\mathrm{nb}$ and $10.217503~\mathrm{nb}$ raw,
-$11.996558~\mathrm{nb}$ and $11.663956~\mathrm{nb}$ Born) are superseded
-central values.  The promotion moves the integrated raw totals by $+0.0240\%$
-($\hplus$) and $+0.0231\%$ ($\hminus$) and the Born totals by $+0.0074\%$ and
-$+0.0064\%$.  Per cell, the Born shifts have absolute medians of $1.05\%$
-($\hplus$) and $1.15\%$ ($\hminus$), and the largest populated shift is
-$+4.2051\%$ (negative charge, global bin 159), below its full-sample net
-straddle rate of $+4.9191\%$ (ratio $0.855$); every well-populated per-cell
+The harmonization of the truth-level definition superseded for the nominal the
+earlier background-subtracted raw cross sections with the electron cone and
+their Born-level counterparts, which are kept unchanged for reference; their
+integrated values
+($10.51~\mathrm{nb}$ and $10.22~\mathrm{nb}$ raw,
+$12.00~\mathrm{nb}$ and $11.66~\mathrm{nb}$ Born) are superseded
+central values.  The harmonization moves the integrated raw totals by $+0.024\%$
+($\hplus$) and $+0.023\%$ ($\hminus$) and the Born totals by $+0.0074\%$ and
+$+0.0064\%$.  Per cell, the Born shifts have absolute medians of $1.1\%$
+($\hplus$) and $1.1\%$ ($\hminus$), and the largest populated shift is
+$+4.2\%$ (negative charge, global bin 159), below its full-sample net
+straddle rate of $+4.9\%$ (ratio $0.855$); every well-populated per-cell
 shift is bounded by its full-sample per-cell straddle rate, the complete
 exception set being the adjudicated 48-cell list of
 Sec.~\ref{sec:unfolding:truth-contract}.  The change is a
-one-time central-value correction---the removal of the response binning bias
-documented in Sec.~\ref{sec:unfolding:truth-contract}---and is not carried
-as an uncertainty.  In the electron-frame OPT-A release the background
-subtraction removes $281{,}250.09$ tracks, $7.2767\%$, from the cone data
+one-time central-value correction (the removal of the response binning bias
+documented in Sec.~\ref{sec:unfolding:truth-contract}) and is not carried
+as an uncertainty.  With the electron-only photon, the background
+subtraction removes $281{,}250$ weighted tracks, $7.3\%$, from the cone data
 vector of $3{,}865{,}073$ in-grid entries before the unfolding:
-$148{,}976.4$ electron and positron tracks, $132{,}065.3$ V0 decay daughters,
-and $208.4$ low-$\Qsq$ leakage tracks.  The subtracted data vector itself is
-unchanged by the promotion.  The detector-interaction class is not
-part of this external subtraction: it is removed response-internally through
-the per-reco-bin fake fraction $f_i$ of the detector-interaction-corrected
+$148{,}976$ electron and positron tracks, $132{,}065$ V0 decay daughters,
+and $208$ low-$\Qsq$ leakage tracks.  The subtracted data vector itself is
+unchanged by the harmonization.  The detector-interaction class is not
+part of this external subtraction: it is removed inside the response through
+the per-reconstructed-bin fake fraction $f_i$ of the detector-interaction-corrected
 response, and an external subtraction of it would double-remove the class.
-For lineage, the immediately preceding release with the electron cone but no
+For lineage, the immediately preceding result with the electron cone but no
 background subtraction, which unfolds the full cone data vector, integrates to
-raw IBU
-values of $11.412233~\mathrm{nb}$ ($\hplus$) and $11.123626~\mathrm{nb}$
+raw unfolded
+values of $11.41~\mathrm{nb}$ ($\hplus$) and $11.12~\mathrm{nb}$
 ($\hminus$); these superseded values are retained only as the historical
-parent of the current release and are not current results.
+parent of the current result and are not current results.
 
-The systematic budget of this release is the installed eSigma edition
-(Sec.~\ref{sec:syst:budget-regeneration}), whose per-term medians are listed in
-Table~\ref{tab:syst:z005-components}.  The earlier editions, the electron-frame
-OPT-A budget, the twenty-active-term 2026-10-19 edition, and its
-nineteen-component 2026-10-17 parent, are superseded as a quoting basis and
-retained unchanged as provenance.  The component inventory is described in
+The systematic budget of this measurement is described in
+Sec.~\ref{sec:syst:budget-regeneration}, and its per-term medians are listed in
+Table~\ref{tab:syst:z005-components}.  The earlier budgets (the one with the
+electron-only photon, a twenty-active-term budget, and its
+nineteen-component predecessor) are superseded as a quoting basis and
+kept unchanged for reference.  The component inventory is described in
 Sec.~\ref{sec:systematics}.
 
-The central IBU implementation has an independent numerical cross-check:
+The central unfolding implementation has an independent numerical cross-check:
 RooUnfoldBayes reproduces the in-house iterative-Bayesian yields to a maximum
 relative precision of $2.6\times10^{-15}$ across 980 rows.  This comparison
 covers both RAPGAP and DJANGOH response inputs and has no invalid or
@@ -118,28 +112,27 @@ four-dimensional differential cross section,
 in units of $\mathrm{nb}\,\GeV^{-3}$, since the $\mathrm{d}\Qsq$ differential
 contributes $\GeV^{2}$. For the capped top-$x$ cell, $\Delta x=1.0-x_{\min}$.
 
-The current five-prediction comparison package is
-\path{plots/mc_predictions/data_vs_mc_z005_5generator_born_releasebin_2026-10-13/}.
-Its data side is the superseded raw release without the electron cone,
-corrected to the photon-Born level without the $Z$-exchange contribution.  It is a DJANGOH-only provisional diagnostic: the
-four generator curves are at full-Born/NORAD level while the data side is
-photon-Born, producing a known level difference of about $9\%$ by design;
-only MAPTMD24 is photon-only.  The package has not been regenerated on the
-current cone-based observable basis and its figures are not referenced in this
+The current comparison with five model predictions uses a superseded data input:
+the raw result without the electron cone,
+corrected to the photon-exchange Born level without the $Z$-exchange contribution.  It is a DJANGOH-only provisional diagnostic: the
+four generator curves are at full Born level without QED radiation, while the data are
+corrected to photon-exchange Born level, producing a known level difference of about $9\%$ by design;
+only MAPTMD24 is photon-exchange only.  The comparison has not been redone on the
+current cone-based observable basis, and its figures are not referenced in this
 note.  MAPTMD24 covers 230 of 490 published bins, with no $z<0.05$ row and
 sparse $\pTh$ coverage at higher $z$; this is the final limitation of that
-comparison.  The package remains a PROVISIONAL INTERNAL DIAGNOSTIC.
+comparison.  The comparison remains a provisional internal diagnostic.
 
 \subsection{Diagnostic Cross-Section Density with the Near-Electron Veto}
 \label{sec:results:diagnostic-alpha0p2-cross-section-density}
 
 Figures~\ref{fig:results:alpha0p2-xsec-density-hplus} and
-\ref{fig:results:alpha0p2-xsec-density-hminus} show the IBU-only
+\ref{fig:results:alpha0p2-xsec-density-hminus} show the unfolded
 cross-section-density diagnostic for the near-electron opening-angle veto,
 which rejects tracks with $\alpha<0.2$.  The plotted observable is the
 four-dimensional differential cross section defined in
 Eq.~\ref{eq:results:four-dimensional-cross-section-density}, using the same 4D
-bin-volume normalization.  The input is the rescaled IBU release CSV from this
+bin-volume normalization.  The input is the rescaled unfolded cross sections from this
 study, with $\mathcal{L}_{\mathrm{data}}=351~\pbinv$, the selection
 $|\eta|<1.6$, radial track length at least $5~\mathrm{cm}$, and at least five
 CJC hits, and the measurement binning.
@@ -148,26 +141,26 @@ The seven displayed $(\Qsq,x)$ intervals are listed in
 Table~\ref{tab:binning:z005-contract}. Each charge plot contains these seven
 cells, seven $z$ bins, and five $\pTh$ bins, for 490 plotted points in total
 across both charges and no skipped bins. All densities use the physical cap
-$\Delta x=1.0-x_{\min}$; the figures in this section were regenerated on
-2026-10-16 with this convention.
+$\Delta x=1.0-x_{\min}$, and the figures in this section were regenerated
+with this convention.
 The horizontal uncertainty is the $\pTh$ half-bin width.  The vertical
 uncertainty is the quadrature sum of the statistical, model, and
 regularization uncertainties, divided by the 4D bin volume; no additional
 systematic components are included in these error bars.
 
 The plots are retained here as diagnostic/provisional products only: they are
-raw pre-Born inputs from an earlier, superseded release lineage, without
+raw pre-Born inputs from an earlier, superseded analysis chain, without
 background subtraction and before the $C_{\mathrm{rad}}$ correction.
 Final approval remains pending; the plots are not for public release or
 citation, and multiplicities remain blocked because no corrected inclusive DIS
 denominator is available. For the cross section the radiative correction is no
-longer pending: $C_{\mathrm{rad}}$ is applied per-bin post-unfold in the
-current Born-level provisional release, with its uncertainty carried as the
-radiative generator-difference and radiative-statistics components;
+longer pending: $C_{\mathrm{rad}}$ is applied per bin after the unfolding in the
+current provisional Born-level cross sections, with its uncertainty carried as the
+components ``QED radiative correction: model'' and ``QED radiative correction: MC statistics'';
 these selection-variant plots have not been regenerated on the current,
-background-subtracted release.  Final release remains blocked by
+background-subtracted cross sections.  Final publication remains blocked by
 publication-grade clearance of the radiative correction and by the
-registration of the final publication plotting and systematics-rendering
+sign-off of the final publication plotting and systematics-rendering
 chain.
 
 \begin{figure}[p]
@@ -182,10 +175,10 @@ chain.
   model, and regularization contributions in quadrature and are divided by the
   4D bin volume; horizontal uncertainties are $\pTh$ half-bin widths.  No
   additional systematic components are included.  This raw pre-Born diagnostic
-  is a superseded historical render without background subtraction and
-  before the $C_{\mathrm{rad}}$ correction, predating the current release, which applies
-  both a pre-unfold background subtraction and the per-bin post-unfold
-  $C_{\mathrm{rad}}$ correction; it is not for public release or citation.}
+  is a superseded historical plot with no background subtraction, made
+  before the $C_{\mathrm{rad}}$ correction.  The current cross sections apply
+  both a background subtraction before the unfolding and the per-bin
+  $C_{\mathrm{rad}}$ correction after it; this plot is not for public release or citation.}
   \label{fig:results:alpha0p2-xsec-density-hplus}
 \end{figure}
 
@@ -201,10 +194,10 @@ chain.
   model, and regularization contributions in quadrature and are divided by the
   4D bin volume; horizontal uncertainties are $\pTh$ half-bin widths.  No
   additional systematic components are included.  This raw pre-Born diagnostic
-  is a superseded historical render without background subtraction and
-  before the $C_{\mathrm{rad}}$ correction, predating the current release, which applies
-  both a pre-unfold background subtraction and the per-bin post-unfold
-  $C_{\mathrm{rad}}$ correction; it is not for public release or citation.}
+  is a superseded historical plot with no background subtraction, made
+  before the $C_{\mathrm{rad}}$ correction.  The current cross sections apply
+  both a background subtraction before the unfolding and the per-bin
+  $C_{\mathrm{rad}}$ correction after it; this plot is not for public release or citation.}
   \label{fig:results:alpha0p2-xsec-density-hminus}
 \end{figure}
 
@@ -214,75 +207,67 @@ chain.
 Figures~\ref{fig:results:release351-cone-xsec-density-hplus}
 and~\ref{fig:results:release351-cone-xsec-density-hminus} show the Born-level
 provisional cross-section densities of the background-subtracted
-clean-release chain, obtained with the iterative Bayesian unfolding and the
+electron-cone analysis, obtained with the iterative Bayesian unfolding and the
 response matrix's own generator-level prior.  The observable is
 defined in Eq.~\ref{eq:results:four-dimensional-cross-section-density}.
-These renders predate the 2026-10-20 OPT-A baseline promotion and the
-2026-10-23 eSigma release, so they show electron-frame products: their input is
-the Born-level release
-\path{born_crad_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-15/}
-under \path{H1ChargedSidis_HighQ2/output_v6/central/data_release/}, at
-$\mathcal{L}_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$, whose integrated IBU
-totals, $11.996558~\mathrm{nb}$ for $\hplus$ and $11.663956~\mathrm{nb}$ for
+These figures predate the harmonization of the truth-level definition and the
+switch to the $e\Sigma$ photon, so they show results with the electron-only photon: their input is
+the superseded Born-level cross sections at
+$\mathcal{L}_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$, whose integrated
+totals, $12.00~\mathrm{nb}$ for $\hplus$ and $11.66~\mathrm{nb}$ for
 $\hminus$ over the 490 published bins, are superseded central values
 (Sec.~\ref{sec:results:z005-release}); the figures are retained until the
-canonical plotting chain is re-pointed to the eSigma release and its installed
+plotting chain is rerun on the current cross sections and their
 budget.  $C_{\mathrm{rad}}$ is applied
-per-bin post-unfold from the DJANGOH14 (xFGen$<$0, EMPZ$>$45) table, whose
-integrated factors are 1.142 for $\hplus$ and 1.141 for $\hminus$; the
-EMPZ$>$45 convention is retained.  The plotted points are the
+per bin after the unfolding from the DJANGOH14 table (generator-level $x_F<0$, $E-p_z>45~\GeV$), whose
+integrated factors are 1.14 for both $\hplus$ and $\hminus$; the
+$E-p_z>45~\GeV$ convention is retained.  The plotted points are the
 background-subtracted Born-level values: the electron, V0, and low-$\Qsq$
 backgrounds are subtracted from the data vector before unfolding, and the
-detector-interaction class is removed response-internally through the
-per-reco-bin fake fraction $f_i$.  Each charge plot contains seven
+detector-interaction class is removed inside the response through the
+per-reconstructed-bin fake fraction $f_i$.  Each charge plot contains seven
 $(\Qsq,x)$ cells, seven $z$ bins, and five $\pTh$ bins, for 490 points across
 both charges.
 
 The vertical uncertainty bands show the quoted total systematic uncertainty of
-the frozen 2026-10-19 budget, including the two radiative components.  This
+an earlier, frozen budget, including the two radiative components.  This
 budget combines twenty active quadrature terms on the background-subtracted
-basis; its median totals are $7.320288331169215\%$ for $\hplus$ and
-$7.637124635311324\%$ for $\hminus$, and no bin exceeds $100\%$.  It is
-superseded as a quoting basis by the installed eSigma budget (median totals
-$8.343\%$ and $8.890\%$), so these bands are not final.  These are not final
-central values: the release is Born-level provisional, not physics-final,
+basis; its median totals are $7.3\%$ for $\hplus$ and
+$7.6\%$ for $\hminus$, and no bin exceeds $100\%$.  It is
+superseded as a quoting basis by the current budget (median totals
+$8.3\%$ and $8.9\%$), so these bands are not final.  These are not final
+central values: they are provisional Born-level values,
 and the figures carry internal-review status only.
 
-Two plot packages document the OPT-A promotion itself; both were accepted on
-visual review and neither carries final uncertainties.  The user-facing
-new-versus-old comparison set (nine pages) is
-\path{H1ChargedSidis_HighQ2/output_v6/studies/optA_response_rebuild_2026-10-19/plots/comparison_newvsold_2026-10-20/}:
-integrated raw and Born new-versus-old bars, per-cell raw-difference panels
-with the straddle overlay, logarithmic old-versus-new scatters with the 48
+Two sets of plots document the harmonization of the truth-level definition
+itself; both were accepted on visual review and neither carries final
+uncertainties.  The before-versus-after comparison set (nine pages) shows
+integrated raw and Born bars before and after the change, per-cell raw-difference panels
+with the straddle overlay, logarithmic before-versus-after scatters with the 48
 flagged cells and the corner bins b39, b109, and b179 marked,
 shift-versus-straddle bound scatters, and signed per-cell shift maps.  The
-publication-facing canonical category-7 package is
-\path{plots/canonical_2026-10-20_opta/} inside the OPT-A release tree of
-Sec.~\ref{sec:results:z005-release}: four PDFs of the background-subtracted
-OPT-A nominal, with the Born level obtained from the unchanged DJANGOH14
-table and the uncertainty bands omitted.  The canonical categories are to be
-regenerated on the eSigma release and its installed budget
+publication-style set contains four plots of the background-subtracted
+nominal with the electron-only photon after the harmonization
+(Sec.~\ref{sec:results:z005-release}), with the Born level obtained from the unchanged DJANGOH14
+table and the uncertainty bands omitted.  The publication-style plots are to be
+regenerated on the current cross sections and budget
 (Sec.~\ref{sec:syst:budget-regeneration}).
 
 For lineage, Figures~\ref{fig:results:release351-expanded-xsec-density-hplus}
 and~\ref{fig:results:release351-expanded-xsec-density-hminus} retain the
-previous Born-level rendering of the same observable from the superseded
-xFcut basis, which predates the detector-interaction correction.  Their input
-is the Born release
-\path{born_crad_dj14xfcut_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-07/}
-under \path{H1ChargedSidis_HighQ2/output_v6/central/data_release/}, at
-$\mathcal{L}_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$; the corresponding
-raw pre-$C_{\mathrm{rad}}$ release, the coherent-prior raw parent of that
-Born release, integrates to 22.67~nb over the 490 bins.
-$C_{\mathrm{rad}}$ is applied per-bin post-unfold from the DJANGOH14 xFcut
-(xFGen$<$0, EMPZ$>$45) table, whose integrated factors are 1.142 for
-$\hplus$ and 1.141 for $\hminus$.  The vertical error bars show the full
-13-component systematic total of the superseded budget
-\texttt{total\_uncertainty\_z005\_coherentprior\_b1floor\_crad13\_2026-10-07/}
-under \texttt{H1ChargedSidis\_HighQ2/output\_v6/systematics/summary\_plots/},
-with median totals of 5.713\% for $\hplus$ and 6.150\% for $\hminus$.  These
-values predate the detector-interaction correction and the cone baseline: those
-promotions changed the observable basis, so the two figure sets must not be
+previous Born-level rendering of the same observable from an earlier,
+superseded basis, which predates the detector-interaction correction.  Their input
+is the corresponding superseded Born-level cross sections at
+$\mathcal{L}_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$; the raw cross sections
+before $C_{\mathrm{rad}}$, unfolded with the response matrix's own
+generator-level prior, integrate to 22.67~nb over the 490 bins.
+$C_{\mathrm{rad}}$ is applied per bin after the unfolding from the DJANGOH14
+table (generator-level $x_F<0$, $E-p_z>45~\GeV$), whose integrated factors are 1.14 for both
+$\hplus$ and $\hminus$.  The vertical error bars show the full
+13-component systematic total of a superseded budget,
+with median totals of 5.7\% for $\hplus$ and 6.2\% for $\hminus$.  These
+values predate the detector-interaction correction and the electron cone: those
+changes altered the observable basis, so the two figure sets must not be
 compared bin by bin.
 
 \begin{figure}[p]
@@ -293,18 +278,16 @@ compared bin by bin.
   $\mathrm{d}^{4}\sigma/(\mathrm{d}\Qsq\,\mathrm{d}x\,
   \mathrm{d}z\,\mathrm{d}\pTh)$ in $\mathrm{nb}\,\GeV^{-3}$, at
   $\mathcal{L}_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$.
-  $C_{\mathrm{rad}}$ is applied per-bin post-unfold from the DJANGOH14
-  (xFGen$<$0, EMPZ$>$45) table.  The points are the background-subtracted
-  Born-level values of the superseded 2026-10-15 clean-release basis, which
-  predates the OPT-A baseline promotion: the electron, V0, and low-$\Qsq$
+  $C_{\mathrm{rad}}$ is applied per bin after the unfolding from the DJANGOH14
+  table (generator-level $x_F<0$, $E-p_z>45~\GeV$).  The points are the background-subtracted
+  Born-level values of the superseded electron-cone basis, which
+  predates the harmonization of the truth-level definition: the electron, V0, and low-$\Qsq$
   backgrounds are subtracted from the data vector before unfolding.  The band
-  shows the quoted total systematic uncertainty of the frozen 2026-10-19
+  shows the quoted total systematic uncertainty of an earlier, frozen
   budget, superseded as a quoting basis, whose median totals are
-  $7.320288331169215\%$ for $\hplus$ and
-  $7.637124635311324\%$ for $\hminus$.  This Born-level provisional figure
-  carries internal-review status and is not physics-final.  Produced from the
-  dated 2026-10-19 cross-section package
-  \texttt{plots/cross\_sections/cone\_born\_7panel\_env100\_xcap\_2026-10-19/}.}
+  $7.3\%$ for $\hplus$ and
+  $7.6\%$ for $\hminus$.  This Born-level provisional figure
+  carries internal-review status and is not physics-final.}
   \label{fig:results:release351-cone-xsec-density-hplus}
 \end{figure}
 
@@ -316,18 +299,16 @@ compared bin by bin.
   $\mathrm{d}^{4}\sigma/(\mathrm{d}\Qsq\,\mathrm{d}x\,
   \mathrm{d}z\,\mathrm{d}\pTh)$ in $\mathrm{nb}\,\GeV^{-3}$, at
   $\mathcal{L}_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$.
-  $C_{\mathrm{rad}}$ is applied per-bin post-unfold from the DJANGOH14
-  (xFGen$<$0, EMPZ$>$45) table.  The points are the background-subtracted
-  Born-level values of the superseded 2026-10-15 clean-release basis, which
-  predates the OPT-A baseline promotion: the electron, V0, and low-$\Qsq$
+  $C_{\mathrm{rad}}$ is applied per bin after the unfolding from the DJANGOH14
+  table (generator-level $x_F<0$, $E-p_z>45~\GeV$).  The points are the background-subtracted
+  Born-level values of the superseded electron-cone basis, which
+  predates the harmonization of the truth-level definition: the electron, V0, and low-$\Qsq$
   backgrounds are subtracted from the data vector before unfolding.  The band
-  shows the quoted total systematic uncertainty of the frozen 2026-10-19
+  shows the quoted total systematic uncertainty of an earlier, frozen
   budget, superseded as a quoting basis, whose median totals are
-  $7.320288331169215\%$ for $\hplus$ and
-  $7.637124635311324\%$ for $\hminus$.  This Born-level provisional figure
-  carries internal-review status and is not physics-final.  Produced from the
-  dated 2026-10-19 cross-section package
-  \texttt{plots/cross\_sections/cone\_born\_7panel\_env100\_xcap\_2026-10-19/}.}
+  $7.3\%$ for $\hplus$ and
+  $7.6\%$ for $\hminus$.  This Born-level provisional figure
+  carries internal-review status and is not physics-final.}
   \label{fig:results:release351-cone-xsec-density-hminus}
 \end{figure}
 
@@ -335,16 +316,16 @@ compared bin by bin.
   \centering
   \includegraphics[width=0.98\textwidth,height=0.82\textheight,keepaspectratio]{figures/fig_results_xsec_density_born_crad13_coherentprior_7panel_hplus_z005_20261008.pdf}
   \caption{Born-level provisional cross-section density for $\hplus$ from the
-  iterative Bayesian unfolding, on the superseded xFcut basis that predates
-  the detector-interaction correction (2026-10-08 rendering), plotted as
+  iterative Bayesian unfolding, on an earlier, superseded basis that predates
+  the detector-interaction correction, plotted as
   $\mathrm{d}^{4}\sigma/(\mathrm{d}\Qsq\,\mathrm{d}x\,
   \mathrm{d}z\,\mathrm{d}\pTh)$ in $\mathrm{nb}\,\GeV^{-3}$, with the
   response matrix's own generator-level distribution as the unfolding prior at
   $\mathcal{L}_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$.
-  $C_{\mathrm{rad}}$ is applied per-bin post-unfold from the DJANGOH14 xFcut
-  (xFGen$<$0, EMPZ$>$45) table, and the vertical error bars show the full
+  $C_{\mathrm{rad}}$ is applied per bin after the unfolding from the DJANGOH14
+  table (generator-level $x_F<0$, $E-p_z>45~\GeV$), and the vertical error bars show the full
   13-component systematic total, including the radiative components
-  \texttt{c\_rad\_gen\_rel} and \texttt{c\_rad\_stat\_rel}.  The plot uses the
+  ``QED radiative correction: model'' and ``QED radiative correction: MC statistics''.  The plot uses the
   canonical $|\eta_h|<1.6$ selection, with background handling by response
   fake-fraction subtraction only.  These values, which predate the
   detector-interaction correction, are superseded by the current cone-based
@@ -356,16 +337,16 @@ compared bin by bin.
   \centering
   \includegraphics[width=0.98\textwidth,height=0.82\textheight,keepaspectratio]{figures/fig_results_xsec_density_born_crad13_coherentprior_7panel_hminus_z005_20261008.pdf}
   \caption{Born-level provisional cross-section density for $\hminus$ from the
-  iterative Bayesian unfolding, on the superseded xFcut basis that predates
-  the detector-interaction correction (2026-10-08 rendering), plotted as
+  iterative Bayesian unfolding, on an earlier, superseded basis that predates
+  the detector-interaction correction, plotted as
   $\mathrm{d}^{4}\sigma/(\mathrm{d}\Qsq\,\mathrm{d}x\,
   \mathrm{d}z\,\mathrm{d}\pTh)$ in $\mathrm{nb}\,\GeV^{-3}$, with the
   response matrix's own generator-level distribution as the unfolding prior at
   $\mathcal{L}_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$.
-  $C_{\mathrm{rad}}$ is applied per-bin post-unfold from the DJANGOH14 xFcut
-  (xFGen$<$0, EMPZ$>$45) table, and the vertical error bars show the full
+  $C_{\mathrm{rad}}$ is applied per bin after the unfolding from the DJANGOH14
+  table (generator-level $x_F<0$, $E-p_z>45~\GeV$), and the vertical error bars show the full
   13-component systematic total, including the radiative components
-  \texttt{c\_rad\_gen\_rel} and \texttt{c\_rad\_stat\_rel}.  The plot uses the
+  ``QED radiative correction: model'' and ``QED radiative correction: MC statistics''.  The plot uses the
   canonical $|\eta_h|<1.6$ selection, with background handling by response
   fake-fraction subtraction only.  These values, which predate the
   detector-interaction correction, are superseded by the current cone-based
@@ -376,31 +357,31 @@ compared bin by bin.
 \subsection{Interpretation of Present Tables}
 \label{sec:results:present-tables}
 
-The release tables are suitable for validating the detector correction,
+The present tables are suitable for validating the detector correction,
 unfolding implementation, binning, and already-derived systematic components.
 They are not yet the final multiplicity tables: the cross section now has the
-per-bin post-unfold $C_{\mathrm{rad}}$ applied, with its uncertainty carried
-as the radiative generator-difference and radiative-statistics components,
+per-bin $C_{\mathrm{rad}}$ applied after the unfolding, with its uncertainty carried
+as the components ``QED radiative correction: model'' and ``QED radiative correction: MC statistics'',
 but no corrected inclusive DIS denominator is
-available, so the multiplicity mapping remains pending. In particular, a
+available, so the multiplicity mapping remains pending. A
 cross-section-ratio radiative diagnostic is not a substitute for the required
 $M_{\mathrm{norad}}/M_{\mathrm{rad}}$ mapping.  The appendix tables of this
 note are rendered on the current background-subtracted basis; their basis
 statement is given in App.~\ref{app:born-xsec-tables}.
 
-The release should therefore be circulated externally with the following status
+The results should therefore be circulated externally with the following status
 qualification: detector, unfolding, background-subtraction, luminosity, and
 radiative uncertainties are included, the radiative ones as the
-generator-difference and statistical components; the five detector components
-are full-chain single-sided shifts, with the HFS legs produced in the plus
+model and MC-statistics components of the QED radiative correction; the five detector components
+are full-chain single-sided shifts, with the hadronic-final-state variations produced in the upward
 direction only and their sign symmetry assumed, and the tracking-efficiency
 component remains a data-side conservative shift; the electron, V0, and
 low-$\Qsq$ backgrounds are subtracted before unfolding while the
-detector-interaction class is removed response-internally, and the applied
+detector-interaction class is removed inside the response, and the applied
 $C_{\mathrm{rad}}$ is mixed-beam only; and the cut
-variations are robustness checks rather than central results.  The frozen
-systematic editions are superseded as a quoting basis and the budget is being
-regenerated on the OPT-A nominal, so no per-bin uncertainty or total is final
+variations serve only as robustness checks.  The earlier frozen
+systematic budgets are superseded as a quoting basis and the budget is being
+regenerated on the harmonized nominal, so no per-bin uncertainty or total is final
 until the regenerated budget passes review
 (Sec.~\ref{sec:syst:budget-regeneration}).  No PID-separated
 pion, kaon, or proton result is provided.
@@ -410,14 +391,14 @@ pion, kaon, or proton result is provided.
 
 The low-$\Qsq$ charged-SIDIS analysis is a separate companion analysis covering
 $5<\Qsq<100~\GeVsq$.  Its current publication-track headline is preliminary:
-$\sigma_{\mathrm{total}}=463.9\pm5~\mathrm{(stat)}\pm47.9~\mathrm{(syst)}~\mathrm{nb}$
-on the all-768-cell v3p3p1 TUnfold treatment, with $\sigma(\hplus)=233.3~\mathrm{nb}$,
-$\sigma(\hminus)=230.7~\mathrm{nb}$, $\hplus/\hminus=1.011$, and
-$\Ah=+0.00566$.  The low-$\Qsq$ result remains preliminary because several
-systematic follow-ups are open, including validation of shifted-MC reuse at the
-v3p3 fiducial, replacement of the analytic statistical quote by the bootstrap
+$\sigma_{\mathrm{total}}=463.9\pm5~\mathrm{(stat)}\pm48~\mathrm{(syst)}~\mathrm{nb}$
+from the TUnfold-based treatment of all 768 cells, with $\sigma(\hplus)=233.3~\mathrm{nb}$,
+$\sigma(\hminus)=230.7~\mathrm{nb}$, $\hplus/\hminus=1.01$, and
+$\Ah=+0.0057$.  The low-$\Qsq$ result remains preliminary because several
+systematic follow-ups are open, including validation of shifted-MC reuse with
+its fiducial selection, replacement of the analytic statistical quote by the bootstrap
 value where appropriate, and additional checks of source summaries and
 regularization details.  These low-$\Qsq$ numbers are not inputs to the
-high-$\Qsq$ release.
+high-$\Qsq$ measurement.
 
 % End of Results section.

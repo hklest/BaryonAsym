@@ -25,15 +25,14 @@ lepton--quark scattering process rather than to what the detector recorded.
 
 The tables use the Born-level convention that retains the interference with
 the $Z$ boson.  The photon-exchange-only correction factor is provided for
-reference, but photon-exchange-only cross sections are not tabulated in the
-current table product.
+reference, but photon-exchange-only cross sections are not tabulated here.
 
 Each row gives the cross section in nb for its bin, its statistical uncertainty,
 and its total systematic uncertainty.  The latter covers the reconstruction of
 hadron kinematics, the beam-energy and luminosity calibrations, tracking
 efficiency, the modelling of the interaction used in the detector corrections,
-the modelling of the radiative correction, and the detector-interaction removal
-and fake-column statistical components.  Both correction factors and their uncertainties are tabulated; the factor for
+the modelling of the radiative correction, secondary-interaction removal, and
+the Monte Carlo statistical uncertainty of the fake-track correction.  Both correction factors and their uncertainties are tabulated; the factor for
 the convention of each table has already been applied to its cross section, and
 the ratio of the two factors converts a cross section between the two conventions.
 
@@ -45,43 +44,42 @@ is deliberately not tabulated.  In the block at the highest $\Qsq$ and highest
 $x$, the physically allowed range ends at $x=1$, and the tabulated volumes
 already respect that limit.
 
-The values are preliminary and remain subject to revision.  The current
-release is the 2026-10-23 eSigma release (Sec.~\ref{sec:results:z005-release}),
-but the tables below have not yet been regenerated on it.  They were
-generated on 2026-10-19 on the current observable basis: the
-$\alpha\ge0.2~\mathrm{rad}$ laboratory-frame
-scattered-electron cone is applied on the reconstructed legs, the electron,
-V0, and low-$\Qsq$ backgrounds are subtracted from the data vector before
-unfolding, detector-interaction removal is performed response-internally, and
-the charged-kaon decay-in-flight keeper is retained as signal.  They are
-Born-level
-($\texttt{c\_rad\_applied}=\texttt{TRUE}$) tables using the applied primary
-DJANGOH14 radiative correction in $(Q^2_{\mathrm{esGen}},x_{\mathrm{es,gen}})$,
-the iterative Bayesian unfolding, and, as the unfolding prior, the response
-matrix's own generator-level distribution from the RAPGAP31
-response.  The normalization is $L_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$;
-the 490 bins comprise 245 $h^+$ and 245 $h^-$ bins, beginning at
-$0.0<z<0.05$.  The integrated Born-level IBU cross sections are
-$11.997~\mathrm{nb}$ ($\hplus$) and $11.664~\mathrm{nb}$ ($\hminus$) (Born, $C_{\mathrm{rad}}$ applied).
-Their raw IBU parent values are $10.508811~\mathrm{nb}$ and
-$10.217503~\mathrm{nb}$, respectively (raw, before $C_{\mathrm{rad}}$).  The highest-$x$ published cell is
-$0.021\leq x<1.0$, with $\Delta x=0.979$ in its tabulated volume.
+The values are preliminary and remain subject to revision.  The final cross
+sections (Sec.~\ref{sec:results:z005-release}) use the $e\Sigma$ method, but the
+tables below have not yet been regenerated with it.  They were produced with the
+following choices.  A laboratory-frame cone of $\alpha\ge0.2~\mathrm{rad}$ around
+the scattered electron is applied at reconstructed level.  The electron, V0, and
+low-$\Qsq$ backgrounds are subtracted from the data before unfolding, and
+secondary-interaction removal is performed within the response matrix.  Charged
+kaons that decay in flight are retained as signal.  The tables are at Born level,
+with the DJANGOH14 radiative correction $C_{\mathrm{rad}}$ applied in
+$(Q^2_{\mathrm{esGen}},x_{\mathrm{es,gen}})$ bins.  They use the
+iterative Bayesian unfolding with, as prior, the generator-level distribution of
+the RAPGAP31 response matrix.  The normalization is
+$L_{\mathrm{data}}=351000.0~\mathrm{nb}^{-1}$; the 490 bins comprise 245 $h^+$ and
+245 $h^-$ bins, beginning at $0.0<z<0.05$.  The integrated Born-level cross
+sections are $12.00~\mathrm{nb}$ ($\hplus$) and $11.66~\mathrm{nb}$ ($\hminus$)
+(Born, $C_{\mathrm{rad}}$ applied).  The corresponding unfolded values before
+$C_{\mathrm{rad}}$ is applied are $10.51~\mathrm{nb}$ and $10.22~\mathrm{nb}$,
+respectively.  The highest-$x$ tabulated bin is $0.021\leq x<1.0$, with
+$\Delta x=0.979$ in its tabulated volume.
 
-Per-bin total uncertainties use the frozen 2026-10-19 uncertainty budget
-\texttt{systematics\_bgsub\_env100\_21comp\_2026-10-19}, column
-\texttt{total\_with\_env100\_rel}.  It contains 21 inventory columns, with
-20 active quadrature terms and \texttt{bgsub\_stat\_rel} retained audit-only;
-its medians are $7.320288331169215\%$ for $h^+$ and
-$7.637124635311324\%$ for $h^-$.  The table-to-budget comparison covers all
-490 rows and has maximum absolute deviation zero.  These tables predate the
-2026-10-20 OPT-A baseline promotion of the response truth contract
-(Sec.~\ref{sec:unfolding:truth-contract}) and the 2026-10-23 eSigma release: their
-tabulated central values are superseded electron-frame values, and their per-bin
-totals use the frozen budget, which is superseded as a quoting basis by the
-installed eSigma budget (Sec.~\ref{sec:syst:budget-regeneration}).  Regeneration of the
-tables on the eSigma release is pending; until then, no tabulated per-bin
-uncertainty or total is final.  Full technical provenance
-is retained in the comment headers of the generated table files.
+Per-bin total uncertainties are taken from the uncertainty budget fixed when
+these tables were produced, which includes the background-normalisation
+variation.  That budget has 21 components: 20 are added in quadrature, and the
+statistical uncertainty of the background subtraction is kept as a cross-check
+only.  Its median total uncertainties are $7.3\%$ for $h^+$ and $7.6\%$ for
+$h^-$, and the tabulated totals agree with the budget exactly in all 490 rows.
+These tables predate two later changes to the central value: the alignment of
+the generator-level binning of the response matrix with that of the radiative
+correction (Sec.~\ref{sec:unfolding:truth-contract}), and the adoption of the
+$e\Sigma$ method for the final cross sections.  Their central values are
+therefore superseded values obtained with the virtual photon reconstructed from
+the scattered electron alone.  Their per-bin totals are superseded by the final
+uncertainty budget (Sec.~\ref{sec:syst:budget-regeneration}).  Until the tables
+are regenerated for the final cross sections, no tabulated per-bin uncertainty or
+total is final.  Full technical provenance is retained in the comment headers of
+the generated table files.
 
 \subsection{Cross sections including $Z$-boson exchange}
 \label{app:born-xsec:withZ}
