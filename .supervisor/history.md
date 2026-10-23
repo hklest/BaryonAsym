@@ -3,3 +3,7 @@
 - 2026-10-23 executor (Phase E): release candidate packaged, covariance gates PASS, critic round 4 REVISE→fixed, round 5 PASS; deferred Phase F (user-gated), Phase G
 - 2026-10-23 executor (Phase F): installed + promoted, audit PASS
 - 2026-10-23 executor (Phase G): budget plots + note done; other plots need new plotters
+- 2026-10-24 Phase G plots: release plot set and tarball at sidis_highQ2/plots/releases/esigmaphoton_2026-10-23; goals: none; plan: none; decisions: none
+- 2026-10-24 note clarity pass (reader-facing notation, plain-English grouped systematics table, 2 s.f.); goals: none; plan: none; decisions: .supervisor/memory/decisions/2026-10-24-appendix-table-2sf-no-cgamma.md
+- 2026-10-24 cut variations and figure pruning in the note; goals: none; plan: none; decisions: none
+- 2026-10-24 xF eSigma two-way check (Condor 5868500): negligible change; decision keep-vs-rerun pending; goals: none; plan: none; decisions: none
