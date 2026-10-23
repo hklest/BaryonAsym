@@ -70,44 +70,57 @@ Table~\ref{tab:syst:z005-components} lists the 24 terms of the quoted total unce
 \begin{table}[h]
 \centering
 \small
-\begin{tabular}{p{3.6cm}p{7.6cm}rr}
+% BEGIN generated: budget table (budget_grouped/make_syst_table_esph.py)
+\begin{tabular}{p{4.4cm}p{7.0cm}rr}
 \toprule
 Component & Treatment & $\hplus$ [\%] & $\hminus$ [\%] \\
 \midrule
-IBU statistical uncertainty & $\sigma$ of 1000 Poisson-only toy replicas on the subtracted data vector & $3.77$ & $4.16$ \\
-IBU model uncertainty & Difference in unfolded data with different model migration matrices & $1.45$ & $1.59$ \\
-IBU regularization uncertainty & $\pm1$ iteration around nominal $N_{\mathrm{iter}}=4$ & $0.64$ & $0.59$ \\
-Hadron-azimuth prior & Flat-$\phih$ IBU prior; half the larger generator deviation; legacy-convention column & $1.21$ & $1.32$ \\
-Scattered-electron energy & $\pm1\%$ shift of $E_{e'}$, MC-only leg & $2.68$ & $2.88$ \\
-Scattered-electron polar angle & Shift of $\theta_{e'}$ by $1~\mathrm{mrad}$, MC-only leg & $0.27$ & $0.28$ \\
-Hadronic $\Sigma_h$ smear & MC-only smear of $\Sigma_h$, single draw & $0.44$ & $0.42$ \\
-Tracking efficiency & $-0.5\%$ tracking-efficiency shift & $0.51$ & $0.51$ \\
-HFS JES & Shift of JES by 2\%, MC-only, RAPGAP only, symmetrized $(\mathrm{up}-\mathrm{down})/2$ & $0.59$ & $0.65$ \\
-HFS RCES & Shift of RCES by 2\%, MC-only & $0.14$ & $0.15$ \\
-HFS polar angle & Shift of HFS $\theta$ by 1 mrad, MC-only & $0.10$ & $0.11$ \\
-Radiative generator difference & DJANGOH vs RAPGAP $C_{\mathrm{rad}}$ difference & $0.58$ & $0.55$ \\
-Radiative correction statistics & Statistical uncertainty of the applied $C_{\mathrm{rad}}$ & $0.43$ & $0.44$ \\
-Detector-integration removal & Removal-increment isolation of the detector-interaction reroute, carried from the electron frame, with a $\pm100\%$ normalization term & $0.20$ & $0.17$ \\
-Fake-column MC statistics & Cone fake-column $\sigma(f_i)$ propagated through the unfolding Jacobian on the subtracted data vector & $0.32$ & $0.33$ \\
-Background-subtraction model & V0 and electron generator half-spreads in quadrature with a $\pm30\%$ low-$\Qsq$ scale term & $0.22$ & $0.25$ \\
-Background-subtraction stage & Pre-versus-post-unfold stage difference measured on the cone chain & $0.18$ & $0.19$ \\
-Background-subtraction fake fraction & Fake-fraction common-model dependence $|1-r_{\min}|\,f_i$ with the proxy $r_{\min}=0.9817$ (NucliaWeight caveat) & $0.18$ & $0.18$ \\
-Background-subtraction envelope & Fully correlated $\pm100\%$ normalization envelope on the subtracted electron and V0 content, in its \texttt{env100\_hyp} form & $3.55$ & $3.73$ \\
-Non-primary normalization & Non-primary normalization term of the v5 edition & $0.07$ & $0.06$ \\
-NucliaWeight primary loss & $\pm100\%$ on $(1-\mathrm{NucliaWeight})$, loss-to-miss form & $0.74$ & $0.77$ \\
-Straddle residual & Residual mismatch of the per-cell straddle rates between simulation and data & $0.13$ & $0.13$ \\
-$z$-shift term & Identically zero; its ISR residual is unquoted & $0$ & $0$ \\
-Luminosity & flat $2.7\%$ & $2.70$ & $2.70$ \\
+\multicolumn{4}{l}{\textit{Unfolding and model}} \\
+Unfolding: data statistics & $\sigma$ of 1000 Poisson-only toy replicas on the subtracted data vector & $3.8$ & $4.2$ \\
+Unfolding: MC model dependence & Difference in unfolded data with different model migration matrices & $1.4$ & $1.6$ \\
+Unfolding: regularisation & $\pm1$ iteration around nominal $N_{\mathrm{iter}}=4$ & $0.64$ & $0.59$ \\
+Hadron azimuthal-angle prior & Flat-$\phih$ IBU prior; half the larger generator deviation; legacy-convention column & $1.2$ & $1.3$ \\
 \midrule
-Quoted total (quadrature) & \texttt{total\_quoted\_esph\_rel} & $8.343$ & $8.890$ \\
+\multicolumn{4}{l}{\textit{Lepton reconstruction}} \\
+Electron energy scale & $\pm1\%$ shift of $E_{e'}$, MC-only leg & $2.7$ & $2.9$ \\
+Electron polar angle & Shift of $\theta_{e'}$ by $1~\mathrm{mrad}$, MC-only leg & $0.27$ & $0.28$ \\
+$Q^2$, $x$ bin-edge migration residual & Residual mismatch of the per-cell straddle rates between simulation and data & $0.13$ & $0.13$ \\
+Initial-state-radiation $z$ shift (zero) & Identically zero; its ISR residual is unquoted & $0$ & $0$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Hadronic final state}} \\
+Hadronic energy scale & Shift of JES by 2\%, MC-only, RAPGAP only, symmetrized $(\mathrm{up}-\mathrm{down})/2$ & $0.59$ & $0.65$ \\
+Calorimeter cluster energy scale & Shift of RCES by 2\%, MC-only & $0.14$ & $0.15$ \\
+Hadronic polar angle & Shift of HFS $\theta$ by 1 mrad, MC-only & $0.10$ & $0.11$ \\
+Hadronic $E-p_z$ resolution & MC-only smear of $\Sigma_h$, single draw & $0.44$ & $0.42$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Tracking}} \\
+Track-finding efficiency & $-0.5\%$ tracking-efficiency shift & $0.51$ & $0.51$ \\
+Secondary-interaction removal & Removal-increment isolation of the detector-interaction reroute, carried from the electron frame, with a $\pm100\%$ normalization term & $0.20$ & $0.17$ \\
+Non-primary track normalisation & Non-primary normalization term of the v5 edition & $0.069$ & $0.058$ \\
+Hadron loss in detector material & $\pm100\%$ on $(1-\mathrm{NucliaWeight})$, loss-to-miss form & $0.74$ & $0.77$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Background}} \\
+Background: generator model & V0 and electron generator half-spreads in quadrature with a $\pm30\%$ low-$\Qsq$ scale term & $0.22$ & $0.25$ \\
+Background: subtraction stage & Pre-versus-post-unfold stage difference measured on the cone chain & $0.18$ & $0.19$ \\
+Background: fake-track fraction & Fake-fraction common-model dependence $|1-r_{\min}|\,f_i$ with the proxy $r_{\min}=0.982$ (NucliaWeight caveat) & $0.18$ & $0.18$ \\
+Background: normalisation & Fully correlated $\pm100\%$ normalization envelope on the subtracted electron and V0 content, in its \texttt{env100\_hyp} form & $3.6$ & $3.7$ \\
+\midrule
+\multicolumn{4}{l}{\textit{Normalisation and corrections}} \\
+Luminosity & flat $2.7\%$ & $2.7$ & $2.7$ \\
+QED radiative correction: model & DJANGOH vs RAPGAP $C_{\mathrm{rad}}$ difference & $0.58$ & $0.55$ \\
+QED radiative correction: MC statistics & Statistical uncertainty of the applied $C_{\mathrm{rad}}$ & $0.43$ & $0.44$ \\
+Fake-track correction: MC statistics & Cone fake-column $\sigma(f_i)$ propagated through the unfolding Jacobian on the subtracted data vector & $0.32$ & $0.33$ \\
+\midrule
+Total (all 24 terms in quadrature) & \texttt{total\_quoted\_esph\_rel} & $8.3$ & $8.9$ \\
 \bottomrule
 \end{tabular}
 \caption{The 24 systematic-uncertainty terms of the installed eSigma budget
-(\texttt{esph\_budget\_v2.csv}), how they are calculated, and their medians per
-charge in percent of the cross section.  The relative values hold for the raw and
+(\texttt{esph\_budget\_v2.csv}), grouped by source, how they are calculated, and their medians per
+charge in percent of the cross section (two significant figures).  The relative values hold for the raw and
 for the Born (\texorpdfstring{$C_{\mathrm{rad}}$}{C\_rad} applied) table alike.
-The 95th percentiles of the quoted total are $29.95\%$ ($\hplus$) and
-$35.12\%$ ($\hminus$).}
+The 95th percentiles of the quoted total are $30\%$ ($\hplus$) and
+$35\%$ ($\hminus$).}
+% END generated: budget table (budget_grouped/make_syst_table_esph.py)
 \label{tab:syst:z005-components}
 \end{table}
 
@@ -233,6 +246,121 @@ zoom, and the intermediate 0--50\% range.
   0--50\% vertical range.}
   \label{fig:syst:sources-hminus-env100-midrange}
 \end{figure}
+
+% BEGIN generated: grouped figures (budget_grouped/make_syst_table_esph.py)
+\subsection{Per-Group Fractional Uncertainties}
+\label{sec:syst:group-plots}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_unfolding_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_unfolding_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Unfolding and model: fractional uncertainties for $\hplus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-unfolding-hplus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_unfolding_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_unfolding_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Unfolding and model: fractional uncertainties for $\hminus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-unfolding-hminus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_lepton_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_lepton_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Lepton reconstruction: fractional uncertainties for $\hplus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-lepton-hplus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_lepton_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_lepton_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Lepton reconstruction: fractional uncertainties for $\hminus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-lepton-hminus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_hfs_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_hfs_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Hadronic final state: fractional uncertainties for $\hplus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-hfs-hplus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_hfs_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_hfs_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Hadronic final state: fractional uncertainties for $\hminus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-hfs-hminus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_tracking_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_tracking_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Tracking: fractional uncertainties for $\hplus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-tracking-hplus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_tracking_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_tracking_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Tracking: fractional uncertainties for $\hminus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-tracking-hminus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_background_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_background_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Background: fractional uncertainties for $\hplus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-background-hplus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_background_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_background_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Background: fractional uncertainties for $\hminus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-background-hminus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_normalisation_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=1,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_normalisation_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Normalisation and corrections: fractional uncertainties for $\hplus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-normalisation-hplus}
+\end{figure}
+
+\begin{figure}[p]
+  \centering
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_normalisation_esigmaphoton_20261023_ylim015.pdf}
+  \par\medskip
+  \includegraphics[page=2,width=0.98\textwidth,height=0.42\textheight,keepaspectratio]{figures/fig_syst_normalisation_esigmaphoton_20261023_ylim050.pdf}
+  \caption{Normalisation and corrections: fractional uncertainties for $\hminus$ versus $\pTh$ with the total of all 24 terms (black), 0--15\% (top) and 0--50\% (bottom).}
+  \label{fig:syst:group-normalisation-hminus}
+\end{figure}
+
+\clearpage
+% END generated: grouped figures (budget_grouped/make_syst_table_esph.py)
 
 \subsection{Fractional Covariance Matrices}
 \label{sec:syst:global-covariance}
