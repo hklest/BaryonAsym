@@ -14,7 +14,10 @@ veto after the electron and V0 truth vetoes and before the $z$ guard.  The
 generator side is unchanged; cone-rejected matched legs flow to the miss row.
 The current-hemisphere requirements are $xF_{\mathrm{SIDIS\_es}}<0$ at
 reconstruction level and $xFGen<0$ at generator level; generator-level $x_F$
-is recomputed with the $q$-nominal construction. The IBU prior is the
+is recomputed with the $q$-nominal construction.  The reconstructed
+$xF_{\mathrm{SIDIS\_es}}$ keeps the electron-like photon: it uses the electron-method
+$\Qsq$ and angle, not the $e\Sigma$ photon, so only $z$ and $\pTh$ follow
+$e\Sigma$ (a stated limitation). The IBU prior is the
 response's own generator-level truth distribution, computed from this
 response.
 
@@ -77,8 +80,9 @@ study, $3.25\%$ of generator-level rows ($3.41\%$ weighted) would change $z$
 bin under the rad-safe definition of $z$, all upward toward the rad-safe $z$
 and concentrated in the two lowest $z$ rows; this $z$-bin-row shift is
 carried as a declared bin-coordinate convention, and its systematic
-treatment---caveat only or a budget component---is decided in the budget
-regeneration (Sec.~\ref{sec:syst:budget-regeneration}).
+treatment is the $z$-shift term of the installed eSigma budget, which is
+identically zero; its ISR residual is unquoted
+(Sec.~\ref{sec:syst:budget-regeneration}).
 
 The harmonized response was validated by a full-sample per-cell straddle and
 matched-fraction study over the complete response campaign (73 RAPGAP31 and

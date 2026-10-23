@@ -21,8 +21,11 @@ own generator-level distribution, and the electron, V0, and low-$\Qsq$
 background templates are subtracted from the data vector before unfolding.
 Since the 2026-10-20 OPT-A baseline promotion, the response truth contract is
 harmonized to the radiative correction
-(Sec.~\ref{sec:unfolding:truth-contract}), and the OPT-A chain is the nominal
-central-value release (Sec.~\ref{sec:results:z005-release}).
+(Sec.~\ref{sec:unfolding:truth-contract}).  The nominal central-value release
+is the 2026-10-23 eSigma release (Sec.~\ref{sec:results:z005-release}), in which
+$z$, $\pTh$, and the $\gamma^{*}p$ frame follow the $e\Sigma$ reconstructed
+photon; its integrated Born-level ($C_{\mathrm{rad}}$ applied) cross sections are
+$12.0185~\mathrm{nb}$ ($\hplus$) and $11.6855~\mathrm{nb}$ ($\hminus$).
 Detector, unfolding, tracking-efficiency,
 luminosity, and radiative systematics have been propagated into the total
 summary.  A
@@ -37,17 +40,15 @@ open.  The principal remaining limitations are this multiplicity-level mapping
 and the absence of a corrected inclusive DIS denominator.
 The current release should therefore be treated as a validated working release,
 not yet as a final physics multiplicity release.  The quoted total systematic
-budget of the frozen 2026-10-19 edition combines twenty active uncertainty
-terms on the background-subtracted basis, with median totals of
-$7.320288331169215\%$ ($\hplus$) and $7.637124635311324\%$ ($\hminus$); the
-frozen editions were computed on the superseded central values and are
-superseded as a quoting basis, the budget is being regenerated on the OPT-A
-nominal, and no per-bin uncertainty or total is final until the regenerated
-budget passes review (Sec.~\ref{sec:syst:budget-regeneration}); its
+budget is the installed eSigma edition (column \texttt{total\_quoted\_esph\_rel}),
+which combines 24 uncertainty terms on the background-subtracted basis, with
+median totals of $8.343\%$ ($\hplus$) and $8.890\%$ ($\hminus$)
+(Sec.~\ref{sec:syst:budget-regeneration}); its
 principal background-related term is a fully correlated $\pm100\%$
-normalization envelope on the subtracted electron and V0 content.  The five
-detector-shift components are full-chain single-sided variations; the HFS legs
-are produced in the plus direction only and their sign symmetry is assumed,
+normalization envelope on the subtracted electron and V0 content.  The edition adds the $\Sigma_h$ smear and detector-interaction normalization terms;
+the JES term is RAPGAP-only and symmetrized.  No ISR/QED term is
+quoted, since radiative effects are corrected with the applied $C_{\mathrm{rad}}$.
+The five detector-shift components are full-chain MC-only variations,
 while the tracking-efficiency component remains a data-side conservative
 shift.  The electron, V0, and low-$\Qsq$ backgrounds are subtracted from the
 data vector before unfolding, while the detector-interaction removable class is
