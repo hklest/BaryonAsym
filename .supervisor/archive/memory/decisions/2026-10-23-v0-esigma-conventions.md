@@ -7,3 +7,4 @@ source: supervisor 2026-10-23
 supersedes:
 ---
 eSigma used consistently for cuts, binning and z; z = P.P_h/P.q. Lambda+anti-Lambda summed, anti-Lambda kept as cross-check. No Breit-frame observables in the first pass. MC generator files from v3p2 only; never mix with gen_v2.
+superseded by: .supervisor/memory/decisions/2026-10-23-v0-esigma-gamma-p-cm-variables.md

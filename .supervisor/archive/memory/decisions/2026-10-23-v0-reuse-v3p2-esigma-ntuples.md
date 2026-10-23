@@ -7,3 +7,4 @@ source: user 2026-10-23
 supersedes:
 ---
 Reuse the existing v3p2 eSigma ntuples; no new production.
+superseded by: .supervisor/memory/decisions/2026-10-23-v0-v3p2-baseline-conditional.md
