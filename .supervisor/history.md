@@ -7,3 +7,4 @@
 - 2026-10-24 note clarity pass (reader-facing notation, plain-English grouped systematics table, 2 s.f.); goals: none; plan: none; decisions: .supervisor/memory/decisions/2026-10-24-appendix-table-2sf-no-cgamma.md
 - 2026-10-24 cut variations and figure pruning in the note; goals: none; plan: none; decisions: none
 - 2026-10-24 xF eSigma two-way check (Condor 5868500): negligible change; decision keep-vs-rerun pending; goals: none; plan: none; decisions: none
+- 2026-10-24 none eSigma quoting blockers M1, N2, P-CRAD-LUMI closed; goals: none; plan: none; decisions: .supervisor/memory/decisions/2026-10-24-m1-n2-closed-d2-eprime-cut-shifted-legs.md, .supervisor/memory/decisions/2026-10-24-p-crad-lumi-accepted-gaps.md
