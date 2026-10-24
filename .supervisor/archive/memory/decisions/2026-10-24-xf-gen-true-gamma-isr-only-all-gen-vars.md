@@ -11,3 +11,4 @@ Earlier user decision (U2), verbatim: "Yes, use the true photon for all of them.
 The true gamma* uses E_eff = beam electron energy minus initial-state radiation photons ONLY, not final-state ones. One true gamma* defines all generator-level kinematics: x_F, Q2, y, x, z, pT, the fiducial cuts and the Q2 cell. This replaces "gen z and pT keep their current photon".
 The generator-level phi_h appendix decision (memory/decisions/2026-10-24-gen-phih-appendix-keeps-truth-photon.md) was stated separately and is left unchanged; the user has not said whether it follows this extension.
 Also supersedes the earlier E_eff = BeamElecE - max(GenEnPhoton,0) formula (every photon subtracted, judged wrong) and the 2026-10-19 "Option A" cell choice.
+superseded by: .supervisor/memory/decisions/2026-10-24-gen-all-kinematics-true-gamma-isr-only-incl-phih.md
