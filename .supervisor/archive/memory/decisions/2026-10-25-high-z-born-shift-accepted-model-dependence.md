@@ -10,3 +10,5 @@ User decision for the final eSigma production: the high-z Born shift (+0.6 to +2
 User verbatim: "I'm not surprised about the born shift. We should accept it, those bins will have large uncertainty anyway. It will be covered."
 Evidence: H1ChargedSidis_HighQ2/output_v6/studies/esigma_final_2026-10-24/s4/mcx_crosscheck/out/ (verified to exist). Coverage diagnostic: H1ChargedSidis_HighQ2/output_v6/studies/esigma_final_2026-10-24/s4/born_shift_vs_ibu_model.json.
 Related: .supervisor/memory/decisions/2026-10-25-truth-parity-gate-retired.md (born_shift is one of the remaining checks).
+
+superseded by: memory/decisions/2026-10-25-born-shift-no-extra-uncertainty.md
