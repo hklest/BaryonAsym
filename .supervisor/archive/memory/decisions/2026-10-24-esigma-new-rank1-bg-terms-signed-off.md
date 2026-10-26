@@ -8,3 +8,4 @@ supersedes:
 ---
 User decision (U3), verbatim: "u3: a."
 Adopt both new rank-one terms: DIFFVM elastic rho0 at +-100%, and the low-Q2 +-30% normalization as a separate fully correlated (rho=+1) term. Complements memory/decisions/2026-10-24-esigma-background-uncertainties-recompute.md.
+superseded by: .supervisor/memory/decisions/2026-10-26-diffvm-subtract-publish-amount.md
