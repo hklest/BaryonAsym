@@ -8,3 +8,4 @@ supersedes: .supervisor/archive/memory/decisions/2026-10-24-esigma-new-rank1-bg-
 ---
 User decision, verbatim: "2. I think we should subtract it but publish how much we subtract. We have several bins with 20% from VMs. We would obviously subtract other background channels. One thing that would be good to check though is how the cos(theta) distributions of the VMs look in DIFFVM compared to known SDMEs."
 Subtract DIFFVM with s = 0.08 +- 0.15 (rather than unsubtracted +-42%/+-100%); publish the subtracted amount. Check DIFFVM VM cos(theta) distributions against known SDMEs. DIFFVM normalisation 0.1359 verified correct (audit). The low-Q2 +-30% rho=+1 normalization term from the superseded entry remains in force.
+superseded by: .supervisor/memory/decisions/2026-10-26-diffvm-not-subtracted-negligible-rho0.md
