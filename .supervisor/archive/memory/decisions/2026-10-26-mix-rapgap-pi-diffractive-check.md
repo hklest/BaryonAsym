@@ -7,3 +7,5 @@ source: user 2026-10-26
 supersedes: 
 ---
 User decision, verbatim: "4. You could try to mix in Rapgap-pi or some other diffractive sample and see if it change anything?" Exploratory study, not a release blocker.
+
+superseded by: .supervisor/memory/decisions/2026-10-26-no-diffractive-term-or-mixed-response.md
