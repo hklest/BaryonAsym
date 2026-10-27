@@ -242,7 +242,7 @@ and are closed.
 - Owns: `NOTE/**/*.tex`, `NOTE/tables/`, `PAPER/**/*.tex`, `PAPER/tables/`, `LETTER/**/*.tex`.
 - Deps: P1, P2
 - Stages: write
-- Status: write
+- Status: done
 - Artifacts: `->`
 - Scope Notes: `writer` briefs `h1-analysis-note-writer` for all LaTeX edits, `h1-systematics` for
   the uncertainty rows and medians, `h1-analysis-critic` for the review. No low-N flag (Decision 4).
@@ -303,13 +303,16 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - 2026-10-27 decision: note restructure per user feedback (no repetition, no superseded references, MC comparison after Results, apples-to-apples only: with-Z data vs EW MC and photon-only data vs MAPTMD24; event-level vs track-level background sections; paragraph breaks, fewer colons); conventions be7893b
 - 2026-10-27 P3 (write): partial; paper + letter + SM edited and built; note restructured, build and round-2 review pending; cross-level fig:datamc replaced by placeholders; deferred: P2b with-Z data-vs-MC figures, note build/round 2/commits
 - 2026-10-27 decision: letter carries a photon-only MAPTMD24 comparison figure ("Yes, add it"); per-bin DIFFVM table published as supplementary material cited by the paper ("Supplementary material"); P4 packages the CSVs with the freeze
+- 2026-10-27 P2b (execute): done; with-Z data-vs-MC figures without MAPTMD24 (note all cells, paper h+ Q2<700, letter combined) + medians CSV (data/MC PYTHIA 1.00, SHERPA 1.00, RAPGAP 1.11, DJANGOH 1.05), RAPGAP/DJANGOH from esigmaphotonxf C_rad sigma_nonrad, docfigs installed as 3 new files, Condor 5917678, h1-plot-reviewer PASS, critic PASS; deferred: caption caveats (P3), PYTHIA e+/e- weight swap (negligible), C_rad e+ fraction 0.544 vs 0.514 check
+- 2026-10-27 C_rad beam fraction check (h1-radiative-correction): applied f(e+p)=0.544 correct (processed lumi, L_eff 350.9 pb^-1); 0.514 stale; no rerun; f stated in note C_rad footnote
+- 2026-10-27 P3: done; three documents at esigmaphotonxf_2026-10-27 (note restructured; level-matched comparisons; budget, DIFFVM table), committed locally, note bdb9869, paper 607ec43, letter 54b7ff2; deferred: push (P4); note merge with Overleaf commits (executor); MAPTMD24 α_em confirmation; PYTHIA beam-label check; hyperon double-count check (h1-systematics)
 
 ## Todo
 
 - [x] P1 plan: `CPLAN` rev 3 written (Decisions 2-4 folded in, OQ1 answer recorded)
 - [x] P1 execute: closure toys, budget, coverage gate PASS, hostile review, user sign-off, `s15`, `s16`, `s18`, audit
 - [x] P2: plot set and docfigs at `NEWTAG`, plot review PASS
-- [ ] P3: three documents updated, built, reviewed, committed (pushed per Decision 10)
+- [x] P3: three documents updated, built, reviewed, committed (pushed per Decision 10)
 - [ ] P4: freeze record, tags, read-only dirs, `freeze_verify` PASS
 - [ ] P5: handoff, RUN_STATUS, CONTEXT.md, INDEX.md; `EPLAN`/`CPLAN` ticked; two old plans marked superseded
 - [ ] P6: curator close-out, facts superseded, history lines, workspace commit
