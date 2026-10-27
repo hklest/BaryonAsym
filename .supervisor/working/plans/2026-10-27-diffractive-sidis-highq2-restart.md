@@ -28,7 +28,7 @@ Gate first, then build. WP-A probes the one localized blocker (Plug veto deficit
 and re-runs the N−1 and η_max GOF gates. WP-B/C/D run in parallel with WP-A because they need no
 new production. WP-E onward is blocked until gate G1 passes. The observable pivots to X-rest-frame
 x_F/p_T*² in M_X bins (H1 PLB 428 (1998) 206 style, RA §4), integrated over Q² > 150 GeV², which
-(a) is coarse enough for the ~84k reco signal tracks per charge, (b) integrates over the Q² cells
+(a) is coarse enough for the ~47k weighted reco signal tracks per charge (WP-C), (b) integrates over the Q² cells
 whose ND leakage grows from 4% to 41% (`D/docs/t4/localization_verdict_2026-10-20.md:62`), and
 (c) cancels normalisation systematics by per-event normalisation.
 
@@ -153,6 +153,15 @@ Thresholds are pre-registered here; changing one needs user sign-off before the 
   Condor-days, 2 calendar weeks, whichever comes first; Condor-days = Σ(job wall × request_cpus)/24 h
   from the Condor logs, tallied by `h1-naf-operator` in the WP-A Log) is spent with (a) or (c) failing. (b) failing alone downgrades to a
   systematic leg, not a kill.
+- **G1′ (WP-A2, kill gate; full text and hypothesis matrix in
+  `D/docs/restart_2026-10-27/wp-a2/wp-a2_plan.md` D3-D6).** The three G1 clauses with unchanged thresholds, evaluated on the
+  odd-`EventNumber` test split after the definitional corrections frozen in
+  `D/docs/restart_2026-10-27/wp-a2/s3_correction_record.md` from the even split and the published reference (EPJC 72 (2012)
+  2074 definitions): (a) Plug N−1 shape ≤ 0.10 and |Δf_fail| ≤ 0.02 per D cell; (b) FMD and FTS N−1 < 0.25 for one
+  admissible cocktail; (c) §7.1 toy p ≥ 0.05, coarse and fine, every D cell and ALL, ≥ 1000 toys, for one of 7071, 7091,
+  nd4cat. **Kill:** (a) or (c) fails once the pre-registered H1-H6 matrix is exhausted, or 5 Condor-days / 7 calendar days
+  from the first WP-A2 submission are spent. (b) alone downgrades to a systematic leg. Corrections are definitions only;
+  abandoning the Plug veto, an x_IP window beyond 0.03 or a new MC request are `user:` items, never corrections.
 - **G2 (WP-F, leakage ceiling).** Per retained M_X bin, ND leakage fraction f_ND ≤ 0.30 under the
   larger ND generator when G1(c) holds (uncertainty from the fit); without a GOF pass, f_ND ≤ 0.10
   with a ±100% correlated envelope. Bins above the ceiling are masked; if every M_X bin is masked
@@ -212,7 +221,8 @@ their child plans.
 
 1. Wave 1 (parallel): WP-A, WP-B (research), WP-C, WP-D, WP-I (research), WP-L (status line only).
    Checkpoint: G1 verdict record exists; WP-C bin proposal and WP-D gap list exist.
-2. Wave 2: WP-B (decision), WP-E. Checkpoint: re-produced trees validated by `h1-data-validator`.
+1b. Wave 1b (after G1 KILL, user decision 2026-10-27): WP-A2. Checkpoint: `g1prime_verdict.md`.
+2. Wave 2 (only on G1′ PASS): WP-B (decision), WP-E. Checkpoint: re-produced trees validated by `h1-data-validator`.
 3. Wave 3: WP-F then WP-G. Checkpoint: G2 and G3 verdict records.
 4. Wave 4: WP-H, WP-I (execute). Checkpoint: G4 record; C_rad table or bound.
 5. Wave 5: WP-J. Checkpoint: G5 record.
@@ -271,7 +281,8 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-a/`
 - Deps: none
 - Stages: plan, execute
-- Status: execute
+- Status: done
+- Result: G1 KILL 2026-10-27 — see sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a/g1_verdict.md
 - Lead: `executor` (child plan by `planner`); specialists `h1-naf-operator` (Condor),
   `h1-mc-expert` (overlay semantics; one lookup whether H1 random-trigger event files of EPJC 72
   are accessible), `h1-analysis-critic` (verdict)
@@ -286,6 +297,28 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   Checkpoint: `D/docs/restart_2026-10-27/wp-a/g1_verdict.md` with the numbers of G1(a)-(c).
 - Artifacts: plan-wpA-plug-probe.md (default path); `D/docs/restart_2026-10-27/wp-a/g1_verdict.md`
 - Output: `D/docs/restart_2026-10-27/wp-a/`, `D/data/restart_2026-10-27/wp-a/`
+- Log: —
+
+### WP-A2: root-cause diagnosis of the η_max / Plug failure and gate G1′
+- Goal: decide whether the G1 failure is definitional (η_max convention, Plug DB threshold and scale, overlay noise, fit
+  structure, simulation flags) or physical, fix justified definitional corrections from the even split and the published
+  reference, and rule G1′ on the odd split; done when `D/docs/restart_2026-10-27/wp-a2/g1prime_verdict.md` exists (pass or kill)
+- Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wp-a2/`
+- Deps: WP-A (done; its partials, scripts and records are the inputs)
+- Stages: plan, execute
+- Status: execute
+- Lead: `executor` (child plan by `planner`); specialists `h1-mc-expert` (Plug DB semantics, overlay/noise and
+  generator-class readings), `h1-naf-operator` (Condor, tally), `h1-analysis-critic` (pre-registration, correction record,
+  verdict); `h1-data-validator` only if a merged file is written
+- Condor: yes (forks of the WP-A scripts over the 17 merged files; ≈ 0.2 of ≤ 5 Condor-days, ≤ 7 calendar days)
+- Scope Notes: pre-registered hypotheses H5 (Plug DB threshold/`EnCor` per period), H1 (η_max threshold, cut, vertex,
+  electron vs EPJC 72 (2012) 2074), H6 (beam tilt / z-vertex flags), H4 (no-gap inclusive control: forward-edge response vs
+  ND forward flow), H3 (fit templates, E−p_z, x_IP window, out-of-fiducial admixture), H2 (overlay rate / forward noise per
+  period), in that order; G1′ text in the child plan D6 (quoted in the gates section above); user items only for
+  physics-scope changes. Tests: `fork_default_identity`, `split_disjoint_complete`, `corrections_are_definitions`,
+  `record_frozen_before_s4`, `threshold_pre_registered` (child plan). Checkpoint: `g1prime_verdict.md` with the clause numbers.
+- Artifacts: `D/docs/restart_2026-10-27/wp-a2/wp-a2_plan.md`; `g1prime_verdict.md`
+- Output: `D/docs/restart_2026-10-27/wp-a2/`, `D/data/restart_2026-10-27/wp-a2/`, `D/plots/restart_2026-10-27/wp-a2/`
 - Log: —
 
 ### WP-B: selection and kinematic-range re-decision
@@ -352,9 +385,9 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   validated; done when `h1-data-validator` passes entry counts against v6dif
 - Owns: `P/src/ChargedSidisTreeBuilderHighQ2_v6dif2.C`, `D/output_v6dif2/`,
   `D/condor/restart_2026-10-27/wp-e/`, `D/docs/restart_2026-10-27/wp-e/`
-- Deps: WP-A (G1 pass), WP-C (branch list), WP-D (sample list)
+- Deps: WP-A2 (G1′ pass), WP-C (branch list), WP-D (sample list)
 - Stages: plan, execute
-- Status: blocked: plan: gate G1 (WP-A) not passed
+- Status: blocked: plan: G1′ (WP-A2)
 - Lead: `executor`; `h1-mc-expert` (truth-bank X/Y definition), `h1-naf-operator` (Condor, merges),
   `h1-data-validator`
 - Condor: yes (data 658 jobs ≈ 30 min; MC evls + stage2 chains, est. 1-3 Condor-days)
@@ -371,9 +404,9 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Goal: per-M_X-bin ND and Reggeon fractions with a validated normalisation, PDISS mixture and
   fake fractions, noise corrections applied; done when the G2 record exists
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-f/`
-- Deps: WP-E, WP-B
+- Deps: WP-A2 (G1′ pass), WP-E, WP-B
 - Stages: plan, execute
-- Status: blocked: plan: WP-E
+- Status: blocked: plan: G1′ (WP-A2)
 - Lead: `executor`; `h1-mc-expert` (mixture, M_Y spectrum), `h1-analysis-critic` (G2 verdict)
 - Condor: yes
 - Scope Notes: η_max two-template fit per the §7.1 design on the new selection, both ND alternatives;
@@ -387,9 +420,9 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 ### WP-G: detector-level distributions and the σ_r^D(3) gate G3
 - Goal: data vs cocktail control plots and the inclusive gate; done when the G3 record exists
 - Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wp-g/`
-- Deps: WP-F
+- Deps: WP-A2 (G1′ pass), WP-F
 - Stages: execute
-- Status: blocked: execute: WP-F
+- Status: blocked: plan: G1′ (WP-A2)
 - Lead: `executor`; `h1-plot-reviewer`, `h1-analysis-critic` (G3 verdict)
 - Condor: yes
 - Scope Notes: distributions: η_max, E_Plug, nFmu12, nFts28, x_IP, M_X, β, Q², x, y, E−p_z, track
@@ -406,9 +439,9 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   G4 record exists
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-h/`, builder and downstream forks under
   `D/scripts/restart_2026-10-27/wp-h/`
-- Deps: WP-G, WP-C
+- Deps: WP-A2 (G1′ pass), WP-G, WP-C
 - Stages: plan, execute
-- Status: blocked: plan: WP-G
+- Status: blocked: plan: G1′ (WP-A2)
 - Lead: `executor`; `h1-unfolder` (method, closure), `h1-analysis-critic`
 - Condor: yes
 - Scope Notes: D8. Tests: `split_closure`, `reweighted_closure` per G4; `fake_fraction_bounds: 0 ≤ f_i
@@ -420,9 +453,9 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 ### WP-I: radiative correction strategy
 - Goal: C_rad table or bound per D9; done when `h1-radiative-correction` signs the record
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-i/`
-- Deps: WP-C (observable); execute stage also WP-A (G1)
+- Deps: WP-C (observable); execute stage also WP-A2 (G1′ pass)
 - Stages: research, execute
-- Status: blocked: execute: G1
+- Status: blocked: plan: G1′ (WP-A2)
 - Lead: `executor`; `h1-radiative-correction`, `h1-mc-expert`
 - Condor: yes (standalone RAPGAP generation, ≤ 1 Condor-day)
 - Scope Notes: research stage in wave 1 (pair usability, timing shard); execute after WP-C's grid.
@@ -436,9 +469,9 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 ### WP-J: systematics budget; gate G5
 - Goal: per-bin budget in the parent column style; done when the G5 record exists
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-j/`
-- Deps: WP-H, WP-I
+- Deps: WP-A2 (G1′ pass), WP-H, WP-I
 - Stages: plan, execute
-- Status: blocked: plan: WP-H
+- Status: blocked: plan: G1′ (WP-A2)
 - Lead: `executor`; `h1-systematics` (budget), `h1-analysis-critic` (G5)
 - Condor: yes
 - Scope Notes: parent legs reused as MC-only response swaps (HFS JES/RCES/θ, electron E/θ, tracking,
@@ -456,9 +489,9 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Goal: results package with tables, figures and MC comparisons; done when the user ratifies the
   mask and `h1-plot-reviewer` accepts the figures
 - Owns: `D/{docs,data,plots}/restart_2026-10-27/wp-k/`
-- Deps: WP-J
+- Deps: WP-A2 (G1′ pass), WP-J
 - Stages: execute, write
-- Status: blocked: execute: WP-J
+- Status: blocked: plan: G1′ (WP-A2)
 - Lead: `executor` (tables, figures with the `dataviz` skill), `writer` (README); `h1-plot-reviewer`
 - Condor: no
 - Scope Notes: comparisons: RAPGAP Fit B elastic + PDISS cocktail; H1 1998 shapes qualitatively
@@ -537,17 +570,25 @@ Future user touchpoint (not a question now): mask ratification at WP-K (D7).
 - 2026-10-27 WP-D/MC-3: 7071 verified RAPGAP ME+PS (gen_5031.txt IFPS=3; DB author correction), 7091 CDM; prior envelope defect is period mismatch, not class; same-period pair 7091 vs 7094 added as pre-registered S3 alternative (mc3_7071_cascade_mode.md)
 - 2026-10-27 WP-C: binning record, resolutions, two candidate grids and 9 hashed blinded masks (G2), acceptance chain reconciled, engine_shape PASS; signal MC stats are the binding limit (9012 = 0.16× data lumi); deferred: grid and mask freeze pending user U1 and the WP-B selection, final frame pending WP-E gen X frame
 - 2026-10-27 supervisor: WP-A dispatched to executor; WP-C U1 and the ≥5× signal-MC request batched with the G1 verdict for the user
+- 2026-10-27 WP-A: G1 KILL (h1-analysis-critic; remedies 1/2/3 + nd4cat run, (a) max|Δf| 0.037-0.046, (b) best cocktail 0.68-0.76, (c) max p 0.011, all ALL fits at floor, 0.027 Condor-days, day 1/14; commit 6c209e7); deferred: per-detector-noise and Plug energy-scale variants (not pre-registered); root cause of ND η_max template shape failure unknown
+- 2026-10-27 supervisor: WP-E..WP-K blocked on user decision after G1 KILL; U1 grid/mask and the ≥5× signal-MC request deferred with them
+
+- 2026-10-27 decision: user — after G1 KILL: root-cause diagnosis of η_max/Plug with new pre-registered gate G1′; full campaign only if G1′ passes; close-out, full campaign now, and proton tagging not chosen
+- 2026-10-27 planner (WP-A2): program plan amended (WP-A2 block, G1′ gate, WP-E..K blocked on G1′); child plan written at sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a2/wp-a2_plan.md; deferred: none
+- 2026-10-27 supervisor: WP-A2 child plan accepted on user authorization (G1′ thresholds = G1; conditional user: items Q1 Plug-veto abandonment / Q2 ND MC request surfaced only if triggered); WP-A2 dispatched to executor
 
 ## Todo
 
-- [ ] WP-A child plan written and approved
-- [ ] WP-A steps 1-5 run; `g1_verdict.md` written
+- [x] WP-A child plan written and approved
+- [x] WP-A steps 1-5 run; `g1_verdict.md` written
 - [ ] WP-B selection record signed
 - [ ] WP-C binning record, resolutions, blinded mask with sha256
 - [ ] WP-D gap list signed; Q3 answered
 - [ ] WP-I research: pair usability ruling, timing shard
 - [ ] WP-L wave-1 slice: handoff status line and R18 trap correction
-- [ ] G1 pass recorded → unblock WP-E
+- [x] WP-A G1 verdict recorded (KILL 2026-10-27)
+- [ ] WP-A2 child plan approved; S1-S5 run; `g1prime_verdict.md` written
+- [ ] G1′ pass recorded → unblock WP-E
 - [ ] WP-E trees validated
 - [ ] WP-F `g2_verdict.md`
 - [ ] WP-G control plots reviewed; `g3_verdict.md`
