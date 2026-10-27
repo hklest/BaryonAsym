@@ -1,0 +1,7 @@
+slice,cluster,n_jobs,wall_s,cpus,condor_days,start_utc,end_utc,note
+budget,-,-,-,-,-,2026-10-27T18:02:20Z,,WP-A4 clock start = first submission UTC 2026-10-27T18:02:20Z (cluster 5917268); cap 0.2 Condor-days
+login,-,-,-,-,0,,,login-node runs (smoke/smoke2 dirs) count zero Condor-days
+skim,5917268,17,562,1,0.00650,2026-10-27T18:02:30Z,2026-10-27T18:05:06Z,skim_wpa4.sub queue_skim.txt; 17 inputs (4 data + 13 MC); 17/17 ExitCode 0; 17/17 rc=0; 17/17 skims/<label>.npz (796496595 bytes total); no resubmission; wall=sum RemoteWallClockTime x request_cpus from condor_history; max job wall 156 s (7091); max MemoryUsage 977 MiB (7097 request 6144); 7091 MemoryUsage 733 MiB request 12288; script md5 0a8bfc1e418ef2b1256cc53cbf4cb9f4
+kin,5917311,1,26,1,0.00030,2026-10-27T18:06:29Z,2026-10-27T18:06:55Z,kin_scaling_wpa4.sub; 1 job reads 17 skims; ExitCode 0; rc=0; kin_scaling.json 90505 bytes; no resubmission; wall=RemoteWallClockTime x request_cpus from condor_history; MemoryUsage 1709 MiB request 16384; script md5 45239c6aee6d9dc65d2d0d4c82ce2ad4
+comp,5917453,1,17,1,0.00020,2026-10-27T18:18:30Z,2026-10-27T18:18:47Z,composition_wpa4.sub; 1 job reads 17 skims; ExitCode 0; rc=0; composition.json 141097 bytes; no resubmission; wall=RemoteWallClockTime x request_cpus from condor_history; MemoryUsage 2442 MiB request 16384; script md5 b9e5ab7dac8f56a8d6bad738fe3396df
+total,-,-,-,-,0.00700,2026-10-27T18:02:20Z,2026-10-27T18:18:47Z,running Condor-days 0.00700 of cap 0.2 (skim 0.00650 + kin 0.00030 + comp 0.00020); tally_within_cap=True

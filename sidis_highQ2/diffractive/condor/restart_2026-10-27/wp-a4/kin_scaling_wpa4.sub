@@ -1,0 +1,16 @@
+# WP-A4 (restart 2026-10-27) kinematic-scaling analysis: 1 job, reads data/restart_2026-10-27/wp-a4/skims/*.npz.
+# Submit: condor_submit kin_scaling_wpa4.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a4/kin_scaling_wpa4_job.sh
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a4/logs/kin_$(Cluster).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a4/logs/kin_$(Cluster).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a4/logs/kin_$(Cluster).log
+request_memory  = 16384
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 3600
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue
