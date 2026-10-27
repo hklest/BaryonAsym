@@ -80,6 +80,28 @@ def main():
                   {"plug_n1_max_dev": pl, "max_abs_delta_f_fail": worst,
                    "shape_pass": pl is not None and pl <= 0.10, "rate_pass": worst <= 0.02,
                    "PASS": bool(pl is not None and pl <= 0.10 and worst <= 0.02)})
+    # Stage-B yield ratio per D cell and the PDISS M_Y > 1.6 GeV migration term
+    # (A9 reading under remedy 3; reported for every run).  Migration = signed
+    # PDISS content of the stack-C Stage-B (sbC basis) with truth mirMY >= 1.6,
+    # from my_tables eta_hist_by_my; envelope = +-50% on that term.
+    pd = [l for l in ("9155", "9157", "9158") if l in comps]
+    yr = {}
+    for c in range(3):
+        z = "D%d" % c
+        nd_ = sum(dp[k]["counts"]["C_SB"]["Dcells_raw"][c] for k in dp)
+        nm = sum(rs[l] * mp[l]["counts"]["C_SB"]["Dcells_signed"][c] for l in comps)
+        mig = 0.0
+        for l in pd:
+            H = np.asarray(mp[l]["my_tables"]["per_cell"][z]["eta_hist_by_my"]["sbC"]["hists"]["signed"])
+            edg = np.asarray(mp[l]["my_tables"]["my_edges_GeV"]); mig += rs[l] * float(H[edg[:-1] >= 1.6 - 1e-9].sum())
+        yr[z] = {"data": nd_, "mc": nm, "ratio": nd_ / nm, "pdiss_my_gt_1p6": mig, "migration_fraction": mig / nm,
+                 "ratio_env_lo": nd_ / (nm + 0.5 * mig), "ratio_env_hi": nd_ / (nm - 0.5 * mig)}
+    res["stageB_yield"] = yr
+    if a.no_plug_veto:
+        fm_, ft_ = (shapes["C_N1_FMD|nFmu12|" + nom]["max_dev"], shapes["C_N1_FTS|nFts28|" + nom]["max_dev"])
+        res["G1a_A9"] = {"fmd_n1_max_dev": fm_, "fts_n1_max_dev": ft_,
+                         "yield_ratio": {z: v["ratio"] for z, v in yr.items()},
+                         "PASS": bool(fm_ <= 0.10 and ft_ <= 0.10 and all(abs(v["ratio"] - 1) <= 0.10 for v in yr.values()))}
     # G1(b) admissible scan
     groups = W.DIFF8 + ["ND"]
     H = {}
@@ -125,7 +147,7 @@ def main():
                            "fail_fraction_recomputed": all(abs(ff["D%d" % c]["data"] - ref[c]) < 0.002 for c in range(3))}
     Path(a.out).parent.mkdir(parents=True, exist_ok=True)
     json.dump(res, open(a.out, "w"), indent=1)
-    print(json.dumps({"chain": a.chain, "G1a": res["G1a"], "G1b": {k: res["G1b"][k] for k in ("nominal", "PASS")},
+    print(json.dumps({"chain": a.chain, "G1a": res["G1a"], "G1a_A9": res.get("G1a_A9"), "stageB_yield": res["stageB_yield"], "G1b": {k: res["G1b"][k] for k in ("nominal", "PASS")},
                       "G1b_best_joint": res["G1b"]["best_joint"], "f_fail": ff,
                       "closure": res["removal_rate_closure"]["PASS"], "check_t4": res.get("check_t4")}, indent=1))
 

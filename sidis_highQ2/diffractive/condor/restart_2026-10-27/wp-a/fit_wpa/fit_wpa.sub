@@ -1,3 +1,5 @@
+# Submit: condor_submit QFILE=<abs queue> TAG=<slice tag> fit_wpa.sub  (S3 remedy-1 run, cluster 5902092, used the
+# earlier fixed form: queue fit_wpa_queue.txt, logs directly under logs/)
 # WP-A fit_wpa submit file: one job per (alt, binning, scope); queue file lists
 # alt nd_labels fac_overrides binning scope payload outdir n_toys mem rt disk.
 # Submit: condor_submit /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/fit_wpa.sub
@@ -5,9 +7,9 @@ universe        = vanilla
 executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/fit_wpa_job.sh
 arguments       = $(alt) $(nd_labels) $(fac_overrides) $(binning) $(scope) $(payload) $(outdir) $(n_toys)
 
-output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/logs/fitwpa_$(alt)_$(binning)_$(scope).out
-error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/logs/fitwpa_$(alt)_$(binning)_$(scope).err
-log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/logs/$(Cluster).log
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/logs/$(TAG)/fitwpa_$(alt)_$(binning)_$(scope).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/logs/$(TAG)/fitwpa_$(alt)_$(binning)_$(scope).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/logs/$(TAG)/$(Cluster).log
 
 request_memory  = 1024
 request_disk    = 1G
@@ -26,4 +28,4 @@ notification    = Never
 
 initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
 
-queue alt, nd_labels, fac_overrides, binning, scope, payload, outdir, n_toys, rt from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a/fit_wpa/fit_wpa_queue.txt
+queue alt, nd_labels, fac_overrides, binning, scope, payload, outdir, n_toys, rt from $(QFILE)

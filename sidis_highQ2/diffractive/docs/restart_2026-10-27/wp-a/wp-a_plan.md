@@ -357,6 +357,11 @@ on KILL the parent publishes alone, nothing in WP-A changes it).
 - 2026-10-27 coordinator → pre-registered S3 input (before any S3 fit): ND alternatives are 7071 (RAPGAP ME+PS, verified by h1-mc-db, `../wp-d/mc3_7071_cascade_mode.md`), 7091 (CDM) and **7094** (ME+PS, same period/SW as 7091) as a third alternative; nd4cat (A7) stays the conditional fallback. G1(c) text unchanged.
 - 2026-10-27 S1: Condor cluster 5902090, 51/51 rc 0, 0.0088 Condor-days. fork_default_identity PASS (9155), fail_fraction_recomputed PASS (0.2070/0.2297/0.2831, exact), control_disjoint PASS (17/17 files, 0 shared keys), split_complete PASS, period_map_total PASS (317,212.804 nb⁻¹), (Run,Event) unique in every file. ep0607 halves differ < 2σ → 4 periods.
 - 2026-10-27 S2a: noise_table.json sha256 f93a6dd270f56ec1832efb1435877842ea77672667c4f870f7c7872d543fbcaf (inputs: s1_control only); q ≈ 0.155-0.191 ± 0.024-0.032 per period, remedy 1 applicable. h1-mc-expert S2d sign-off YES-WITH-CONDITIONS (`s2d_mc_expert_signoff.md`): stack excess is only ~1/3 Plug, so the A5 stack-to-Plug attribution over-shifts the Plug N−1 — escalated as `user:`.
+- 2026-10-27 S2b: cluster 5902091 (43 jobs, rc 0). G1(a) FAIL every chain (Plug N−1 max dev 4.0-6.8; max |Δf_fail| 0.037-0.046, D2 low / 7094 D0 high); G1(b) FAIL (best admissible joint 0.68-0.76); removal_rate_closure: 76/77 rows within 3σ, one at −3.26σ (7071|ep0304; global p ≈ 0.08).
+- 2026-10-27 S3: clusters 5902092 + 5902094 (nd4cat fallback, A7: all three primary alternatives failed). baseline_reproduced PASS (D 5925.826, toy p bit-identical); 32 fits at 1000 toys; G1(c) FAIL (max p 0.011; every ALL fit at the floor).
+- 2026-10-27 S4: remedy 2 — no pre-registered threshold satisfies A8 on control data (Plug-fail |z| 2.2-3.5 at 15 GeV), no nominal threshold, G1 not evaluated at any other threshold; remedy 3 — cluster 5902093 + fits 5902095/5902096; A9 G1(a) FAIL (FMD 1.07-2.33, FTS 0.70-0.76, yield ratio 1.21-2.36), G1(c) FAIL (all 32 at floor). h1-mc-expert S4d migration reading YES-WITH-CONDITIONS (mirMY vs hatMYGen: 0.3% cross 1.6 GeV).
+- 2026-10-27 tally: 175 jobs, 0.0267 Condor-days, day 1 of 14 (signed h1-naf-operator). Lead-submitted clusters 5902092-5902096 audited post hoc by h1-naf-operator (deviation from "validates every submission").
+- 2026-10-27 S5: g1_verdict.md; h1-analysis-critic RULING KILL (all pre-registered remedies run, none passes G1(a)/(c); budget unspent, 0.0267 Condor-days, day 1 of 14); threshold_pre_registered PASS, tally_present PASS, nominal_named KILL. Code critic PASS (C1 7094 q inflation and C2 md5 provenance documented; C3/C4 dropped per scope-critic).
 
 ## Todo
 
@@ -364,10 +369,10 @@ on KILL the parent publishes alone, nothing in WP-A changes it).
 - [x] S1b `period_map.csv`, `n1_wpa.sub` + queue; 42 jobs submitted and validated
 - [x] S1c `h1-mc-expert` lookup recorded
 - [x] S1 record written; `fail_fraction_recomputed`, `control_disjoint`, `split_complete` pass
-- [ ] S2a `noise_table_wpa.py`; `noise_table.json` with sha256; `h1-mc-expert` sign-off
-- [ ] S2b corrected test-split N−1 run; assemble/analyze; record with G1(a)/(b) numbers
-- [ ] S3a `eta_builder_wpa.py`; 28-job run; assembler v3; `payload_asserts`
-- [ ] S3b `fit_7p1_wpa.py`; `baseline_reproduced`; 16 fits at 1000 toys; record with G1(c)
-- [ ] S4 (conditional) threshold scan control-first, chosen-threshold test run, no-Plug run, record
-- [ ] S5 `g1_verdict.md` drafted; `h1-analysis-critic` ruling; tally signed
-- [ ] Parent Log line returned to the supervisor
+- [x] S2a `noise_table_wpa.py`; `noise_table.json` with sha256; `h1-mc-expert` sign-off
+- [x] S2b corrected test-split N−1 run; assemble/analyze; record with G1(a)/(b) numbers
+- [x] S3a `eta_builder_wpa.py`; 28-job run; assembler v3; `payload_asserts` (done as `payload_wpa.py` from the n1 partials, no builder jobs; see Log)
+- [x] S3b `fit_7p1_wpa.py`; `baseline_reproduced`; 16 fits at 1000 toys; record with G1(c)
+- [x] S4 (conditional) threshold scan control-first, chosen-threshold test run, no-Plug run, record
+- [x] S5 `g1_verdict.md` drafted; `h1-analysis-critic` ruling; tally signed
+- [x] Parent Log line returned to the supervisor

@@ -1,0 +1,11 @@
+slice,cluster,n_jobs,wall_s,cpus,condor_days,start_utc,end_utc,note
+budget,-,-,-,-,-,2026-10-27,,WP-A clock start 2026-10-27; cap 10 Condor-days / 14 calendar days
+login,-,-,-,-,0,,,login-node runs count zero Condor-days
+S1,5902090,51,759,1,0.00878,2026-10-27T01:11:06Z,2026-10-27T01:12:25Z,n1_wpa queue_s1 17 inputs x all/test/control; 51/51 exit 0; wall=sum RemoteWallClockTime
+S2,5902091,43,377,1,0.00436,2026-10-27T01:17:05Z,2026-10-27T01:18:12Z,n1_wpa queue_s2 4 data + 39 MC test-split with s2_remedy1 noise_table (7071/7091/7094/nd4cat); 43/43 exit 0; wall=sum RemoteWallClockTime
+s3_fits,5902092,24,279,1,0.00323,2026-10-27T01:21:06Z,2026-10-27T01:21:25Z,fit_wpa.sub (pre-TAG form; log in fit_wpa/logs/) queue fit_wpa_queue.txt S3 remedy-1 fits; 24/24 exit 0; req cpus=1 mem=1024 disk=1G MaxRuntime=3600 match sub; lead-submitted, audited post hoc by h1-naf-operator
+s4_noplug_n1,5902093,17,319,1,0.00369,2026-10-27T01:23:06Z,2026-10-27T01:25:02Z,n1_wpa.sub QFILE=queue_s4_noplug.txt TAG=s4_noplug S4 remedy-3 no-Plug N-1; 17/17 exit 0; req cpus=1 per-job mem/disk/rt match queue (12x2048/2G/1800 2x4096/15G/2700 3x8192/40G/7200); lead-submitted, audited post hoc
+s3_nd4cat_fits,5902094,8,117,1,0.00135,2026-10-27T01:27:05Z,2026-10-27T01:27:43Z,fit_wpa.sub QFILE=fit_wpa_queue_s3_nd4cat.txt TAG=s3_nd4cat; 8/8 exit 0; req cpus=1 mem=1024 disk=1G rt=3600 match sub; lead-submitted, audited post hoc
+s4_noplug_fits,5902095,24,347,1,0.00402,2026-10-27T01:27:06Z,2026-10-27T01:27:41Z,fit_wpa.sub QFILE=fit_wpa_queue_s4_noplug.txt TAG=s4_noplug; 24/24 exit 0; req cpus=1 mem=1024 disk=1G rt=3600 match sub; lead-submitted, audited post hoc
+s4_noplug_nd4cat_fits,5902096,8,108,1,0.00125,2026-10-27T01:29:06Z,2026-10-27T01:29:24Z,fit_wpa.sub QFILE=fit_wpa_queue_s4_noplug_nd4cat.txt TAG=s4_noplug_nd4cat; 8/8 exit 0; req cpus=1 mem=1024 disk=1G rt=3600 match sub; lead-submitted, audited post hoc
+total,-,175,2306,1,0.02669,2026-10-27,2026-10-27T01:29:24Z,signed h1-naf-operator 2026-10-27; calendar days used 1 of 14; cap 10 Condor-days
