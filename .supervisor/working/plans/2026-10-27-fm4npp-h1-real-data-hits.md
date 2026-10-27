@@ -1,12 +1,17 @@
 # Plan: real H1 hit-level data for FM4NPP pretraining
 
-Date: 2026-10-27. Stage: planning (program with work packages). Research artifact:
+Date: 2026-10-27, annotation cycle 1 on 2026-10-27. Stage: planning (program with work packages).
+Research artifacts:
 `/data/dust/group/h1/klesthen/BaryonAsym/.supervisor/working/research/2026-10-27-fm4npp-h1-real-data-blockers.md`
-(cited below as "research §n").
+(cited as "research §n") and
+`/data/dust/group/h1/klesthen/BaryonAsym/.supervisor/working/research/2026-10-27-fm4npp-component-validation.md`
+(cited as "validation A1-A5, B").
 
 Abbreviations: `$W` = `/data/dust/group/h1/klesthen/BaryonAsym`, `$H` = `$W/hit_level_sim`,
-`$R` = `/data/dust/group/h1/klesthen/rawhit_probe`, `$P` = `/pnfs/desy.de/dphep/online/h1/data`,
-`$D` = `$H/realdata` (new; see D6), h1rec = `/data/dust/group/h1/sschmitt/h1soft/h1rec`,
+`$R` = `/data/dust/group/h1/klesthen/rawhit_probe`, `$V` = `$R/validation`,
+`$P` = `/pnfs/desy.de/dphep/online/h1/data`, `$D` = `$H/realdata` (new; see D6),
+`$MC0` = `$H/production/cov_loQ2/loQ2/hits/hits_part_0.root` (reference MC hits file),
+h1rec = `/data/dust/group/h1/sschmitt/h1soft/h1rec`,
 H1OO env = `source /afs/desy.de/group/h1/root/checkout2/oo-releases/relvol10/releases/4.2.1/thish1.sh`
 (as in `$H/env.sh`).
 
@@ -22,21 +27,24 @@ Non-goals: changing the simulation chain or `extract_hits.C`; changing the conve
 forward tracker, LAr, SpaCal; 2003-2004 and HERA-I data; supervised truth labels for data (none
 exist, research B10).
 
-Expected change size: about 1,400 lines across the program: WP1 writer and checks about 600 lines
-of Python; WP2 job wrapper, submit file and layout about 150; WP3 about 100 (one flag in
-`calibprobe.C`, one submit, one diff script); WP4 and WP5 about 200 each; WP6 documentation about
-150. This plan is about 420 lines.
+Expected change size: about 1,550 lines across the program: WP0 parity script about 150 lines of
+Python; WP1 writer and checks about 600; WP2 job wrapper, submit file and layout about 150; WP3
+about 100 (one flag in `calibprobe.C`, one submit, one diff script); WP4 and WP5 about 200 each;
+WP6 documentation about 150. This plan is about 560 lines.
 
 ## Approach
 
-One data-side writer (`$D/writer/write_hits_data.py`) reads the text dumps the existing probes
-already produce (`events.txt` from `calibprobe`, `cjcprobe.txt` from `cjcprobe`, later
-`dataprobe.txt` and `cst_full.txt`) plus `consts_<run>.json`, computes track-free CJC coordinates
-with `h1hits.py`, and writes a `hits` tree with the branch list of `extract_hits.C` (truth branches
-present and empty, data-only branches additive). WP1 runs it on the 38 `$R/lam/` dumps; WP2 wraps
-the unchanged probes plus the writer into one Condor job per 2007 e+p mODS file; WP3 dumps
-constants for the other periods with a constants-only mode; WP4 and WP5 add CST and CIP/COP after
-their own research; WP6 records provenance and updates the handoff.
+WP0 first shows that the D5 representation matches MC by comparing the same residual on both
+samples.
+
+One data-side writer (`$D/writer/write_hits_data.py`) then reads the text dumps the existing
+probes already produce (`events.txt` from `calibprobe`, `cjcprobe.txt` from `cjcprobe`, later
+`dataprobe.txt` and `cst_full.txt`) plus `consts_<run>.json` and the HAT T0 (D11), computes the
+D5 coordinates with `h1hits.py`, and writes a `hits` tree with the branch list of `extract_hits.C`
+(truth branches present and empty, data-only branches additive). WP1 runs it on the 38 `$R/lam/`
+dumps; WP2 wraps the unchanged probes plus the writer into one Condor job per 2007 e+p mODS
+file; WP3 dumps constants for the other periods with a constants-only mode; WP4 and WP5 add CST
+and CIP/COP after their own research; WP6 records provenance, errata and updates the handoff.
 
 Rationale: every validated piece (`h1hits.py`, `calibprobe`, `cjcprobe`, `dataprobe`, `cstprobe`)
 exists and runs on Condor at about 0.07 s/event (research §5, `$R/lam/logs/condor.log`); the plan
@@ -53,16 +61,18 @@ Rejected alternatives (one line each):
   Fortran linkage risk (D9).
 - Full 2007 pass: 145k Q2e>5 events per file × 112 files is about 16M events, about 400 GB of
   intermediates; the first release caps per file (D3).
+- Track-informed default coordinates (β terms from `CJXR`): unlike MC and circular with h1rec (D5).
 
 ## Decisions
 
-Defaults D1-D5 were adopted by the supervisor after the user answered "continue" without choosing;
-the user may overturn each at plan approval. D6-D16 are lead decisions with evidence.
+Defaults D1-D4 were adopted by the supervisor after the user answered "continue" without choosing;
+D5 is the supervisor's recommendation from annotation cycle 1; the user may overturn each at plan
+approval. D6-D16 are lead decisions with evidence.
 
 - **D1 Converter (default; confirm).** Match the `hits` tree schema of the current
-  `$H/extract_hits.C` (reference file `$H/production/cov_loQ2/loQ2/hits/hits_part_0.root`, 110
-  branches) exactly; data-only branches are additive and allowlisted (D7). The converter's exact
-  needs stay a risk until the user copies it to NAF (Open Question Q1).
+  `$H/extract_hits.C` (reference file `$MC0`, 110 branches: 4 `Int_t`, 56 `vector<float>`, 50
+  `vector<int>`, validation A5) exactly; data-only branches are additive and allowlisted (D7). The
+  converter's exact needs stay a risk until the user copies it to NAF (Open Question Q1).
 - **D2 Labels (default; confirm).** Pretraining is self-supervised; H1 reconstruction pseudo-labels
   (`cjc_reco_trk`, `cjc_reco_side`, `cjkr_*`, `cjkt_*`, `cjkv_*`) are carried as in MC but never
   presented as truth (`is_data = 1`, D7).
@@ -72,14 +82,22 @@ the user may overturn each at plan approval. D6-D16 are lead decisions with evid
   pools (`$H/production/sherpa100k*`, `pythia100k`); about 6 min per file at 0.07 s/event; about
   85 GB of text dumps (about 150 KB per event: `events.txt` 160 MB per 1,501 events in
   `$R/lam/c070060/calib/`, `cjcprobe.txt` 26 MB, `dataprobe.txt` about 30 KB per event) and about
-  15 GB of `hits` trees; the full 16M events stay one `-n` change away. Measured: `c070060` HAT has 797,529 entries, 144,909 with `Q2e>5`.
+  15 GB of `hits` trees; the full 16M events stay one `-n` change away. Measured: `c070060` HAT has
+  797,529 entries, 144,909 with `Q2e>5`.
 - **D4 Detectors (default; confirm).** First release: CJC digis and coordinates, COZ digis and
   on-track coordinates. CST (WP4) and CIP/COP (WP5) follow; their branches stay empty until then.
-- **D5 Coordinates (default; confirm).** Track-free coordinates are the default input: `cjc_xp/yp`,
-  `cjc_xm/ym`, `cjc_zcd`, `cjc_drift` from `CJC.simple()` with the event T0 of D11 (r-φ about
-  634 µm, `$R/calib_consts/README.md:132-137`). Track-informed h1rec coordinates (262 µm) go to new
-  branches `cjc_trk_x`, `cjc_trk_y`, `cjc_trk_z`, copied from `CJXR` (`XHIT YHIT ZHIT`) for hits with
-  `cjc_reco_trk >= 0`, zero otherwise.
+- **D5 Coordinates (user decision; confirm at approval).** The default CJC input is the MC
+  representation: `cjc_xp/yp`, `cjc_xm/ym`, `cjc_drift`, `cjc_zcd` from the same geometric formula
+  as `extract_hits.C` (drift distance from the drift time, `:43,304`; fixed per-wire drift
+  direction, `aloro = 0.635`, `:57,74-75`; both mirrors `wire ± |d|·dir`, `:313-314`; no
+  track-angle term), computed on data by `CJC.simple()` (`$R/calib_consts/py/h1hits.py:375`,
+  `cosb=1, sinb=0`, so the β, isochrone and `dalor·tnb` terms vanish) with the per-run NDB
+  constants of `consts_<run>.json` and the event T0 of D11. The mm tail at small |cos β| and long
+  arc length (validation A1, `$V/plots/cjc/fig4_tail_vs_beta_slen.png`) belongs to this
+  representation and is expected in MC too; WP0 checks that the two agree (D16). h1rec
+  track-informed `CJXR` coordinates (`XHIT YHIT ZHIT`) go to additive branches `cjc_trk_x/y/z` for
+  hits with `cjc_reco_trk >= 0`, zero otherwise, as optional labels, never the default input.
+  Rejected: β terms from `CJXR` in the default (track-informed, unlike MC).
 - **D6 Code location.** New code lives in `$D = $H/realdata/` with `writer/`, `condor/`, `consts/`,
   `validation/`, `docs/`; outputs in `$H/production/realdata_2007ep/<set>/hits/hits_part_<file>.root`
   (same shape as the MC sets, for example `$H/production/cov_loQ2/loQ2/hits/`). Reasons: the schema
@@ -94,16 +112,20 @@ the user may overturn each at plan approval. D6-D16 are lead decisions with evid
 - **D7 Schema parity and additions.** Every branch of the reference MC file is present with the
   same leaf type; truth branches are empty vectors, `n_str_all = n_svx_all = 0`. Additive data-only
   branches, all in the allowlist of `$D/validation/check_schema.py`: scalars `is_data` (Int_t, 1),
-  `cjc_t0` (Float_t, ticks), `cjc_t0_src` (Int_t, 0 = `cjavt0`, 1 = run default); vectors
-  `cjc_trk_x/y/z` (D5), `coz_trk_x/y/z` (D12), later `cst_sp_*` (D13). Each file also holds a
-  `meta` TNamed with JSON provenance (run list, event counts, skipped CJC-off events, sha256 of
-  `h1hits.py` and of each `consts_<run>.json`, probe paths, NDB path, date). Raw CJC words follow
-  the MC convention `cjc_drift_raw = DL*0.001` (`extract_hits.C:159`); in data `DL` is time in
-  FADC ticks (1/50 clock, `$R/calib_consts/py/h1hits.py:7`), documented in WP6.
+  `cjc_t0` (Float_t, ticks), `cjc_t0_src` (Int_t, D11: 0 = HAT `T0_CJC`, 1 = run default,
+  2 = `cjavt0`); vectors `cjc_trk_x/y/z` (D5), `coz_trk_x/y/z` (D12), later `cst_sp_*` (D13). Each
+  file also holds a `meta` TNamed with JSON provenance (run list, event counts, skipped CJC-off
+  events, T0 source counts, sha256 of `h1hits.py` and of each `consts_<run>.json`, probe paths,
+  NDB path, date). Raw CJC words follow the MC convention `cjc_drift_raw = DL*0.001`
+  (`extract_hits.C:159`); in data `DL` is time in FADC ticks (1/50 clock,
+  `$R/calib_consts/py/h1hits.py:7`), documented in WP6.
 - **D8 Writer technology.** PyROOT in the LCG environment after `thish1.sh` (Python 3.11.9, ROOT
   6.34.04, uproot 5.3.11 and numpy present; verified on 2026-10-27) with `std::vector<float|int>`
-  branches, so `TTree::Print()` leaf types match MC. Never `python3 -I` for the writer: it drops the
-  LCG `PYTHONPATH` (`$H/HANDOFF.md:234-235`); the probe's stdlib-only scripts keep their `-I`.
+  branches, so `TTree::Print()` leaf types match MC. Environment order matters: run
+  `desygroupset h1` before `thish1.sh` (as `$R/lam/job.sh` does) or call the LCG python by full
+  path; otherwise `python3` is `/usr/bin/python3`, which cannot import ROOT (validation,
+  corrections 7). Never `python3 -I` for the writer: it drops the LCG `PYTHONPATH`
+  (`$H/HANDOFF.md:234-235`); the probe's stdlib-only scripts keep their `-I`.
 - **D9 WP2 reuses the probes unchanged.** The job runs `calibprobe`, `make_consts.py`, `cjcprobe`
   and `dataprobe` exactly as `$R/lam/job.sh` and `$R/scale/job.sh` do, then the WP1 writer, so WP2
   changes no C++ and the text formats stay those WP1 was validated on. `dataprobe.txt` (raw `SIFE`,
@@ -113,19 +135,25 @@ the user may overturn each at plan approval. D6-D16 are lead decisions with evid
   re-extraction costs about 6 min per file.
 - **D10 CJC-off events.** Skip events with zero CRJE hits and count them in `meta`. Run 492559 is
   CJC-off per event, not per run (1,316 of 1,501 events empty, 185 with hits), so no run veto.
-- **D11 Event T0.** `cjavt0(T0track, |DT0|)` over the event's CJKR rows (cols 27-28 of
-  `events.txt` CJKR lines); with no track, the run default `ARC0J8(1)` from the consts json and
-  `cjc_t0_src = 1`. Because `cjavt0` averages the H1 track T0s, the default coordinates are
-  track-free in position only (research §7, circularity); forcing the run T0 for every event would
-  cost 668 versus 634 µm (README:132-137). Exact CJCC T0 would need a CJCREC rerun (research B2);
-  not done.
-- **D12 COZ.** `coz_wire/drift/qplus/qminus` from raw CRZE words for all hits; h1rec `CZR2`
-  coordinates to `coz_trk_x/y/z` for on-track hits. Track-free COZ φ (`COZ.phi_chargediv`) stays
-  unvalidated and off (research B4).
+- **D11 Event T0.** Primary: the h1rec event T0 `DMIS TZERO_M`, read from the HAT branch `T0_CJC`
+  (`/data/dust/group/h1/britzger/lcg-releases/build-4.2.1/h1oo/H1Filler/H1HatFiller.C:855`
+  fills it from `GetTzero_m()`) joined by `(run, event)`; `cjc_t0_src = 0` for every joined HAT
+  value, whatever it holds (the HAT carries no measured/default marker). Fallbacks, only on a
+  failed join: `cjavt0(T0track, |DT0|)` over the event's CJKR rows (`events.txt` CJKR cols 27-28),
+  `cjc_t0_src = 2`; else the run default `ARC0J8(1)` from the consts json, `cjc_t0_src = 1`.
+  Never the `# CJCC … t0` line of `events.txt`: it is calibprobe's own mean `T0track` (−537 to
+  2900), not CJCREC's (validation A1). The real T0 buys provenance, not resolution (track-free
+  robust σ 604.8 µm with DMIS versus 604.2 with `cjavt0`, validation B).
+- **D12 COZ.** `coz_wire/drift/qplus/qminus` from raw CRZE words for all hits. The probe dumps hold
+  no h1rec COZ coordinates (`CZZR` is all zeros, validation A2), so `coz_trk_x/y/z` come from
+  `h1hits.COZ.hit()` with the `CZR2`-matched track after a `t <= 810 ns` cut (beyond the isochrone
+  table; removes the 7 garbage hits). Validated at the isochrone step only (D16). Track-free COZ φ
+  (`COZ.phi_chargediv`) stays unvalidated and off (research B4; A2 p95 2.4 rad).
 - **D13 CST (WP4).** Data CST enters as h1rec space points (`cstprobe` chain CSLIGEOM, CSCLUS2,
   CSFILL2 on raw SIFE) in new `cst_sp_*` branches; `csts_strip/csts_adc` stay empty because the
   MC decoder (`$H/decoders/h1_digi_decode.py:114+`, MC geometry, `CST_PN_RATIO` fitted on MC) is
-  not valid on data (research §4). The converter then needs to read `cst_sp_*` (user action, Q5).
+  not valid on data (research §4). Acceptance per the D16 CST block. The converter then needs to
+  read `cst_sp_*` (user action, Q5).
 - **D14 CIP/COP (WP5).** Raw banks on data are `CRM2` (CIP2k) and `CRME` (COP), the same as MC;
   the research artifact's `CRPE/CRTE` are not banks (`ICRPE` is a variable, h1rec
   `include/cjcmac/ctcommon.inc:10`). If the data-stream `CGAM` equals the MC `CGAM`
@@ -137,28 +165,69 @@ the user may overturn each at plan approval. D6-D16 are lead decisions with evid
 - **D15 Periods (WP3).** Constants for 2005 e− (runs 399101-436893), 2006 e− (444094-468529),
   2006 e+ (468530-492499) and 07low/07med (500918-511079; 460/575 GeV, detector unchanged, so
   included for pretraining by default, Q3). 2003-2004 excluded. Runs below 452777 take
-  `IVRSQT = 2` (`$R/calib_consts/calrun.F:13-15`, h1rec `ct_cjcrec/cjrunc.F:465-467`), which is
-  the first code path not yet exercised.
-- **D16 Validation thresholds.** CJC: the `h1hits.py` regression (`validate_cjc.py`) must
-  reproduce 0.944 within 10 µm; the track-free nearest mirror versus `CJXR` on lam/ must give
-  median |Δr-φ| < 0.5 mm and 95% < 2 mm (σ about 634 µm, README:132-137); z residual is reported
-  with a provisional median < 1 cm. Per new period (WP3): one file with the full dump must give
-  ≥ 0.90 within 10 µm on the exact path (same test as 2007). CST (WP4): DCLH cluster match ≥ 99%,
-  |Δz| versus CSHY 90% < 0.5 mm, nearest point to CJKR tracks median < 0.4 mm (measured: 100%,
-  91%, 253 µm on 121 events). CIP/COP (WP5): thresholds set in its research stage.
+  `IVRSQT = 2` (`$R/calib_consts/calrun.F:13-15`, h1rec `ct_cjcrec/cjrunc.F:465-467`); validation
+  A4 exercised it (2005: 0.937, 2006 e−: 0.912 within 10 µm) and IVRSQT 2 and 3 take the same
+  hit-position branch; a missing `C3Z8` is harmless in ellipse mode. 2005 needs the
+  `$R/mirror/acs/data/05/dst7` symlink (WP3 unit).
+- **D16 Validation thresholds.**
+  - *Constants chain (regression only).* `python3 -I py/validate_cjc.py .` in `$R/calib_consts`
+    reproduces 0.9442 within 10 µm (c070060, Q2e>150, 89 events, 54,062 hits). The same exact path
+    (hit3d, ICOR=3) versus `CJXR` on lam/ Q2e>5 gives 0.926 pooled, 0.915-0.944 per run; the floor
+    is 0.91 per run. Per new period (WP3): ≥ 0.90 within 10 µm on one full-dump file. This tests the
+    NDB constants and `h1hits.py`, not the default representation.
+  - *Default representation (D5), r-φ.* Thresholds are data-versus-MC agreement from WP0, never
+    absolute quantiles (Risks: resolution figures). Residual: distance of the nearer geometric
+    mirror to the reconstructed track circle from CJKR parameters, same code on both samples;
+    verdict sample: all 38 lam dirs against `$MC0`. In every |cos β| bin (width 0.1) and
+    arc-length bin (10 cm) with ≥ 500 hits in both samples, the data median lies within a factor
+    2 of the MC median; the cumulative fractions below 0.5, 1, 2 and 5 mm agree within 5
+    percentage points. WP1 and WP2 re-run the same script on written `hits` files and must stay
+    within the same tolerances.
+  - *z.* Data `cjc_zcd` against the CJKR track z at the hit radius, MC `cjc_zcd` against the
+    reco-track z from `cjkr_*`, same helix code; the robust σ of the two residuals agree within a
+    factor 2; the fractions of code values (±181, ±191, 201) are reported. `CJXR ZHIT` is never
+    the reference for `cjc_zcd` (track-pulled, see Risks).
+  - *COZ.* After the `t <= 810 ns` cut, ≥ 99.99% of hits have |Δt| < 2e-3 ns between `COZ.hit()`
+    and `CZR2` TIME (100% measured on 1.36M hits, validation A2).
+  - *CST (WP4).* Per layer, the signed r-φ residual to the nearest CJKR track has a core width
+    below 300 µm (133-231 µm measured) and a median within ±20 µm (±6 µm measured); the rotated-φ
+    control median exceeds 5 mm (about 10 mm measured); DCLH match ≥ 99% stays as a
+    reproducibility check; |Δz| versus CSHY is reported, not thresholded (partly circular, A3).
+  - *CIP/COP (WP5).* Set in its research stage.
 
 ## Outline
 
 Pointers to follow; signatures are the contract, bodies are executor's.
+
+`$D/validation/parity/parity_cjc.py` (new, WP0, about 150 lines)
+- `mc_residuals(hits_file) -> table`: from `$MC0`, hits with `cjc_reco_trk >= 0`; wire = midpoint
+  of the two mirrors, drift direction = their difference; circle and helix from
+  `cjkr_kappa/phi/dca/theta/z0` (`extract_hits.C:189-191`); residual = distance of the nearer
+  mirror to the circle; |cos β| per `h1hits.py:378`; arc length from the DCA point; z residual
+  `cjc_zcd − z_track` for hits without a code value. `cjc_reco_side` cross-checks the mirror choice.
+- `data_residuals(lam_dirs, consts_dir) -> table`: the same quantities with `CJC.simple()` mirrors
+  (D5; `cjavt0` T0 suffices here) against the CJKR row of `XR.itr`, reading `events.txt` and
+  `cjcprobe.txt` (the per-hit CSVs `$V/cjc_lam/out/*.hits.csv.gz` from validation A1 may seed
+  it); `XR` columns `COSB`, `SLEN`, `ZEXP` cross-check the data-side geometry.
+- `compare(mc, data) -> parity.json`: binned medians, CDF points, robust σ of z, the D16 verdict.
+- Outputs, absolute: `/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/parity.json`
+  and, under `/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/plots/`,
+  `rphi_median_vs_cosb.png`, `rphi_median_vs_slen.png`, `rphi_cdf.png`, `zcd_width.png` (data and
+  MC overlaid, D16 tolerance bands drawn).
+- Gotchas: the MC drift direction is fixed per wire (`extract_hits.C:57`), data uses the per-run
+  Lorentz angle; the comparison is of the representation, not of the Lorentz angle. Login node:
+  `$MC0` plus at most 5 lam dirs under 5 min; more goes to one Condor job (`parity.sub`).
 
 `$D/writer/write_hits_data.py` (new, about 450 lines)
 - `read_events(path) -> iter[EventDump]`: parse `events.txt` line types `EV`, `#`, `CJKR/CJKM/CJKT/CJKV i <int32 words>`
   (floats are bit patterns, reinterpret as `$R/calib_consts/py/events.py` `flt()` does), `H i wire dl q+ q- f1 f2`,
   `XR ichan itr kdr DRFM XHIT YHIT ZHIT WR WZ QHIT DRFE TLEN COSB SINB SLEN ZEXP DCOR ZCOR BZ`
   (`$R/calib_consts/README.md:17`; `kdr` is the 1-based `H` row), `CRZE`, `CZR2`. Reuse
-  `events.read_events` where it fits; the writer must not edit `$R`.
+  `events.read_events` where it fits; the writer must not edit `$R`. The `# CJCC` line is ignored (D11).
 - `read_cjcprobe(path) -> iter[(run, evt, raw_hits, trk, crze)]`: `EV`, `TRK`, `RAW CRZE`, `HIT wire dl qplus qminus flag1 flag2`
   (`$R/cjcprobe/cjcprobe.C:30-70`); `HIT` lines belong to the preceding `EV`, banks concatenated.
+- `read_hat_t0(hat_file) -> dict[(run, event) -> T0_CJC]`: uproot on the HAT branches
+  `RunNumber`, `EventNumber`, `T0_CJC` (D11).
 - `join(events, cjc) -> iter[Event]`: key `(run, evt)`; both dumps are in mODS order with equal
   `EV` counts (1,501 per lam dir). Invariant: every `XR` row maps to exactly one raw hit through
   `kdr -> H row -> (wire, dl)` after `CJC.qht8(row)` (`h1hits.py:40`); unmapped rows are an error.
@@ -167,16 +236,17 @@ Pointers to follow; signatures are the contract, bodies are executor's.
   in 10 µm; cm = ×1e-3), `CJC.cell(ich)` (`:121`) for ring/layer/cell, wire x/y from `cp_x/cp_y`
   in the consts json. `cjc_reco_trk` = 0-based index of `XR.itr` into the event's CJKR list,
   `cjc_reco_side` from the sign of `DRFM` (executor confirms the sign convention against
-  `extract_hits.C:171` and README:17).
+  `extract_hits.C:171` and README:17). COZ per D12 with the `t <= 810 ns` cut.
 - `fill_tree(tree, vectors)`: branch declarations mirror `extract_hits.C:121-247` one-to-one (names,
   `std::vector<float>` versus `std::vector<int>`, scalar Int_t for `run`, `event`, `n_str_all`,
   `n_svx_all`); plus the D7 additions and the `meta` TNamed.
-- CLI: `write_hits_data.py --lam-dir <dir> --consts-dir <dir> --out <hits_part_X.root> [--max-events N]`;
+- CLI: `write_hits_data.py --lam-dir <dir> --consts-dir <dir> --hat <file> --out <hits_part_X.root> [--max-events N]`;
   the consts json is chosen per event by run (1-3 runs per lam dir).
-- Gotchas: `python3`, not `python3 -I` (D8); `cjkr_*` column mapping must follow the CJKR bank
-  layout used by `extract_hits.C:189-198` (28 raw words per row in `events.txt`; `cjkr_cov9`
-  only if the words exist, else empty); COZ `CRZE` rows are six unsigned words
-  (`events.txt` `CRZE i <6>`); a lam dir can hold `EV` lines with no `HIT` lines (D10).
+- Gotchas: `python3` after `desygroupset h1` and `thish1.sh`, never `python3 -I` (D8); `cjkr_*`
+  column mapping must follow the CJKR bank layout used by `extract_hits.C:189-198` (28 raw words
+  per row in `events.txt`; `cjkr_cov9` only if the words exist, else empty); COZ `CRZE` rows are
+  six unsigned words (`events.txt` `CRZE i <6>`); a lam dir can hold `EV` lines with no `HIT`
+  lines (D10).
 
 `$D/validation/check_schema.py` (new, about 80 lines)
 - `compare(data_file, ref_file, allowlist) -> report`: branch name and leaf type sets via uproot
@@ -184,19 +254,20 @@ Pointers to follow; signatures are the contract, bodies are executor's.
   identical types and every extra branch is in the allowlist; prints per-branch non-empty fractions.
 
 `$D/validation/validate_data_cjc.py` (new, about 120 lines)
-- For hits with an `XR` row: nearest track-free mirror versus `(XHIT, YHIT)`; `cjc_trk_z` versus
-  `cjc_zcd`; prints median, 68%, 95% quantiles and the D16 verdict; JSON output like
-  `validate_decoders.py` (`validation.json`). Reads the written `hits` file, not the dumps, so it
-  also exercises the tree.
+- Reads the written `hits` file, not the dumps, so it also exercises the tree. Exact path: the
+  constants-chain regression of D16 (fraction within 10 µm versus `cjc_trk_x/y`, pooled and per
+  run). Default representation: imports `parity_cjc.mc_residuals` and runs it on the data file
+  (the data tree has the same branches), then `compare` against the stored MC table from WP0.
+  Prints the D16 verdicts; JSON output like `validate_decoders.py` (`validation.json`).
 
 `$D/condor/job_realdata.sh`, `$D/condor/realdata_2007ep.sub` (new, WP2)
 - Pattern: `$R/lam/job.sh` (env: `desygroupset h1`, `thish1.sh`, bash; writes `s.steer` with
   `fHatFiles`/`fModsFiles`/`fHatSelection="Q2e>5"`; `calibprobe -f s.steer -n N`; `make_consts.py`;
-  `cjcprobe -f s.steer -n N`) plus the `dataprobe` step of `$R/scale/job.sh`, then the writer, then a
-  `DONE` marker. Submit pattern: `$R/lam/job.submit` (`+RequestRuntime`, `request_memory = 3000`,
-  `requirements = OpSysAndVer == "RedHat9"`, `queue f in (...)`) and the workspace style
-  `universe = vanilla`, `RequestCpus = 1` (`$W/lambda/scripts/xqz3d/*.sub`). Output layout:
-  `$H/production/realdata_2007ep/q2e5_n5000/{dumps/<file>/, hits/hits_part_<file>.root, logs/}`.
+  `cjcprobe -f s.steer -n N`) plus the `dataprobe` step of `$R/scale/job.sh`, then the writer with
+  `--hat`, then a `DONE` marker. Submit pattern: `$R/lam/job.submit` (`+RequestRuntime`,
+  `request_memory = 3000`, `requirements = OpSysAndVer == "RedHat9"`, `queue f in (...)`) and the
+  workspace style `universe = vanilla`, `RequestCpus = 1` (`$W/lambda/scripts/xqz3d/*.sub`). Output
+  layout: `$H/production/realdata_2007ep/q2e5_n5000/{dumps/<file>/, hits/hits_part_<file>.root, logs/}`.
   Mirror: `$R/mirror/acs/data/07/dst7` already exists. `-n 5000` (D3).
 
 `$R/calib_consts/calibprobe.C` (edit, WP3, about 20 lines)
@@ -217,16 +288,30 @@ Packages); the facts they start from are in D13 and D14.
 ## Slices
 
 Slices map one-to-one onto packages; executor runs them in order, WP3 may run in parallel with
-WP2 (disjoint files; WP3 never replaces `$R/calib_consts/bin/calibprobe`).
+WP0-WP2 (disjoint files; WP3 never replaces `$R/calib_consts/bin/calibprobe`).
 
+0. **WP0: representation parity.** Delivers `parity_cjc.py`, `parity.json` and the four PNGs
+   under `/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/plots/`.
+   Units: one (script and plots).
+   Tests: `mc_side_check: $MC0 -> nearer mirror equals cjc_reco_side for ≥ 90% of on-track hits` (data: 98%, validation A1);
+   `median_vs_cosb: data/MC median ratio within [0.5, 2] in every |cos β| bin with ≥ 500 hits in both`;
+   `median_vs_slen: the same per 10 cm arc-length bin`;
+   `cdf: |F_data − F_MC| ≤ 0.05 at 0.5, 1, 2 and 5 mm`;
+   `zcd_width: robust σ(data zcd − z_track) / robust σ(MC zcd − z_track) within [0.5, 2]`;
+   `plots: four PNGs exist with data and MC overlaid and the tolerance bands drawn`.
+   Checkpoint: smoke run on the login node with `$MC0` plus at most 5 lam dirs (under 5 min);
+   the verdict comes from all 38 lam dirs via `parity.sub`, and `parity.json` holds
+   `verdict: PASS`. A FAIL returns to the user (Risks), not to WP1.
 1. **WP1: lam/ to `hits` tree.** Delivers 38 `hits_part_<file>.root` under
-   `$H/production/realdata_2007ep/lam_q2e5/hits/` plus schema and h1rec validation reports.
+   `$H/production/realdata_2007ep/lam_q2e5/hits/` plus schema and validation reports.
    Units: (a) writer, (b) `check_schema.py`, (c) `validate_data_cjc.py` (disjoint files).
-   Tests: `schema_parity: hits_part_c070060.root vs cov_loQ2/loQ2/hits/hits_part_0.root -> PASS, extras ⊆ allowlist`;
+   Tests: `schema_parity: hits_part_c070060.root vs $MC0 -> PASS, extras ⊆ allowlist`;
    `event_count: c070060 -> 1501 minus skipped empty events, skipped count in meta`;
    `xr_mapping: every XR row of c070060 -> exactly one raw hit (0 unmapped)`;
-   `trackfree_vs_cjxr: lam/ all 38 -> median |Δr-φ| < 0.5 mm, 95% < 2 mm`;
-   `h1hits_regression: python3 -I py/validate_cjc.py . in $R/calib_consts -> 0.944 within 10 µm`;
+   `h1hits_regression: python3 -I py/validate_cjc.py . in $R/calib_consts -> 0.9442 within 10 µm`;
+   `exact_path_lam: 38 files -> pooled 0.926 ± 0.01, every run ≥ 0.91`;
+   `representation_parity: validate_data_cjc.py on the 38 files -> within the WP0 tolerances (D16 r-φ and z)`;
+   `t0_src: every event has cjc_t0_src in {0, 1, 2}; events with a HAT T0_CJC have 0; meta counts match`;
    `cjc_off: c070000 -> 1316 events skipped, 185 written`;
    `truth_empty: any file -> all (f)-group branches empty, n_str_all == 0, is_data == 1`.
    Checkpoint: one lam dir on the login node (one file, under 5 min), then the 38 dirs as one
@@ -244,7 +329,7 @@ WP2 (disjoint files; WP3 never replaces `$R/calib_consts/bin/calibprobe`).
 3. **WP3: constants for 2005, 2006, 07low/07med.** Delivers `$D/consts/<period>/consts_<run>.json`
    for every run met in the mODS files of each period, `bankdiff.txt` per period, and one exact-path
    validation per period. Units: (a) `calibprobe.C` flag and the `calibprobe_consts` build target,
-   (b) `consts_<period>.sub`, (c) diff script.
+   (b) `consts_<period>.sub` and the 05 mirror symlink, (c) diff script.
    Tests: `consts_only_mode: calibprobe_consts on c070060 -n 1500 -> consts_497718.json and consts_497719.json byte-identical to $R/lam/c070060/calib/`;
    `mirror_05: $R/mirror/acs/data/05/dst7 -> IndexDST resolves for c050000 (CALRUN ier 0)`;
    `ivrsqt2_path: one 2005 run -> CALRUN ier 0, consts json has the cjc and coz blocks`;
@@ -253,61 +338,80 @@ WP2 (disjoint files; WP3 never replaces `$R/calib_consts/bin/calibprobe`).
    Checkpoint: per period, `ls $D/consts/<period>/consts_*.json | wc -l` versus distinct runs in the
    period's mODS files, and the validation JSON.
 4. **WP4: CST.** Delivers `cstprobe` in the WP2 job, `cst_sp_*` branches and the CST validation.
-   Tests (from D16): `dclh_match ≥ 99%`, `dz_vs_cshy 90% < 0.5 mm`, `rphi_nearest median < 0.4 mm` on
-   ≥ 1,000 events; `schema: cst_sp_* in allowlist, csts_* empty`. Checkpoint: child plan's.
+   Tests (from D16): `per_layer_width < 300 µm`, `per_layer_median within ±20 µm`,
+   `rotated_control median > 5 mm`, `dclh_match ≥ 99% (reproducibility)` on ≥ 1,000 events;
+   `schema: cst_sp_* in allowlist, csts_* empty`. Checkpoint: child plan's.
 5. **WP5: CIP/COP.** Delivers the data pad geometry decision (CGAM equality or ported geometry),
    `cip_pad/cop_pad` filled, validation against CJKR extrapolation. Tests set in its research stage
    (candidate: fraction of tracks with pt > 0.3 GeV having a pad within one pitch in ≥ 3 of 5 CIP
    layers). Checkpoint: child plan's.
 6. **WP6: provenance and handoff.** Delivers `$D/docs/README.md`, a data section in `$H/HANDOFF.md`
-   and a research-artifact erratum. Tests: `paths: every path in the docs exists`;
-   `meta_consistency: run lists in meta == consts json present`. Checkpoint: `critic` read of the
-   docs plus a path check script.
+   and an erratum note for both research artifacts (list in Risks). Tests: `paths: every path in the docs exists`;
+   `meta_consistency: run lists in meta == consts json present`; `errata: every item of the Risks
+   erratum list appears in the note`. Checkpoint: `critic` read of the docs plus a path check script.
 
 ## Verification
 
-After WP1-WP2 (first release): `check_schema.py` PASS on every output file; `validate_data_cjc.py`
-on the WP2 validation sample within D16; `meta` totals equal the file count and events written; a
-sample file reads with the `uproot` snippet in `$H/HANDOFF.md:216-220` with the same code as an MC
-file. WP3-WP5 add their own checks; WP6 closes with the documentation checks.
+After WP0-WP2 (first release): `parity.json` PASS; `check_schema.py` PASS on every output file;
+`validate_data_cjc.py` on the WP2 validation sample within D16; `meta` totals equal the file count
+and events written; a sample file reads with the `uproot` snippet in `$H/HANDOFF.md:216-220` with
+the same code as an MC file. WP3-WP5 add their own checks; WP6 closes with the documentation
+checks.
 
 ## Risks
 
 - **Inferred converter schema.** `h1_to_fm4npp.py` is on LCRC only; which branches it needs, and
   whether it tolerates empty truth vectors or extra branches, is unknown (research B9). Mitigation:
   exact MC branch set, additive extras, Q1.
+- **Representation parity may fail for physical reasons.** Data and MC geometric mirrors differ by
+  the data drift velocity and Lorentz angle, the H1SIM smearing and the event mix; if WP0 exceeds
+  the D16 tolerances the result goes to the user as a decision (accept, tighten, or change D5), not
+  to executor.
+- **CJXR z is track-pulled.** Exact-path z residuals against `CJXR ZHIT` are log-uniform from 1 µm
+  to 1 mm with about 16% above 1 mm and an overflow at 1 m (`$V/plots/cjc/fig1_residual_hists.png`
+  panel c, `$V/plots/consts_periods/dz_exact_path.png`), so `ZHIT` is not plain charge-division z
+  (inference) and is never the reference for `cjc_zcd` (D16 z).
 - **Fragile probe workarounds.** Patched `CJXREF` work bank (`MACC=200*NRCJKR+2000`,
   `$R/calib_consts/build_lib.sh`), skipped `CJCRJE`, private `GUFLD` (`gufldp.F`, 11.608 kG) per
   `$R/calib_consts/README.md:148-162`. A rebuild of `libcjcprobe.so` or an H1OO release change can
   break them silently; WP6 records the library hashes, WP1's `h1hits_regression` test runs first.
-- **Validation sample mismatch.** The 0.26 µm / 94% figures come from `c070060`, `Q2e>150`, runs
-  497718-497719, 89 events, exact path with CJXR track inputs, not from `lam/` or the track-free
-  path. The track-free default input has about 634 µm r-φ, not 262 µm (D5, D16).
+- **Resolution figures are not comparable across metrics.** 0.26 µm / 94% are the exact path on
+  c070060 `Q2e>150` (89 events); 634 and 604 µm are robust σ against CJKR circles; the data
+  track-free 95% quantile is 7.3 mm. The default representation is judged against MC (D16), not
+  against a resolution target.
 - **CJC-off and HV-off events.** Run 492559 has 1,316 of 1,501 events empty; no local good-run or
   HV list exists (only `CJAC`/`SLOWSTA1` in-process). D10 skips empty events; partial HV states are
   not detected.
-- **Unvalidated periods.** 2005 and early 2006 take `IVRSQT = 2`; `C3Z8` can be missing per run
-  (research §3); `mirror/acs/data/05` does not exist yet; dst7/gmcut tape locality was not checked.
+- **Period coverage.** 2005 and 2006 e− constants are validated on about 30 events each (A4); the
+  2006 e+ hit-level check is missing (needs a CJC-on file); `mirror/acs/data/05` does not exist
+  yet; dst7/gmcut tape locality was not checked.
 - **CRME absence.** 0 `RAW CRME` lines in 120 dumped 2007 events (`$R/data_display/dataprobe.txt`),
   so COP may be absent from the raw stream or not read; WP5 research settles it.
 - **No SIFE in lam/.** The lam dumps hold only `calib/` and `cjc/`; CST for the lam sample needs a
   `cstprobe` pass (WP4), not a re-read of lam/.
 - **Volume.** Dumps are about 150 KB per event, so the first release needs about 100 GB of DUST
   including the `hits` trees (D3, D9).
-- **Python environment.** `python3 -I` drops the LCG `PYTHONPATH` (`$H/HANDOFF.md:235`); the writer
+- **Python environment.** `python3` resolves to `/usr/bin/python3` unless `desygroupset h1` runs
+  before `thish1.sh` (D8); `python3 -I` drops the LCG `PYTHONPATH` (`$H/HANDOFF.md:235`); the writer
   and the probe scripts need different invocations in one job.
-- **Research-artifact errata** to carry into WP6: `CRPE/CRTE` are not banks (D14); `H1CipCopGeo.h`
-  is in release 4.1.1, not 4.2.1; `calrun.F:13-15` is the probe's copy (h1rec: `cjrunc.F:465-467`);
-  the lam sample is the first 1,501 `Q2e>5` events per file, every third file, so "70 runs" are a
-  sample of 2007, not all its runs.
+- **Errata** to carry into WP6's note. Research artifact: `CRPE/CRTE` are not banks (D14);
+  `H1CipCopGeo.h` is in release 4.1.1, not 4.2.1; `calrun.F:13-15` is the probe's copy (h1rec:
+  `cjrunc.F:465-467`); the lam sample is the first 1,501 `Q2e>5` events per file, every third file,
+  so "70 runs" are a sample of 2007; the event T0 is on the DST (DMIS) and HAT, only CJCC is not.
+  Validation note: the CST "over all 300 tracks" fractions use the wrong denominators (227 for
+  c070030 and 163 for c070100 per the logs); run and file counts on canvases differ by one from
+  the text; `$V/plots/coz/coz_fig5_perfile.png` has unlabelled 15.5 mm and about 7e-3 ns lines;
+  the D16 "95% < 2 mm" FAIL compared against a threshold the plan has withdrawn.
 
 ## Scope Notes
 
-In scope: WP1-WP6 as above. Out of scope: changes to the simulation chain or `extract_hits.C`;
+In scope: WP0-WP6 as above. Out of scope: changes to the simulation chain or `extract_hits.C`;
 the converter (LCRC); forward tracker, calorimeters; 2003-2004, HERA-I; exact CJCC event T0
-(CJCREC rerun); track-dependent CJC corrections (`CJHLXE/CJHLXH` terms, README:141-147); moving
-`$R` into the workspace. No user decisions are recorded in memory for this topic; D1-D5 are
-supervisor defaults until the user confirms them.
+(CJCREC rerun; DMIS/HAT replaces it, D11); track-dependent CJC corrections in the default
+coordinates (`CJHLXE/CJHLXH` terms, README:141-147; D5, executor must not reopen); moving `$R`
+into the workspace; editing the two research artifacts (WP6 appends an erratum note instead).
+No user decisions are recorded in memory for this topic; D1-D4 are supervisor defaults and D5 the
+supervisor's recommendation until the user confirms them.
 
 ## Assumptions
 
@@ -318,17 +422,29 @@ supervisor defaults until the user confirms them.
 - The AFS NDB (`/afs/desy.de/group/h1/ndb_read_only_dp`) stays readable; checked at every job start
   (job.log line "H1 Master Database").
 - About 100 GB free on DUST under `$H/production/`; checked with `df` before WP2 submission.
+- The HAT files named in each lam dir's `s.steer` are still readable for the `T0_CJC` join;
+  checked by WP1's `t0_src` test.
 
 ## Work Packages
 
-### WP1: lam/ to hits tree and schema parity
-- Goal: convert the 38 `$R/lam/` dumps into `hits` trees; done when `check_schema.py` passes on all
-  38 files against `$H/production/cov_loQ2/loQ2/hits/hits_part_0.root` and the Slice 1 tests hold.
-- Owns: `$D/writer/`, `$D/validation/`, `$D/condor/lam_convert.sub`,
-  `$H/production/realdata_2007ep/lam_q2e5/`
+### WP0: Data/MC representation parity
+- Goal: show that the D5 geometric mirrors on data behave like MC `cjc_xp/xm` from
+  `extract_hits.C`; done when `parity_cjc.py` reports the D16 r-φ and z agreement between `$MC0`
+  and the lam/ sample and the four PNGs exist.
+- Owns: `$D/validation/parity/` (script, `parity.sub`, `parity.json`, `plots/`)
 - Deps: none
 - Stages: execute
 - Status: execute
+- Artifacts: ->
+
+### WP1: lam/ to hits tree and schema parity
+- Goal: convert the 38 `$R/lam/` dumps into `hits` trees; done when `check_schema.py` passes on all
+  38 files against `$MC0` and the Slice 1 tests hold.
+- Owns: `$D/writer/`, `$D/validation/` except `parity/`, `$D/condor/lam_convert.sub`,
+  `$H/production/realdata_2007ep/lam_q2e5/`
+- Deps: WP0
+- Stages: execute
+- Status: blocked: execute: WP0 parity verdict must be PASS
 - Artifacts: ->
 
 ### WP2: Condor extraction pipeline, 2007 e+p
@@ -377,10 +493,10 @@ supervisor defaults until the user confirms them.
 
 ### WP6: provenance and handoff
 - Goal: document the data path, formats, run lists, hashes and errata; done when `$D/docs/README.md`
-  and the `$H/HANDOFF.md` data section exist, every cited path resolves, and `meta` run lists match
-  the consts present.
-- Owns: `$D/docs/`, the data section of `$H/HANDOFF.md`, an erratum note appended to the research
-  artifact
+  and the `$H/HANDOFF.md` data section exist, every cited path resolves, `meta` run lists match
+  the consts present, and the erratum note covers the Risks list.
+- Owns: `$D/docs/`, the data section of `$H/HANDOFF.md`, an erratum note for both research
+  artifacts (appended, never edits in place)
 - Deps: WP1, WP2
 - Stages: write
 - Status: blocked: write: WP1 and WP2 outputs are its subject
@@ -388,7 +504,7 @@ supervisor defaults until the user confirms them.
 
 ## Open Questions
 
-Each with the recommended answer; D1-D5 defaults stand until the user answers.
+Each with the recommended answer; D1-D5 stand until the user answers.
 
 - **Q1** Can `h1_to_fm4npp.py` be copied to NAF (or its branch list shared), so `check_schema.py`
   can assert the real requirement instead of MC parity? Recommended: copy it; until then D1.
@@ -404,19 +520,45 @@ Each with the recommended answer; D1-D5 defaults stand until the user answers.
 
 ## Log
 
-(empty; `fixer` appends lead reports and `decision:` lines)
+- 2026-10-27 planner: annotation cycle 1 from the component-validation note, the plot review and
+  the scout read of `extract_hits.C`; WP0 added, D5, D7, D8, D11, D12, D13, D15, D16 revised,
+  Risks and WP6 errata extended; deferred: WP4/WP5 `Owns` overlap with WP1/WP2 writer and job
+  files (pre-existing, sequential via `Deps`; outside this cycle's scope)
+- 2026-10-27 decision: D5 default CJC coordinates are the MC geometric representation
+  (`CJC.simple()`, `cosb=1`, per-run NDB constants); `CJXR` coordinates are optional labels in
+  `cjc_trk_x/y/z`, never the default input; source: user
+- 2026-10-27 decision: WP0 representation parity precedes WP1; D16 default-representation
+  thresholds are data-versus-MC agreement (factor 2 on binned medians, 5 pp on the CDF, factor 2
+  on the zcd width), not absolute quantiles; source: lead
+- 2026-10-27 decision: D16 exact path (0.9442 on c070060; 0.926 pooled, floor 0.91 per run on
+  lam/) is a regression test of the constants chain only; source: lead
+- 2026-10-27 decision: D11 T0 is HAT `T0_CJC` (DMIS `TZERO_M`), `cjc_t0_src` 0 = HAT, 1 = run
+  default, 2 = `cjavt0`; the `events.txt` `# CJCC` line is never used; source: lead
+- 2026-10-27 decision: D12 `coz_trk_x/y/z` from `COZ.hit()` with the `CZR2`-matched track and
+  `t <= 810 ns`; source: lead
+- 2026-10-27 decision: D13/D16 CST acceptance is the per-layer signed r-φ residual width with the
+  rotated-φ control; the DCLH match is a reproducibility check; source: lead
+- 2026-10-27 decision: D8 `desygroupset h1` before `thish1.sh`, or the LCG python by full path;
+  source: lead
+- 2026-10-27 decision: data z is validated as `cjc_zcd` against the CJKR track z, never against
+  `CJXR ZHIT` (track-pulled); source: lead
+- 2026-10-27 decision: D15 WP3 owns the `mirror/acs/data/05/dst7` symlink; IVRSQT 2 and a
+  missing `C3Z8` need no special handling; source: lead
 
 ## Todo
 
-- [ ] WP1 writer: `read_events`, `read_cjcprobe`, `join`, `coords`, `fill_tree`, CLI, `meta`
-- [ ] WP1 `check_schema.py` with the D7 allowlist; run against `cov_loQ2/loQ2/hits/hits_part_0.root`
+- [ ] WP0 `parity_cjc.py`: `mc_residuals` on `$MC0`, `data_residuals` on the 38 lam dirs (login
+      smoke on ≤ 5), `compare`
+- [ ] WP0 four PNGs and `parity.json`; verdict PASS or return to the user
+- [ ] WP1 writer: `read_events`, `read_cjcprobe`, `read_hat_t0`, `join`, `coords`, `fill_tree`, CLI, `meta`
+- [ ] WP1 `check_schema.py` with the D7 allowlist; run against `$MC0`
 - [ ] WP1 `validate_data_cjc.py`; run `h1hits_regression` first
-- [ ] WP1 login-node run on one lam dir; Condor array over 38; the seven Slice 1 tests
-- [ ] WP2 `job_realdata.sh` (probes + dataprobe + writer) and `.sub`
+- [ ] WP1 login-node run on one lam dir; Condor array over 38; the nine Slice 1 tests
+- [ ] WP2 `job_realdata.sh` (probes + dataprobe + writer `--hat`) and `.sub`
 - [ ] WP2 smoke `c070060 -n 300`; `df` check; production 112 files; validation every 10th file
 - [ ] WP3 `CONSTS_ONLY` flag in `calibprobe.C`, built as `bin/calibprobe_consts`; byte-identity test on c070060
 - [ ] WP3 mirror symlink 05; per-period submit; bank diff; one full-dump validation per period
 - [ ] WP4 research and child plan (SIFE, cstprobe in job, `cst_sp_*`, D16 CST tests)
 - [ ] WP5 research (data CGAM versus MC; CRME presence) and child plan
-- [ ] WP6 `$D/docs/README.md`, `$H/HANDOFF.md` data section, research-artifact erratum, hash and
+- [ ] WP6 `$D/docs/README.md`, `$H/HANDOFF.md` data section, erratum note (Risks list), hash and
       path checks
