@@ -314,6 +314,10 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - 2026-10-27 P1b (staging): detint norm leg removed (D28); esigmaphotonxf_2026-10-27b assembled and dry-run (26/27 terms, totals and R/A_h never increase, coverage unchanged PASS, s15 --dry 55/55, hostile review GO, package 6/6)
 - 2026-10-27 decision: user sign-off to install esigmaphotonxf_2026-10-27b and refresh figures and document numbers ("Install and refresh"); stray scratch files deleted ("Delete both")
 - 2026-10-27 P1b: done; esigmaphotonxf_2026-10-27b installed (s15 Condor 5919168, 104 files, 55/55 gates, DR/INSTALL_RECORD_esigmaphotonxf_2026-10-27b.json), s16 21/21 and s18 6/6 EDITED, post-install audit 8/8 PASS (26/27 terms, detint_norm absent, old_untouched 567+266), cleanup done; deferred: P2/P3 refresh against 10-27b, freeze of 10-27b (P4), plan ticks (P5)
+- 2026-10-27 P3 (27b refresh): phase 1 done (text and tables at esigmaphotonxf_2026-10-27b, numbers re-checked by h1-systematics, builds clean); deferred: phase 2 figure re-point, light review, commits
+- 2026-10-27 P2 refresh (27b): done; esigmaphotonxf_2026-10-27b plot set + tarball (35 regenerated on Condor 5919218-5919222, 43 carried forward sha-identical), 52 new _20261027b docfigs (no overwrites; re-point list note 39 / paper 10 / letter 3), spot checks pass, h1-plot-reviewer PASS, critic PASS; README NITs being fixed before freeze
+- 2026-10-27 P3 (27b refresh): done; three documents at esigmaphotonxf_2026-10-27b (text, tables, 71 figure repoints), builds clean, light review PASS after one covariance-sentence fix, local commits note 7c93450, paper c58741b, letter 985ea82
+- 2026-10-27 decision: freeze esigmaphotonxf_2026-10-27b now ("Freeze now"); after freeze_verify push the note, paper and letter with their freeze tags; the workspace repo is pushed in P6 ("Docs + tags"); the note's low-Q2 budget row is changed to "<0.001" before the freeze
 
 ## Todo
 
