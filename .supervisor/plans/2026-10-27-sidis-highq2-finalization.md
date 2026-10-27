@@ -228,7 +228,7 @@ and are closed.
   `NOTE/figures/`, `PAPER/figures/`, `LETTER/figures/` (files only; no `.tex`).
 - Deps: P1 (the three DIFFVM subsection figures may start before P1 ends)
 - Stages: execute
-- Status: execute
+- Status: done
 - Artifacts: `->`
 - Scope Notes: `executor` briefs `h1-plot-reviewer` (every regenerated figure) and `h1-analysis-critic`
   (figure choice for the DIFFVM subsection). Producers run on release files, one process per
@@ -299,12 +299,13 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - 2026-10-27 P1 (plan): done; CPLAN rev 3 written in place (DIFFVM term removed not replaced, per-bin DIFFVM table D24, stored toys/s03 reused, 26/28 terms, ~9 Condor jobs); program plan Decisions 12-14 + P1/P3/P6 Scope Notes; critic PASS round 2; deferred: none
 - 2026-10-27 decision: user sign-off for s15 install of esigmaphotonxf_2026-10-27 after fixing hostile-review NITs F7–F9 ("Install, after fixing F7–F9"); DIFFVM per-bin CSVs gain an explicit `sign` column ("Yes, add it"; D24 amended)
 - 2026-10-27 P1 (execute): done; esigmaphotonxf_2026-10-27 installed (s15 Condor 5911769, 54/54 gates, DR/INSTALL_RECORD_esigmaphotonxf_2026-10-27.json), s16 21/21 and s18 6/6 EDITED, post-install audit PASS, old_untouched 266/266, DIFFVM table with sign column; deferred: figures (P2), note text F3–F5 and table printing (P3), freeze (P4), plan ticks (P5)
+- 2026-10-27 P2 (execute): done; esigmaphotonxf_2026-10-27 plot set + tarball (82 PDFs, 107 includes of note/paper/letter, delta documented), docfigs installed (43 new 20261027 files, 9 untagged overwritten), Condor 5912799/5912849/5912800/5912801/5912802, h1-plot-reviewer PASS, h1-analysis-critic PASS after regroup fix; deferred: include re-pointing and backgrounds.tex DIFFVM text (P3), ratio_asym closure check (P3/h1-systematics)
 
 ## Todo
 
 - [x] P1 plan: `CPLAN` rev 3 written (Decisions 2-4 folded in, OQ1 answer recorded)
 - [x] P1 execute: closure toys, budget, coverage gate PASS, hostile review, user sign-off, `s15`, `s16`, `s18`, audit
-- [ ] P2: plot set and docfigs at `NEWTAG`, plot review PASS
+- [x] P2: plot set and docfigs at `NEWTAG`, plot review PASS
 - [ ] P3: three documents updated, built, reviewed, committed (pushed per Decision 10)
 - [ ] P4: freeze record, tags, read-only dirs, `freeze_verify` PASS
 - [ ] P5: handoff, RUN_STATUS, CONTEXT.md, INDEX.md; `EPLAN`/`CPLAN` ticked; two old plans marked superseded
