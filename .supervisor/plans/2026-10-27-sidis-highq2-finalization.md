@@ -311,6 +311,9 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - 2026-10-27 decision: double count, "Quantify the ratio first"; C_rad 'Status and Caveats' subsection, "Remove it."; MAPTMD24 α_em draft marker, "Leave the draft marker"
 - 2026-10-27 h1-systematics: double count on R/A_h negligible (p95 <1% of total, max 6% in cell 218; removal only lowers); dropped z>=0.2 shift paragraph was an observable-definition change vs an earlier release, not model dependence
 - 2026-10-27 decision: double count, "Fix it" (drop the detint ±100% norm leg and cov_detint_norm_rank1; reinstall at a new tag as P1b, user sign-off before s15); old-release references, "We want no reference to old releases in the note."; C_rad combined-beam scope sentence, "Restore one sentence"
+- 2026-10-27 P1b (staging): detint norm leg removed (D28); esigmaphotonxf_2026-10-27b assembled and dry-run (26/27 terms, totals and R/A_h never increase, coverage unchanged PASS, s15 --dry 55/55, hostile review GO, package 6/6)
+- 2026-10-27 decision: user sign-off to install esigmaphotonxf_2026-10-27b and refresh figures and document numbers ("Install and refresh"); stray scratch files deleted ("Delete both")
+- 2026-10-27 P1b: done; esigmaphotonxf_2026-10-27b installed (s15 Condor 5919168, 104 files, 55/55 gates, DR/INSTALL_RECORD_esigmaphotonxf_2026-10-27b.json), s16 21/21 and s18 6/6 EDITED, post-install audit 8/8 PASS (26/27 terms, detint_norm absent, old_untouched 567+266), cleanup done; deferred: P2/P3 refresh against 10-27b, freeze of 10-27b (P4), plan ticks (P5)
 
 ## Todo
 
@@ -318,7 +321,7 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - [x] P1 execute: closure toys, budget, coverage gate PASS, hostile review, user sign-off, `s15`, `s16`, `s18`, audit
 - [x] P2: plot set and docfigs at `NEWTAG`, plot review PASS
 - [x] P3: three documents updated, built, reviewed, committed (pushed per Decision 10)
-- [ ] P1b: detint norm leg removed, budget/cov/gate/package at new tag, user sign-off, s15, s16, s18; then P2/P3 refresh (budget figures, document numbers)
+- [x] P1b: detint norm leg removed, budget/cov/gate/package at new tag, user sign-off, s15, s16, s18; then P2/P3 refresh (budget figures, document numbers)
 - [ ] P4: freeze record, tags, read-only dirs, `freeze_verify` PASS
 - [ ] P5: handoff, RUN_STATUS, CONTEXT.md, INDEX.md; `EPLAN`/`CPLAN` ticked; two old plans marked superseded
 - [ ] P6: curator close-out, facts superseded, history lines, workspace commit
