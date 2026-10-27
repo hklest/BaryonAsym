@@ -258,7 +258,7 @@ and are closed.
   the `NEWTAG` release/budget/covariance dirs, `freeze-<NEWTAG>` tags in four repos.
 - Deps: P1, P2, P3
 - Stages: execute
-- Status: execute
+- Status: done
 - Artifacts: `->`
 - Scope Notes: `executor` briefs `h1-naf-operator` (sha256 over DUST, `chmod -R a-w`) and `git-ops`
   (annotated tags; push per Decision 10). Writes no handoff text (P5 owns it); emits the memory
@@ -271,7 +271,7 @@ and are closed.
   `SQ/STATE.md`, checklist state of `EPLAN` and `CPLAN`, header lines of the two superseded plans.
 - Deps: P4
 - Stages: write
-- Status: write
+- Status: done
 - Artifacts: `->`
 - Scope Notes: `writer` follows `SAVE-CONTEXT.md` steps 1-11; facts only from P1-P4 reports and
   records; briefs `h1-analysis-critic` for the consistency read (criterion 13 sign-off recorded).
@@ -281,7 +281,7 @@ and are closed.
 - Owns: `.supervisor/`, workspace-repo commits of the files P5 owns and `SQ/docs/plans/`.
 - Deps: P5
 - Stages: execute
-- Status: execute
+- Status: done
 - Artifacts: `->`
 - Scope Notes: `supervisor` dispatches `curator` for the close-out (Decisions 9, new freeze and
   Decision 12-14 entries, history lines), then `git-ops` commits by explicit path (Decision 11)
@@ -318,6 +318,10 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - 2026-10-27 P2 refresh (27b): done; esigmaphotonxf_2026-10-27b plot set + tarball (35 regenerated on Condor 5919218-5919222, 43 carried forward sha-identical), 52 new _20261027b docfigs (no overwrites; re-point list note 39 / paper 10 / letter 3), spot checks pass, h1-plot-reviewer PASS, critic PASS; README NITs being fixed before freeze
 - 2026-10-27 P3 (27b refresh): done; three documents at esigmaphotonxf_2026-10-27b (text, tables, 71 figure repoints), builds clean, light review PASS after one covariance-sentence fix, local commits note 7c93450, paper c58741b, letter 985ea82
 - 2026-10-27 decision: freeze esigmaphotonxf_2026-10-27b now ("Freeze now"); after freeze_verify push the note, paper and letter with their freeze tags; the workspace repo is pushed in P6 ("Docs + tags"); the note's low-Q2 budget row is changed to "<0.001" before the freeze
+- 2026-10-27 P4: done; esigmaphotonxf_2026-10-27b frozen (FREEZE_RECORD sha 77f14dda…, 319 paths read-only, 4 local annotated tags freeze-esigmaphotonxf_2026-10-27b: workspace 666b50b, note da687b4, paper c58741b, letter 985ea82), freeze_verify PASS (543 hashes, tags 4/4, old_untouched 567+266); note/letter builds confirmed in P3 at the same commits (login-node TeX lacks packages); deferred: document and tag pushes (git-ops), workspace push (P6)
+- 2026-10-27 P5 (write): done; handoff FINALIZATION section, RUN_STATUS, STATE, CONTEXT.md, INDEX.md at the frozen esigmaphotonxf_2026-10-27b; EPLAN/CPLAN ticked, two old plans marked superseded; h1-analysis-critic light review (0 BLOCKING, findings applied); deferred: AGENTS.md row (user OK), workspace commit and push
+- 2026-10-27 git-ops: note da687b4, paper c58741b, letter 985ea82 pushed with tags freeze-esigmaphotonxf_2026-10-27b (fast-forward)
+- 2026-10-27 P6: curator close-out
 
 ## Todo
 
@@ -326,6 +330,6 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - [x] P2: plot set and docfigs at `NEWTAG`, plot review PASS
 - [x] P3: three documents updated, built, reviewed, committed (pushed per Decision 10)
 - [x] P1b: detint norm leg removed, budget/cov/gate/package at new tag, user sign-off, s15, s16, s18; then P2/P3 refresh (budget figures, document numbers)
-- [ ] P4: freeze record, tags, read-only dirs, `freeze_verify` PASS
-- [ ] P5: handoff, RUN_STATUS, CONTEXT.md, INDEX.md; `EPLAN`/`CPLAN` ticked; two old plans marked superseded
-- [ ] P6: curator close-out, facts superseded, history lines, workspace commit
+- [x] P4: freeze record, tags, read-only dirs, `freeze_verify` PASS
+- [x] P5: handoff, RUN_STATUS, CONTEXT.md, INDEX.md; `EPLAN`/`CPLAN` ticked; two old plans marked superseded
+- [x] P6: curator close-out, facts superseded, history lines, workspace commit

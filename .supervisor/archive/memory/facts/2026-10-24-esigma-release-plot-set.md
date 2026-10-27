@@ -7,3 +7,4 @@ source: user report 2026-10-24
 supersedes:
 ---
 Release plot set at sidis_highQ2/plots/releases/esigmaphoton_2026-10-23/ with tarball esigmaphoton_2026-10-23.tar.gz alongside (Phase G plots).
+superseded by: .supervisor/memory/facts/2026-10-27-esigma-27b-plot-set.md

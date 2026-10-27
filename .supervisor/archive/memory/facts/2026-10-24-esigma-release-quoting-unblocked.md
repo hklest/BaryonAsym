@@ -18,3 +18,4 @@ Open:
 - Phase G (re-pointing plots and the analysis note) is in progress.
 - Remaining eSigma plots need new plotters: covariance, Born 7-panel, h+/h- ratio, A_h, swap-one, control plots.
 - 21 canonical docs and 3 note figures were untracked in git pending user OK (check current state before relying on this).
+superseded by: sidis_highQ2/docs/promotions/esigmaphoton_promotion_2026-10-23.md
