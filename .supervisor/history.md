@@ -8,3 +8,4 @@
 - 2026-10-24 cut variations and figure pruning in the note; goals: none; plan: none; decisions: none
 - 2026-10-24 xF eSigma two-way check (Condor 5868500): negligible change; decision keep-vs-rerun pending; goals: none; plan: none; decisions: none
 - 2026-10-24 none eSigma quoting blockers M1, N2, P-CRAD-LUMI closed; goals: none; plan: none; decisions: .supervisor/memory/decisions/2026-10-24-m1-n2-closed-d2-eprime-cut-shifted-legs.md, .supervisor/memory/decisions/2026-10-24-p-crad-lumi-accepted-gaps.md
+- 2026-10-27 none Sherpa set2 and Pythia8 hit-level port (GEN=pythia8, productions launched); goals: none; plan: none; decisions: .supervisor/memory/decisions/2026-10-27-pythia8-hit-sample-split-50k-50k.md, .supervisor/memory/decisions/2026-10-27-pythia8-qed-showers-off.md
