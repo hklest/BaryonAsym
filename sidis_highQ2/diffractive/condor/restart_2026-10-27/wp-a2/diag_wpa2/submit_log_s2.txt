@@ -1,0 +1,14 @@
+WP-A2 S2 submission (restart 2026-10-27)
+utc_submit: 2026-10-27T04:30:40Z
+cwd: /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+command: condor_submit QFILE=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/queue_s2.txt TAG=s2 /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/diag_wpa2.sub
+sha256 wp-a2_plan.md: c553d2007df95fbd78d386a96636328d6434cf21c1171b717dd9a67eb2225b0d (expected c553d2...b0d, verified)
+sha256 s1_definition_audit.md: bb95183d9a12e8baf49157e25e4c72f1df9a2c1372eb63053d35f09a6d34bd23 (expected bb9518...bd23, verified)
+md5 n1_wpa2.py: 7614c1a6a3e816fa41d62dc2391004c3
+queue lines: 35
+submit_output: (eval):9: no such file or directory: condor_submit QFILE=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/queue_s2.txt TAG=s2 /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/diag_wpa2.sub 
+cluster: 
+note: first attempt at 04:30:40Z was a local shell word-splitting error (zsh); condor_submit never invoked, no cluster created. Re-issued below.
+utc_submit_actual: 2026-10-27T04:30:47Z
+cluster: 5902113 (35 jobs)
+completion: 35/35 exit 0, 34 split partials + identity partial present, no resubmission; end_utc 2026-10-27T04:37:47Z; history /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/logs/s2/history_5902113.txt

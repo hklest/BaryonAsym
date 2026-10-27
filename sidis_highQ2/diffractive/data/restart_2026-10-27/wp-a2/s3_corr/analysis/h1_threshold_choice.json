@@ -1,0 +1,70 @@
+{
+ "split": "even",
+ "rows": {
+  "etaMaxClus08|7071": {
+   "payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_7071_08.json",
+   "payload_sha256": "b224cc46e9acfefa4debb866ce46001301c006ce19227b5e2db2708f5e8db3b5",
+   "edge_residual_3p15_3p55": 1986.2627374421154,
+   "D": 3837.2195695412465,
+   "ndf": 358,
+   "merged34_D": 3409.0973637563607,
+   "merged34_ndf": 265,
+   "merged34_payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_7071_08_m34.json"
+  },
+  "etaMaxClus08|7091": {
+   "payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_7091_08.json",
+   "payload_sha256": "5ef694b56fc60d13066c8ac1a62872252b8975face44e0e58c55caa7dc2f6d15",
+   "edge_residual_3p15_3p55": 2271.685470168437,
+   "D": 4045.8441327522837,
+   "ndf": 358,
+   "merged34_D": 3776.7023937533127,
+   "merged34_ndf": 265,
+   "merged34_payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_7091_08_m34.json"
+  },
+  "etaMaxClus08|nd4cat": {
+   "payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_nd4cat_08.json",
+   "payload_sha256": "31a98e65ed2bdf4ba05b016ab6f2bcec81d3e3ecc255b3039950297133186824",
+   "edge_residual_3p15_3p55": 1895.5042403632287,
+   "D": 3283.299785280125,
+   "ndf": 358,
+   "merged34_D": 3013.3326080048964,
+   "merged34_ndf": 265,
+   "merged34_payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_nd4cat_08_m34.json"
+  },
+  "etaMaxClus04|7071": {
+   "payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_7071_04.json",
+   "payload_sha256": "49a49afb00816e34f92d4e693a71647e48e316241826652a2302563d20803d0c",
+   "edge_residual_3p15_3p55": 1322.1535871894614,
+   "D": 3822.342374139467,
+   "ndf": 358,
+   "merged34_D": 3137.450585725125,
+   "merged34_ndf": 265,
+   "merged34_payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_7071_04_m34.json"
+  },
+  "etaMaxClus04|7091": {
+   "payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_7091_04.json",
+   "payload_sha256": "bf4d9fe198be0c63566e188346b143a017e6acbab09c01e3fea0b18d4cb316ba",
+   "edge_residual_3p15_3p55": 1490.9418471113277,
+   "D": 3513.69482013889,
+   "ndf": 358,
+   "merged34_D": 2776.9077555298154,
+   "merged34_ndf": 265,
+   "merged34_payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_7091_04_m34.json"
+  },
+  "etaMaxClus04|nd4cat": {
+   "payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_nd4cat_04.json",
+   "payload_sha256": "f31c995302e502f87b8cabad52cc0f1483c5384be4a770cdaea6b68483e1410c",
+   "edge_residual_3p15_3p55": 1257.119543962604,
+   "D": 3395.5157770688647,
+   "ndf": 358,
+   "merged34_D": 2723.735932125467,
+   "merged34_ndf": 265,
+   "merged34_payload": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/payloads/even_nd4cat_04_m34.json"
+  }
+ },
+ "edge_residual_sum": {
+  "etaMaxClus08": 6153.452447973781,
+  "etaMaxClus04": 4070.214978263393
+ },
+ "chosen": "etaMaxClus04"
+}

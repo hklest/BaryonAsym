@@ -1,0 +1,23 @@
+{
+ "verdict": {
+  "7071": {
+   "a": false,
+   "b": false,
+   "c": false
+  },
+  "7091": {
+   "a": false,
+   "b": false,
+   "c": false
+  },
+  "nd4cat": {
+   "a": false,
+   "b": false,
+   "c": false
+  }
+ },
+ "ruling_input": "KILL",
+ "table": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s4_g1p/g1prime_table.csv",
+ "table_sha256": "611d5140fba1716587015c5d347b261f2b684022d05a72f54abdb4a9f0f0b4c3",
+ "record_sha256": "4b2b5e269a1f8d07f22d34a24c9416742eba53ebb6da23b85014bcf3bf79d719"
+}

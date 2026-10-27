@@ -1,0 +1,18 @@
+{
+ "n_rows": 96,
+ "rise_ge_10x": {
+  "h3ii|7071": false,
+  "h3iii|7071": false,
+  "h3iv|7071": false,
+  "h3ii|7091": false,
+  "h3iii|7091": false,
+  "h3iv|7091": false,
+  "h3ii|nd4cat": false,
+  "h3iii|nd4cat": false,
+  "h3iv|nd4cat": false
+ },
+ "h4_true_detector": true,
+ "supported": false,
+ "max_p": 0.47352647352647353,
+ "n_at_floor": 68
+}

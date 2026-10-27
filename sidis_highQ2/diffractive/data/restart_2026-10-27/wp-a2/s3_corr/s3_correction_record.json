@@ -1,0 +1,147 @@
+{
+ "schema": "wpa2-s3-correction-record-v1",
+ "date": "2026-10-27",
+ "split_used": "even (derivation) + published reference only",
+ "plan_sha256": "c553d2007df95fbd78d386a96636328d6434cf21c1171b717dd9a67eb2225b0d",
+ "s1_record_sha256": "bb95183d9a12e8baf49157e25e4c72f1df9a2c1372eb63053d35f09a6d34bd23",
+ "hypotheses": [
+  {
+   "hypothesis": "H5",
+   "supported": false,
+   "correction": null,
+   "criterion_value": "EnCor=1, Thresh=0.3 GeV all runs; 1-7 GeV MC/DATA 0.86-0.90",
+   "evidence": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s1_db/plug_calib.csv"
+  },
+  {
+   "hypothesis": "H1",
+   "supported": true,
+   "branch": "response",
+   "correction": [
+    {
+     "kind": "cut",
+     "value": {
+      "n1_eta_cut": 3.3,
+      "eta_branch": "etaMaxClus08"
+     },
+     "sample_scope": "all data and MC, N-1 / Stage-B basis (G1'(a),(b))",
+     "source": "arXiv:1203.4495 \u00a73.3 (800 MeV, eta_max<3.3); D3 H1"
+    },
+    {
+     "kind": "threshold",
+     "value": {
+      "fit_eta_branch": "etaMaxClus04"
+     },
+     "sample_scope": "all data and MC, \u00a77.1 fit (G1'(c))",
+     "source": "D3 H1: smaller even-split edge residual (4070 vs 6153)"
+    }
+   ],
+   "criterion_value": "move excess/deficit 7071 0.91/4.23, 7091 0.94/3.67; geometry shift 0.0004",
+   "evidence": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/analysis/h1_threshold_choice.json",
+   "wpb_note": "the 0.4 GeV fit branch fixes template normalisations; WP-B maps them onto the 0.8 GeV eta_max<3.3 gap; the 0.4 GeV deficit sits in 3.40-3.55, inside the merged bin"
+  },
+  {
+   "hypothesis": "H6",
+   "supported": false,
+   "correction": null,
+   "criterion_value": "geometry shift 0.0004 < 0.03",
+   "evidence": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s2_diag/analysis/s2_analysis_even.json"
+  },
+  {
+   "hypothesis": "H4",
+   "supported": true,
+   "branch": "true-detector",
+   "correction": [
+    {
+     "kind": "fit_range",
+     "value": {
+      "fit_eta_max_cut": 3.4,
+      "edge_merge": "[3.4,5)"
+     },
+     "sample_scope": "all data and MC, \u00a77.1 fit (G1'(c))",
+     "source": "D3 H4 true-detector"
+    }
+   ],
+   "criterion_value": "edge worst |MC/DATA-1| 0.71-1.03 with pattern, both 7071 and 7091",
+   "evidence": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s2_diag/analysis/s2_analysis_even.json",
+   "wpf_inputs": [
+    "edge feature may also sit in the diffractive templates (plan Risks); 3.15-3.35 excess stays inside the fit range (even-split frozen D/ndf about 10-12)"
+   ]
+  },
+  {
+   "hypothesis": "H3",
+   "supported": false,
+   "correction": null,
+   "criterion_value": "no variant >=10x in all 8 fits for any alt; H4 true-detector supported (R3)",
+   "evidence": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/analysis/h3_table.json",
+   "wpf_inputs": [
+    "variant (iv): t at a bound in 21 of 24 fits"
+   ]
+  },
+  {
+   "hypothesis": "H2",
+   "supported": true,
+   "branch": "layer/station-specific",
+   "correction": null,
+   "criterion_value": "uniformity chi2 p 1e-240..1e-10; no run/lumi trend (min p 0.046)",
+   "evidence": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s2_diag/analysis/s2_analysis_even.json",
+   "excluded_correction": {
+    "kind": "noise_removal",
+    "value": {
+     "remedy": "WP-A remedy-1 q per period, per chain; per-sub-period refinement = identity (no trend)",
+     "noise_table": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a/s2_remedy1/noise_table.json",
+     "noise_table_sha256": "f93a6dd270f56ec1832efb1435877842ea77672667c4f870f7c7872d543fbcaf"
+    },
+    "sample_scope": "(proposed, rejected) MC only, all masks",
+    "source": "D3 H2 'kept as the noise correction'; q derived on WP-A even-parity deep-gap control (derivation split)",
+    "note": "proposed per D3 H2; rejected at S3 sign-off (see ruling)",
+    "ruling": "EXCLUDED by h1-analysis-critic at S3 sign-off: fails D5 (i) (mixed-sign layer pattern, uniform removal cannot represent deficits; the per-sub-period wording belongs to the null time-trend branch) and D5 (ii) (q is a data-minus-MC rate measured on the gated f_fail difference, kind not in the D5 list)"
+   },
+   "note": "supported by its criterion; correction not admissible; systematic leg only (G1'(b) sensitivity), never in G1'(a)/(c) or the ruling"
+  }
+ ],
+ "frozen_definition": {
+  "n1_eta_cut": 3.3,
+  "n1_eta_branch": "etaMaxClus08",
+  "noise_removal": false,
+  "fit_eta_branch": "etaMaxClus04",
+  "fit_eta_max_cut": 3.4,
+  "fit_empz": false,
+  "fit_cand": false,
+  "fit_templates": 2,
+  "eplug_scale": 1.0,
+  "vtxz_weights": null,
+  "nd_alternatives": [
+   "7071",
+   "7091",
+   "nd4cat"
+  ]
+ },
+ "derivation_split_context": {
+  "source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/analysis/h1_threshold_choice.json (merged34 rows, etaMaxClus04)",
+  "frozen_fit_no_toys_D_ndf": {
+   "7071": "3137/265",
+   "7091": "2777/265",
+   "nd4cat": "2724/265"
+  }
+ },
+ "xip_share_9012_gen_ge_0p03": {
+  "i_base": {
+   "n": 2346,
+   "n_gen_xip_ge_0p03": 1420,
+   "share": 0.6052855924978687
+  },
+  "ii_empz": {
+   "n": 2312,
+   "n_gen_xip_ge_0p03": 1395,
+   "share": 0.6033737024221453
+  },
+  "iii_empz_cand": {
+   "n": 1597,
+   "n_gen_xip_ge_0p03": 693,
+   "share": 0.4339386349405135
+  },
+  "note": "H3 (iv) uses the (ii) payload; its share equals ii_empz"
+ },
+ "user_items_applied": [],
+ "sign_off": "h1-analysis-critic 2026-10-27: round 1 SIGNED no (remedy-1 fails D5); round 2 SIGNED yes with remedy-1 excluded"
+}

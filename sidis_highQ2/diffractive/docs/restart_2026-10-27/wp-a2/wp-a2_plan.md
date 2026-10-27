@@ -359,8 +359,8 @@ Material items only; each is a D5 `user:` change and is not applied in this pack
 
 ## Todo
 
-- [ ] S1 `plugdb_probe.C` run; `plug_calib.csv` 21 rows; `s1_definition_audit.md` with D1-D3, D6 verbatim; both sign-offs
-- [ ] S2 `n1_wpa2.py` identity test PASS; 34 diagnostic jobs rc 0; `s2_diagnostic_record.md` with H1, H2, H4, H5, H6 readings
-- [ ] S3 even-split payload variants and ≤ 16 fits; `s3_correction_record.{md,json}` signed; sha256 recorded
-- [ ] S4 odd-split payloads and fits submitted once; `g1prime_table.csv` complete; tally ≤ 5 Condor-days / 7 days
-- [ ] S5 `g1prime_verdict.md` with the `h1-analysis-critic` ruling; parent Log and Todo lines returned
+- [x] S1 `plugdb_probe.C` run; `plug_calib.csv` 21 rows; `s1_definition_audit.md` with D1-D3, D6 verbatim; both sign-offs
+- [x] S2 `n1_wpa2.py` identity test PASS; 34 diagnostic jobs rc 0; `s2_diagnostic_record.md` with H1, H2, H4, H5, H6 readings
+- [x] S3 even-split payload variants and ≤ 16 fits; `s3_correction_record.{md,json}` signed; sha256 recorded
+- [x] S4 odd-split payloads and fits submitted once; `g1prime_table.csv` complete; tally ≤ 5 Condor-days / 7 days
+- [x] S5 `g1prime_verdict.md` with the `h1-analysis-critic` ruling; parent Log and Todo lines returned

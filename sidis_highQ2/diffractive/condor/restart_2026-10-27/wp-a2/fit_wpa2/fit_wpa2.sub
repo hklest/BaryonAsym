@@ -1,0 +1,21 @@
+# WP-A2 fit_wpa2 submit file (copy of wp-a/fit_wpa/fit_wpa.sub): one job per (variant tag, alt, binning, scope).
+# Queue columns: alt nd_labels fac_overrides binning scope payload outdir n_toys templates jtag rt
+# Submit: condor_submit QFILE=<abs queue> TAG=<slice tag> fit_wpa2.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/fit_wpa2_job.sh
+arguments       = $(alt) $(nd_labels) $(fac_overrides) $(binning) $(scope) $(payload) $(outdir) $(n_toys) $(templates) $(jtag)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/logs/$(TAG)/fit_$(jtag)_$(alt)_$(binning)_$(scope).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/logs/$(TAG)/fit_$(jtag)_$(alt)_$(binning)_$(scope).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/logs/$(TAG)/$(Cluster).log
+request_memory  = 1024
+request_disk    = 1G
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = $(rt)
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+on_exit_remove  = True
+notification    = Never
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+queue alt, nd_labels, fac_overrides, binning, scope, payload, outdir, n_toys, templates, jtag, rt from $(QFILE)

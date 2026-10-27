@@ -1,0 +1,24 @@
+# WP-A2 (restart 2026-10-27) diag_wpa2 submit file (copy of wp-a/n1_wpa/diag_wpa2.sub). One job per (input, split[, chain]).
+# Worker: scripts/restart_2026-10-27/wp-a2/n1_wpa2.py via diag_wpa2_job.sh.
+# Submit with the slice queue file and log tag, e.g.
+#   condor_submit QFILE=<abs path to queue file> TAG=s1 diag_wpa2.sub
+# Queue columns: label,kind,input,split,outdir,noise_table,chain,extra,mem,rt,disk
+# Resources (1 CPU): 7091/7094/7096 12288 MiB/7200 s/40G; 7071/7097 6144 MiB/2700 s/15G; others 2048 MiB/1800 s/2G
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/diag_wpa2_job.sh
+arguments       = $(label) $(kind) $(input) $(split) $(outdir) $(noise_table) $(chain) $(extra)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/logs/$(TAG)/$(label)_$(split)_$(chain)_$(extra).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/logs/$(TAG)/$(label)_$(split)_$(chain)_$(extra).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/logs/$(TAG)/$(Cluster).log
+request_memory  = $(mem)
+request_disk    = $(disk)
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = $(rt)
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+on_exit_remove  = True
+notification    = Never
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+queue label, kind, input, split, outdir, noise_table, chain, extra, mem, rt, disk from $(QFILE)

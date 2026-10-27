@@ -1,0 +1,20 @@
+WP-A2 S4 fit sweep submit log
+utc_prepared: 2026-10-27T13:16:52Z
+command: condor_submit QFILE=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/queue_s4.txt TAG=s4 /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/fit_wpa2.sub
+queue_rows: 24
+sha256 record /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/s3_correction_record.json = 4b2b5e269a1f8d07f22d34a24c9416742eba53ebb6da23b85014bcf3bf79d719 (expected 4b2b5e269a1f8d07f22d34a24c9416742eba53ebb6da23b85014bcf3bf79d719)
+sha256 plan /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a2/wp-a2_plan.md = c553d2007df95fbd78d386a96636328d6434cf21c1171b717dd9a67eb2225b0d (expected c553d2007df95fbd78d386a96636328d6434cf21c1171b717dd9a67eb2225b0d)
+sha256 s1   /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a2/s1_definition_audit.md = bb95183d9a12e8baf49157e25e4c72f1df9a2c1372eb63053d35f09a6d34bd23 (expected bb95183d9a12e8baf49157e25e4c72f1df9a2c1372eb63053d35f09a6d34bd23)
+md5 script: c7205ab550a373f81791265247186868  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a2/fit_7p1_wpa2.py
+md5 wrapper: a9e2677960d8b17c7792e3bea427a398  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/fit_wpa2_job.sh
+md5 sub: 11ea616b8cb65f9d49876ac0117646c9  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/fit_wpa2.sub
+md5 queue: ee37e2995174063b1f0ff30af9213206  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/fit_wpa2/queue_s4.txt
+payload sha256 (3):
+c619a1fc02dd18b3b32f436da2c43ed215c71ef1f1897d2a02ca225e77b02ebb  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s4_g1p/payloads/odd_frozen_7071.json
+6718b915e337947c06ff907ebbe9d588e2e3950215f15811cb6eb7a8025e206c  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s4_g1p/payloads/odd_frozen_7091.json
+2757c2db34798ba06235d16496a68ba36dd8613c1e41de54ab6946b092e0ea06  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s4_g1p/payloads/odd_frozen_nd4cat.json
+hash check: PASS
+utc_submit: 2026-10-27T13:16:53Z
+Submitting job(s)........................
+24 job(s) submitted to cluster 5912792.
+condor_submit rc=0

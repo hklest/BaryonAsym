@@ -1,0 +1,30 @@
+{
+ "split_disjoint_complete": {
+  "pass": true,
+  "failures": [],
+  "n_files": 17
+ },
+ "edge_localisation_reproduced": {
+  "pass": true,
+  "cells": {
+   "D0": {
+    "data_over_fit_3p15_3p35": 1.229051712642402,
+    "data_over_fit_3p40_3p55": 0.6297905152918163,
+    "deviance": 1894.4932153347047,
+    "ndf": 118
+   },
+   "D1": {
+    "data_over_fit_3p15_3p35": 1.195633241507743,
+    "data_over_fit_3p40_3p55": 0.6596036061691669,
+    "deviance": 1215.589738845761,
+    "ndf": 118
+   },
+   "D2": {
+    "data_over_fit_3p15_3p35": 1.1204175277729467,
+    "data_over_fit_3p40_3p55": 0.6845563650098495,
+    "deviance": 674.6669995349761,
+    "ndf": 118
+   }
+  }
+ }
+}

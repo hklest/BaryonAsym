@@ -1,0 +1,8 @@
+slice,cluster,n_jobs,wall_s,cpus,condor_days,start_utc,end_utc,note
+budget,-,-,-,-,-,2026-10-27T04:30:47Z,,WP-A2 clock start = first submission UTC 2026-10-27T04:30:47Z (cluster 5902113); cap 5 Condor-days / 7 calendar days
+login,-,-,-,-,0,,,login-node runs (smoke tests; identity_check_wpa2.py) count zero Condor-days
+S2,5902113,35,1856,1,0.02148,2026-10-27T04:30:49Z,2026-10-27T04:37:47Z,diag_wpa2.sub QFILE=queue_s2.txt TAG=s2; 17 inputs x even/odd empz + 1 identity (9155 all); 35/35 exit 0; no resubmission; wall=sum RemoteWallClockTime x request_cpus; 7091 even/odd MemoryUsage 12208/12288 MiB (near cap)
+s3_fits,5902125,96,2729,1,0.03159,2026-10-27T04:44:04Z,2026-10-27T04:47:16Z,fit_wpa2.sub QFILE=queue_s3.txt TAG=s3; H3 {h3i,h3ii,h3iii,h3iv(3-tpl)} x {7071,7091,nd4cat} x {fine,coarse} x {D0,D1,D2,ALL} 1000 toys; 96/96 exit 0; 96/96 fit_summary csv; no resubmission; wall=sum RemoteWallClockTime x request_cpus; max job wall 135 s; script md5 c7205ab550a373f81791265247186868
+s4_n1,5911827,17,736,1,0.00852,2026-10-27T13:11:22Z,2026-10-27T13:15:33Z,diag_wpa2.sub QFILE=queue_s4.txt TAG=s4; 17 inputs x odd + etacut3.3 (no noise table); 17/17 exit 0; 17/17 partial.json ok; no resubmission; wall=sum RemoteWallClockTime x request_cpus; 7091 request 16384 MiB MemoryUsage 733 MiB
+s4_fits,5912792,24,368,1,0.00426,2026-10-27T13:31:23Z,2026-10-27T13:32:38Z,fit_wpa2.sub QFILE=queue_s4.txt TAG=s4; 3 odd frozen payloads (7071/7091/nd4cat); 24/24 exit 0; 24/24 fit_summary csv; no resubmission; ~14 min idle from pool contention (NumJobStarts=1); max job wall 25 s; script md5 c7205ab550a373f81791265247186868
+total,-,-,-,-,0.06585,2026-10-27T04:30:47Z,2026-10-27T13:33:29Z,running Condor-days 0.06585 of cap 5; calendar elapsed 0.3769 d of cap 7; tally_within_cap=True

@@ -1,0 +1,18 @@
+{
+ "i_base": {
+  "n": 2346,
+  "n_gen_xip_ge_0p03": 1420,
+  "share": 0.6052855924978687
+ },
+ "ii_empz": {
+  "n": 2312,
+  "n_gen_xip_ge_0p03": 1395,
+  "share": 0.6033737024221453
+ },
+ "iii_empz_cand": {
+  "n": 1597,
+  "n_gen_xip_ge_0p03": 693,
+  "share": 0.4339386349405135
+ },
+ "note": "H3 (iv) uses the (ii) payload; its share equals ii_empz"
+}

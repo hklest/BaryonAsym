@@ -1,0 +1,17 @@
+WP-A2 S4 n1 pass submit log (odd split, extra etacut3.3, no noise table)
+utc_prepared: 2026-10-27T13:10:46Z
+command: condor_submit QFILE=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/queue_s4.txt TAG=s4 /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/diag_wpa2.sub
+queue_rows: 17
+sha256 record /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a2/s3_corr/s3_correction_record.json = 4b2b5e269a1f8d07f22d34a24c9416742eba53ebb6da23b85014bcf3bf79d719 (expected 4b2b5e269a1f8d07f22d34a24c9416742eba53ebb6da23b85014bcf3bf79d719)
+sha256 plan   /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a2/wp-a2_plan.md = c553d2007df95fbd78d386a96636328d6434cf21c1171b717dd9a67eb2225b0d (expected c553d2007df95fbd78d386a96636328d6434cf21c1171b717dd9a67eb2225b0d)
+sha256 s1     /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a2/s1_definition_audit.md = bb95183d9a12e8baf49157e25e4c72f1df9a2c1372eb63053d35f09a6d34bd23 (expected bb95183d9a12e8baf49157e25e4c72f1df9a2c1372eb63053d35f09a6d34bd23)
+md5 script: e0dea4964ca25e152379c69d42c0afe0  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a2/n1_wpa2.py
+md5 wrapper: 1e8c2490ecf88563c979a4b298477f95  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/diag_wpa2_job.sh
+md5 sub: e8c20183a6639850fd136d62b6c690b5  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/diag_wpa2.sub
+md5 queue: fe2ba60745273d1ce8395d927475ad9a  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a2/diag_wpa2/queue_s4.txt
+note: wrapper status/md5_<label>_odd_<label>.txt files are shared with S2 odd jobs and will be overwritten (S2 md5 recorded in submit_log_s2.txt)
+hash check: PASS
+utc_submit: 2026-10-27T13:10:46Z
+Submitting job(s).................
+17 job(s) submitted to cluster 5911827.
+condor_submit rc=0
