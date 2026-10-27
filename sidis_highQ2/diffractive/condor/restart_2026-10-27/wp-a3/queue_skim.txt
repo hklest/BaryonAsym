@@ -1,0 +1,17 @@
+9012,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc9012_merged_2026-10-18/9012.root,2048,1800,2G
+9024,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/9024.root,2048,1800,2G
+9033,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/9033.root,2048,1800,2G
+9155,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/9155.root,2048,1800,2G
+9157,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/9157.root,2048,1800,2G
+9158,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/9158.root,2048,1800,2G
+6671,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/6671.root,2048,1800,2G
+6677,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/6677.root,2048,1800,2G
+7071,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/7071.root,6144,2700,15G
+7091,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/7091.root,12288,7200,40G
+7094,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_nd4cat_2026-10-20/7094.root,12288,7200,40G
+7096,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_nd4cat_2026-10-20/7096.root,12288,7200,40G
+7097,mc,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_nd4cat_2026-10-20/7097.root,6144,2700,15G
+ep0304,data,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/merged_data_true_2026-10-18/ep0304.root,2048,1800,2G
+em0405,data,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/merged_data_true_2026-10-18/em0405.root,2048,1800,2G
+em06_true,data,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/merged_data_true_2026-10-18/em06_true.root,2048,1800,2G
+ep0607_true,data,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/merged_data_true_2026-10-18/ep0607_true.root,2048,1800,2G

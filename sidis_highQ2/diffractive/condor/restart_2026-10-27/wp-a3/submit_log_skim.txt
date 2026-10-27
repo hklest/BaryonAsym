@@ -1,0 +1,37 @@
+submit_utc=2026-10-27T13:54:56Z
+cluster=5912805
+submit_file=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/skim_wpa3.sub
+queue_file=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/queue_skim.txt
+n_jobs=17
+script=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a3/skim_wpa3.py
+script_md5=aa9fb3d6d223ff7bf3882c61d9ce33f6
+condor_submit_output: Submitting job(s).................
+17 job(s) submitted to cluster 5912805.
+
+completed_utc=2026-10-27T13:56:53Z
+result=17/17 ExitCode 0, rc=0, n_pre0 match; no holds, no resubmission
+wall_s_sum=327 condor_days=0.00378
+tally=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/condor_tally.csv
+
+[fact]
+submit_utc=2026-10-27T13:58:26Z
+cluster=5912808
+submit_file=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/fact_wpa3.sub
+n_jobs=1
+script=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a3/fact_wpa3.py
+script_md5=eb7fb81b43a3601aa17519531894ef1a
+completed_utc=2026-10-27T14:01:24Z
+result=ExitCode 0, rc=0, fact_results.json present; wall_s=121 condor_days=0.0014
+campaign_total_condor_days=0.00519
+
+[fact2]
+submit_utc=2026-10-27T14:03:00Z
+cluster=5912809
+submit_file=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/fact2_wpa3.sub
+args=fact_results_fine --plug-classes fine --xsets XA,XB,XC
+n_jobs=1
+script=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a3/fact_wpa3.py
+script_md5=654d9e7a97c649c422a09b8b8b0345f1
+completed_utc=2026-10-27T14:05:05Z
+result=ExitCode 0, rc=0, fact_results_fine.json present; wall_s=102 condor_days=0.00118
+campaign_total_condor_days=0.00637

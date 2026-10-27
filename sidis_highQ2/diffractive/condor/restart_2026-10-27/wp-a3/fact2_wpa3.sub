@@ -1,0 +1,17 @@
+# WP-A3 (restart 2026-10-27) factorisation analysis: 1 job, reads data/restart_2026-10-27/wp-a3/skims/*.npz.
+# Run 2 (pre-registered fine Plug classes). Submit: condor_submit fact2_wpa3.sub
+universe        = vanilla
+arguments       = fact_results_fine --plug-classes fine --xsets XA,XB,XC
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/fact_wpa3_job.sh
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/logs/fact2_$(Cluster).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/logs/fact2_$(Cluster).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/logs/fact2_$(Cluster).log
+request_memory  = 24576
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 10800
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue

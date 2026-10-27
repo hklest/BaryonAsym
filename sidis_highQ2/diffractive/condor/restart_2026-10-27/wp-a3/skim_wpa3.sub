@@ -1,0 +1,21 @@
+# WP-A3 (restart 2026-10-27) skim submit file. One job per merged input (17).
+# Worker: scripts/restart_2026-10-27/wp-a3/skim_wpa3.py via skim_wpa3_job.sh.
+# Submit: condor_submit skim_wpa3.sub   (queue file queue_skim.txt: label,kind,input,mem,rt,disk)
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/skim_wpa3_job.sh
+arguments       = $(label) $(kind) $(input)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/logs/skim_$(label).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/logs/skim_$(label).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/logs/skim_$(Cluster).log
+request_memory  = $(mem)
+request_disk    = $(disk)
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = $(rt)
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+on_exit_remove  = True
+notification    = Never
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+queue label, kind, input, mem, rt, disk from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a3/queue_skim.txt
