@@ -306,6 +306,11 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - 2026-10-27 P2b (execute): done; with-Z data-vs-MC figures without MAPTMD24 (note all cells, paper h+ Q2<700, letter combined) + medians CSV (data/MC PYTHIA 1.00, SHERPA 1.00, RAPGAP 1.11, DJANGOH 1.05), RAPGAP/DJANGOH from esigmaphotonxf C_rad sigma_nonrad, docfigs installed as 3 new files, Condor 5917678, h1-plot-reviewer PASS, critic PASS; deferred: caption caveats (P3), PYTHIA e+/e- weight swap (negligible), C_rad e+ fraction 0.544 vs 0.514 check
 - 2026-10-27 C_rad beam fraction check (h1-radiative-correction): applied f(e+p)=0.544 correct (processed lumi, L_eff 350.9 pb^-1); 0.514 stale; no rerun; f stated in note C_rad footnote
 - 2026-10-27 P3: done; three documents at esigmaphotonxf_2026-10-27 (note restructured; level-matched comparisons; budget, DIFFVM table), committed locally, note bdb9869, paper 607ec43, letter 54b7ff2; deferred: push (P4); note merge with Overleaf commits (executor); MAPTMD24 α_em confirmation; PYTHIA beam-label check; hyperon double-count check (h1-systematics)
+- 2026-10-27 executor: note merged Overleaf results edits (83dea0b + b4a6b27, build clean); letter fork 992b7bd not merged (stale, predates user's later edits on main); deferred: edition-shift paragraph decision (h1-systematics check)
+- 2026-10-27 h1-systematics: hyperon/material shares double counted (detint norm leg vs bgsub_env100_hyp and nonprimary_int); conservative, quoted total median <0.003 pp, max 0.5 pp (one sparse h+ bin)
+- 2026-10-27 decision: double count, "Quantify the ratio first"; C_rad 'Status and Caveats' subsection, "Remove it."; MAPTMD24 α_em draft marker, "Leave the draft marker"
+- 2026-10-27 h1-systematics: double count on R/A_h negligible (p95 <1% of total, max 6% in cell 218; removal only lowers); dropped z>=0.2 shift paragraph was an observable-definition change vs an earlier release, not model dependence
+- 2026-10-27 decision: double count, "Fix it" (drop the detint ±100% norm leg and cov_detint_norm_rank1; reinstall at a new tag as P1b, user sign-off before s15); old-release references, "We want no reference to old releases in the note."; C_rad combined-beam scope sentence, "Restore one sentence"
 
 ## Todo
 
@@ -313,6 +318,7 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 - [x] P1 execute: closure toys, budget, coverage gate PASS, hostile review, user sign-off, `s15`, `s16`, `s18`, audit
 - [x] P2: plot set and docfigs at `NEWTAG`, plot review PASS
 - [x] P3: three documents updated, built, reviewed, committed (pushed per Decision 10)
+- [ ] P1b: detint norm leg removed, budget/cov/gate/package at new tag, user sign-off, s15, s16, s18; then P2/P3 refresh (budget figures, document numbers)
 - [ ] P4: freeze record, tags, read-only dirs, `freeze_verify` PASS
 - [ ] P5: handoff, RUN_STATUS, CONTEXT.md, INDEX.md; `EPLAN`/`CPLAN` ticked; two old plans marked superseded
 - [ ] P6: curator close-out, facts superseded, history lines, workspace commit
