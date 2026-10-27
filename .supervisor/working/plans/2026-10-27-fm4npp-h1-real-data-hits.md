@@ -1,6 +1,7 @@
 # Plan: real H1 hit-level data for FM4NPP pretraining
 
-Date: 2026-10-27, annotation cycle 1 on 2026-10-27. Stage: planning (program with work packages).
+Date: 2026-10-27, annotation cycles 1 (2026-10-27) and 2 (2026-10-28). Stage: planning (program with
+work packages).
 Research artifacts:
 `/data/dust/group/h1/klesthen/BaryonAsym/.supervisor/working/research/2026-10-27-fm4npp-h1-real-data-blockers.md`
 (cited as "research §n") and
@@ -21,16 +22,17 @@ Produce real H1 HERA-II hit-level inputs in the `hits` tree format of `$H/extrac
 FM4NPP converter `h1_to_fm4npp.py` (LCRC only) reads real data as it reads simulation. Real data
 takes the NDB-driven path (`$R/calib_consts/py/h1hits.py` with per-run `consts_<run>.json`, h1rec
 coordinates from `calibprobe`), never the MC geometry or calibration hard-coded in
-`$H/extract_hits.C:16-57`.
+`$H/extract_hits.C:16-57`, and only events passing the H1OO standard run and detector-status
+selection (D17).
 
 Non-goals: changing the simulation chain or `extract_hits.C`; changing the converter on LCRC;
 forward tracker, LAr, SpaCal; 2003-2004 and HERA-I data; supervised truth labels for data (none
 exist, research B10).
 
-Expected change size: about 1,550 lines across the program: WP0 parity script about 150 lines of
-Python; WP1 writer and checks about 600; WP2 job wrapper, submit file and layout about 150; WP3
+Expected change size: about 1,650 lines across the program: WP0 parity script about 150 lines of
+Python; WP1 writer, run-list dump and checks about 700; WP2 job wrapper, submit file and layout about 150; WP3
 about 100 (one flag in `calibprobe.C`, one submit, one diff script); WP4 and WP5 about 200 each;
-WP6 documentation about 150. This plan is about 560 lines.
+WP6 documentation about 150. This plan is about 640 lines.
 
 ## Approach
 
@@ -66,8 +68,8 @@ Rejected alternatives (one line each):
 ## Decisions
 
 Defaults D1-D4 were adopted by the supervisor after the user answered "continue" without choosing;
-D5 is the supervisor's recommendation from annotation cycle 1; the user may overturn each at plan
-approval. D6-D16 are lead decisions with evidence.
+D5 is the supervisor's recommendation from annotation cycle 1 and D17 from annotation cycle 2; the
+user may overturn each at plan approval. D6-D16 are lead decisions with evidence.
 
 - **D1 Converter (default; confirm).** Match the `hits` tree schema of the current
   `$H/extract_hits.C` (reference file `$MC0`, 110 branches: 4 `Int_t`, 56 `vector<float>`, 50
@@ -78,7 +80,7 @@ approval. D6-D16 are lead decisions with evidence.
   presented as truth (`is_data = 1`, D7).
 - **D3 First-release scope (default; confirm).** 2007 e+p, HAT selection `Q2e>5`. WP1 converts
   `$R/lam/` (57,038 events, 47 runs). WP2 extracts the first 5,000 `Q2e>5` events of each of the 112
-  2007 mODS files, about 560k events. Rationale: about 10× the existing sample and 5× the 100k MC
+  2007 mODS files, about 560k events before the D17 selection. Rationale: about 10× the existing sample and 5× the 100k MC
   pools (`$H/production/sherpa100k*`, `pythia100k`); about 6 min per file at 0.07 s/event; about
   85 GB of text dumps (about 150 KB per event: `events.txt` 160 MB per 1,501 events in
   `$R/lam/c070060/calib/`, `cjcprobe.txt` 26 MB, `dataprobe.txt` about 30 KB per event) and about
@@ -113,10 +115,13 @@ approval. D6-D16 are lead decisions with evidence.
   same leaf type; truth branches are empty vectors, `n_str_all = n_svx_all = 0`. Additive data-only
   branches, all in the allowlist of `$D/validation/check_schema.py`: scalars `is_data` (Int_t, 1),
   `cjc_t0` (Float_t, ticks), `cjc_t0_src` (Int_t, D11: 0 = HAT `T0_CJC`, 1 = run default,
-  2 = `cjavt0`); vectors `cjc_trk_x/y/z` (D5), `coz_trk_x/y/z` (D12), later `cst_sp_*` (D13). Each
-  file also holds a `meta` TNamed with JSON provenance (run list, event counts, skipped CJC-off
-  events, T0 source counts, sha256 of `h1hits.py` and of each `consts_<run>.json`, probe paths,
-  NDB path, date). Raw CJC words follow the MC convention `cjc_drift_raw = DL*0.001`
+  2 = `cjavt0`), `run_selected` (Int_t, D17), `run_quality` (Int_t, `H1RunQuality::ERunQual` 0-3),
+  `det_on` (Int_t, D17 status verdict); vectors `cjc_trk_x/y/z` (D5), `coz_trk_x/y/z` (D12),
+  `hv_off`, `caen_off`, `bbl3_off` (`vector<int>`, indices of status bits that are off, D17), later
+  `cst_sp_*` (D13). Each file also holds a `meta` TNamed with JSON provenance (run list, event
+  counts, D17 selection counters `seen`, `rejected` (the union, with its shares by run list and by
+  status bits) and `empty` after selection, so seen == written + rejected + empty; T0 source counts; sha256 of `h1hits.py`, of each `consts_<run>.json` and
+  of the run-list and run-quality tables; probe paths, NDB path, date). Raw CJC words follow the MC convention `cjc_drift_raw = DL*0.001`
   (`extract_hits.C:159`); in data `DL` is time in FADC ticks (1/50 clock,
   `$R/calib_consts/py/h1hits.py:7`), documented in WP6.
 - **D8 Writer technology.** PyROOT in the LCG environment after `thish1.sh` (Python 3.11.9, ROOT
@@ -133,8 +138,12 @@ approval. D6-D16 are lead decisions with evidence.
   step, not a re-extraction. Text dumps are kept (about 85 GB, D3); if DUST space runs short,
   `events.txt` and `cjcprobe.txt` may be deleted after a file's validation passes, since
   re-extraction costs about 6 min per file.
-- **D10 CJC-off events.** Skip events with zero CRJE hits and count them in `meta`. Run 492559 is
-  CJC-off per event, not per run (1,316 of 1,501 events empty, 185 with hits), so no run veto.
+- **D10 CJC-off events.** The D17 status cut is the primary handling. As a safety net the writer
+  still skips any surviving event with zero CRJE hits and counts it in `meta` (expected about 0; a
+  non-zero count means a CJC-off state the status bits miss and is reported, not hidden). Run
+  492559 is CJC-off per event, not per run (1,316 of 1,501 events empty, 185 with hits), and the
+  `SelectedRuns.root` list rejects it; it serves as the validation case of the Slice 1
+  `hv_vs_cjc_off` test.
 - **D11 Event T0.** Primary: the h1rec event T0 `DMIS TZERO_M`, read from the HAT branch `T0_CJC`
   (`/data/dust/group/h1/britzger/lcg-releases/build-4.2.1/h1oo/H1Filler/H1HatFiller.C:855`
   fills it from `GetTzero_m()`) joined by `(run, event)`; `cjc_t0_src = 0` for every joined HAT
@@ -194,6 +203,42 @@ approval. D6-D16 are lead decisions with evidence.
     control median exceeds 5 mm (about 10 mm measured); DCLH match ≥ 99% stays as a
     reproducibility check; |Δz| versus CSHY is reported, not thresholded (partly circular, A3).
   - *CIP/COP (WP5).* Set in its research stage.
+- **D17 Run and detector-status selection (supervisor recommendation; confirm at approval).** The
+  lam/ sample and the earlier plan selected on `Q2e>5` only (`$R/lam/job.sh:12`), so runs outside
+  any good-run list and events with CJC HV off are in. WP2, and WP0/WP1 on the lam/ sample
+  retroactively, apply the H1OO standard data selection: the run is accepted by an `H1RunList`
+  AND, per event, `H1DetectorStatus::IsOn` holds for the exported subdetectors (CJC1, CJC2, COZ;
+  CST and CIP added when WP4 and WP5 land). This is what `H1AnalysisGoodRunCut.C:80-92` does
+  (`IsOn` AND `IsSelected`), and H1OO refuses a data chain without it (`H1AnalysisChain.C:718`).
+  `IsOn` (`H1DetectorStatus.C:833-860`) reads the HAT branches `Mhv1[43]`, `Mhv2[31]` (CAEN) and
+  `Mbbl3[16]`, filled per event from DMIS `Kslow1/Kslow2/Kbbl3` (`H1HatFiller.C:301-313`); a bit
+  equal to 1 means off. Bits per subdetector (`H1DetectorStatus.C` setters): CJC1 = HV 0 + CAEN 0;
+  CJC2 = HV 1 + CAEN 1, 2; COZ = HV 3 + CAEN 4-6; CJC BBL3 0; CST = HV 36; CIP = HV 7 + CAEN 11.
+  No trigger-phase or trigger-element requirement: physics-analysis extras pretraining does not
+  need. Measured on the first 20k HAT events of c070060: CJC1 off 0.21%, CJC2 off 0.17%.
+  - *Run list.* `$W/H1BaryonAsym/SelectedRuns.root` (`H1RunList`, 16,967 accepted runs
+    399629-500611, 297.6 pb^-1, `$W/CONTEXT.md:75`; the low-Q2 V0 list, read the same way in
+    `$W/H1BaryonAsym/src/TreeBuilder_v7.C:288-302,857-862`). It is an `oolumi` product: good and
+    medium runs, poor rejected (`oolumi.C:313,328-333`), built with CJC1, CJC2, CIP, LAr, ToF, Lumi
+    and BDC HV required. It accepts 45 of the 47 lam/ runs (rejects 492559 in `c070000` and
+    500490 in `c070108`). H1OO ships no default list: `goodruns9400.txt`
+    (`H1AnalysisSteer.C:23`) is a default file name only, and lists are built from the NDB
+    run-quality table with `oolumi`. Alternatives: `$W/H1ChargedSidis_HighQ2/LumiFiles/nc_goodruns_0607.root`
+    (8,091 runs 468532-500611, 140.3 pb^-1, high-Q2 NC list, same CJC bits), or a new `oolumi`
+    list requiring only CJC and COZ HV, which is also the only route for 07low/07med: no local list
+    covers 500918-511079 (Q3).
+  - *Where.* In the writer, as a filter on `(run, event)` at write time, not in the probes. The
+    status words sit on the HAT the writer already joins for `T0_CJC` (D11), so the dumps need no
+    HV word and the probes stay unchanged (D9); the lam/ dumps are filtered without re-extraction;
+    a rejected event costs probe time only (about 0.07 s). Rejected: `H1AnalysisGoodRunCut` inside
+    `calibprobe` (edits the frozen C++ and changes the dumps' event sets). The run list and the
+    run-quality class are dumped once to text tables under `$D/writer/runlist/` (sha256 in `meta`)
+    from `SelectedRuns.root` and `H1RunQuality` (`oolumi.C:300-313`), so the PyROOT writer never
+    loads the H1OO libraries.
+  - *Stored.* `run_selected`, `run_quality`, `det_on`, `hv_off`, `caen_off`, `bbl3_off` per event
+    (D7), so the selection can be tightened later from the trees; relaxing it means rerunning the
+    writer with `--select none` on the kept dumps (D9). `meta` holds the D7 counters so each
+    criterion's removal fraction is reported (Slices 1 and 2).
 
 ## Outline
 
@@ -226,8 +271,12 @@ Pointers to follow; signatures are the contract, bodies are executor's.
   `events.read_events` where it fits; the writer must not edit `$R`. The `# CJCC` line is ignored (D11).
 - `read_cjcprobe(path) -> iter[(run, evt, raw_hits, trk, crze)]`: `EV`, `TRK`, `RAW CRZE`, `HIT wire dl qplus qminus flag1 flag2`
   (`$R/cjcprobe/cjcprobe.C:30-70`); `HIT` lines belong to the preceding `EV`, banks concatenated.
-- `read_hat_t0(hat_file) -> dict[(run, event) -> T0_CJC]`: uproot on the HAT branches
-  `RunNumber`, `EventNumber`, `T0_CJC` (D11).
+- `read_hat(hat_file) -> dict[(run, event) -> (T0_CJC, Mhv1, Mhv2, Mbbl3)]`: uproot on the HAT
+  branches `RunNumber`, `EventNumber`, `T0_CJC` (D11), `Mhv1`, `Mhv2`, `Mbbl3` (D17).
+- `select(run, status, run_table) -> (run_selected, run_quality, det_on, hv_off, caen_off, bbl3_off)`:
+  `det_on` replicates `H1DetectorStatus::IsOn` for the D17 bit set (`H1DetectorStatus.C:860-861`,
+  index only the listed bits; the HAT arrays are shorter than the class loops); `run_selected` and
+  `run_quality` from the text tables of `dump_runlist`.
 - `join(events, cjc) -> iter[Event]`: key `(run, evt)`; both dumps are in mODS order with equal
   `EV` counts (1,501 per lam dir). Invariant: every `XR` row maps to exactly one raw hit through
   `kdr -> H row -> (wire, dl)` after `CJC.qht8(row)` (`h1hits.py:40`); unmapped rows are an error.
@@ -240,13 +289,22 @@ Pointers to follow; signatures are the contract, bodies are executor's.
 - `fill_tree(tree, vectors)`: branch declarations mirror `extract_hits.C:121-247` one-to-one (names,
   `std::vector<float>` versus `std::vector<int>`, scalar Int_t for `run`, `event`, `n_str_all`,
   `n_svx_all`); plus the D7 additions and the `meta` TNamed.
-- CLI: `write_hits_data.py --lam-dir <dir> --consts-dir <dir> --hat <file> --out <hits_part_X.root> [--max-events N]`;
-  the consts json is chosen per event by run (1-3 runs per lam dir).
+- CLI: `write_hits_data.py --lam-dir <dir> --consts-dir <dir> --hat <file> --run-table <txt> --out <hits_part_X.root> [--max-events N] [--select standard|none]`;
+  the consts json is chosen per event by run (1-3 runs per lam dir); `--select none` writes every
+  event with the D17 branches filled (D17 relaxation path).
 - Gotchas: `python3` after `desygroupset h1` and `thish1.sh`, never `python3 -I` (D8); `cjkr_*`
   column mapping must follow the CJKR bank layout used by `extract_hits.C:189-198` (28 raw words
   per row in `events.txt`; `cjkr_cov9` only if the words exist, else empty); COZ `CRZE` rows are
   six unsigned words (`events.txt` `CRZE i <6>`); a lam dir can hold `EV` lines with no `HIT`
   lines (D10).
+
+`$D/writer/runlist/dump_runlist.py` (new, WP1, about 40 lines)
+- Writes `runs_selectedruns.txt` (columns run, selected, quality, lumi) from the `H1RunList` of
+  `SelectedRuns.root` (read as `TreeBuilder_v7.C:857-862`) and `H1RunQuality::Quality(run)`
+  (`oolumi.C:300-313`, needs the NDB). Needs the H1OO libraries: in PyROOT load ROOT `libEG` first,
+  then the libraries in `ldd oolumi` order (`TDatabasePDG::Instance` is otherwise undefined;
+  checked 2026-10-28); if the NDB access does not work from PyROOT, build it as a small C++ program
+  in the `oolumi` pattern instead. Run once per list; output and sha256 recorded in `meta`.
 
 `$D/validation/check_schema.py` (new, about 80 lines)
 - `compare(data_file, ref_file, allowlist) -> report`: branch name and leaf type sets via uproot
@@ -306,13 +364,15 @@ WP0-WP2 (disjoint files; WP3 never replaces `$R/calib_consts/bin/calibprobe`).
    `$H/production/realdata_2007ep/lam_q2e5/hits/` plus schema and validation reports.
    Units: (a) writer, (b) `check_schema.py`, (c) `validate_data_cjc.py` (disjoint files).
    Tests: `schema_parity: hits_part_c070060.root vs $MC0 -> PASS, extras ⊆ allowlist`;
-   `event_count: c070060 -> 1501 minus skipped empty events, skipped count in meta`;
+   `event_count: c070060 -> 1501 minus (rejected + empty) events, both counts in meta`;
    `xr_mapping: every XR row of c070060 -> exactly one raw hit (0 unmapped)`;
    `h1hits_regression: python3 -I py/validate_cjc.py . in $R/calib_consts -> 0.9442 within 10 µm`;
    `exact_path_lam: 38 files -> pooled 0.926 ± 0.01, every run ≥ 0.91`;
    `representation_parity: validate_data_cjc.py on the 38 files -> within the WP0 tolerances (D16 r-φ and z)`;
    `t0_src: every event has cjc_t0_src in {0, 1, 2}; events with a HAT T0_CJC have 0; meta counts match`;
-   `cjc_off: c070000 -> 1316 events skipped, 185 written`;
+   `run_list: 38 files -> exactly runs 492559 (c070000) and 500490 (c070108) rejected by the run list, every other run accepted`;
+   `hv_vs_cjc_off: c070000 with --select none -> all 1,316 zero-CRJE events have det_on == 0 (CJC1 or CJC2 bits off)`;
+   `selection_fractions: meta of the 38 files -> D17 counters present, pooled fractions by run list and by status bits printed, seen == written + rejected + empty in every file`;
    `truth_empty: any file -> all (f)-group branches empty, n_str_all == 0, is_data == 1`.
    Checkpoint: one lam dir on the login node (one file, under 5 min), then the 38 dirs as one
    Condor job array (`$D/condor/lam_convert.sub`), then `check_schema.py` and
@@ -320,10 +380,11 @@ WP0-WP2 (disjoint files; WP3 never replaces `$R/calib_consts/bin/calibprobe`).
 2. **WP2: Condor extraction, 2007 e+p.** Delivers `$H/production/realdata_2007ep/q2e5_n5000/`
    with 112 `hits_part_<file>.root`, dumps and logs. Units: (a) `job_realdata.sh`, (b) `.sub`
    and layout, (c) in-job validation call (reuses WP1 scripts).
-   Tests: `smoke: c070060, -n 300 on Condor -> DONE, hits file with 300 minus skipped events, schema PASS`;
+   Tests: `smoke: c070060, -n 300 on Condor -> DONE, hits file with 300 minus (rejected + empty) events, schema PASS`;
    `multi_run: a file whose first 5000 events span 2+ runs -> per-event consts selection, meta lists all runs`;
    `production: 112 files -> 112 DONE, sum of events in meta about 560k, 0 jobs over runtime`;
-   `validation_sample: validate_data_cjc.py on every 10th file -> D16 thresholds`.
+   `validation_sample: validate_data_cjc.py on every 10th file -> D16 thresholds`;
+   `selection_fractions: 112 metas -> run-list and status-bit fractions printed per file and pooled; pooled status-bit fraction in accepted runs below 1% (D17)`.
    Checkpoint: `condor_submit $D/condor/realdata_2007ep.sub`, then `ls .../hits | wc -l` = 112 and the
    validation JSONs.
 3. **WP3: constants for 2005, 2006, 07low/07med.** Delivers `$D/consts/<period>/consts_<run>.json`
@@ -379,9 +440,10 @@ checks.
   c070060 `Q2e>150` (89 events); 634 and 604 µm are robust σ against CJKR circles; the data
   track-free 95% quantile is 7.3 mm. The default representation is judged against MC (D16), not
   against a resolution target.
-- **CJC-off and HV-off events.** Run 492559 has 1,316 of 1,501 events empty; no local good-run or
-  HV list exists (only `CJAC`/`SLOWSTA1` in-process). D10 skips empty events; partial HV states are
-  not detected.
+- **Selection coverage.** The run list is stricter than CJC/COZ alone and ends at 500611 (D17, Q3).
+  The status words update about every 10 s (`H1AnalysisGoodRunCut.C:79`), so shorter trips pass,
+  and a partially read-out CJC (some sectors off) is not a status bit; the D10 empty-event skip and
+  the reported `meta` counters cover the gross case only.
 - **Period coverage.** 2005 and 2006 e− constants are validated on about 30 events each (A4); the
   2006 e+ hit-level check is missing (needs a CJC-on file); `mirror/acs/data/05` does not exist
   yet; dst7/gmcut tape locality was not checked.
@@ -410,8 +472,8 @@ the converter (LCRC); forward tracker, calorimeters; 2003-2004, HERA-I; exact CJ
 (CJCREC rerun; DMIS/HAT replaces it, D11); track-dependent CJC corrections in the default
 coordinates (`CJHLXE/CJHLXH` terms, README:141-147; D5, executor must not reopen); moving `$R`
 into the workspace; editing the two research artifacts (WP6 appends an erratum note instead).
-No user decisions are recorded in memory for this topic; D1-D4 are supervisor defaults and D5 the
-supervisor's recommendation until the user confirms them.
+No user decisions are recorded in memory for this topic; D1-D4 are supervisor defaults and D5 and
+D17 the supervisor's recommendations until the user confirms them.
 
 ## Assumptions
 
@@ -422,8 +484,8 @@ supervisor's recommendation until the user confirms them.
 - The AFS NDB (`/afs/desy.de/group/h1/ndb_read_only_dp`) stays readable; checked at every job start
   (job.log line "H1 Master Database").
 - About 100 GB free on DUST under `$H/production/`; checked with `df` before WP2 submission.
-- The HAT files named in each lam dir's `s.steer` are still readable for the `T0_CJC` join;
-  checked by WP1's `t0_src` test.
+- The HAT files named in each lam dir's `s.steer` are still readable for the `T0_CJC` and
+  status-word join (D11, D17); checked by WP1's `t0_src` and `selection_fractions` tests.
 
 ## Work Packages
 
@@ -440,8 +502,8 @@ supervisor's recommendation until the user confirms them.
 ### WP1: lam/ to hits tree and schema parity
 - Goal: convert the 38 `$R/lam/` dumps into `hits` trees; done when `check_schema.py` passes on all
   38 files against `$MC0` and the Slice 1 tests hold.
-- Owns: `$D/writer/`, `$D/validation/` except `parity/`, `$D/condor/lam_convert.sub`,
-  `$H/production/realdata_2007ep/lam_q2e5/`
+- Owns: `$D/writer/` (including `runlist/`), `$D/validation/` except `parity/`,
+  `$D/condor/lam_convert.sub`, `$H/production/realdata_2007ep/lam_q2e5/`
 - Deps: WP0
 - Stages: execute
 - Status: blocked: execute: WP0 parity verdict must be PASS
@@ -511,7 +573,8 @@ Each with the recommended answer; D1-D5 stand until the user answers.
 - **Q2** Is pretraining self-supervised, or does it consume labels? Recommended: self-supervised;
   pseudo-labels stay optional (D2).
 - **Q3** Include 07low/07med (460/575 GeV) in WP3? Recommended: yes for pretraining; drop if the
-  inputs must match the 319 GeV analysis.
+  inputs must match the 319 GeV analysis. If yes, their extraction needs a run list built with
+  `oolumi` (none in the workspace covers 500918-511079, D17); WP3 constants are unaffected.
 - **Q4** First-release size: 5,000 events per file (about 560k) as in D3, a stride within each
   file (`fHatSelection = "Q2e>5 && EventNumber%29==0"`; HAT has `RunNumber`, `EventNumber`, `Q2e`),
   or more? Recommended: D3, then scale by `-n`.
@@ -544,16 +607,25 @@ Each with the recommended answer; D1-D5 stand until the user answers.
   `CJXR ZHIT` (track-pulled); source: lead
 - 2026-10-27 decision: D15 WP3 owns the `mirror/acs/data/05/dst7` symlink; IVRSQT 2 and a
   missing `C3Z8` need no special handling; source: lead
+- 2026-10-28 planner: annotation cycle 2 (user question on good-run selection); D17 added, D7,
+  D10, Outline, Slices 1-2, Verification, Risks, Q3 revised; deferred: none
+- 2026-10-28 decision: D17 data events pass the H1OO standard selection, run accepted by the
+  `H1RunList` of `H1BaryonAsym/SelectedRuns.root` AND `H1DetectorStatus::IsOn` for CJC1, CJC2,
+  COZ (CST, CIP later) from the HAT status words, applied in the writer; no trigger requirement;
+  `run_selected`, `run_quality`, `det_on` and the off-bit lists stored per event; alternative list
+  `nc_goodruns_0607.root` or a new `oolumi` list; source: supervisor default, user to confirm
 
 ## Todo
 
 - [ ] WP0 `parity_cjc.py`: `mc_residuals` on `$MC0`, `data_residuals` on the 38 lam dirs (login
       smoke on ≤ 5), `compare`
 - [ ] WP0 four PNGs and `parity.json`; verdict PASS or return to the user
-- [ ] WP1 writer: `read_events`, `read_cjcprobe`, `read_hat_t0`, `join`, `coords`, `fill_tree`, CLI, `meta`
+- [ ] WP1 writer: `read_events`, `read_cjcprobe`, `read_hat`, `join`, `select`, `coords`, `fill_tree`, CLI, `meta`
+- [ ] WP1 `dump_runlist.py` (run list and run quality tables, sha256); D17 branches; `run_list`,
+      `hv_vs_cjc_off` and `selection_fractions` tests
 - [ ] WP1 `check_schema.py` with the D7 allowlist; run against `$MC0`
 - [ ] WP1 `validate_data_cjc.py`; run `h1hits_regression` first
-- [ ] WP1 login-node run on one lam dir; Condor array over 38; the nine Slice 1 tests
+- [ ] WP1 login-node run on one lam dir; Condor array over 38; the eleven Slice 1 tests
 - [ ] WP2 `job_realdata.sh` (probes + dataprobe + writer `--hat`) and `.sub`
 - [ ] WP2 smoke `c070060 -n 300`; `df` check; production 112 files; validation every 10th file
 - [ ] WP3 `CONSTS_ONLY` flag in `calibprobe.C`, built as `bin/calibprobe_consts`; byte-identity test on c070060
