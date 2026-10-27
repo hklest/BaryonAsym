@@ -211,7 +211,7 @@ and are closed.
   `HQ/output_v6/studies/esigma_final_2026-10-24/`, `DR/` new tag, `SQ/docs/promotions/<NEWTAG>_preedit/`.
 - Deps: none
 - Stages: plan, execute
-- Status: execute
+- Status: done
 - Artifacts: `CPLAN` (rev 3 in place); `->`
 - Scope Notes: `planner` writes rev 3 (annotation cycle, Decisions 2-4). `executor` briefs
   `h1-unfolder` (closure toys, treatment R), `h1-systematics` (budget assembly, coverage gate,
@@ -297,11 +297,13 @@ None open. Open Questions 1-3 were answered by the user on 2026-10-27 and moved 
 
 - 2026-10-27 decision: plan approved by user ("Approve and start P1"); OQ1: DIFFVM — no default subtraction or uncertainty term; per-bin table of bins with any diffractive-rho contribution, fraction of tracks from it, and recommended uncertainty on a subtraction if theorists subtract; OQ2: omit the one-track ΔE<0 excess from the note; OQ3: P6 commit scope = everything (text) under sidis_highQ2/docs/
 - 2026-10-27 P1 (plan): done; CPLAN rev 3 written in place (DIFFVM term removed not replaced, per-bin DIFFVM table D24, stored toys/s03 reused, 26/28 terms, ~9 Condor jobs); program plan Decisions 12-14 + P1/P3/P6 Scope Notes; critic PASS round 2; deferred: none
+- 2026-10-27 decision: user sign-off for s15 install of esigmaphotonxf_2026-10-27 after fixing hostile-review NITs F7–F9 ("Install, after fixing F7–F9"); DIFFVM per-bin CSVs gain an explicit `sign` column ("Yes, add it"; D24 amended)
+- 2026-10-27 P1 (execute): done; esigmaphotonxf_2026-10-27 installed (s15 Condor 5911769, 54/54 gates, DR/INSTALL_RECORD_esigmaphotonxf_2026-10-27.json), s16 21/21 and s18 6/6 EDITED, post-install audit PASS, old_untouched 266/266, DIFFVM table with sign column; deferred: figures (P2), note text F3–F5 and table printing (P3), freeze (P4), plan ticks (P5)
 
 ## Todo
 
-- [ ] P1 plan: `CPLAN` rev 3 written (Decisions 2-4 folded in, OQ1 answer recorded)
-- [ ] P1 execute: closure toys, budget, coverage gate PASS, hostile review, user sign-off, `s15`, `s16`, `s18`, audit
+- [x] P1 plan: `CPLAN` rev 3 written (Decisions 2-4 folded in, OQ1 answer recorded)
+- [x] P1 execute: closure toys, budget, coverage gate PASS, hostile review, user sign-off, `s15`, `s16`, `s18`, audit
 - [ ] P2: plot set and docfigs at `NEWTAG`, plot review PASS
 - [ ] P3: three documents updated, built, reviewed, committed (pushed per Decision 10)
 - [ ] P4: freeze record, tags, read-only dirs, `freeze_verify` PASS

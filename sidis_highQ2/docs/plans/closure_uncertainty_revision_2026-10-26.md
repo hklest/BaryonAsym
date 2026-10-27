@@ -174,7 +174,7 @@ New in rev 3:
   derivation in the header). Output: `TBL/diffvm_perbin_<NEWTAG>_{pos,neg}.csv`, one row per gen bin
   (245 per charge, all bins, so a theorist applies it uniformly), columns:
   `charge, bin_index, global_bin_index, cell_label, q2_min, q2_max, x_min, x_max, z_min, z_max,
-  pT_min, pT_max, sigma_nb, frac_full_template, frac_datatuned, unc_1sigma, unc_ul95, any_contribution`
+  pT_min, pT_max, sigma_nb, frac_full_template, frac_datatuned, unc_1sigma, unc_ul95, any_contribution, sign` (sign column added, user 2026-10-27: s_i = sign(`diffvm_rho_signed_rel`), used in σ→σ·(1 − s_i·`frac_datatuned`) and ρ_ij = s_i·s_j)
   where `frac_full_template` = |`diffvm_rho_signed_rel`| (the relative change of the Born cross
   section if DIFFVM at its own generator cross section, lumi-scaled by 0.135913, were subtracted),
   `frac_datatuned` = 0.07952 × that (the central subtraction a theorist would apply),
