@@ -109,7 +109,7 @@ material items (also in `## Open Questions`).
   2 p_L*/M_X with x_F > 0 along the Pomeron (proton) direction, the parent's proton-positive
   convention (`.supervisor/memory/decisions/2026-10-24-xf-gamma-p-frame-not-lab.md`) and the
   opposite sign to PLB 428 (1998) 206 (sign confirmed in Open Q2); p_T*² transverse to that axis. Reco p_X = stored HFS
-  4-vector `phE/phPx/phPy/phPz` (`…_v6dif.C:2535-2540`); γ* from the eSigma photon
+  4-vector `phE/phPx/phPy/phPz` (`…_v6dif.C:2535-2540`): two reco estimators are carried (A: stored HFS 4-vector; B: collinear q_eSigma + ξP with mass = mx), frame not frozen until WP-E delivers the gen X 4-vector (WP-C C-decisions); γ* from the eSigma photon
   (`esigma_photon.py:19 reco_photon_electron`); reco track mass = pion, gen mass = PDG (parent
   convention). Gen p_X = new writer branch; interim proxy q + x_IP·P. Hadron fiducial = parent
   tracker phase space \|η_lab\| < 1.6, 0.15 ≤ pT ≤ 15 GeV, π/K/p from X, V0 and conversion daughters
@@ -184,7 +184,7 @@ Pointers only; `executor` writes the code in the child plans.
   p_X = full gen HFS less lepton-line photons; set a flag branch.
 - `P/scripts/unfolding/esigma_final_2026-10-24/esigma_xf.py` (`xf_frame`, `_boost_to_W_rest`,
   `gen_truth`, `isr_tag`, `e_eff`, `gen_mass`) → fork `xframe_obs.py` under
-  `D/scripts/restart_2026-10-27/wpC/`: boost to the p_X rest frame; reuse `gen_truth` for the
+  `D/scripts/restart_2026-10-27/wp-c/`: boost to the p_X rest frame; reuse `gen_truth` for the
   ISR-only γ*. Invariant: never read the stored `xF_SIDIS_es`/`z_SIDIS_es` (docstring `:1-30`).
 - `P/scripts/canonical_highQ2_sidis_2026-06-30/unfolding/build_migration_th2_per_charge_v6.py`
   (`NB_R/NB_G :162-165`, `EVENT_CUTS_RECO`, `TRACK_CUTS_RECO`, `POOL_PDG`) → fork with the
@@ -220,7 +220,7 @@ their child plans.
 
 ## Verification
 
-End to end: a results package under `D/data/restart_2026-10-27/wpK/` whose README cites passing
+End to end: a results package under `D/data/restart_2026-10-27/wp-k/` whose README cites passing
 records for G1-G5, with per-bin tables for both charges and both axes in all retained M_X bins, a
 systematics CSV in the parent `esph_budget_v2.csv` column style, figures reviewed by
 `h1-plot-reviewer`, a note section reviewed by `h1-analysis-critic`, and `D/context-handoff.md`
@@ -268,10 +268,10 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 ### WP-A: Plug forward-veto probe and gate G1
 - Goal: attribute and correct the Plug veto deficit, re-run the N−1 and η_max GOF gates; done when
   the G1 verdict record exists (pass or kill)
-- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wpA/`
+- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-a/`
 - Deps: none
 - Stages: plan, execute
-- Status: plan
+- Status: execute
 - Lead: `executor` (child plan by `planner`); specialists `h1-naf-operator` (Condor),
   `h1-mc-expert` (overlay semantics; one lookup whether H1 random-trigger event files of EPJC 72
   are accessible), `h1-analysis-critic` (verdict)
@@ -283,15 +283,15 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   control-region event IDs ∩ test-sample IDs -> empty`; `fail_fraction_recomputed: data
   0.207/0.230/0.283 reproduced on the frozen list before any remedy -> |Δ| < 0.002`;
   `threshold_pre_registered: thresholds in the verdict equal this plan's G1 -> identical`.
-  Checkpoint: `D/docs/restart_2026-10-27/wpA/g1_verdict.md` with the numbers of G1(a)-(c).
-- Artifacts: plan-wpA-plug-probe.md (default path); `D/docs/restart_2026-10-27/wpA/g1_verdict.md`
-- Output: `D/docs/restart_2026-10-27/wpA/`, `D/data/restart_2026-10-27/wpA/`
+  Checkpoint: `D/docs/restart_2026-10-27/wp-a/g1_verdict.md` with the numbers of G1(a)-(c).
+- Artifacts: plan-wpA-plug-probe.md (default path); `D/docs/restart_2026-10-27/wp-a/g1_verdict.md`
+- Output: `D/docs/restart_2026-10-27/wp-a/`, `D/data/restart_2026-10-27/wp-a/`
 - Log: —
 
 ### WP-B: selection and kinematic-range re-decision
 - Goal: re-decide every selection and range item from scratch (register R3-R10, R22); done when the
   selection record is signed by `h1-analysis-critic`
-- Owns: `D/docs/restart_2026-10-27/wpB/`
+- Owns: `D/docs/restart_2026-10-27/wp-b/`
 - Deps: WP-A (forward vetoes), WP-C (x_IP purity per M_X bin); the kinematic research proceeds in wave 1
 - Stages: research, plan
 - Status: research
@@ -300,40 +300,40 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Scope Notes: inputs D4 start values; outputs per item: value, alternatives, evidence, systematic
   variation. Includes the Reggeon-fraction check (D4) and the x_IP purity per M_X bin from WP-C.
   Test: `every_register_row_closed: R3-R10, R22 each have keep/change with evidence -> true`.
-  Checkpoint: `D/docs/restart_2026-10-27/wpB/selection_record.md`.
-- Artifacts: `D/docs/restart_2026-10-27/wpB/selection_record.md`
-- Output: `D/docs/restart_2026-10-27/wpB/`
+  Checkpoint: `D/docs/restart_2026-10-27/wp-b/selection_record.md`.
+- Artifacts: `D/docs/restart_2026-10-27/wp-b/selection_record.md`
+- Output: `D/docs/restart_2026-10-27/wp-b/`
 - Log: —
 
 ### WP-C: observable definition, boost, binning and blinded mask
 - Goal: fix D6 operationally, measure resolutions and propose the grid; done when the binning record
   with per-bin purity/stability and the blinded mask is written
-- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wpC/`
+- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-c/`
 - Deps: none (interim gen proxy q + x_IP·P; final gen frame after WP-E)
 - Stages: research, plan, execute
-- Status: research
+- Status: blocked: plan: user U1 grid/mask rule (binning_record.md §open items)
 - Lead: `executor` (stat study), `planner` (binning record); `h1-unfolder` reviews purity/stability,
   `h1-analysis-critic` reviews the frame definition
 - Condor: yes (reads 91 GB of v6dif MC; data on the login node is not allowed either: 658 files)
-- Scope Notes: start grid (estimate, worker arithmetic from ~84k reco tracks/charge): M_X [4,10),
+- Scope Notes: start grid (estimate, worker arithmetic from ~47k weighted (~30k raw MC) reco signal tracks/charge; the earlier 84k figure was the particle-level count (WP-C binning_record.md)): M_X [4,10),
   [10,20), [20,40] GeV; x_F 6 bins [−1,−0.5,−0.2,0,0.2,0.5,1]; p_T*² 4 bins [0,0.25,0.75,2,10] GeV²;
   30 gen bins per charge, reco 2× split. Deliver M_X, x_IP, β, x_F, p_T*² resolutions (T3 gap),
   purity/stability per bin, mask per D7, the T0→reco acceptance chain reconciliation (RA §3.9).
   Tests: `boost_closure: p_X boosted into its own frame -> (M_X, 0,0,0) within 1e-6`;
   `xf_range: all tracks -> −1 ≤ x_F ≤ 1`; `mask_blind: mask sha256 recorded before data fill -> true`;
-  `engine_shape: ibu_unfold on a (31,61) toy -> converges, closure within 1e-3` (Assumption 2).
-  Checkpoint: `D/docs/restart_2026-10-27/wpC/binning_record.md`.
-- Artifacts: `D/docs/restart_2026-10-27/wpC/binning_record.md`, mask JSON with sha256
-- Output: `D/docs/restart_2026-10-27/wpC/`, `D/data/restart_2026-10-27/wpC/`
+  `engine_shape: ibu_unfold on a (61,31) toy -> converges, closure within 1e-3` (Assumption 2).
+  Checkpoint: `D/docs/restart_2026-10-27/wp-c/binning_record.md`.
+- Artifacts: `D/docs/restart_2026-10-27/wp-c/binning_record.md`, mask JSON with sha256
+- Output: `D/docs/restart_2026-10-27/wp-c/`, `D/data/restart_2026-10-27/wp-c/`
 - Log: —
 
 ### WP-D: MC inventory re-judgement and gap list
 - Goal: close the 6671/6677 validity question, PDISS coverage, ND third generator, model variants,
   C_rad pair usability; done when the gap list is signed with owners
-- Owns: `D/docs/restart_2026-10-27/wpD/`
+- Owns: `D/docs/restart_2026-10-27/wp-d/`
 - Deps: none
 - Stages: research
-- Status: research
+- Status: done
 - Lead: `researcher`; `h1-mc-db` first (provenance: SW=70 hat/mods reco validity vs SW=84; SW=77
   re-sims 8329-8341; any SW=84 light-flavour Reggeon; ep0304 PDISS; third ND generator with ODS;
   /acs access to 8221/7448 DST), then `h1-mc-expert` (response-level judgement); the RAPGAP
@@ -342,16 +342,16 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Scope Notes: worker gap table (2026-10-27) is the starting list; luminosity CSV `family` column is
   known mislabelled (do not read it). Any new official MC request is a `user:` item (Open Q3), never
   filed by an agent. Test: `every_gap_has_owner_and_cost -> true`. Checkpoint:
-  `D/docs/restart_2026-10-27/wpD/mc_gap_list.md`.
-- Artifacts: research-mc-gaps.md (default path); `D/docs/restart_2026-10-27/wpD/mc_gap_list.md`
-- Output: `D/docs/restart_2026-10-27/wpD/`
+  `D/docs/restart_2026-10-27/wp-d/mc_gap_list.md`.
+- Artifacts: research-mc-gaps.md (default path); `D/docs/restart_2026-10-27/wp-d/mc_gap_list.md`
+- Output: `D/docs/restart_2026-10-27/wp-d/`
 - Log: —
 
 ### WP-E: re-based production (writer fork, data and MC re-run)
 - Goal: trees with gen X/Y 4-vectors and all v6dif branches for 4 data periods and 13 MC samples,
   validated; done when `h1-data-validator` passes entry counts against v6dif
 - Owns: `P/src/ChargedSidisTreeBuilderHighQ2_v6dif2.C`, `D/output_v6dif2/`,
-  `D/condor/restart_2026-10-27/wpE/`, `D/docs/restart_2026-10-27/wpE/`
+  `D/condor/restart_2026-10-27/wp-e/`, `D/docs/restart_2026-10-27/wp-e/`
 - Deps: WP-A (G1 pass), WP-C (branch list), WP-D (sample list)
 - Stages: plan, execute
 - Status: blocked: plan: gate G1 (WP-A) not passed
@@ -362,15 +362,15 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   recomputed on the new selection with the v3 luminosities (R15). Tests: `branch_parity: every v6dif
   branch present in v6dif2 -> true`; `genX_closure: gen M_X from the new 4-vector vs hatMXGen on
   9012 -> median |Δ|/M_X < 0.02`; `entry_counts: per file equal v6dif -> true`. Checkpoint:
-  validator record in `D/docs/restart_2026-10-27/wpE/`.
+  validator record in `D/docs/restart_2026-10-27/wp-e/`.
 - Artifacts: plan-wpE-production.md (default path); validator record
-- Output: `D/output_v6dif2/`, `D/docs/restart_2026-10-27/wpE/`
+- Output: `D/output_v6dif2/`, `D/docs/restart_2026-10-27/wp-e/`
 - Log: —
 
 ### WP-F: leakage model, fakes and forward-detector response; gate G2
 - Goal: per-M_X-bin ND and Reggeon fractions with a validated normalisation, PDISS mixture and
   fake fractions, noise corrections applied; done when the G2 record exists
-- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wpF/`
+- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-f/`
 - Deps: WP-E, WP-B
 - Stages: plan, execute
 - Status: blocked: plan: WP-E
@@ -379,14 +379,14 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Scope Notes: η_max two-template fit per the §7.1 design on the new selection, both ND alternatives;
   mixture 1.20 ratio re-derived (R11); DF-SYS-01/02 re-evaluated here (R19). Tests:
   `fractions_sum: f_sig+f_nd+f_reg+f_fake per bin -> 1 ± 1e-6`; `g2_table: every M_X bin has f_ND
-  and its uncertainty -> true`. Checkpoint: `D/docs/restart_2026-10-27/wpF/g2_verdict.md`.
+  and its uncertainty -> true`. Checkpoint: `D/docs/restart_2026-10-27/wp-f/g2_verdict.md`.
 - Artifacts: plan-wpF-leakage.md (default path); `g2_verdict.md`
-- Output: `D/docs/restart_2026-10-27/wpF/`, `D/data/restart_2026-10-27/wpF/`
+- Output: `D/docs/restart_2026-10-27/wp-f/`, `D/data/restart_2026-10-27/wp-f/`
 - Log: —
 
 ### WP-G: detector-level distributions and the σ_r^D(3) gate G3
 - Goal: data vs cocktail control plots and the inclusive gate; done when the G3 record exists
-- Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wpG/`
+- Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wp-g/`
 - Deps: WP-F
 - Stages: execute
 - Status: blocked: execute: WP-F
@@ -396,46 +396,46 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   multiplicity, reco x_F and p_T*² per M_X bin, per period. G3 per the gate section (bin-by-bin
   correction suffices for a gate). Tests: `plot_set_complete: every listed variable has a data/MC
   figure with ratio panel -> true`; `g3_points: ratio table vs EPJC 72 (2012) 2074 -> written`.
-  Checkpoint: `D/docs/restart_2026-10-27/wpG/g3_verdict.md`.
-- Artifacts: `g3_verdict.md`; figures under `D/plots/restart_2026-10-27/wpG/`
-- Output: `D/docs/restart_2026-10-27/wpG/`, `D/plots/restart_2026-10-27/wpG/`
+  Checkpoint: `D/docs/restart_2026-10-27/wp-g/g3_verdict.md`.
+- Artifacts: `g3_verdict.md`; figures under `D/plots/restart_2026-10-27/wp-g/`
+- Output: `D/docs/restart_2026-10-27/wp-g/`, `D/plots/restart_2026-10-27/wp-g/`
 - Log: —
 
 ### WP-H: response matrices, unfolding and closure; gate G4
 - Goal: unfolded per-event-normalised spectra per charge with statistical covariance; done when the
   G4 record exists
-- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wpH/`, builder and downstream forks under
-  `D/scripts/restart_2026-10-27/wpH/`
+- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-h/`, builder and downstream forks under
+  `D/scripts/restart_2026-10-27/wp-h/`
 - Deps: WP-G, WP-C
 - Stages: plan, execute
 - Status: blocked: plan: WP-G
 - Lead: `executor`; `h1-unfolder` (method, closure), `h1-analysis-critic`
 - Condor: yes
 - Scope Notes: D8. Tests: `split_closure`, `reweighted_closure` per G4; `fake_fraction_bounds: 0 ≤ f_i
-  < 0.5 -> true`. Checkpoint: `D/docs/restart_2026-10-27/wpH/g4_verdict.md`.
+  < 0.5 -> true`. Checkpoint: `D/docs/restart_2026-10-27/wp-h/g4_verdict.md`.
 - Artifacts: plan-wpH-unfolding.md (default path); `g4_verdict.md`
-- Output: `D/docs/restart_2026-10-27/wpH/`, `D/data/restart_2026-10-27/wpH/`
+- Output: `D/docs/restart_2026-10-27/wp-h/`, `D/data/restart_2026-10-27/wp-h/`
 - Log: —
 
 ### WP-I: radiative correction strategy
 - Goal: C_rad table or bound per D9; done when `h1-radiative-correction` signs the record
-- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wpI/`
+- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-i/`
 - Deps: WP-C (observable); execute stage also WP-A (G1)
 - Stages: research, execute
-- Status: research
+- Status: blocked: execute: G1
 - Lead: `executor`; `h1-radiative-correction`, `h1-mc-expert`
 - Condor: yes (standalone RAPGAP generation, ≤ 1 Condor-day)
 - Scope Notes: research stage in wave 1 (pair usability, timing shard); execute after WP-C's grid.
   Tests: `event_count: ≥ 1M events per mode -> true`; `ratio_cancellation: C_rad on the per-event
   normalised x_F spectrum -> every bin within [0.9, 1.1] or flagged`. Checkpoint:
-  `D/docs/restart_2026-10-27/wpI/crad_record.md`.
+  `D/docs/restart_2026-10-27/wp-i/crad_record.md`.
 - Artifacts: `crad_record.md`, C_rad CSV or bound statement
-- Output: `D/docs/restart_2026-10-27/wpI/`, `D/data/restart_2026-10-27/wpI/`
+- Output: `D/docs/restart_2026-10-27/wp-i/`, `D/data/restart_2026-10-27/wp-i/`
 - Log: —
 
 ### WP-J: systematics budget; gate G5
 - Goal: per-bin budget in the parent column style; done when the G5 record exists
-- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wpJ/`
+- Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-j/`
 - Deps: WP-H, WP-I
 - Stages: plan, execute
 - Status: blocked: plan: WP-H
@@ -447,15 +447,15 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   (control-region stat ⊕ method), η_max 3.1/3.3, Plug remedy swap (D3), FMD hit-pair variation,
   M_X scale, x_IP-flux and β reweighting, t-slope. Lumi only for absolute results. Tests:
   `budget_columns_match_parent_style -> true`; `g5_ceilings: median ≤ 25%, max ≤ 50% -> per bin`.
-  Checkpoint: `D/docs/restart_2026-10-27/wpJ/g5_verdict.md`.
+  Checkpoint: `D/docs/restart_2026-10-27/wp-j/g5_verdict.md`.
 - Artifacts: plan-wpJ-systematics.md (default path); budget CSV; `g5_verdict.md`
-- Output: `D/docs/restart_2026-10-27/wpJ/`, `D/data/restart_2026-10-27/wpJ/`
+- Output: `D/docs/restart_2026-10-27/wp-j/`, `D/data/restart_2026-10-27/wp-j/`
 - Log: —
 
 ### WP-K: results, tables and figures
 - Goal: results package with tables, figures and MC comparisons; done when the user ratifies the
   mask and `h1-plot-reviewer` accepts the figures
-- Owns: `D/{docs,data,plots}/restart_2026-10-27/wpK/`
+- Owns: `D/{docs,data,plots}/restart_2026-10-27/wp-k/`
 - Deps: WP-J
 - Stages: execute, write
 - Status: blocked: execute: WP-J
@@ -463,15 +463,15 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Condor: no
 - Scope Notes: comparisons: RAPGAP Fit B elastic + PDISS cocktail; H1 1998 shapes qualitatively
   (fiducial caveat); absolute dσ only if G3 passed. Test: `tables_cover_retained_bins -> true`.
-  Checkpoint: `D/data/restart_2026-10-27/wpK/README.md` citing G1-G5 records.
+  Checkpoint: `D/data/restart_2026-10-27/wp-k/README.md` citing G1-G5 records.
 - Artifacts: results package
-- Output: `D/data/restart_2026-10-27/wpK/`, `D/plots/restart_2026-10-27/wpK/`
+- Output: `D/data/restart_2026-10-27/wp-k/`, `D/plots/restart_2026-10-27/wp-k/`
 - Log: —
 
 ### WP-L: analysis note section, handoff and memory
 - Goal: note section, handoff update and memory close-out; done when SAVE-CONTEXT.md steps are done
   and curator has closed out
-- Owns: `D/context-handoff.md`, the note section, `D/docs/restart_2026-10-27/wpL/`
+- Owns: `D/context-handoff.md`, the note section, `D/docs/restart_2026-10-27/wp-l/`
 - Deps: wave-1 slice: none (status line "RESTART under this plan" and the R18 trap correction);
   final slice: WP-K
 - Stages: write
@@ -484,7 +484,7 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Artifacts: note section under
   `/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/analysis_note/H1-ChargedSIDIS-AnalysisNote-HighQ/`,
   handoff diff
-- Output: `D/docs/restart_2026-10-27/wpL/`
+- Output: `D/docs/restart_2026-10-27/wp-l/`
 - Log: —
 
 ## Open Questions
@@ -518,6 +518,25 @@ Material items only; each with options and a recommendation.
 Future user touchpoint (not a question now): mask ratification at WP-K (D7).
 
 ## Log
+
+- 2026-10-27 decision: user — restart from scratch; prior diffractive-branch decisions are inputs to re-judge, not binding; leads may take new decisions and log them (supervisor surfaces material ones)
+- 2026-10-27 decision: user — revival path = narrow Plug probe first under kill gate G1
+- 2026-10-27 decision: user — observables pivot to x_F / p_T*² in the X rest frame, M_X bins, Q² > 150 GeV²
+- 2026-10-27 decision: supervisor (on user authorization) — Q1 WP-A budget cap 10 Condor-days / 2 calendar weeks
+- 2026-10-27 decision: supervisor (on user authorization) — Q2 per-event-normalised spectra within the parent lab fiducial, absolute only after G3; x_F sign Pomeron-positive as in the parent
+- 2026-10-27 decision: supervisor (on user authorization) — Q3 no new official MC request before G1
+- 2026-10-27 decision: supervisor (on user authorization) — Q4 return to the user after G2 before committing the full campaign
+- 2026-10-27 decision: supervisor (on user authorization) — Q5 bin in M_X, quote ⟨β⟩ per bin, no β axis
+- 2026-10-27 supervisor: wave 1 dispatched — WP-A plan (planner), WP-C/WP-D/WP-I research (researcher), WP-L wave-1 slice (writer)
+- 2026-10-27 WP-L (wave-1 slice): handoff RESTARTED status section added and R18 random-trigger trap corrected; deferred: note section (waits on WP-K)
+- 2026-10-27 WP-I research: ruling USABLE-WITH-CONDITIONS on a corrected IPRO=1200 RAPGAP 3.305 pair (current diff_rad misconfigured; no non-rad diffractive sample exists), timing done (login node 2.8-7.2 s/2000 ev; full pair ≈1-6 core-days); recommend applied per-event C_rad with fallback max(|1−C|,6%); deferred: execute stage (gated on G1 and the WP-C grid)
+- 2026-10-27 decision: supervisor (on user authorization) — WP-I: apply a computed per-event C_rad per M_X bin after unfolding (reverses revival-assessment item 5); fallback leg max(|1−C|, 6%); parent FSR convention kept
+- 2026-10-27 WP-A: child plan written at sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a/wp-a_plan.md, critic PASS round 2; deferred: none (open questions resolved by supervisor below)
+- 2026-10-27 decision: supervisor (on user authorization) — WP-A: A5 ePlug drawn from control-region excess spectrum for removed MC events; G1(c) pass scope = ALL D cells coarse+fine; A9 remedy-3 reading = FMD/FTS N−1 ≤ 0.10 plus Stage-B yield within 1 ± 0.10 after PDISS M_Y>1.6 term; η_max>3.5 energy-scale check assigned to S1 as diagnostic
+- 2026-10-27 WP-D: done, mc_gap_list.md at restart_2026-10-27/wp-d/; deferred: Q3 user: items U1-U5 (no request before G1), production additions to WP-E (9013, 6674/8335, 8329-8341, 8221/7448, optional MC13)
+- 2026-10-27 WP-D/MC-3: 7071 verified RAPGAP ME+PS (gen_5031.txt IFPS=3; DB author correction), 7091 CDM; prior envelope defect is period mismatch, not class; same-period pair 7091 vs 7094 added as pre-registered S3 alternative (mc3_7071_cascade_mode.md)
+- 2026-10-27 WP-C: binning record, resolutions, two candidate grids and 9 hashed blinded masks (G2), acceptance chain reconciled, engine_shape PASS; signal MC stats are the binding limit (9012 = 0.16× data lumi); deferred: grid and mask freeze pending user U1 and the WP-B selection, final frame pending WP-E gen X frame
+- 2026-10-27 supervisor: WP-A dispatched to executor; WP-C U1 and the ≥5× signal-MC request batched with the G1 verdict for the user
 
 ## Todo
 
