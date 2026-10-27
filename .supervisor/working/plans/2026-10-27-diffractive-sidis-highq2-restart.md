@@ -306,7 +306,8 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wp-a2/`
 - Deps: WP-A (done; its partials, scripts and records are the inputs)
 - Stages: plan, execute
-- Status: execute
+- Status: done
+- Result: G1′ KILL 2026-10-27 — see sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a2/g1prime_verdict.md
 - Lead: `executor` (child plan by `planner`); specialists `h1-mc-expert` (Plug DB semantics, overlay/noise and
   generator-class readings), `h1-naf-operator` (Condor, tally), `h1-analysis-critic` (pre-registration, correction record,
   verdict); `h1-data-validator` only if a merged file is written
@@ -387,7 +388,7 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   `D/condor/restart_2026-10-27/wp-e/`, `D/docs/restart_2026-10-27/wp-e/`
 - Deps: WP-A2 (G1′ pass), WP-C (branch list), WP-D (sample list)
 - Stages: plan, execute
-- Status: blocked: plan: G1′ (WP-A2)
+- Status: blocked: user: G1′ KILL — D6 recommends close-out; awaiting user decision
 - Lead: `executor`; `h1-mc-expert` (truth-bank X/Y definition), `h1-naf-operator` (Condor, merges),
   `h1-data-validator`
 - Condor: yes (data 658 jobs ≈ 30 min; MC evls + stage2 chains, est. 1-3 Condor-days)
@@ -406,7 +407,7 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-f/`
 - Deps: WP-A2 (G1′ pass), WP-E, WP-B
 - Stages: plan, execute
-- Status: blocked: plan: G1′ (WP-A2)
+- Status: blocked: user: G1′ KILL — D6 recommends close-out; awaiting user decision
 - Lead: `executor`; `h1-mc-expert` (mixture, M_Y spectrum), `h1-analysis-critic` (G2 verdict)
 - Condor: yes
 - Scope Notes: η_max two-template fit per the §7.1 design on the new selection, both ND alternatives;
@@ -422,7 +423,7 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wp-g/`
 - Deps: WP-A2 (G1′ pass), WP-F
 - Stages: execute
-- Status: blocked: plan: G1′ (WP-A2)
+- Status: blocked: user: G1′ KILL — D6 recommends close-out; awaiting user decision
 - Lead: `executor`; `h1-plot-reviewer`, `h1-analysis-critic` (G3 verdict)
 - Condor: yes
 - Scope Notes: distributions: η_max, E_Plug, nFmu12, nFts28, x_IP, M_X, β, Q², x, y, E−p_z, track
@@ -441,7 +442,7 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
   `D/scripts/restart_2026-10-27/wp-h/`
 - Deps: WP-A2 (G1′ pass), WP-G, WP-C
 - Stages: plan, execute
-- Status: blocked: plan: G1′ (WP-A2)
+- Status: blocked: user: G1′ KILL — D6 recommends close-out; awaiting user decision
 - Lead: `executor`; `h1-unfolder` (method, closure), `h1-analysis-critic`
 - Condor: yes
 - Scope Notes: D8. Tests: `split_closure`, `reweighted_closure` per G4; `fake_fraction_bounds: 0 ≤ f_i
@@ -455,7 +456,7 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-i/`
 - Deps: WP-C (observable); execute stage also WP-A2 (G1′ pass)
 - Stages: research, execute
-- Status: blocked: plan: G1′ (WP-A2)
+- Status: blocked: user: G1′ KILL — D6 recommends close-out; awaiting user decision
 - Lead: `executor`; `h1-radiative-correction`, `h1-mc-expert`
 - Condor: yes (standalone RAPGAP generation, ≤ 1 Condor-day)
 - Scope Notes: research stage in wave 1 (pair usability, timing shard); execute after WP-C's grid.
@@ -471,7 +472,7 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-j/`
 - Deps: WP-A2 (G1′ pass), WP-H, WP-I
 - Stages: plan, execute
-- Status: blocked: plan: G1′ (WP-A2)
+- Status: blocked: user: G1′ KILL — D6 recommends close-out; awaiting user decision
 - Lead: `executor`; `h1-systematics` (budget), `h1-analysis-critic` (G5)
 - Condor: yes
 - Scope Notes: parent legs reused as MC-only response swaps (HFS JES/RCES/θ, electron E/θ, tracking,
@@ -491,7 +492,7 @@ Leads are pack leads; named H1 specialists are dispatched by them for the listed
 - Owns: `D/{docs,data,plots}/restart_2026-10-27/wp-k/`
 - Deps: WP-A2 (G1′ pass), WP-J
 - Stages: execute, write
-- Status: blocked: plan: G1′ (WP-A2)
+- Status: blocked: user: G1′ KILL — D6 recommends close-out; awaiting user decision
 - Lead: `executor` (tables, figures with the `dataviz` skill), `writer` (README); `h1-plot-reviewer`
 - Condor: no
 - Scope Notes: comparisons: RAPGAP Fit B elastic + PDISS cocktail; H1 1998 shapes qualitatively
@@ -576,6 +577,11 @@ Future user touchpoint (not a question now): mask ratification at WP-K (D7).
 - 2026-10-27 decision: user — after G1 KILL: root-cause diagnosis of η_max/Plug with new pre-registered gate G1′; full campaign only if G1′ passes; close-out, full campaign now, and proton tagging not chosen
 - 2026-10-27 planner (WP-A2): program plan amended (WP-A2 block, G1′ gate, WP-E..K blocked on G1′); child plan written at sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a2/wp-a2_plan.md; deferred: none
 - 2026-10-27 supervisor: WP-A2 child plan accepted on user authorization (G1′ thresholds = G1; conditional user: items Q1 Plug-veto abandonment / Q2 ND MC request surfaced only if triggered); WP-A2 dispatched to executor
+- 2026-10-27 WP-A2: G1′ KILL by h1-analysis-critic ((a) Plug shape 0.95–0.98, Δf_fail −0.21…−0.24; (c) toy p ≤ 0.018, ALL at floor, for 7071/7091/nd4cat; frozen set η_max08<3.3 N−1, η_max04 fit, range <3.4+[3.4,5), record sha 4b2b5e26…d719; remedy-1 excluded on D5); H5/H6/H3 not supported, H1 response-only, H4 supported true-detector, H2 no admissible correction; 0.066 Condor-days; commit 208a99a; deferred: close-out decision to user (D6 KILL), remedy-1 systematic leg not run (non-gating)
+- 2026-10-27 supervisor: both pre-registered gates killed; root cause reads as forward LAr-edge/Plug simulation response at high Q² (generator-independent); user asked to choose close-out vs detector-response campaign
+- 2026-10-27 decision: user — after G1′ KILL, asked "Do you think we can get around this with reweighting?"; supervisor ran a pre-registered factorisation scoping (WP-A3) instead of close-out
+- 2026-10-27 researcher (WP-A3 response-reweighting scoping): veto-state map does not factorise (rate closes for nd4cat ≤ 0.019; Plug shape ≥ 0.258, FMD/FTS 0.62, η04 edge p ≤ 6e-8; map inherits ND generator forward flow, 14–49 % chain dependence on signal efficiency; no well-simulated η_max plateau to retreat to) → close-out recommended, h1-analysis-critic signed, 0.00637 Condor-days, commit 4adaa4b; deferred: 4 user: scope items (η_max<2.6, drop FMD/FTS, Plug-rate map, new production)
+- 2026-10-27 decision: user — not closing yet; asked what fixing the forward response and running new simulation would take, and whether it is reconstruction, simulation or both → WP-A4 assessment (researcher + h1-mc-expert + h1-mc-db) dispatched; output sidis_highQ2/diffractive/docs/restart_2026-10-27/wp-a4/forward_response_fix_assessment.md
 
 ## Todo
 
