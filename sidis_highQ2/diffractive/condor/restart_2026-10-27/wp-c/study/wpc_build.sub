@@ -1,0 +1,15 @@
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/study/wpc_build_job.sh
+arguments       = $(label) /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/mc_merged_2026-10-18/$(label).root /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s$(label)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/study/logs/wpc_$(label).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/study/logs/wpc_$(label).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/study/logs/wpc.log
+request_memory  = 6GB
+request_disk    = 2GB
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = 3000
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+queue label in 9024 9033 9155 9157 9158
