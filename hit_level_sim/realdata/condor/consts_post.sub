@@ -1,0 +1,11 @@
+# WP3: collect and bank diff, one job per period (run once, after all of the period's files are DONE)
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/consts_post.sh
+arguments = $(p)
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/consts
+output = $(p)/logs/post.out
+error = $(p)/logs/post.err
+log = $(p)/logs/post_condor.log
++RequestRuntime = 7200
+request_memory = 4000
+requirements = OpSysAndVer == "RedHat9"
+queue p in (2005, 2006, 07low, 07med)

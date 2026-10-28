@@ -1,0 +1,16 @@
+# WP3: second post pass: bank diff only for the collected periods, collect + bank diff for 2006 (after the c060187 rerun)
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/consts_post.sh
+arguments = $(p) $(m)
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/consts
+output = $(p)/logs/post2.out
+error = $(p)/logs/post2.err
+log = $(p)/logs/post_condor.log
++RequestRuntime = 7200
+request_memory = 4000
+requirements = OpSysAndVer == "RedHat9"
+queue p,m from (
+2005, bankdiff
+07low, bankdiff
+07med, bankdiff
+2006, all
+)

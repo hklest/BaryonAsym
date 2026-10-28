@@ -1,0 +1,11 @@
+# WP3: rerun of 2006 c060187 without event 490412/238 (calibprobe_consts segfault in the cjxref step, see consts/2006/crash_c060187/)
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/consts_job.sh
+arguments = "2006 c060187 'Q2e>5 && !(RunNumber==490412 && EventNumber==238)'"
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/consts/2006
+output = logs/rerun_c060187.out
+error = logs/rerun_c060187.err
+log = logs/condor.log
++RequestRuntime = 10800
+request_memory = 2000
+requirements = OpSysAndVer == "RedHat9"
+queue

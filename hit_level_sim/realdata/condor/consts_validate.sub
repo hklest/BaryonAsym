@@ -1,0 +1,11 @@
+# WP3: one full-dump validation file per period (D16 constants-chain regression)
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/consts_validate.sh
+arguments = $(p) $(f)
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/consts
+output = $(p)/logs/val_$(f).out
+error = $(p)/logs/val_$(f).err
+log = $(p)/logs/val_condor.log
++RequestRuntime = 10800
+request_memory = 2000
+requirements = OpSysAndVer == "RedHat9"
+queue p,f from /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/consts_validate.list

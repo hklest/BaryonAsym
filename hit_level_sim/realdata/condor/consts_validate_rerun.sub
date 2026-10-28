@@ -1,0 +1,11 @@
+# WP3: rerun of the 2006 c060300 validation dump without event 465131/57909 (calibprobe segfault in cjxref.F:249)
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/consts_validate.sh
+arguments = "2006 c060300 1500 'Q2e>5 && !(RunNumber==465131 && EventNumber==57909)'"
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/consts
+output = 2006/logs/val_rerun_c060300.out
+error = 2006/logs/val_rerun_c060300.err
+log = 2006/logs/val_condor.log
++RequestRuntime = 10800
+request_memory = 2000
+requirements = OpSysAndVer == "RedHat9"
+queue

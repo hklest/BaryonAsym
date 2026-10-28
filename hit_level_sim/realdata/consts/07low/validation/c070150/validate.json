@@ -1,0 +1,29 @@
+{
+ "period": "07low",
+ "file": "c070150",
+ "events_with_xr": 1292,
+ "hits": 649005,
+ "median_um": 0.4205374898419,
+ "frac_lt_1um": 0.8132094513909754,
+ "frac_lt_10um": 0.9224505204120154,
+ "frac_lt_100um": 0.9749139066725218,
+ "threshold": 0.9,
+ "pass": true,
+ "per_run": {
+  "502813": {
+   "events": 1013,
+   "hits": 512727,
+   "frac_lt_10um": 0.9215703483530222,
+   "consts": "wp3",
+   "ivrsqt": 3
+  },
+  "502814": {
+   "events": 279,
+   "hits": 136278,
+   "frac_lt_10um": 0.9257620452310718,
+   "consts": "wp3",
+   "ivrsqt": 3
+  }
+ },
+ "missing_consts": []
+}

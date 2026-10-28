@@ -1,0 +1,11 @@
+# WP3: per-run NDB constants, period 2006, one job per mODS file (all runs of the file with Q2e>5 events)
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/consts_job.sh
+arguments = 2006 $(f)
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/consts/2006
+output = logs/$(f).out
+error = logs/$(f).err
+log = logs/condor.log
++RequestRuntime = 10800
+request_memory = 2000
+requirements = OpSysAndVer == "RedHat9"
+queue f from /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/consts/2006/files.txt

@@ -1,0 +1,50 @@
+{
+ "period": "07med",
+ "file": "c070300",
+ "events_with_xr": 1187,
+ "hits": 523601,
+ "median_um": 0.42417222518959197,
+ "frac_lt_1um": 0.804908699563217,
+ "frac_lt_10um": 0.9204088609456437,
+ "frac_lt_100um": 0.9763216647790971,
+ "threshold": 0.9,
+ "pass": true,
+ "per_run": {
+  "508908": {
+   "events": 49,
+   "hits": 23865,
+   "frac_lt_10um": 0.908485229415462,
+   "consts": "wp3",
+   "ivrsqt": 3
+  },
+  "508909": {
+   "events": 60,
+   "hits": 29267,
+   "frac_lt_10um": 0.9071308982813407,
+   "consts": "wp3",
+   "ivrsqt": 3
+  },
+  "508910": {
+   "events": 27,
+   "hits": 9654,
+   "frac_lt_10um": 0.9292521234721359,
+   "consts": "wp3",
+   "ivrsqt": 3
+  },
+  "508913": {
+   "events": 693,
+   "hits": 306305,
+   "frac_lt_10um": 0.9217740487422666,
+   "consts": "wp3",
+   "ivrsqt": 3
+  },
+  "508917": {
+   "events": 358,
+   "hits": 154510,
+   "frac_lt_10um": 0.9215066985955601,
+   "consts": "wp3",
+   "ivrsqt": 3
+  }
+ },
+ "missing_consts": []
+}

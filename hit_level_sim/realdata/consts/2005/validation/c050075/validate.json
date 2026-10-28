@@ -1,0 +1,22 @@
+{
+ "period": "2005",
+ "file": "c050075",
+ "events_with_xr": 1105,
+ "hits": 470533,
+ "median_um": 0.41565801527734314,
+ "frac_lt_1um": 0.8244203913434339,
+ "frac_lt_10um": 0.9268170351495006,
+ "frac_lt_100um": 0.97628646662402,
+ "threshold": 0.9,
+ "pass": true,
+ "per_run": {
+  "420922": {
+   "events": 1105,
+   "hits": 470533,
+   "frac_lt_10um": 0.9268170351495006,
+   "consts": "wp3",
+   "ivrsqt": 2
+  }
+ },
+ "missing_consts": []
+}

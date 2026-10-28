@@ -1,0 +1,29 @@
+{
+ "period": "test07",
+ "file": "c070060",
+ "events_with_xr": 1256,
+ "hits": 591985,
+ "median_um": 0.41620506428297016,
+ "frac_lt_1um": 0.8251155012373624,
+ "frac_lt_10um": 0.9280049325574128,
+ "frac_lt_100um": 0.9775112545081379,
+ "threshold": 0.9,
+ "pass": true,
+ "per_run": {
+  "497718": {
+   "events": 70,
+   "hits": 33491,
+   "frac_lt_10um": 0.9152906751067451,
+   "consts": "local",
+   "ivrsqt": 3
+  },
+  "497719": {
+   "events": 1186,
+   "hits": 558494,
+   "frac_lt_10um": 0.9287673636601288,
+   "consts": "local",
+   "ivrsqt": 3
+  }
+ },
+ "missing_consts": []
+}

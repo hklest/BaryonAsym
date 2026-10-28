@@ -1,0 +1,85 @@
+{
+ "period": "07med",
+ "files": 69,
+ "files_done": 69,
+ "files_missing": [],
+ "hat_entries": 61936557,
+ "runs_in_hat_all": 827,
+ "runs_in_hat_selected": 827,
+ "runs_attempted": 827,
+ "consts_produced": 827,
+ "failed": [],
+ "selected_runs_without_attempt": [],
+ "n_selected_runs_without_attempt": 0,
+ "cjc_off_first_event": [
+  507843,
+  507992,
+  508037,
+  508403,
+  508427,
+  508464,
+  508494,
+  508557,
+  508579,
+  508632,
+  508668,
+  508714,
+  508740,
+  508878,
+  508990,
+  509056,
+  509152,
+  509193,
+  509232,
+  509416,
+  509427,
+  509474,
+  509531,
+  509631,
+  509716,
+  509819,
+  509935,
+  509959,
+  509984,
+  510063,
+  510156,
+  510220,
+  510256,
+  510812,
+  510843,
+  510898,
+  510912,
+  510950
+ ],
+ "calrun_ier_nonzero": [],
+ "duplicates": {
+  "identical": 0,
+  "event_fields_only": 60,
+  "different": [
+   508565,
+   508775,
+   509059,
+   509258,
+   509454,
+   509889,
+   510282,
+   510898
+  ]
+ },
+ "ivrsqt": [
+  3
+ ],
+ "ivrsqt_counts": {
+  "2": 0,
+  "3": 827
+ },
+ "ndb": [
+  "/afs/desy.de/group/h1/ndb_read_only_dp"
+ ],
+ "run_range": [
+  507843,
+  511024
+ ],
+ "consts_split_2006": null,
+ "note": "consts json key cjc.IVRSQT is hard-coded 3 by make_consts.py; the true value is the ivrsqt column (calrun.F:13-15); h1hits.py does not read it"
+}
