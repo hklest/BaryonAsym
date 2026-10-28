@@ -1,0 +1,13 @@
+# WP0 T0 confound check: compare work/c07*.npz (WP0) and work/t0/c07*.npz (HAT T0) against work/mc_hits_part_0.npz -> parity_t0.json, plots/*_t0
+universe = vanilla
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/parity_job.sh
+arguments = compare_t0
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity
+output = logs/t0/compare.out
+error = logs/t0/compare.err
+log = logs/t0/condor.log
+RequestCpus = 1
+request_memory = 6000
++RequestRuntime = 3600
+requirements = OpSysAndVer == "RedHat9"
+queue

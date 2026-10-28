@@ -1,0 +1,13 @@
+# WP0 T0 confound check: data with HAT T0_CJC and amended D17 (det_on = CJC1+CJC2), one job per lam/ dir (38). Afterwards: condor_submit parity_t0_compare.sub
+universe = vanilla
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/parity_job.sh
+arguments = data_t0 $(f)
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity
+output = logs/t0/$(f).out
+error = logs/t0/$(f).err
+log = logs/t0/condor.log
+RequestCpus = 1
+request_memory = 4000
++RequestRuntime = 7200
+requirements = OpSysAndVer == "RedHat9"
+queue f from /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/lam_dirs.txt
