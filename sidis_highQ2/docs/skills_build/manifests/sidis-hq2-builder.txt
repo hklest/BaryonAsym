@@ -1,0 +1,8 @@
+data/v6_stage1_or_envelope_q2gen60_smoke_2026-06-05/README.md
+docs/diagnostics/electron_parentage_NOT_TREEBUILDER_v5_handoff_2026-08-01.md
+docs/methodology/structural_separation_2026-05-23.md
+docs/research/research-v6sys-smoke-physics-review-2026-06-03.md
+docs/results/tree_branch_audit_v5g_2026-06-03.md
+docs/reviews/code-review-v5g-builder.md
+docs/smoke_commands_v2.md
+scripts/canonical_highQ2_sidis_2026-06-30/release/provenance/SCHEMA.md

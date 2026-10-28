@@ -1,0 +1,4 @@
+
+## NONRAD weighted-exposure measurement — 2026-09-14
+
+The exact NONRAD weighted exposure was measured in Condor cluster `5122970` from the Stage-3 `GenDIS` trees using `sum(weight1*weight2)` (weight2=1), which is identical to the requested H1OO `WTX1*WTX2*WTX3` sum. HAT/GKI inputs were unavailable for the baseline and supplements, so no `oomclumi` invocation was possible; the tree route is algebraically identical. Results and closure are recorded in `/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/nonrad_weighted_exposure_2026-09-12.json`. Baseline and supplements are combinable: DJANGOH14 NORAD, CTEQ6L, 27.6 GeV, Q2>100, with charge-specific SIGMTs; no mismatch found. The weighted-exposure combined NONRAD values are e+ `14,637,495.836 nb^-1` and e- `14,450,502.911 nb^-1`. Closure `N*<w>/L_w` reproduces every input SIGMT to numerical precision (0.00%).

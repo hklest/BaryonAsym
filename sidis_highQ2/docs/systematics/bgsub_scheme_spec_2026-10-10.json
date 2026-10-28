@@ -1,0 +1,250 @@
+{
+  "schema": "bgsub_published_scheme_spec_2026-10-10_v1",
+  "date": "2026-10-10",
+  "status": "SPECIFICATION_AND_GATE_REQUIREMENTS",
+  "products_built": false,
+  "promotions_performed": false,
+  "read_only_inputs": true,
+  "decision_record": {
+    "date": "2026-10-10",
+    "decision": "Promote a background-subtracted Born chain to the published correction through its own validation gate (supersedes the critic's minimal-cost option).",
+    "superseded_option": "post-unfold (1-f) multiplicative factor as the published treatment (row-17 'generic post-hoc fraction' prohibition)"
+  },
+  "verification_provenance": {
+    "script": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/systematics/verify_bgsub_scheme_inputs_2026-10-10.py",
+    "output_json": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/systematics/bgsub_scheme_input_verification_2026-10-10.json",
+    "output_schema": "bgsub_scheme_input_verification_2026-10-10_v1",
+    "all_checks_pass": true
+  },
+  "what_bgfracsub_does_today": {
+    "machinery": "H1ChargedSidis_HighQ2/scripts/canonical_highQ2_sidis_2026-06-30/release/scripts/make_finalcandidate_7panel_and_xQ2_release351_cRad_bgfracsub.py",
+    "stage": "post-unfold, plot-level",
+    "estimator": "sigma = cross_section_nb * (1 - f_b) * C_rad on 490 release bins",
+    "f_b": "B/D after 980->490 pT-pair summation; B = 0.5*(RG+DJ) generator-averaged templates, var = 0.25*(varRG+varDJ); D = alpha0p2 cone-vetoed data vector",
+    "sets": {
+      "setA_v0_detint_lowq2_integrated_f_b": 0.04131343946000542,
+      "setB_all_integrated_f_b": 0.07985771410432665
+    },
+    "template_stat_width_term": "sigma_B_nb = sqrt(varB) * (sigma_raw/D) * C_rad, added in quadrature",
+    "product_status": "PROVISIONAL diagnostics only (xFcut C_rad keys 2026-10-07/08); no releasebin-key products",
+    "verdict": "correct dilution-approximation calculator; not a response-consistent subtraction; not publishable as-is"
+  },
+  "fiducial_adjudication": {
+    "target_definition": "charged hadrons from the DIS event",
+    "central_chain_handling": {
+      "electrons_nonv0": {"fraction_of_D_alpha0p2": {"hplus": 0.03749365902276805, "hminus": 0.03963157825834917}, "handling": "100% fake column, removed by response fake fraction", "subtract_again": false},
+      "other_unmatched": {"handling": "fake column, removed by response fake fraction", "subtract_again": false},
+      "detint": {
+        "fraction_of_D_alpha0p2": {"hplus": 0.0074948149759584675, "hminus": 0.006672330961283258},
+        "partition": {"matched_physical_block": 0.8617818695989798, "fake_column": 0.13821813040102013, "response_weighted": {"matched": 0.8497018250281768, "fake": 0.13612249415483071}, "source": "detint_response_partition_20260626"},
+        "handling": "fake-column 13.82% removed by response fake fraction; matched 86.18% response-modeled signal proxy",
+        "subtract_matched_body": false,
+        "note": "matched-body data-MC mismatch is an uncertainty (bgsub_fakefrac_rel), not a subtraction"
+      },
+      "v0_daughters": {"fraction_of_D_alpha0p2": {"hplus": 0.03413145474114922, "hminus": 0.03420764443365254}, "handling": "dropped from the response entirely (no fake column, no matched block)", "verdict": "UNSUBTRACTED GAP -> subtract explicitly"},
+      "lowq2": {"fraction_of_D_alpha0p2": {"hplus": 6.075733208630725e-05, "hminus": 4.6830621260552175e-05}, "handling": "source-distinct, absent from central response", "verdict": "UNSUBTRACTED GAP -> subtract explicitly"}
+    },
+    "response_fake_fraction": {
+      "hplus_removed_frac": 0.10714107503192061,
+      "hminus_removed_frac": 0.1040191204325992,
+      "charge_asymmetry_pp": 0.3121954599321408,
+      "claim_0p3pp_verified": true,
+      "per_charge_medians": {"hplus": 0.100, "hminus": 0.0998},
+      "audit": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/audits/unfolding_bgsub_audit_2026-09-25/central_audit_numbers.json"
+    },
+    "subtraction_set_R": {
+      "definition": "R = V0(generator-averaged) + lowQ2",
+      "B_R_totals": {"hplus": 67211.63127235917, "hminus": 65062.02504847545, "total": 132273.65632083462,
+                     "hplus_v0": 67092.20058467702, "hplus_lowq2": 119.43068768205417,
+                     "hminus_v0": 64973.07623087994, "hminus_lowq2": 88.94881759551876},
+      "integrated_f_res_central_D": {"hplus": 0.03402601996979654, "hminus": 0.034085373737411155},
+      "integrated_f_res_alpha0p2_D": {"hplus": 0.03419221207323552, "hminus": 0.0342544750549131},
+      "charge_asymmetry_pp_central_D": -0.0059353767614615804,
+      "charge_asymmetry_pp_alpha0p2_D": -0.006226298167757993
+    },
+    "rejected_sets": {
+      "setB_all": {"integrated_f_b": 0.07985771410432665, "reason": "double-counts electrons (100% fake column, already removed by response fake fraction)"},
+      "setA_v0_detint_lowq2": {"integrated_f_b": 0.04131343946000542, "reason": "over-subtracts the 13.82% det.int. fake-column slice already removed; blind-subtracts the 86% response-modeled matched body (house rule violation)"}
+    },
+    "allfake_chain": {
+      "status": "FALLBACK_ONLY",
+      "reason": "fiducially purest alternative but blast radius forbids: response swap, budget rederivation, selection change, stale blind C_rad sidecars",
+      "validated_totals_pre_crad_nb": 20.735708,
+      "gate_ledger": "G0-G10 PASS (validation_summary.json, 2026-10-05)"
+    },
+    "residual_gaps": [
+      {"gap": "alpha0p2 template selection vs central chain", "cone_difference_tracks": 19024, "cone_difference_frac_of_D": 0.0049, "electron_dominated": true, "denominator_effect_integrated_pp": {"hplus": -0.0105753706556124, "hminus": -0.011125796215121601}, "disposition": "bounded residual, carried in bgsub_stage_rel (alpha0p2 width)"},
+      {"gap": "V0-daughter MC modeling", "rel_halfspread_of_B_median": {"hplus": 0.07273504429707155, "hminus": 0.07794345554573202}, "disposition": "bgsub_model_rel"},
+      {"gap": "low-Q2 template (DJ-only, tiny)", "scale_uncertainty": 0.30, "precedent": "arXiv:1302.1321", "disposition": "folded into bgsub_model_rel (negligible ~0.002%)"},
+      {"gap": "fake-fraction common model", "g9_template_vs_fakecolumn_integrated_ratios": [0.9817, 0.9872], "caveat": "NucliaWeight", "disposition": "bgsub_fakefrac_rel"},
+      {"gap": "empty-bin convention", "empty_bins": [{"charge": "h+", "bin_index": 109, "v0_avg": 0.1196215513307355}, {"charge": "h+", "bin_index": 179, "v0_avg": 0.035950474491127954}, {"charge": "h-", "bin_index": 240, "v0_avg": 0.01673421536792151}], "convention": "D==0 -> no subtraction, f=0, preserved bit-for-bit"}
+    ]
+  },
+  "published_scheme": {
+    "stage": "PRE-UNFOLD data-vector subtraction, then the unchanged central chain",
+    "response_consistency_rationale": "The central response reco space excludes V0-daughter and low-Q2 tracks; the data vector contains them (untaggable). Pre-unfold subtraction restores agreement between the data vector and the response's modeled reco content; a post-unfold (1-f) factor is only a dilution approximation (row-17 prohibition).",
+    "subtraction": {
+      "formula_980": "data_sub[i] = data_central[i] - B_R[i]",
+      "B_R": "V0_genavg + lowQ2, V0_genavg = 0.5*(RG31_V0 + DJ14_V0)",
+      "variance_E1b": "var_sub[i] = data_sub[i] + varB_R[i], varB_R = 0.25*(varRG_V0 + varDJ_V0) + var_lowQ2",
+      "w2_policy": "toy/released statistical input is Poisson-only (w2 = data_sub); template variance carried by bgsub_stat_rel (no double-count; retired rev-2 defect = Poisson added twice, data variance x2.00022)",
+      "guards": ["0 negative bins (980 and 490)", "D==0 -> no subtraction (3 empty bins)"]
+    },
+    "fake_fraction": {
+      "policy": "UNCHANGED central per-bin table, byte-identical (sha256) to the nominal release sidecar",
+      "application": "d_sig[i] = data_sub[i] * (1 - f_i[i])",
+      "recompute_forbidden": true,
+      "exactly_once_bookkeeping": "electrons + other/unmatched + det.int. fake-column (13.82%) via response f_i; V0 + lowQ2 via explicit subtraction; det.int. matched body (86.18%) in neither"
+    },
+    "unfold": {
+      "response": "RAPGAP31 central (491,246 shapes)",
+      "prior": "coherent body+miss",
+      "algorithm": "IBU k=4",
+      "L_data_nb": 351000.0,
+      "diff_vs_nominal": "input data vector only"
+    },
+    "c_rad": {
+      "table": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_crad_releasebin_2026-10-09/crad_v3_xfgen_lt0_empz_gt45_nominal_490rows.csv",
+      "policy": "applied exactly as in the Born release; bitwise C_rad x raw identity (max dev 0.0)"
+    },
+    "estimator_per_bin": "sigma_bgsub[b] = (1/L) * IBU_k4(data_central - B_R; RG31 response, body+miss prior, fake fraction f_i)[b] * C_rad_releasebin[b]",
+    "product": "new dated release directory born_crad_bgsub_setR_centralbase_<tag>_<date>; exact-text serialization; README invariants; v4-style validation.json extended with bgsub checks; existing releases untouched",
+    "expected_integrated": {
+      "unsubtracted_born_nb": {"hplus": 13.107258, "hminus": 12.772782},
+      "dataweighted_f_res_central_D": {"hplus": 0.036632602276207536, "hminus": 0.03658164968800699},
+      "dilution_anchor_central_D_nb": {"hplus": 12.62710539454316, "hminus": 12.305532542413683},
+      "dilution_anchor_alpha0p2_D_nb": {"hplus": 12.625770031344612, "hminus": 12.304163453939829},
+      "gate_window": "within +/-0.5% of central-D anchor (integrated)"
+    },
+    "per_bin_treatment": {
+      "f_res_central_D_stats": {
+        "hplus": {"median": 0.015485517100392561, "mean": 0.016969492614103632, "p99": 0.04706874319933059, "max": 0.14022301562883016, "argmax_global_bin": 34, "n_ge_0p10": 1, "n_ge_0p20": 0},
+        "hminus": {"median": 0.01609283002577865, "mean": 0.01769371099728782, "p99": 0.04461890424008673, "max": 0.05224889736077887, "argmax_global_bin": 245, "n_ge_0p10": 0, "n_ge_0p20": 0}
+      },
+      "zrow_median_f_res": {"z0": 0.028035481921376997, "z1": 0.021346315500329324, "z2": 0.018568168240187696, "z3": 0.015488400109394729, "z4": 0.012923589561084789, "z5": 0.01017200755677175, "z6": 0.011364332619550018},
+      "policy": "no bin excluded; single 14% bin (h+ global 34, high-z low-pT corner) stays in with full variance and is monitored by name; templates charge-separated"
+    },
+    "charge_symmetry": {
+      "setR_fraction_asymmetry_pp_central_D": -0.0059353767614615804,
+      "expected_published_asymmetry_shift_pp": "<=0.01",
+      "fake_fraction_asymmetry_pp": 0.3121954599321408
+    },
+    "post_unfold_variant_role": "cross-check (gate CP-1) and measured input to bgsub_stage_rel; never the published number",
+    "allfake_role": "diagnostic fallback and exactly-once bookkeeping cross-check; stale blind C_rad sidecars never re-attached"
+  },
+  "inputs": {
+    "template_bank_dir": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/studies/reco_backgrounds_alpha0p2_z005_combinedL_rescaled_20260625/diagnostics/reco_backgrounds_L351000_finalcandidate_20260626",
+    "template_files": [
+      "AGGREGATED_rapgap31_electron_alpha0p2_combinedL_L351000_finalcandidate.npz",
+      "AGGREGATED_djangoh14_electron_alpha0p2_combinedL_L351000_finalcandidate.npz",
+      "AGGREGATED_rapgap31_v0daughter_alpha0p2_combinedL_L351000_finalcandidate.npz",
+      "AGGREGATED_djangoh14_v0daughter_alpha0p2_combinedL_L351000_finalcandidate.npz",
+      "AGGREGATED_rapgap31_detint_alpha0p2_combinedL_L351000_finalcandidate.npz",
+      "AGGREGATED_djangoh14_detint_alpha0p2_combinedL_L351000_finalcandidate.npz",
+      "AGGREGATED_djangoh14_lowq2_djbkgd_L351000_finalcandidate.npz"
+    ],
+    "template_totals_L351000": {"electron_avg": 148976.4352, "v0_avg": 132065.2768, "detint_avg": 27405.8031, "lowq2": 208.3795, "lowq2_hplus": 119.4307, "lowq2_hminus": 88.9488},
+    "data_vector_central": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/tunfold_official_v4_finalcandidate_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_percharge/data_vector_tunfold_official_v4_finalcandidate_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_percharge.json",
+    "data_vector_alpha0p2": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/studies/electron_cone_alpha0p2_z005_20260623/data_vector_alpha0p2_tunfold_official_v4_finalcandidate_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_percharge.json",
+    "denominators": {"central_total": 3884097.0, "central_hplus": 1975301.0, "central_hminus": 1908796.0, "alpha0p2_total": 3865073.0, "alpha0p2_hplus": 1965700.0, "alpha0p2_hminus": 1899373.0, "cone_difference": 19024.0},
+    "raw_ibu_release_csv": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/bbb_ibu_coherentprior_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-06/ibu/cross_sections.csv",
+    "born_release_dir": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/data_release/born_crad_dj14relbin_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-09",
+    "crad_table_csv": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/radiative/djangoh14_crad_releasebin_2026-10-09/crad_v3_xfgen_lt0_empz_gt45_nominal_490rows.csv",
+    "setA_product_table": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/plots/release/bgfracsub_tracklevel_cRad_applied_2026-10-07/DJANGOH14_xFcut/setA_v0_detint_lowq2/bgfrac_table_490.csv",
+    "central_audit_json": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/audits/unfolding_bgsub_audit_2026-09-25/central_audit_numbers.json",
+    "detint_partition_dir": "/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/studies/reco_backgrounds_alpha0p2_z005_combinedL_rescaled_20260625/diagnostics/detint_response_partition_20260626"
+  },
+  "uncertainty_components": {
+    "decision": "NEW components added to the register (13 -> 17); the existing 13 are NOT widened, NOT recomputed, must remain byte-identical to the emfix package",
+    "rationale": "13-component budget has no background term (row 17 BLOCKED); row 17 reserves this slot; IBU toys stay Poisson-only on data_sub so nothing widens implicitly",
+    "components": [
+      {
+        "name": "bgsub_stat_rel",
+        "register_row": 14,
+        "definition": "sqrt(varB_R)/data_sub per release bin (template MC statistics of the subtracted set)",
+        "class": "statistical; NO smoothing, raw per bin",
+        "width_median": {"hplus": 0.0005566333863266658, "hminus": 0.0006178184472130891},
+        "width_max_populated": {"hplus": 0.0622911705469275, "hminus": 0.023665754328986873},
+        "subterms": {"v0_sqrtvar_over_D_median": {"hplus": 0.0005485665748748348, "hminus": 0.0006128841517575748}, "v0_sqrtvar_over_B_median": {"hplus": 0.04021119205226131, "hminus": 0.04166475720247538}, "lowq2_sqrtvar_over_B_median": {"hplus": 0.5773503082270827, "hminus": 0.7071068861321442}}
+      },
+      {
+        "name": "bgsub_model_rel",
+        "register_row": 15,
+        "definition": "0.5*|RG31-DJ14|(V0)/data_sub (per bin) in quadrature with 0.30*lowQ2/data_sub (+/-30% precedent arXiv:1302.1321)",
+        "class": "model; raw half-spread default; house pT-row Gaussian smoothing (sigma=1 bin, edge-truncated renormalised, floor 0.85*unsmoothed) only if sparse-bin spikes fail smoothness QA",
+        "width_median": {"hplus": 0.0011323615747682201, "hminus": 0.0012184656442760732},
+        "width_max_populated": {"hplus": 0.01673421536792151, "hminus": 0.03346843073584302},
+        "integrated_v0_halfspread_frac_of_D": {"hplus": 0.0013069033185281668, "hminus": 0.001346981145499168},
+        "rel_halfspread_of_B_median": {"hplus": 0.07273504429707155, "hminus": 0.07794345554573202},
+        "lowq2_term_size": "~0.002% (negligible)"
+      },
+      {
+        "name": "bgsub_stage_rel",
+        "register_row": 16,
+        "definition": "per-bin |pre-unfold - post-unfold dilution|/published (measured at gate CP-1) in quadrature with the alpha0p2 cone-selection residual bound |f_res_alpha0p2_D - f_res_centralD| (the alpha0p2 width)",
+        "class": "stage/selection coherence; measured at gate time",
+        "expected_median": "O(0.1%)",
+        "anchors": {"denominator_effect_integrated_pp": {"hplus": -0.0105753706556124, "hminus": -0.011125796215121601}, "cone_difference_tracks": 19024, "cone_difference_frac_of_D": 0.0049, "cone_electron_dominated": true, "cp1_window_integrated": 0.005, "cp1_window_per_bin": 0.01}
+      },
+      {
+        "name": "bgsub_fakefrac_rel",
+        "register_row": 17,
+        "definition": "per-bin |1 - r_min|*f_i with r from the G9/S1b template-vs-fakecolumn category ratios; covers model dependence of the response fake fraction (electrons, other/unmatched, det.int. fake column incl. the 86/18 partition model)",
+        "class": "common-model; re-derive r with NucliaWeight caveat resolved at gate, or carry the caveat",
+        "g9_integrated_ratios": [0.9817, 0.9872],
+        "expected_median": "~0.18% (f_i medians 0.100/0.0998)"
+      }
+    ],
+    "quadrature_addition_at_median_approx": "0.24%",
+    "existing_13component_medians": {"hplus": 0.057093, "hminus": 0.061523},
+    "quoting_policy": "after gate PASS the published total is the 17-component quadrature; the 13-component total is no longer quoted as published",
+    "rows_18_19_status": "diffvm_rel and gammap_bkg_30pct_rel remain BLOCKED, unchanged by this spec"
+  },
+  "validation_gate": {
+    "model": "allfake G0-G10 ledger + Born release validation.json v4 invariants",
+    "rule": "ALL items must PASS before promotion; no merge into nominal until PASS (state rule)",
+    "checklist_count": 24,
+    "groups": {
+      "IV_input_verification": [
+        {"id": "IV-1", "check": "template totals reproduce validated L351000 numbers within 1e-3", "thresholds": {"electron_avg": 148976.4352, "v0_avg": 132065.2768, "detint_avg": 27405.8031, "lowq2": 208.3795}},
+        {"id": "IV-2", "check": "central data vector sums equal audit; bg_subtracted flag false; 980 bins", "thresholds": {"hplus": 1975301.0, "hminus": 1908796.0, "total": 3884097.0}},
+        {"id": "IV-3", "check": "alpha0p2 vector sums and cone difference", "thresholds": {"total": 3865073.0, "hplus": 1965700.0, "hminus": 1899373.0, "cone_difference": 19024.0}},
+        {"id": "IV-4", "check": "980->490 pT-pairing map identical to release construction; one-to-one; no orphans"},
+        {"id": "IV-5", "check": "Set A product table reproduced: components match; f_b to 1e-12 incl. 3 empty-bin zeros", "thresholds": {"integrated_f_b": 0.04131343946000542, "n_empty_bins": 3}}
+      ],
+      "SA_subtraction_arithmetic": [
+        {"id": "SA-1", "check": "data_sub = data_central - B_R has 0 negative bins (980 and 490); 3 empty bins subtract exactly 0", "thresholds": {"n_negative_bins": 0}},
+        {"id": "SA-2", "check": "integrated sums of B_R and data_sub", "thresholds": {"B_R_hplus": 67211.631, "B_R_hminus": 65062.025, "B_R_total": 132273.656, "data_sub_hplus": 1908089.369, "data_sub_hminus": 1843733.975, "data_sub_total": 3751823.344, "tol_rel": 1e-06}},
+        {"id": "SA-3", "check": "E1b variance convention exactly-once Poisson: var_sub = data_sub + varB_R; toy/released w2 = data_sub (Poisson-only)", "stop_condition": "Poisson term added twice (rev-2 defect, data variance x2.00022)"},
+        {"id": "SA-4", "check": "f_res envelope (central D)", "thresholds": {"hplus_max": 0.14022301562883016, "hminus_max": 0.05224889736077887, "hplus_median": 0.015485517100392561, "hminus_median": 0.01609283002577865, "n_ge_0p20": 0, "n_ge_0p10_hplus": 1, "argmax_global_bin_hplus": 34, "n_zero_D_bins": 3}},
+        {"id": "SA-5", "check": "charge symmetry of subtraction: integrated f_res asymmetry within +/-0.02 pp of -0.0059 pp; per-charge B_R separate; per-bin asymmetry recorded"}
+      ],
+      "RU_chain_identity_reunfold": [
+        {"id": "RU-1", "check": "response (RAPGAP31 central, 491,246 shapes), coherent body+miss prior, IBU k=4, L=351000 identical to nominal; config diff = input vector only"},
+        {"id": "RU-2", "check": "fake-fraction table byte-identical (sha256) to nominal sidecar; applied once as d_sig = data_sub*(1-f_i); recomputing f_i is a STOP", "thresholds": {"integrated_removal_window_hplus": [0.1060, 0.1083], "integrated_removal_window_hminus": [0.1029, 0.1051]}},
+        {"id": "RU-3", "check": "published integrated within +/-0.5% of central-D dilution anchors", "thresholds": {"hplus_nb": 12.62710539454316, "hminus_nb": 12.305532542413683, "window_rel": 0.005, "heritage_alphaD_hplus_nb": 12.625770031344612, "heritage_alphaD_hminus_nb": 12.304163453939829, "heritage_window_rel": 0.007}},
+        {"id": "RU-4", "check": "C_rad bitwise: releasebin DJ14 table (sha256 ledger); C_rad x raw max dev 0.0"},
+        {"id": "RU-5", "check": "physicality: 0 negative cross sections; 490 bins/charge; empty bins exactly zero; exact-text serialization; v4-style validation block extended"}
+      ],
+      "CP_consistency_physics": [
+        {"id": "CP-1", "check": "pre-vs-post stage comparison; signed difference vector saved as bgsub_stage_rel input", "thresholds": {"per_bin_rel": 0.01, "per_bin_sparse_with_justification": 0.02, "integrated_rel": 0.005}},
+        {"id": "CP-2", "check": "add-back closure: unfolding data_sub + B_R reproduces the nominal release bitwise (input bitwise identical)", "thresholds": {"rel_tol": 1e-09}},
+        {"id": "CP-3", "check": "published h+/h- integrated asymmetry shifts <=0.02 pp vs unsubtracted Born (expected ~ -0.006 pp)"},
+        {"id": "CP-4", "check": "G9/S1b template-vs-fakecolumn reproduced on overlap categories or re-derived with NucliaWeight caveat resolved", "thresholds": {"shape_correlation_min": 0.999, "integrated_ratio_envelope": [0.9817, 0.9872]}},
+        {"id": "CP-5", "check": "budget closure: 13 components byte-identical to emfix package (0/14700 mismatches); 17-component quadrature identity per bin; medians reported; quoting-policy switch recorded", "thresholds": {"quadrature_max_dev": 1e-12}}
+      ],
+      "PM_promotion_mechanics": [
+        {"id": "PM-1", "check": "P-ALPHA closed or explicitly waived in release README with bounded cone-residual argument and resulting bgsub_stage_rel width; alpha0p2 products' PROVISIONAL status closed or carried with waiver"},
+        {"id": "PM-2", "check": "new dated release directory only; README invariants; extended validation.json; existing releases untouched read-only"},
+        {"id": "PM-3", "check": "sidecar hygiene: no stale blind C_rad sidecars re-attached; C_rad only from releasebin table; sha256 ledger of all inputs"},
+        {"id": "PM-4", "check": "state rule: no merge into nominal until items 1-23 PASS; STATE.md/RUN_STATUS.md entries only after PASS; 17-component total becomes quoted published total"}
+      ]
+    }
+  },
+  "preconditions_and_blockers": [
+    "P-ALPHA remains open; it is the standing precondition the gate must close (PM-1); all alpha0p2-template products carry PROVISIONAL/diagnostic status until then",
+    "critic Findings 1-3 / C-2..C-7 remain open separately and are not addressed by this spec",
+    "parallel normalization dispatch (fake-fraction provenance / MC-sample identity) is not duplicated here; if it re-identifies the template MC sample, IV-1..IV-5 re-run from primary artifacts",
+    "absolute cross-section quoting remains governed by the existing normalization policy; this spec changes only the background correction chain and the uncertainty register"
+  ]
+}

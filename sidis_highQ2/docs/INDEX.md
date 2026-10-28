@@ -1,0 +1,284 @@
+# docs/ Index — H1 High-Q² Charged-Particle SIDIS Analysis
+
+**Last meaningful update:** 2026-10-27 (eΣ campaign finalized: `esigmaphotonxf_2026-10-27b` frozen; entries in section '2026-10-27 finalization (eΣ campaign)')
+**Previous update:** 2026-07-03 (startup documentation compacted; use `RUN_STATUS.md`, `LOOKUP.md`, `docs/status/*.md`, and `docs/provenance/historical-paths.md` for current navigation)
+**Canonical workspace state:** `H1/sidis_highQ2/context-handoff.md`, `docs/RUN_STATUS.md`, and `docs/LOOKUP.md`
+**Scope:** `Q² > 150 GeV²`; current central production is v6/z005; read `docs/RUN_STATUS.md` and `docs/LOOKUP.md` before trusting older v5g/rev6-index entries.
+
+---
+
+## ⚠️ READ FIRST — entry-point docs for current state
+
+| File | When to read |
+|---|---|
+| **[RUN_STATUS.md](RUN_STATUS.md)** | First. Compact current aggregate status, allow/deny paths, blockers, lumi traps, C_rad, alpha0p2, and TUnfold/SVD summary. **Always read before doing anything.** |
+| **[LOOKUP.md](LOOKUP.md)** | Second. Flowchart-style navigation map to current status files, canonical scripts, deprecated paths, and archived provenance. |
+| **[status/current-release.md](status/current-release.md)** | Current z005 release path, v6 roots, completed systematics, and blockers. |
+| **[status/normalization.md](status/normalization.md)** | Current luminosity, MC scaling, and 7091 vs 7110 trap. |
+| **[status/radiative-corrections.md](status/radiative-corrections.md)** | DJANGOH14 C_rad baseline, RAPGAP provisional/quarantined status, and C_rad regeneration pointers. |
+| **[status/alpha0p2-background.md](status/alpha0p2-background.md)** | Alpha0p2 near-electron, reco-background, and all-fake response diagnostic status. |
+| **[status/unfolding-tunfold.md](status/unfolding-tunfold.md)** | Native v6 TUnfold entry point and SVD quarantine. |
+| **[provenance/historical-paths.md](provenance/historical-paths.md)** | Deprecated/deny paths and historical provenance map. |
+| **[SCRIPT_ROADMAP.md](SCRIPT_ROADMAP.md)** | Historical/legacy script map; prefer canonical script snapshot `RUNLIST.md` for current reproduction. |
+| **[ANALYSIS_WORKFLOW_ROADMAP.md](ANALYSIS_WORKFLOW_ROADMAP.md)** | Historical/expanded end-to-end map; use status files for current authority. |
+| **[systematics/reco_method_side_study_runbook_2026-06-20.md](systematics/reco_method_side_study_runbook_2026-06-20.md)** | Runbook/trap checklist for z005 electron/IΣ reco-method side studies; read before changing reco kinematic methods. |
+| **[research/research-tunfold-native-miss-handling-z005-2026-06-21.md](research/research-tunfold-native-miss-handling-z005-2026-06-21.md)** | Native ROOT/TUnfold miss-underflow convention; read before touching z005 TUnfold response/miss/fake handling. |
+| **[unfolding/alpha0p2_reco_background_allfake_handoff_2026-06-28.md](unfolding/alpha0p2_reco_background_allfake_handoff_2026-06-28.md)** | Alpha0p2 reco-background/all-fake response diagnostic handoff; read before changing fake subtraction, background vectors, or all-fake response handling. |
+| **[tunfold_v5_physical_fakesub_z005_2026-06-21/tunfold_v5_reuse_manifest_2026-06-21.md](tunfold_v5_physical_fakesub_z005_2026-06-21/tunfold_v5_reuse_manifest_2026-06-21.md)** | v5 physical/fake-sub diagnostic audit manifest; historical only, superseded by native v6 as the current TUnfold entry point. |
+| **[LESSONS_LEARNED.md](LESSONS_LEARNED.md)** | Second. Distilled structural insights from the rev3→rev4→rev5→rev6/native-v6 iteration. Read before touching the response matrix, IBU, TUnfold, or BBB. |
+| **[critiques/rev6_audit_2026-05-31/SYNTHESIS.md](critiques/rev6_audit_2026-05-31/SYNTHESIS.md)** | Third. Full prioritized list of open issues per the 4-critic rev6 audit. |
+
+---
+
+## 2026-10-27 finalization (eΣ campaign)
+
+| File | When to read |
+|---|---|
+| **[../context-handoff.md](../context-handoff.md)** section '2026-10-27 FINALIZATION' | Frozen central edition `esigmaphotonxf_2026-10-27b`: records, final numbers, open items, traps. |
+| [plans/closure_uncertainty_revision_2026-10-26.md](plans/closure_uncertainty_revision_2026-10-26.md) | Closure-uncertainty revision rev 3 (closure and response-MC-stat terms, DIFFVM term removed, D28 detint leg removal that made 27b). Executed. |
+| [plans/esigma_xf_bg_revision_2026-10-24.md](plans/esigma_xf_bg_revision_2026-10-24.md) | eΣ photon-frame x_F release plan S1-S9. Executed; S9 freeze at 27b. |
+| [backgrounds/diffvm_perbin_table_esigmaphotonxf_2026-10-27.md](backgrounds/diffvm_perbin_table_esigmaphotonxf_2026-10-27.md) | Per-bin DIFFVM ρ⁰ table (supplementary material; ρ⁰ not subtracted). CSVs in `/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/data/backgrounds/diffvm_perbin_esigmaphotonxf_2026-10-27/`. |
+| [promotions/esigmaphotonxf_promotion_2026-10-27b.md](promotions/esigmaphotonxf_promotion_2026-10-27b.md) | Promotion record of the frozen 27b edition. |
+| [promotions/esigmaphotonxf_promotion_2026-10-27.md](promotions/esigmaphotonxf_promotion_2026-10-27.md) | Promotion record of the superseded 10-27 edition (double-counted detint leg; provenance). |
+| `/data/dust/group/h1/klesthen/BaryonAsym/.supervisor/plans/2026-10-27-sidis-highq2-finalization.md` | Program plan P1-P6 and the 2026-10-27 Log of stage results and user decisions. |
+
+---
+
+## Recent revision history (2026-05-31 session)
+
+| Date | Change |
+|---|---|
+| 2026-05-31 | **CC1 NW-asymmetry fix** applied to `build_migration_th2_per_charge.py`; Condor production rebuild launched (cluster 3560523). See [results/nucliaweight_fix_2026-05-31.md](results/nucliaweight_fix_2026-05-31.md). |
+| 2026-05-31 | **IBU rev6 + matrix-BBB** introduced with fake-subtraction + acceptance-correction semantics. IBU rev6 self-closure perfect (machine precision). Matrix-BBB identified as EM-n=0 per Schmitt 2016 — disqualified from headline use. See [results/rev6_fake_subtraction_results_2026-05-31.md](results/rev6_fake_subtraction_results_2026-05-31.md). |
+| 2026-05-31 | **Reg-strength tuning study**: IBU N-iter and TUnfold τ scans evaluated apples-to-apples. IBU canonical moved from N=50 → N=100 (was at plateau edge). See [results/reg_strength_tuning_2026-05-31.md](results/reg_strength_tuning_2026-05-31.md). |
+| 2026-05-31 | **Rev6 audit**: 4 critics (2 IBU + 2 TUnfold), 15 fatal items flagged. CC1 fix applied; other open items in [SYNTHESIS.md](critiques/rev6_audit_2026-05-31/SYNTHESIS.md). |
+
+---
+
+## ⚠️ Pre-rev6 "current state" claims below — TREAT AS HISTORICAL
+
+The per-artifact tables in the rest of this file (production binaries, binning, Phase 2 systematics, etc.) reflect the state as of **2026-05-25**, before the rev6 unfolding iteration. They remain accurate for binning, cuts, and binary identity. **For unfolding state (IBU/TUnfold/BBB), they are SUPERSEDED — read RUN_STATUS.md instead.**
+
+Specifically:
+- The 2026-05-25 claim that "IBU-4D is canonical" predates the IBU rev5 degeneracy discovery and the rev6 fix.
+- The 2026-05-25 claim that "the 4-term unfolding systematic budget is complete" is invalidated by the rev6 audit which found CC1 (NW asymmetry) affecting all per-bin σ.
+- Production binaries, Scheme B′ binning, Empz cuts, y range, GRL injection — all still current.
+
+---
+
+## Pre-rev6 status (historical — preserved for context)
+
+The original "Current Read-First Status" block from the 2026-05-25 generation, which described the 4D-IBU-canonical state, has been moved to historical context. Read it ONLY if you need to understand pre-rev6 reasoning:
+
+<details>
+<summary>Click to expand pre-rev6 (2026-05-25) status block</summary>
+
+1. **Current production binaries:**
+   - Stage 1: `TreeBuilderHighQ2_chargedsidis`
+   - Stage 2: `ChargedSidisTreeBuilderHighQ2_v5g`
+2. **v5f Stage 2 binary:** retained for audit history only; not current production.
+3. **All v5f-tagged results:** preserved for audit but now **SUPERSEDED / PRELIMINARY (pre-v5g)**.
+4. **Current canonical binning:** Scheme B′ (`HQ-v5g-Bprime`) is now **FROZEN / FINAL**.
+5. **Current canonical unfolding (PRE-REV6, SUPERSEDED):** full 4D 480×480 unfolding was CANONICAL as of 2026-05-25. The method ordering in this pre-rev6 block is obsolete; current candidate is TUnfold AREA. The 4-term unfolding systematic budget was claimed complete: `σ_stat,data`, `σ_model`, `σ_reg`, `σ_MC-stat,response`. **All invalidated by the rev6 audit** — see SYNTHESIS for CC1 (NW asymmetry) impact on σ_stat and σ_reg headlines.
+6. **Phase 2 systematics status:** PARTIAL. `source_lumi.json`, `source_trigger.json`, and `source_NucliaWeight.json` exist; tracking research memo exists but has critic CONCERNS; HFS and electron memos are lost and need re-dispatch; migration-affecting sources now require the ROOT-side rerun path with critic iteration.
+7. **Current C_rad status:** methodology frozen and still canonical; v5f-era numerical values are not yet re-derived on the v5g sample.
+
+</details>
+
+---
+
+## Production Safety / Binary Identity
+
+The binary-identity guardrail system remains mandatory and is now tied to the
+current SIDIS-local v5g production pair.
+
+| Artifact | Description |
+|----------|-------------|
+| [scripts/binary_identity_manifest.json](../scripts/binary_identity_manifest.json) | **AUTHORITATIVE (v1.6)** — pins md5/size/source provenance of the current SIDIS high-Q² binaries and preserves the v1.0–v1.5 audit trail. Current production binaries are `TreeBuilderHighQ2_chargedsidis` and `ChargedSidisTreeBuilderHighQ2_v5g`; v5f is audit-only. |
+| [scripts/_binary_guard.py](../scripts/_binary_guard.py) | Guardrail verification helpers. |
+| [scripts/_smoke_gate.py](../scripts/_smoke_gate.py) | One-job bounded smoke gate. |
+| [docs/data/guardrail_validation_2026-05-22.md](data/guardrail_validation_2026-05-22.md) | Installation + deliberate-break validation memo for the guardrail system. |
+| `docs/data/submission_audit_*.json` | Forensic audit records written by guarded wrappers. |
+
+---
+
+## Structural / Build / Production-State Methodology
+
+| Artifact | Description |
+|----------|-------------|
+| [docs/methodology/structural_separation_2026-05-23.md](methodology/structural_separation_2026-05-23.md) | **CANONICAL** — Phase 1A structural separation, runtime-artifact isolation, and SIDIS-local binary ownership. |
+| [docs/methodology/cross_analysis_code_locations_2026-05-23.md](methodology/cross_analysis_code_locations_2026-05-23.md) | Cross-analysis canonical path reference. |
+| [docs/methodology/sidis_naming_canonical_2026-05-23.md](methodology/sidis_naming_canonical_2026-05-23.md) | Canonical SIDIS naming scheme (`sidistree_*`, per-period output dirs, etc.). |
+| [docs/methodology/empz_cut_loosening_2026-05-23.md](methodology/empz_cut_loosening_2026-05-23.md) | **CURRENT** — documents the move from Empz `[45,65]` to `[35,70]` and the downstream `y<0.7` state. |
+| [docs/research/research-ep0304-production-path-2026-05-24.md](research/research-ep0304-production-path-2026-05-24.md) | **CURRENT** — ep0304 production-path memo and policy basis for re-inclusion in production. |
+| [docs/results/dust_cleanup_2026-05-24.md](results/dust_cleanup_2026-05-24.md) | **CURRENT** — second DUST cleanup memo; total recovered space across the two cleanups is ~106 GB. |
+
+---
+
+## Methodology
+
+| File | Description |
+|------|-------------|
+| [docs/methodology/crad_v5f_methodology_FROZEN.md](methodology/crad_v5f_methodology_FROZEN.md) | **CANONICAL METHOD / STALE NUMBERS** — frozen C_rad methodology. Procedure remains valid; the stored v5f-era numbers were derived before v5g and before the current widened-cut production state, so they must be re-derived on v5g before reuse as current numbers. |
+| [docs/methodology/binning_freeze_2026-05-24.md](methodology/binning_freeze_2026-05-24.md) | **CANONICAL / FROZEN / FINAL** — formal freeze memo for Scheme B′ / `HQ-v5g-Bprime`: no further changes to `(Q², x)`, `z`, `pT_h`, or `φ_h` edges for the published-analysis pipeline. |
+| [docs/methodology/binning_adoption_HQ-v5g-Bprime_2026-05-24.md](methodology/binning_adoption_HQ-v5g-Bprime_2026-05-24.md) | **CANONICAL HISTORY / STATUS NOW FROZEN** — formal adoption memo for Scheme B′ / `HQ-v5g-Bprime`; now supplemented by the same-day freeze decision. |
+| [docs/methodology/binning_finalization_HQ-v5g-Bprime_v2_2026-05-24.md](methodology/binning_finalization_HQ-v5g-Bprime_v2_2026-05-24.md) | **FREEZE-SUPPORTING EVIDENCE** — v2 finalization study with per-cell data counts confirming that the low-purity red-band cells are overwhelmingly empty in data phase space. |
+| [docs/methodology/binning_study_2026-05-24.md](methodology/binning_study_2026-05-24.md) | **CURRENT study report / recommendation superseded** — 4-period v5g `(Q², x)` study at `0.1 < y < 0.7`. Its original planner recommendation was Scheme C (`HQ-v5g-r1`), but that recommendation was overruled on 2026-05-24 and the adopted Scheme B′ was formally frozen the same day; Scheme C remains documented as an alternative cross-check scheme. |
+| [docs/methodology/pTh_phih_frame_bug_2026-05-24.md](methodology/pTh_phih_frame_bug_2026-05-24.md) | **CURRENT / CRITICAL** — frame-bug memo documenting why ChargedTot lab-frame cross products do not equal `\gamma*+p`-frame `pT_h` or Trento `phi_h`, the validated `pT_h` fix, and the landed CM-frame `phi_h` repair in v3. |
+| `extract_pertrack_v5g_fixedFrame_v3.py` | **CANONICAL extractor** — canonical per-track extractor with `\gamma*+p` CM-frame `pT_h` and `phi_h` (per-event `BeamProtP`); v3 = v2 + `phi_h` / `phi_h_old` columns for corrected physics plus audit continuity. Supersedes `extract_pertrack_v5g_fixedFrame_v2.py`, `extract_pertrack_v5g.py`, and the v1 fixedFrame extractor. If a migration-affecting systematic needs a branch that is absent from the CSV, extend this extractor and re-run rather than forcing a CSV-only workaround. |
+| `extract_pertrack_v5g_fixedFrame_v2.py` | **SUPERSEDED by v3** — first corrected CM-frame `pT_h` extractor; retained only as the intermediate step before the canonical `phi_h` fix landed. |
+| [docs/methodology/unfolding_pipeline_FINAL_2026-05-25.md](methodology/unfolding_pipeline_FINAL_2026-05-25.md) | **CANONICAL STATUS MEMO** — SUPERSEDED pre-rev6 closure memo; method ordering and budget invalidated by rev6/TUnfold AREA work, trust-mask policy, catastrophic-bin diagnosis, and sliced-products supersession map. |
+| [docs/methodology/unfold_4d_full_2026-05-25.md](methodology/unfold_4d_full_2026-05-25.md) | **CANONICAL 4D UNFOLDING METHODOLOGY** — full 480×480 response construction, BBB/IBU/TUnfold 4D definitions, closure, covariance structure, and follow-up systematic-budget completion. |
+| [docs/methodology/session_state_2026-05-25.md](methodology/session_state_2026-05-25.md) | **CURRENT SNAPSHOT** — one-page status memo: what is FROZEN, what is in flight, what is blocked, and the next single dispatch after Kerberos refresh. |
+| `data/unfolded_4d_v3_BBB.json` | **CURRENT 4D baseline result** — BBB-4D on the full 480×480 response. |
+| `data/unfolded_4d_v3_IBU.json` | **CURRENT CANONICAL unfolded result** — SUPERSEDED diagnostic IBU-4D output (auto `k=5`, 100-replica bootstrap). |
+| `data/unfolded_4d_v3_IBU_covariance.npz` | IBU-4D bootstrap covariance for downstream propagation. |
+| `data/unfolded_4d_v3_TUnfold.json` | **CURRENT cross-check unfolded result** — TUnfold-4D output (`τ=0.01`, `L_within + L_xboundary`). |
+| `data/unfolded_4d_v3_TUnfold_covariance.npz` | TUnfold-4D analytic covariance on the full 480×480 system. |
+| `data/response_4d_djangoh.npz`, `data/response_4d_rapgap.npz` | Canonical 4D response matrices for DJANGOH14 and RAPGAP31. |
+| `data/unfolded_4d_v3_closure_crossMC.json` | Canonical 4D cross-MC closure summary. |
+| `data/unfold4d_vs_sliced_comparison.json` | Canonical 16-cell comparison between the superseded sliced pipeline and the 4D pipeline. |
+| `data/unfolded_4d_v3_data_DJvsRG.json` | Canonical `σ_model` source on data (DJ vs RG response); COMPLETE. |
+| `data/sigma_reg_TUnfold_4d.json` | Canonical `σ_reg` source from the `τ × 2 / τ / 2` scan; COMPLETE. |
+| `data/sigma_MCstat_TUnfold_4d.json` | Canonical `σ_MC-stat,response` source from 100 MC-response bootstrap replicas; COMPLETE. |
+| `data/unfolded_4d_v3_TUnfold_covariance.npz` | Canonical full 480×480 TUnfold analytic covariance; this is the captured `σ_stat,data` term. |
+| `data/v5g_4d_trust_mask.json` | Canonical per-bin trust mask (353/480 trusted). |
+| `data/v5g_catastrophic_4D_bins_diag.json` | Canonical diagnosis of catastrophic 4D bins and failure modes. |
+| `scripts/unfolding/build_response_4d.py`, `scripts/unfolding/unfold_BBB_4d.py`, `scripts/unfolding/unfold_IBU_4d.py`, `scripts/unfolding/unfold_TUnfold_4d.py` | **CANONICAL 4D unfolding scripts** — full-response builder and production 4D unfolders. |
+| `scripts/unfolding/closure_4d_crossMC.py` | Canonical 4D closure driver. |
+| `plots/unfold4d_QA/`, `plots/v5g_catastrophic_4D_bins_diag/`, `plots/v5g_unfold_4D_data_DJvsRG/`, `plots/v5g_sigma_reg_TUnfold_4d/`, `plots/v5g_sigma_MCstat_TUnfold_4d/` | Canonical 4D QA and systematic-diagnostic plot directories. |
+| `data/SUPERSEDED_NOTE_sliced_v3.md` | Directory-level banner note marking the sliced `unfolded_v3_*HQv5gBprime*.json` products as audit-only. |
+| `data/unfolded_v3_IBU_HQv5gBprime.json`, `data/unfolded_v3_TUnfold_HQv5gBprime.json`, `data/unfolded_v3_OmniFold_HQv5gBprime.json` | **SUPERSEDED (sliced per-cell unfolding)** — preserved for audit and method comparison only; do not use for new derivations. Successors: `unfolded_4d_v3_{BBB,IBU,TUnfold}.json`. |
+| `data/unfolded_v3_TUnfold_HQv5gBprime_covariance.npz`, `data/v5g_unfolding_IBU_closure_crossMC.json`, `data/v5g_unfolding_TUnfold_closure_crossMC.json` | **SUPERSEDED sliced diagnostics** — preserved for audit only; 4D successors are `unfolded_4d_v3_TUnfold_covariance.npz` and `unfolded_4d_v3_closure_crossMC.json`. |
+| `scripts/unfolding/unfold_IBU_v3.py`, `scripts/unfolding/unfold_TUnfold_v3.py`, `scripts/unfolding/unfold_OmniFold_v3.py`, `scripts/unfolding/closure_IBU_crossMC.py`, `scripts/unfolding/closure_TUnfold_crossMC.py` | **SUPERSEDED sliced scripts** — retained only to reproduce historical sliced results. OmniFold-4D is not yet implemented. |
+| `plots/v5g_unfolded_IBU_v3/`, `plots/v5g_unfolded_TUnfold_v3/`, `plots/v5g_unfolded_OmniFold_v3/`, `plots/v5g_TUnfold_covariance/`, `plots/v5g_unfolding_IBU_closure_crossMC/`, `plots/v5g_unfolding_IBU_closure_crossMC_v2/`, `plots/v5g_unfolding_IBU_closure_crossMC_v3/`, `plots/v5g_unfolding_TUnfold_closure_crossMC/`, `plots/v5g_unfolding_TUnfold_closure_crossMC_v2/`, `plots/v5g_unfolding_TUnfold_closure_crossMC_v3/`, `plots/v5g_unfolding_closure_ratio_summary/`, `plots/v5g_unfolding_comparison_3method_v3/`, `plots/v5g_unfolding_comparison_3method_v4/`, `plots/TUnfold_scan_QA/` | **SUPERSEDED sliced QA/artifacts** — preserved for audit only; see the 4D QA directories above for current diagnostics. |
+| ~~[docs/methodology/binning_proposal_2026-05-24.md](methodology/binning_proposal_2026-05-24.md)~~ | **SUPERSEDED** — earlier y<0.6 / 3-period proposal. Successor: `binning_study_2026-05-24.md`. |
+
+---
+
+## Research / Systematics Status
+
+| File | Description |
+|------|-------------|
+| [docs/research/unfolding_systematic_decomposition_2026-05-24.md](research/unfolding_systematic_decomposition_2026-05-24.md) | **CURRENT RESEARCH MEMO** — defines the 4-term unfolding decomposition `σ²_unfold = σ²_stat,data + σ²_model + σ²_reg + σ²_MC-stat,response`; all four artifacts now exist on disk. |
+| [docs/research/research-tracking-systematics-2026-05-25.md](research/research-tracking-systematics-2026-05-25.md) | **CURRENT BUT CONCERNED BY CRITIC** — landed tracking memo; revise before implementation because of the `δA_h` factor-of-2 issue, reco/gen smearing contradiction, dense-jet criterion concern, and 0.5% vs 2.5% prescription mismatch. |
+| `docs/research/research-electron-systematics-2026-05-25.md` | **LOST; NEEDS RE-DISPATCH** — agent reported writing this, but no file exists on disk. |
+| `docs/research/research-hfs-systematics-2026-05-25.md` | **LOST; NEEDS RE-DISPATCH** — agent reported writing this, but no file exists on disk. |
+| `data/systematics_sources/source_lumi.json` | **LANDED WITH CONCERN** — 2.7% normalization-only source; bookkeeping fix still needed because `source_id="lumi"` should match combiner expectation `"luminosity"`. |
+| `data/systematics_sources/source_trigger.json` | **LANDED / SOUND** — 0.5% conservative placeholder, normalization-only. |
+| `data/systematics_sources/source_NucliaWeight.json` | **LANDED WITH CONCERN** — charge-symmetric source; current implementation uses a ±100% envelope on the correction itself and needs a supervisor decision or explicit justification versus an H1-style ±50% parameter variation. |
+| `data/systematics_sources/source_unfolding_IBU.json`, `data/systematics_sources/source_unfolding_TUnfold.json` | Existing unfolding-source emitters retained for combination bookkeeping. |
+
+> **Standing directive:** Phase 2 sources require a three-iteration critic cycle (`research → implementation → critic → fix → critic → fix`) and must preserve enough information to construct per-source bin-bin covariance for global fits.
+
+---
+
+## Physics Observables — Current Interpretation Status
+
+### Important status rule
+
+All v5f-tagged result memos below are now retained as **audit-history,
+PRELIMINARY (pre-v5g)**. They used pre-v5g Stage 2 trees, pre-current cut
+state, and older sample / binning assumptions. Read them only as historical
+artifacts unless and until the corresponding v5g rerun exists.
+
+### A_BC^DIS (beam-charge asymmetry, DIS-level)
+
+| File | Description |
+|------|-------------|
+| [docs/results/abc_dis_v5f_FINAL_no_ep0304.md](results/abc_dis_v5f_FINAL_no_ep0304.md) | **SUPERSEDED / PRELIMINARY (pre-v5g)** — former 3-period “FINAL” memo. Preserved for audit only. |
+| [docs/results/abc_dis_stability_v5f.md](results/abc_dis_stability_v5f.md) | **PRELIMINARY (pre-v5g)** — v5f stability diagnostics. |
+| [docs/results/abc_dis_dedicated_unfolding_v5f.md](results/abc_dis_dedicated_unfolding_v5f.md) | **PRELIMINARY (pre-v5g)** — v5f dedicated unfolding study. |
+
+### A_BC^DIS vs ε
+
+| File | Description |
+|------|-------------|
+| [docs/results/abc_dis_vs_epsilon_v5f_no_ep0304.md](results/abc_dis_vs_epsilon_v5f_no_ep0304.md) | **SUPERSEDED / PRELIMINARY (pre-v5g)** — 3-period ε-binned v5f study. |
+
+### R_BC = σ(e+p) / σ(e−p)
+
+| File | Description |
+|------|-------------|
+| [docs/results/r_bc_v5f.md](results/r_bc_v5f.md) | **SUPERSEDED / PRELIMINARY (pre-v5g)** — v5f ratio memo. |
+
+### Multiplicities, Cross-Sections, and A_h
+
+| File | Description |
+|------|-------------|
+| [docs/results/multiplicities_cross_sections_A_h_v5f_no_ep0304_v2.md](results/multiplicities_cross_sections_A_h_v5f_no_ep0304_v2.md) | **SUPERSEDED / PRELIMINARY (pre-v5g)** — v5f Stream B v2 memo. |
+
+### φ_h Harmonic Moments
+
+| File | Description |
+|------|-------------|
+| [docs/results/phih_harmonics_v5f_no_ep0304_v2.md](results/phih_harmonics_v5f_no_ep0304_v2.md) | **SUPERSEDED / PRELIMINARY (pre-v5g, WRONG FRAME for phi_h)** — fine-grid v5f harmonic extraction. Re-derivation pending using canonical extractor `extract_pertrack_v5g_fixedFrame_v3.py` and merged CSV `pertrack_v5g_fixedFrame_v3_merged.csv.gz`. |
+| [docs/results/phih_harmonics_v5f_no_ep0304_v3_coarse.md](results/phih_harmonics_v5f_no_ep0304_v3_coarse.md) | **SUPERSEDED / PRELIMINARY (pre-v5g, WRONG FRAME for phi_h)** — coarse-grid v5f harmonic extraction. Re-derivation pending using canonical extractor `extract_pertrack_v5g_fixedFrame_v3.py` and merged CSV `pertrack_v5g_fixedFrame_v3_merged.csv.gz`. |
+| [docs/results/phih_harmonics_v5f_no_ep0304_v4_unbinnedML.md](results/phih_harmonics_v5f_no_ep0304_v4_unbinnedML.md) | **SUPERSEDED / PRELIMINARY (pre-v5g, WRONG FRAME for phi_h)** — unbinned-ML v5f harmonic extraction. Re-derivation pending using canonical extractor `extract_pertrack_v5g_fixedFrame_v3.py` and merged CSV `pertrack_v5g_fixedFrame_v3_merged.csv.gz`. |
+
+---
+
+## Infrastructure / Supporting Artifacts
+
+| File | Description |
+|------|-------------|
+| [docs/results/n_dis_eps_dis_v5f_HQv5fr1.md](results/n_dis_eps_dis_v5f_HQv5fr1.md) | **PRELIMINARY (pre-v5g)** — v5f-era N_DIS / ε_DIS memo retained for audit. |
+| [docs/results/acceptance_v5f_charged.md](results/acceptance_v5f_charged.md) | **PRELIMINARY (pre-v5g)** — v5f-era hadron acceptance memo retained for audit. |
+| [docs/results/migration_matrices_v5f.md](results/migration_matrices_v5f.md) | **PRELIMINARY (pre-v5g)** — v5f-era migration study retained for audit. |
+| [docs/results/lumi_effective_per_period_v5f.md](results/lumi_effective_per_period_v5f.md) | **PRELIMINARY (pre-v5g)** — v5f-era realised-lumi memo retained for audit. |
+| [docs/results/binning_v5f_frozen.md](results/binning_v5f_frozen.md) | **FULLY SUPERSEDED** — old square production binning memo retained for audit. Superseded first by the 2026-05-24 binning study, then by the adopted-and-frozen `HQ-v5g-Bprime` scheme. |
+
+---
+
+## C_rad Results
+
+| File | Description |
+|------|-------------|
+| [docs/results/crad_v5f_strategy2_real_v3.md](results/crad_v5f_strategy2_real_v3.md) | **CANONICAL v5f-era result / NUMERICALLY STALE FOR CURRENT PRODUCTION** — valid audit record and methodology result on pre-v5g trees; re-derivation on v5g pending. |
+| ~~[docs/results/crad_v5f_strategy2_real_v2.md](results/crad_v5f_strategy2_real_v2.md)~~ | Deprecated in favor of v3; audit trail only. |
+| ~~[docs/results/crad_v5f_strategy2_real.md](results/crad_v5f_strategy2_real.md)~~ | Deprecated in favor of v3; audit trail only. |
+| ~~[docs/results/crad_v5f_per_bin.md](results/crad_v5f_per_bin.md)~~ | Deprecated placeholder / audit trail only. |
+| ~~[docs/results/crad_v5f_strategy2.md](results/crad_v5f_strategy2.md)~~ | Deprecated placeholder / audit trail only. |
+
+---
+
+## Data Input / Policy Artifacts
+
+| File | Description |
+|------|-------------|
+| [docs/data/ep0304_rate_audit_v5f.md](data/ep0304_rate_audit_v5f.md) | **CURRENT POLICY CONTEXT / v5f-era evidence** — original ep0304 drift audit. Its old “drop” conclusion is now superseded by the 2026-05-24 policy: ep0304 is production-included and analysis-included by default, while `ep0304-out` is retained only as a systematic cross-check. |
+| [docs/data/trigweightac_audit_v5f.md](data/trigweightac_audit_v5f.md) | v5f-era trigger-weight audit. |
+| [docs/data/grl_manifest_highQ2.json](data/grl_manifest_highQ2.json) | current GRL manifest |
+| [docs/data/highQ2_per_run_beam_energy.json](data/highQ2_per_run_beam_energy.json) | per-run beam-energy table |
+| [docs/data/highQ2_mc_luminosity.json](data/highQ2_mc_luminosity.json) | MC luminosity bookkeeping |
+
+---
+
+## Audit-Trail Files
+
+These remain preserved as historical evidence. They are not current result
+endorsements.
+
+| File | Description |
+|------|-------------|
+| [docs/results/W4_synthesis_v5f_analysis.md](../old/docs/results/W4_synthesis_v5f_analysis.md) | W4 synthesis analysis |
+| [docs/results/W4_deep_synthesis_v5f.md](../old/docs/results/W4_deep_synthesis_v5f.md) | W4 deep synthesis |
+| [docs/results/W5_synthesis_v5f.md](../old/docs/results/W5_synthesis_v5f.md) | W5 synthesis |
+| [docs/results/unfolding_compare_v5f.md](../old/docs/results/unfolding_compare_v5f.md) | W3 unfolding method comparison |
+| [docs/data/phase3_naf_cleanup_2026-05-19.md](../old/docs/data/phase3_naf_cleanup_2026-05-19.md) | Phase 3 NAF cleanup trail |
+| [docs/data/phase4_naf_new_root_2026-05-19.md](../old/docs/data/phase4_naf_new_root_2026-05-19.md) | Phase 4 NAF ROOT install trail |
+| [docs/data/phase5_phase6_validation_2026-05-19.md](../old/docs/data/phase5_phase6_validation_2026-05-19.md) | Phase 5–6 validation trail |
+| [docs/data/g1c_v5f_full_launch_2026-05-19.md](../old/docs/data/g1c_v5f_full_launch_2026-05-19.md) | old v5f production launch trail |
+
+---
+
+## Current Session Save Summary (2026-05-25)
+
+Most important saved facts:
+- Scheme B′ (`HQ-v5g-Bprime`), the v5g 4-period production state, the v3 CM-frame extractor, and pure-BBB acceptance remain FROZEN.
+- Full 4D 480×480 unfolding is now the canonical pipeline; sliced unfolding is superseded for production use.
+- The 4-term unfolding systematic budget is COMPLETE on disk: `σ_stat,data`, `σ_model`, `σ_reg`, and `σ_MC-stat,response` are all captured.
+- TUnfold production remains globally fixed at `τ=0.01`; corner-cell sub-optimality is absorbed into `σ_reg` rather than per-cell retuning.
+- Migration-affecting systematics must now go ROOT-side via shifted extraction and full re-unfolding; the CSV is derivative, not canonical.
+- Phase 2 systematics are partially landed: lumi / trigger / NucliaWeight sources exist, tracking research exists with critic CONCERNS, HFS and electron memos are lost, and electron-E execution is blocked only by expired Kerberos.
+- Background MC `g1j_ES` production remains blocked on DUST quota and needs supervisor decision.

@@ -1,0 +1,10 @@
+docs/operations/rapgap_crad_batch_workflow_2026-06-20.md
+docs/radiative/djangoh14_norad_supplement_pipeline_2026-07-07.md
+docs/radiative/djangoh14_norad_supplement_pipeline_2026-07-08.md
+docs/radiative_corrections/rapgap_crad_normalization_deepdive_2026-06-24.md
+docs/radiative_corrections/rapgap_resolution_avenues_2026-06-24.md
+docs/references/reference-highQ2-crad-availability.md
+docs/research-crad-v5f-attempt.md
+docs/research/crad_resolution_highQ2_2026-06-13.md
+docs/research/research-crad-for-charged-sidis.md
+docs/research/research-crad-lumi-pilot-bunch-zvertex-2026-06-09.md

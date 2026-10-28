@@ -1,0 +1,15 @@
+.opencode/skills/sidis-hq2-baseline-update/SKILL.md
+AGENTS.md
+STATE.md
+context-handoff.md
+docs/RUN_STATUS.md
+docs/skills_build/AUTHORING_CONTRACT.md
+docs/skills_build/COVERAGE_MANIFEST.md
+docs/skills_build/README.md
+docs/skills_build/ownership.tsv
+docs/status/alpha0p2-background.md
+docs/status/current-release.md
+docs/status/normalization.md
+docs/status/radiative-corrections.md
+docs/status/unfolding-tunfold.md
+scripts/canonical_highQ2_sidis_2026-06-30/RUNLIST.md

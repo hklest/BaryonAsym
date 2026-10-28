@@ -1,0 +1,1395 @@
+{
+  "schema": "bgsub_s2prime_rebase_spec_2026-10-11_v4",
+  "date": "2026-10-11",
+  "revision": "Rev 3 (cone-base re-derivation) + SS-H production-preconditions extension (2026-10-11)",
+  "status": "ADJUDICATION_AND_SPEC_REDERIVATION_ONLY",
+  "products_built": false,
+  "promotions_performed": false,
+  "read_only_inputs": true,
+  "addendum_to": {
+    "spec_md": "sidis_highQ2/docs/systematics/BGSUB_PUBLISHED_SCHEME_AND_GATE_SPEC_2026-10-10.md",
+    "spec_json": "sidis_highQ2/docs/systematics/bgsub_scheme_spec_2026-10-10.json",
+    "rebase_addendum_md": "sidis_highQ2/docs/systematics/BGSUB_S2PRIME_REBASE_ADDENDUM_2026-10-11.md"
+  },
+  "revision_history": {
+    "rev1": "SUPERSEDED (critic FATAL F-1: subtraction set was V0+lowQ2-only; electrons are NOT removed by f_i)",
+    "rev2": "F-1 correction STANDS (Set R' = e + V0 + lowQ2); its selection-transfer items (electron cone-survival rescale; V0/lowQ2 one-sided envelope) are SUPERSEDED by the Rev-3 cone closure",
+    "rev3": "Cone-base re-derivation (this revision): user decision 2026-10-11 imposes cone alpha>=0.2; all anchors/gates/budget expectations recomputed on D_cone and the cone releases; rescale RETIRED, envelope CLOSED",
+    "rev4": "SS-H production-preconditions extension (same day as Rev 3): triggered by the Stage-1 blocker record; supplies the complete per-component inventory, the three missing production recipes (5 cone shifted detector DVs; tracking-drop cone port + 16 seed DVs; cone 1000-toy sidecar), the 31-item gate/machinery re-scoping with pinned cone constants, and the ordered re-dispatch plan P0-P5. NO Rev-3 anchor, window, or budget expectation changes."
+  },
+  "rev2_correction_record_kept": {
+    "trigger": "sidis_highQ2/docs/critiques/critic-gate-bgsub-promotion-2026-10-11.md (verdict FATAL, F-1; M-1/M-2/M-3; Conditions 1-5)",
+    "finding": "Under the central AND variant response, MC-flagged electrons are excluded from the response ENTIRELY (signal AND fake columns) by the builder predicate pass_reco_full = evt & trk & not_e & not_v0_match_top; f_i never removes them; the subtraction set is Set R' = e + V0 + lowQ2",
+    "carries_into_rev3": [
+      "Set composition Set R' = e + V0 + lowQ2 (B_R' = B(e)+B(V0)+B(lowQ2); S2' spec Sec 3 'full future chain'); fc1/fc2 identically zero in the variant response (re-verified on the CONE variant)",
+      "e^V0 overlap IGNORED (user decision 2026-10-08) carries: 112.2093 cone-applied = 0.00290% of D_cone (the rescaled copy 121.2354 RETIRES with the rescale)",
+      "bgsub_fakefrac_rel scope fc0-only (Rev-1 'electrons fc1' wording was wrong at builder-code level; arithmetic unchanged since F_fc1 = 0)",
+      "19-component budget structure; gate mechanics",
+      "Disjointness of V0/lowQ2/keeper/det.int. rows (G1/G9/G11; parentage campaign n_v0_ancestor_in_detint = 0; e/V0 vetoes inside is_detint)"
+    ],
+    "superseded_by_rev3": [
+      "Rev-2 Sec 0.2 electron cone-survival rescale (adopted=False now; register CLOSED by construction; the 4.1441%-of-D PROVISIONAL figure is no longer consumed)",
+      "Rev-2 Sec 0.3 V0/lowQ2 one-sided cone-survival envelope in bgsub_model_rel (register CLOSED for V0 by construction; lowQ2 alpha0p1 radius mismatch carried as a tiny explicit caveat)",
+      "Rev-2 no-cone re-base target and anchors (superseded by the cone decision)"
+    ]
+  },
+  "cone_base_rederivation": {
+    "trigger": "User decision 2026-10-11: impose cone alpha>=0.2 (3D opening angle vs reconstructed scattered electron; not_e kept) on the central track selection; cone-base chain complete and validated",
+    "cone_campaign": "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/",
+    "cone_vs_nocone_report": "sidis_highQ2/docs/results/cone-vs-nocone-comparison-2026-10-11.md (integrated -0.2965%/-0.3130% RAW IBU, -0.2891%/-0.3063% Born; all impact-study predictions confirmed)",
+    "closures": {
+      "electron_cone_survival_rescale": "CLOSED/RETIRED (packaged cone-applied template is the same-selection object; consumed directly; M-2 closes by construction)",
+      "v0_cone_survival_envelope": "CLOSED (selection-consistent by construction; the unbounded no-cone V0 caveat of ledger Sec 9 closes with it)",
+      "p_alpha": "BOTH critic conditions DISCHARGE by construction ((i) same-selection templates; (ii) V0 gap closed, lowQ2 carried tiny); a formal closure/supersession entry in STATE.md is REQUIRED (recorded action)",
+      "ledger_11_4_closing_action": "MOOT for e/V0 (achieved by the cone basis); remains only as the OPTIONAL lowQ2 alpha0p2-radius rebuild"
+    },
+    "carries": {
+      "lowq2_alpha0p1_radius_mismatch": "template built with alpha<0.1 cone vs alpha>=0.2 selection (overcount direction); bounded <<0.01% via the alpha0p1->alpha0p2 chain ratio mean 0.99972; carried inside the lowQ2 +/-30% model term",
+      "e_v0_overlap_ignored": "user decision 2026-10-08 unchanged",
+      "diffvm_rows_18_19_blocked": "unchanged",
+      "dj_leg_stored_plain_prior_g4_g6_caveat": "unchanged (report-only)"
+    },
+    "data_vector_identity": "cone data vector per-bin BIT-IDENTICAL to the June alpha0p2 campaign vector (max dev 0.0, both charges, 980 bins) - two independent builds of the same selection on the same 658 trees; verified read-only",
+    "alpha_denominator_swap": "MOOT on the cone base: the alpha0p2 vector IS the data vector, so the V0/lowQ2 denominator-swap bound is 0 by construction (verified: max |f_res'(cone-D) - f_res'(alpha0p2-D)| = 0.0, both charges)"
+  },
+  "decision_record": {
+    "date": "2026-10-11",
+    "user_decision_rebase": "Re-base the published background-subtraction scheme onto the S2' detint-fake basis with the EXTENDED subtraction set Set R' = e + V0 + lowQ2",
+    "user_decision_cone": "Impose the cone alpha>=0.2 on the central selection (Grebenyuk-precedent alignment; selection-convention change); the re-base target moves to the cone-base products",
+    "pre_s2prime_candidate_provenance_only": {
+      "release": "H1ChargedSidis_HighQ2/output_v6/studies/bgsub_setr_build_2026-10-10/born_release_candidate/born_crad_bgsub_setR_centralbase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-10/",
+      "official_gated_values_nb": {
+        "hplus": 12.62353085471277,
+        "hminus": 12.302194886769733
+      },
+      "official_gate": "22 PASS + CP-1 PASS_WITH_RECORDED_EXCEPTIONS + PM-4 READY_FOR_USER_DECISION",
+      "basis_flag": "pre-S2'-basis; quoting against S2' values without the observable-basis flag is FORBIDDEN"
+    }
+  },
+  "rebase_target": {
+    "status": "CONE BASE; study-tree R9 PROVISIONAL until promotion",
+    "raw_release": "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/release_driver/bbb_ibu_cone_alpha_central_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-11/",
+    "born_release": "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/release_driver/born_crad_dj14relbin_cone_alpha_central_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_2026-10-11/",
+    "budget_15comp": null,
+    "budget_15comp_note": "PRECONDITION: the cone 15-component S2' budget does NOT exist yet; it must be produced (separate dispatch) before/with the bgsub build; CP-5 consumes it byte-identically",
+    "data_vector": "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/data_vector_cone_alpha_central_2026-10-11.json",
+    "response_rapgap31_variant": {
+      "path": "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/migration_s2prime_cone_rapgap31_2026-10-11.root",
+      "sha256": "fda5466f6ef16c2cec22a6b8dc08113929a73a766a6bee4ee9271a362f77d6c6"
+    },
+    "response_rapgap31_variant_npz": {
+      "path": "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/migration_s2prime_cone_rapgap31_2026-10-11.npz",
+      "sha256": "736fae14c31c890d6f8fef6d2bf8fa896e3e00c08e34c464678e4725427f1e12"
+    },
+    "response_djangoh14_variant": {
+      "path": "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/migration_s2prime_cone_djangoh14_2026-10-11.root",
+      "sha256": "c84a8c2df4d2943d5d5626a7b267bdfe90736b831ef62de1734cb3816f0c48b5"
+    },
+    "s2prime_convention": {
+      "removable_fraction_pooled": 0.90992,
+      "removable_fraction_unc": 0.000269,
+      "keeper": "charged-K DIF k_parented (102,406 pooled rows = 9.01% of the det.int. block; mother PDG +-321 only) KEPT as signal",
+      "f_i_response_internal_cone_rg_integrated": {
+        "hplus": 0.112335,
+        "hminus": 0.108698
+      },
+      "f_i_dataweighted_on_D_cone": {
+        "hplus": 0.11334350754375185,
+        "hminus": 0.10960219873390149
+      },
+      "f_i_dataweighted_nocone_reference": {
+        "hplus": 0.11357651508432269,
+        "hminus": 0.10976811856118651
+      },
+      "f_i_shift_pp": {
+        "hplus": -0.02330075405708454,
+        "hminus": -0.016591982728501875
+      },
+      "external_detint_subtraction": "FORBIDDEN (double removal + keeper violation)"
+    }
+  },
+  "extended_set_definition": {
+    "name": "Set R'",
+    "composition": "e (as packaged, cone-applied, NO rescale) + V0 (gen-avg) + lowQ2; simple sum; e^V0 overlap IGNORED per standing user decision 2026-10-08 (0.00290% of D_cone)",
+    "exactly_once_safety": "fc1 (electron) and fc2 (V0) are identically zero in the CONE variant response (no e/V0 category keys in the cone npz; partition closure fc0+fc3r+fc3p+kpf-F = 2.448e-16/3.839e-16 of max F; cone f_i in [0,1) for all bins); the external vectors and the variant f_i touch disjoint classes",
+    "electron_cone_survival_rescale": {
+      "adopted": false,
+      "register": "CLOSED_BY_CONSTRUCTION (Rev 3)",
+      "superseded_rev2_values": {
+        "survival_rapgap31": 0.9269732334598001,
+        "survival_djangoh14": 0.924124922679197,
+        "rescaled_total": 160959.57223138993,
+        "rescaled_of_D_nocone": 0.041440667478538744
+      },
+      "note": "the rescale was the Rev-2 selection-transfer correction for a no-cone chain consuming cone-applied templates; on the cone base the templates are selection-consistent and the rescale is not consumed anywhere"
+    },
+    "v0_lowq2_cone_survival_gap": {
+      "treatment": "CLOSED for V0 by construction (Rev 3); lowQ2 narrowed to the alpha0p1 radius mismatch",
+      "register": "CLOSED (V0) / NARROWED-CARRIED (lowQ2)",
+      "superseded_rev2_envelope": {
+        "bound_rel": 0.08044229240916634,
+        "integrated_of_data_sub": {
+          "hplus": 0.002957,
+          "hminus": 0.00297
+        }
+      },
+      "lowq2_radius_mismatch": {
+        "direction": "overcount (template keeps 0.1<=alpha<0.2 tracks the selection removes)",
+        "bound": "<<0.01% (alpha0p1->alpha0p2 full-chain IBU ratio mean 0.99972 -> ~0.03% chain-level for the FULL chain; class is 0.0054% of D_cone)",
+        "treatment": "inside the lowQ2 +/-30% term of bgsub_model_rel; optional single-sample alpha0p2-radius rebuild recorded"
+      }
+    },
+    "vector_totals": {
+      "electron_cone_applied": {
+        "hplus": 73701.28554105517,
+        "hminus": 75275.14969129545,
+        "total": 148976.4352323506,
+        "of_D_cone": 0.03854427464432123,
+        "of_D_cone_per_charge": {
+          "hplus": 0.03749365902276806,
+          "hminus": 0.039631578258349176
+        },
+        "of_D_nocone_reference": 0.038355487834714375
+      },
+      "v0_genavg": {
+        "hplus": 67092.2006,
+        "hminus": 64973.0762,
+        "total": 132065.2768,
+        "of_D_cone_per_charge": {
+          "hplus": 0.03413145474114922,
+          "hminus": 0.03420764443365254
+        }
+      },
+      "lowq2": {
+        "hplus": 119.4307,
+        "hminus": 88.9488,
+        "total": 208.3795,
+        "of_D_cone_per_charge": {
+          "hplus": 6.075733208630726e-05,
+          "hminus": 4.6830621260552155e-05
+        }
+      },
+      "B_R_prime_cone": {
+        "hplus": 140912.91681341422,
+        "hminus": 140337.17473977088,
+        "total": 281250.09155318514,
+        "of_D_cone": 0.0727670839731061,
+        "of_D_cone_per_charge": {
+          "hplus": 0.07168587109600358,
+          "hminus": 0.07388605331326226
+        },
+        "impact_study_prediction": 0.072766
+      },
+      "B_R_prime_applied_fine_guard": {
+        "hplus": 140912.5790069722,
+        "hminus": 140337.0462215673,
+        "guarded_away_content": {
+          "hplus": 0.33780644202488475,
+          "hminus": 0.1285182035935577,
+          "total": 0.46632464561844245,
+          "electron_part": 0.2182,
+          "v0_lowq2_part": 0.2482
+        }
+      },
+      "data_cone": {
+        "hplus": 1965700.0,
+        "hminus": 1899373.0,
+        "total": 3865073.0
+      },
+      "data_sub_prime": {
+        "hplus": 1824787.4209930277,
+        "hminus": 1759035.953778433
+      },
+      "true_negatives_after_fine_guard": 0,
+      "fine_empty_bins_with_template_content": {
+        "hplus_bins": [
+          218,
+          358
+        ],
+        "hminus_bins": [
+          341,
+          410,
+          470,
+          480
+        ],
+        "hplus_content": [
+          0.1915,
+          0.1463
+        ],
+        "hminus_content": [
+          0.0167,
+          0.0424,
+          0.0527,
+          0.0167
+        ],
+        "note": "same bins as the no-cone vector (the cone emptied no additional fine bin); V0/lowQ2 content bit-identical to the carried build"
+      },
+      "release_empty_bins_f_zero": {
+        "hplus": [
+          109,
+          179
+        ],
+        "hminus": [
+          240
+        ]
+      },
+      "cone_data_counters": {
+        "alpha_pre_in_ps": 3902480,
+        "rejected_in_ps": 28582,
+        "rejected_in_ps_per_charge": {
+          "hplus": 14465,
+          "hminus": 14117
+        },
+        "in_grid": 3865073,
+        "in_grid_removal": 19024,
+        "in_grid_removal_per_charge": {
+          "hplus": 9601,
+          "hminus": 9423
+        },
+        "matched_electron_rejection_counters": [
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "disjointness_verdict": {
+    "verdict": "DISJOINT (UNCHANGED; re-verified on the CONE variant response)",
+    "statement": "The cone changes the reco space, not the class taxonomy: response-eligible MC rejections 162,528 = 83,782/78,746 are exclusively matched_signal (77,974/74,586) + detint (1,121/652) + unflagged_fake (4,687/3,508) - NO electron or V0 class (not_e/not_v0 kept; the matched-electron 244,729/244,540 and matched-V0 4,269/3,729 in-cone counters are diagnostics of already-excluded content). fc1/fc2 remain identically zero; the enlarged f_i removes ONLY det.int. Class 2 non-keeper content; zero overlap with Set R'",
+    "evidence_cone": [
+      "cone npz category keys contain NO electron/V0 fake category (only existing_other fc0, detint_rerouted/prefail/keeper_prefail fc3, keeper_retained_body)",
+      "partition closure fc0+fc3r+fc3p+kpf-F_fake = 2.448e-16 (h+) / 3.839e-16 (h-) of max F",
+      "cone f_i in [0,1): max 0.324906 (h+) / 0.305182 (h-)",
+      "S2'-vs-central-cone per-row denominator B+F conserved to max rel 4.9e-16 (campaign crosscheck)",
+      "data vector matched-electron rejection/survival counters 0/0 (not_e kept)"
+    ],
+    "evidence_carried": [
+      "e/V0 vetoes INSIDE is_detint (spec Rev 2 Sec 2.1); veto-disablement on the DO-NOT-PORT list",
+      "G1/G9/G11 gate suite (reroute moves only det.int.-tagged non-keeper matched legs; miss row bit-identical; G9 identity with invariant denominator)",
+      "parentage campaign: n_v0_ancestor_in_detint = 0 campaign-wide; keeper 100% charged-K mothers +-321",
+      "binmap/binning UNCHANGED under the cone (NB_R=490, NB_G=245 per charge)"
+    ],
+    "exactly_once_per_class": {
+      "unflagged_other_unmatched_fakes": "removed by variant f_i only (fc0; 93.45%/94.00% of the cone variant fake column response-internal; cone removed 4,687/3,508 unflagged-fake MC legs - content change, not class change)",
+      "residual_electrons": "absent from the response entirely (fc1 = 0 on the cone variant); subtracted pre-unfold by the Set R' electron vector AS PACKAGED (no rescale)",
+      "detint_class2_removable": "removed RESPONSE-INTERNALLY by the enlarged variant f_i; cone rejections 1,121/652 legs stay response-internal; external det.int. subtraction FORBIDDEN",
+      "chargedK_DIF_kparented_keeper": "SIGNAL; subtracted by nothing",
+      "v0_daughters": "absent from the response (fc2 = 0 on the cone variant); subtracted pre-unfold by Set R' only (selection-consistent)",
+      "lowq2_leakage": "absent from the response; subtracted pre-unfold by Set R' only (alpha0p1 radius caveat carried)",
+      "diffvm_rho": "bounded uncovered residual (0.0074% integrated); systematic-only; never subtracted (register rows 18/19 BLOCKED)"
+    },
+    "ordering": "data_sub' = data_cone - B_R'_cone (980, pre-unfold) -> d_sig = data_sub'*(1-f_i_cone_variant) -> IBU k=4 on the cone variant response with the cone coherent prior -> x C_rad (Born)"
+  },
+  "template_validity_verdict": {
+    "verdict": "VALID_WITHOUT_REDERIVATION_AND_NOW_EXACTLY_SELECTION_CONSISTENT",
+    "reasons": [
+      "Selection consistency is EXACT: the templates were derived under the alpha0p2 selection (central + cone alpha>=0.2); the cone-base chain applies exactly that selection; the cone data vector is per-bin bit-identical to the June alpha0p2 campaign vector (max dev 0.0, both charges) - the template-derivation denominator and the chain denominator are the SAME vector",
+      "Templates are data-side reco-space vectors from the alpha0p2 generator-averaged bank (L351,000) on the fixed 980-bin grid; never derived from any response object",
+      "Class definitions untouched by the reroute (e/V0 vetoes inside is_detint; parentage campaign n_v0_ancestor_in_detint = 0); lowQ2 source-distinct",
+      "The packaged V0/lowQ2 CSV columns are bit-identical to the bank vectors (max dev 0.0, re-verified)",
+      "NO transfer correction is consumed for e/V0 (Rev-2 rescale retired, envelope closed); only the lowQ2 alpha0p1 radius mismatch is carried (<<0.01%)"
+    ]
+  },
+  "spec_deltas": {
+    "subtraction_stage": "CHANGED (Rev 3): pre-unfold 980-bin subtraction of B_R'_cone = e_cone (as packaged) + V0_genavg + lowQ2 on the CONE data vector (overlap ignored); guards UNCHANGED (fine-level empty-bin guard; release-level empty-bin guard; dual convention verified on the cone base)",
+    "fake_fraction": "CHANGED: per-reco-bin CONE S2' VARIANT f_i from migration_s2prime_cone_rapgap31 (sha256 fda5466f...), byte-identical derivation to the cone RAW release; falling back to the no-cone table = STOP",
+    "response_prior": "CHANGED: CONE S2' variant response + coherent body+miss prior computed FROM THE CONE VARIANT RESPONSE (campaign Phase-D prior; R10-style repointed + asserted; no no-cone-read code path); repro target = cone RAW release (11.412233/11.123626 nb)",
+    "c_rad": "UNCHANGED: applied releasebin DJANGOH14 table (integrated h+ 1.1415172920054786 / h- 1.1410367377289135), bitwise C_rad x raw identity; cone is reco-only and does not enter gen-only C_rad (standing ruling); byte-identical use confirmed in the cone Born release (table sha256 205e8218...; per-bin Born shift == raw per-bin to 2.2e-14; 17/17 gates green)",
+    "product": "New dated study tree (e.g. output_v6/studies/bgsub_setrprime_conebase_<date>/) + dated candidate release born_crad_bgsub_setRprime_conebase_S3xmerged_zlow005_pT5_eta1p6_radlen5_nhit5_<date>/ (Rev-2 _detints2primebase_ name superseded; setR name remains RETIRED); 1000-toy Poisson through the cone variant chain",
+    "estimator_per_bin": "sigma_bgsub[b] = (1/L) * IBU_k4(data_cone - B_R'_cone; response RG31_S2prime_cone_variant; prior body+miss from cone variant response; f_i_S2prime_cone)[b] * C_rad_releasebin[b]"
+  },
+  "expected_anchors": {
+    "method": "Per-bin dilution sum x_b*(1-f_res',b) over the 490 release bins on the CONE release values; f_res',b = per-release-bin B_R'_cone/D_cone (unguarded template pair sum; release-level empty-bin convention)",
+    "method_continuity": "Rev-2 machinery reproduced the carried build artifacts exactly (max dev 0.0, both charges, both levels); re-run on D_cone and the cone releases; cone DV == June alpha0p2 vector (max dev 0.0) and packaged V0/lowQ2 columns == bank (max dev 0.0) re-verified in this pass",
+    "raw_ibu_nb": {
+      "unsubtracted": {
+        "hplus": 11.41223261552874,
+        "hminus": 11.123626367451847
+      },
+      "unsubtracted_campaign_record": {
+        "hplus": 11.41223261552874,
+        "hminus": 11.123626367451845,
+        "note": "CSV-sum vs campaign-record integrated values agree to <=2e-15 (float summation order)"
+      },
+      "subtraction_effect_yieldweighted": {
+        "hplus": 0.07900072969297034,
+        "hminus": 0.0812666274379037
+      },
+      "dilution_anchor": {
+        "hplus": 10.510657911476054,
+        "hminus": 10.219646767689696
+      }
+    },
+    "born_nb": {
+      "unsubtracted": {
+        "hplus": 13.026987454844365,
+        "hminus": 12.697511232683578
+      },
+      "subtraction_effect_bornweighted": {
+        "hplus": 0.07892769269320454,
+        "hminus": 0.08119437701760879
+      },
+      "dilution_anchor_ru3_center": {
+        "hplus": 11.998797392290179,
+        "hminus": 11.666544718471744
+      },
+      "anchor_via_integrated_crad_crosscheck": {
+        "hplus": 11.998097756304103,
+        "hminus": 11.660992408546486
+      },
+      "crad_weighting_residue_rel": {
+        "hplus": -5.830884239488299e-05,
+        "hminus": -0.0004759172539292589,
+        "note": "data-weighted cone scales 1.1414933338/1.1414902670 vs table-integrated 1.1415172920/1.1410367377; per-bin Born-weighted anchor is the gate center"
+      }
+    },
+    "vs_rev2_nocone_anchors": {
+      "raw_rel": {
+        "hplus": 0.00039326031583430954,
+        "hminus": 0.00041600540916109097
+      },
+      "born_rel": {
+        "hplus": 0.0004743668270092982,
+        "hminus": 0.0004891273441114397
+      },
+      "note": "cone anchors HIGHER: the cone excised real contamination (0.49% of D) of which the Set-R'-accounted share exceeded the acceptance-recovered true-hadron loss"
+    },
+    "vs_retired_setr_only_anchors": {
+      "raw_rel": {
+        "hplus": -0.04674939137706102,
+        "hminus": -0.04931017011228844
+      },
+      "born_rel": {
+        "hplus": -0.04667262421681151,
+        "hminus": -0.049236137846052186
+      },
+      "asymmetry_hminus_minus_hplus_pp": -0.2563513629240677,
+      "note": "electron class dominates the additional shift; charge asymmetry persists under the cone (e: h+ 3.7494% vs h- 3.9632% of D_cone)"
+    },
+    "integrated_fres_prime_on_D_cone": {
+      "hplus": 0.07168587109600358,
+      "hminus": 0.07388605331326226
+    },
+    "expected_preunfold_realization_nb": {
+      "note": "SOFT expectation: pre-S2' official non-linearity precedent (-0.0283%/-0.0271% at a 3.66% subtraction) scales quadratically with the subtraction size; gate window is +/-0.5% of the dilution anchors (RU-3)",
+      "raw": {
+        "hplus": 10.496873292032598,
+        "hminus": 10.206021493113095
+      },
+      "born": {
+        "hplus": 11.983029586644053,
+        "hminus": 11.650962246103935
+      },
+      "delta_raw_rel": {
+        "hplus": -0.0013114896859506286,
+        "hminus": -0.0013332432016807116
+      },
+      "delta_born_rel": {
+        "hplus": -0.0013141155009632755,
+        "hminus": -0.001335654449867829
+      }
+    },
+    "ru2_expected_integrated_removal_on_data_sub_prime": {
+      "on_D_cone_dataweighted": {
+        "hplus": 0.11334350754375185,
+        "hminus": 0.10960219873390149
+      },
+      "expected_on_data_sub_prime": {
+        "hplus": 0.11306339270654042,
+        "hminus": 0.10932640306913476
+      },
+      "drift_from_on_D_pp": {
+        "hplus": -0.028011483721142316,
+        "hminus": -0.0275795664766737
+      },
+      "windows": {
+        "hplus": [
+          0.11214350754375184,
+          0.11454350754375185
+        ],
+        "hminus": [
+          0.10840219873390149,
+          0.1108021987339015
+        ]
+      },
+      "window_construction": "on-D_cone data-weighted cone variant f_i +/- 0.12 pp, mirroring the pre-S2'/Rev-2 construction; expected values computed exactly and INSIDE (read-only verified)",
+      "superseded_rev2_values": {
+        "hplus": 0.1132956297193364,
+        "hminus": 0.10948788309926868,
+        "note": "no-cone basis; superseded by the cone windows"
+      }
+    },
+    "charge_asymmetry_cp3": {
+      "born_unsubtracted": {
+        "asym": 0.01280787727538993
+      },
+      "born_at_cone_anchor": {
+        "asym": 0.014039631130764044
+      },
+      "expected_shift_pp": 0.12317538553741139,
+      "raw_level": {
+        "unsubtracted": 0.01280653416827171,
+        "at_anchor": 0.014037957873278554
+      },
+      "gate": "REDEFINED expectation-centered: |realized shift - (+0.1232 pp)| <= 0.02 pp (the shift is a PHYSICS EFFECT: removal of a genuinely charge-asymmetric electron class)",
+      "rev2_references": {
+        "nocone_expected_shift_pp": 0.13253646876273778,
+        "cone_reference_shift_pp": 0.12198609761654051,
+        "note": "the Rev-3 value lies between them - consistency passed"
+      }
+    },
+    "sa4_fres_envelope": {
+      "basis": "packaged cone-applied extended set on D_cone, release-level (245 bins per charge)",
+      "hplus": {
+        "max": 0.31857691434196245,
+        "argmax_local_bin": 34,
+        "argmax_decode": "cell 0 (S0_x0), z_idx 6, pT pair 4",
+        "median": 0.030635082786190843,
+        "n_ge_10pct": 8,
+        "n_ge_20pct": 1
+      },
+      "hminus": {
+        "max": 0.23033770733478925,
+        "argmax_local_bin": 34,
+        "argmax_decode": "cell 0 (S0_x0), z_idx 6, pT pair 4",
+        "median": 0.034408706746775,
+        "n_ge_10pct": 10,
+        "n_ge_20pct": 1
+      },
+      "zero_D_release_bins_f_zero": 3,
+      "note": "identical maxima to the Rev-2 cone REFERENCE - that reference is now the adopted basis"
+    },
+    "sa5_integrated_fres_asymmetry": {
+      "expected_difference_pp": -0.2200182217258692,
+      "gate": "expectation-centered: |realized integrated f_res' asymmetry - (-0.2200 pp)| <= 0.02 pp (the set is charge-ASYMMETRIC by construction)",
+      "integrated_fres_prime": {
+        "hplus": 0.07168587109600358,
+        "hminus": 0.07388605331326226
+      },
+      "superseded_rev2": {
+        "difference_pp": -0.2355,
+        "note": "rescaled no-cone basis; superseded"
+      }
+    },
+    "alpha_denominator_swap_diagnostic": {
+      "status": "MOOT on the cone base (Rev 3): the alpha0p2 vector IS the data vector (identity exact); swap bound 0 by construction (verified max dev 0.0 both charges); the Rev-2 full-set diagnostic (+0.0363/+0.0380 pp, REPORT-ONLY) is retired with the rescale"
+    },
+    "input_sha256": {
+      "cone_data_vector_json": "3371f5dc636da54fc91b0bf8723004b5756ebb4a1b676a37b9adffe2825cc9cb",
+      "cone_s2prime_rapgap31_root": "fda5466f6ef16c2cec22a6b8dc08113929a73a766a6bee4ee9271a362f77d6c6",
+      "cone_s2prime_rapgap31_npz": "736fae14c31c890d6f8fef6d2bf8fa896e3e00c08e34c464678e4725427f1e12",
+      "cone_s2prime_djangoh14_root": "c84a8c2df4d2943d5d5626a7b267bdfe90736b831ef62de1734cb3816f0c48b5",
+      "cone_raw_release_ibu_csv": "ded84be149bf73c9a23bf81eeba17f2701c95d4e951f26b54eab5176010bc479",
+      "cone_born_release_ibu_csv": "20b5c431d2c3aa43a2fcd04deb07e6db5033471d4b76f635328e074303df57bf",
+      "fi_crosscheck_rapgap_pos_csv": "e50a2f099f5f1a9718b63b03ded3c8362ada1414fecc294060e67acefa2a790d",
+      "fi_crosscheck_rapgap_neg_csv": "5f172507625954c728330cdd69888d75eaf1abf05c123e5799022be89bb43477",
+      "fi_crosscheck_djangoh_pos_csv": "cf202be2e6ff18f3a7e98a481bbb8086543a029938cc977f040e901d8695241d",
+      "fi_crosscheck_djangoh_neg_csv": "d3b78ce031ff15e55880026088514e8254a4f057b06fa0556bf4004d198a70dc",
+      "central_shards_alpha_qa_sum_json": "34368912b68535aa683b3d94b625438f52e39d81a17029ce7165893f81e059df",
+      "s2prime_shards_alpha_qa_sum_json": "11f284ccca305be5b8093f1dedf330f0230347a20972dc51b83bcdeea65becfe",
+      "check_phase_f_rerun_outputs_json": "bd45a0eab0c7f2d1b800b863a2713f0008c1431166795ddcce51ed05a777b638",
+      "bgsub_vectors_490_csv": "9e5ed633de2d25f0ea9b696932bdab135f2bcc89a90d118b3bec5ff799b7158e",
+      "bgsub_vectors_980_csv": "e660313b37b3854b032ff41bfb861a23be046d7d5f67c650d3431e51d40df91f",
+      "crad_releasebin_dj14_csv": "cf810be44a59ed790ba78e0476eb8f59df96358357cc39e258e034ed31b22ef5",
+      "rg_electron_npz": "a04dd1a6f9934ecdc4de009337cca4bb1d81c2d85b1b047cc3eef3ef06c80d7d",
+      "dj_electron_npz": "66141a54650c4f52fbda8392df59c84c415dfa14d50806bf02a5469e5950ca77",
+      "template_vs_fakecolumn_report_json": "7b0db88ad3060360493972178540b8ffb93fe72a6fda0c8434042c6d74bd575e"
+    }
+  },
+  "budget_structure": {
+    "base": "CONE 15-component S2' budget - PRECONDITION, DOES NOT EXIST YET (must be produced before/with the bgsub build; impact study Sec 5.2 item 8); the bgsub chain consumes it byte-identically (CP-5)",
+    "component_count_total": 19,
+    "counting_note": "13 + 2 S2'-new (detint_removal_rel counted as one, consistent with the canonical CSV) + 4 bgsub; electron terms FOLDED into the existing bgsub components (Rev 2); NO rescale/envelope terms exist on the cone base",
+    "total_name": "total_with_bgsub19_rel",
+    "total_definition": "hypot(total_with_cone_s2prime15_rel, bgsub_stat_rel, bgsub_model_rel, bgsub_stage_rel, bgsub_fakefrac_rel)",
+    "bgsub_components": [
+      {
+        "name": "bgsub_stat_rel",
+        "treatment": "sqrt(varB_R'_cone)/data_sub' with the PACKAGED electron variance 0.25*(varRG_e+varDJ_e) + 0.25*(varRG_V0+varDJ_V0) + var_lowQ2 (NO rescale inflation; the Rev-2 1/s^2 factors are gone); expected medians ~0.0806%/0.0958% (Rev-2: 0.0831%/0.0988%); sparse maxima ~10.4%/14.5% (smoothing rule unchanged); exact values are build outputs"
+      },
+      {
+        "name": "bgsub_model_rel",
+        "treatment": "quadrature V0 half-spread (+) lowQ2 +/-30% (absorbs the alpha0p1 radius caveat, <<0.01%) (+) electron RG/DJ half-spread (packaged cone templates); the V0/lowQ2 cone-survival envelope term is REMOVED (register closed); expected medians ~0.2016%/0.2279% (Rev-2: 0.2675%/0.2985%; terms at median: v0hs 0.1339%/0.1473%, ehs 0.1202%/0.1395%, lowq2-30 ~0); exact values are build outputs"
+      },
+      {
+        "name": "bgsub_stage_rel",
+        "treatment": "definition unchanged (pre-vs-post stage difference (+) selection-coherence bound); RE-MEASURED on the cone chain (CP-1 operands = cone Born release); the V0/lowQ2 denominator-swap bound is 0 BY CONSTRUCTION (alpha0p2 vector == data vector) and the electron selection-transfer operand is GONE (rescale retired); only the stage-difference term remains - expected SMALLER than the pre-S2' medians (0.0909%/0.0950%)"
+      },
+      {
+        "name": "bgsub_fakefrac_rel",
+        "treatment": "fc0-only scope UNCHANGED (Rev-2 correction stands): |1-r_min,standing| * f_i,standing,i with f_i,standing,i = F_fc0,i/(B_i+F_i) from the CONE variant category exports (partition closure exact); r_min = 0.9816719489793092 retained as the fc0 common-model PROXY (allfake-convention envelope 0.9817-0.9872, NucliaWeight caveat; CANNOT be re-derived on the cone chain - no template-bearing category remains in the cone fake column); read-only cone verification: fc0 share 93.45%/94.00% response-internal, standing data-weighted on D_cone 0.105727/0.102889 (no-cone: 0.105966/0.103064); expected medians ~0.1846%/0.1815% (max ~0.58%/0.55%); exact values are build outputs"
+      }
+    ],
+    "expected_bgsub_quadrature_medians": {
+      "hplus": 0.00285,
+      "hminus": 0.003067,
+      "note": "stat (+) model (+) fakefrac only; the stage term is re-measured at build (expected smaller than pre-S2'); expected total ~0.29-0.32%, DOWN from Rev-2's ~0.35%/0.38% (envelope closure is the driver)"
+    },
+    "expected_total19_medians": null,
+    "expected_total19_note": "waits on the cone 15-comp base; the bgsub quadrature (~0.29%/0.31%) adds in quadrature to the cone 15-comp total once produced (integrated-total increment of the same order as Rev-2's +0.007/+0.008 pp)",
+    "double_counting_checks": {
+      "carried_verdict": "NO DOUBLE-COUNTING REMAINS; all pairs DISJOINT or CLOSED (Rev-2 recheck carries)",
+      "retired_entries": [
+        "electron_rescale_vs_bgsub_stage (the rescale no longer exists)",
+        "envelope_vs_stage distinction (the envelope no longer exists)"
+      ],
+      "new_overlap_check": "NONE introduced by the cone: the cone's data/response content changes are selection effects carried by the response/prior/f_i objects themselves, not by any budget component",
+      "bgsub_fakefrac_vs_detint_removal_fakecol_mcstat": "CLOSED by the fc0-only scope (unchanged)",
+      "bgsub_stat_vs_fakecol_mcstat": "DISJOINT (external alpha0p2 template-bank MC stat vs variant-response fake-column MC stat; the cone fake column contains NO electron content, fc1 = 0)"
+    },
+    "quoting_policy": "Once the re-based gate passes, the 19-component total is the quoted published total; every quote states prior basis (coherent body+miss FROM THE CONE VARIANT RESPONSE), Born-vs-raw level, observable basis (S2' detint-corrected), bgsub status (Set R' e+V0+lowQ2 subtracted), AND the cone-selection flag (alpha>=0.2 imposed; Grebenyuk-precedent alignment); rows 18 (diffvm_rel) and 19 (gammap_bkg_30pct_rel) remain BLOCKED"
+  },
+  "gate_deltas": {
+    "checklist_count": 26,
+    "n_identical": 5,
+    "n_changed": 20,
+    "n_new": 1,
+    "identical_items": [
+      "IV-4",
+      "IV-5",
+      "IV-6",
+      "RU-4",
+      "RU-5"
+    ],
+    "new_items": {
+      "IV-7": "Cone-parity gate: (a) data side - alpha_pre 3,902,480 exact; in-PS rejections 28,582 (14,465/14,117); in-grid 3,865,073 (1,965,700/1,899,373); cone DV == June alpha0p2 vector per-bin exact; matched-electron counters 0/0; (b) response side - shard alpha-QA 174/174; response-eligible MC rejections 162,528 = 83,782/78,746 (matched_signal 77,974/74,586, detint 1,121/652, unflagged_fake 4,687/3,508; NO e/V0 class); body-diff vs no-cone S2' within [0.00204, 0.00216] (guard values 0.002079/0.002101/0.002045/0.002158); Phase-F miss-row guard E values 697/700/777/845 exact in windows; (c) f_i parity - denominator drop -0.0940%/-0.0923%/-0.1011%/-0.1006% (RG h+/h-, DJ h+/h-), real-change rows 127/126/130/125, max per-row rel <=2.56%, cone f_i in [0,1), integrated shift INSIDE the impact-study band (measured read-only: response-internal -0.004...-0.007 pp; S2'-variant on-D -0.0233/-0.0166 pp, DOWN)"
+    },
+    "changed_items": {
+      "IV-1": "Template totals verified AS PACKAGED (cone-applied, selection-consistent): e 148,976.4352 (h+ 73,701.28554105517 / h- 75,275.14969129545); V0 132,065.2768; lowQ2 208.3795; det.int. 27,405.8031 verified NOT subtracted; survival rationals/rescaled totals RETIRED from the verification; PLUS selection-consistency assertion (cone DV == alpha0p2 vector exact)",
+      "IV-2": "Data vector identity: the CONE vector, totals h+ 1,965,700 / h- 1,899,373 / 3,865,073 (980 bins); alpha_pre parity 3,902,480 exact; cone rejections 28,582 in-PS (14,465/14,117), 19,024 in-grid (9,601/9,423)",
+      "IV-3": "RE-SCOPED: cone-vector == alpha0p2-vector per-bin IDENTITY (max dev 0, read-only verified; the builder must reproduce it); the Rev-2 'alpha0p2 vector + cone Delta 19,024' item is superseded (the alpha0p2 vector IS the data vector)",
+      "SA-1": "0 negative bins after the fine-level guard (0 TRUE negatives, read-only verified); fine-empty bins with content guarded: h+ 2 (218/358; 0.1915/0.1463), h- 4 (341/410/470/480; 0.0167-0.0527); release-empty bins h+ 109/179, h- 240 f=0",
+      "SA-2": "B_R'_cone sums h+ 140,912.91681341422 / h- 140,337.17473977088 / 281,250.0915531851 (7.2767% of D_cone); data_sub' sums h+ 1,824,787.4209930277 / h- 1,759,035.953778433; Rev-2 rescaled sums superseded",
+      "SA-3": "E1b exactly-once Poisson with varB_R'_cone (NO rescale factors); double-Poisson = STOP",
+      "SA-4": "f_res' envelope (cone): h+ max 31.858% (local bin 34 = S0_x0, z_idx 6, pT pair 4) / h- max 23.034% (same bin); medians 3.0635%/3.4409%; 8/10 bins >=10%; 1 bin >=20% per charge; 3 zero-D release bins f=0",
+      "SA-5": "Expectation-centered: realized integrated f_res' asymmetry within -0.2200 pp +/- 0.02 pp (h+ 7.1686% vs h- 7.3886% of D_cone); Rev-2 -0.2355 pp (rescaled basis) superseded",
+      "RU-1": "Configuration identity vs the CONE RAW release: cone S2' variant RAPGAP31 response (sha256 fda5466f...), coherent body+miss prior FROM THE CONE VARIANT RESPONSE (repointed + asserted; no no-cone-read code path), IBU k=4, L=351,000; repro reproduces the cone RAW release (11.412233/11.123626 nb); config diff vs cone nominal = input vector only",
+      "RU-2": "Cone variant f_i exactly once (byte-identical derivation to the cone RAW release); integrated removal on data_sub' within [11.2144, 11.4544]% (h+) / [10.8402, 11.0802]% (h-) (expected 11.3063%/10.9326%, drift -0.028 pp from on-D_cone 11.3344%/10.9602%); Rev-2 no-cone windows superseded; recomputing f_i or using the no-cone table = STOP",
+      "RU-3": "Integrated within +/-0.5% of the cone dilution anchors Born h+ 11.998797 / h- 11.666545 nb (RAW 10.510658/10.219647; integrated-C_rad cross-check 11.998098/11.660992); Rev-2 and earlier anchors RETIRED for gating; soft pre-unfold landing ~11.9830/11.6510 nb Born",
+      "CP-1": "Stage comparison operands repointed to the CONE Born release (13.026987/12.697511); thresholds unchanged (per-bin <=1%, sparse <=2% justified, integrated <=0.5%); signed vector saved; bgsub_stage_rel re-measured (expected SMALLER - swap bound 0 by construction); integrated <=0.5% binds and is expected to hold (soft non-linearity ~-0.13%)",
+      "CP-2": "Add-back closure: unfolding data_sub' + B_R'_cone (bitwise == data_cone) through the CONE variant chain reproduces the CONE RAW release bitwise (<=1e-9 relative)",
+      "CP-3": "Expectation-centered: charge-asymmetry shift vs the unsubtracted cone Born asymmetry (+1.2808%) within +0.1232 pp +/- 0.02 pp (expected realized +1.4040%; RAW-level +1.2807% -> +1.4038%); the shift is a PHYSICS EFFECT; Rev-2 +0.1325 pp center superseded",
+      "CP-4": "RE-SCOPED: fc0 standing share re-derived on the CONE variant (expected: response-internal standing 10.4975%/10.2173%; fc0 share of F 93.45%/94.00%; standing data-weighted on D_cone 10.5727%/10.2889%); the r envelope 0.9817-0.9872 CARRIES as the allfake-convention PRIOR (CANNOT be re-derived on the cone chain - no template-bearing category remains in the cone fake column); NucliaWeight caveat carried; per-category results recorded",
+      "CP-5": "Budget closure: 15 existing components byte-identical to the CONE 15-comp package (PRECONDITION - must exist first; 0 mismatches once produced); 19-component quadrature identity per bin (<=1e-12); medians reported; quoting switch recorded",
+      "PM-1": "P-ALPHA disposition UPDATED (closure by construction): the waiver cites the cone basis - (i) same-selection templates (rescale RETIRED), (ii) V0 gap closed by construction, lowQ2 alpha0p1 radius mismatch carried explicitly (<<0.01%, inside the lowQ2 +/-30% term); Rev-2 rescale/envelope waiver basis superseded; a formal closure/supersession entry in STATE.md is REQUIRED",
+      "PM-2": "Release hygiene: new dated candidate born_crad_bgsub_setRprime_conebase_... (Rev-2 _detints2primebase_ and _setR_ names superseded/retired for new candidates); the cone releases are STUDY-TREE PROVISIONAL (R9) - their promotion/install must be recorded before or with the bgsub candidate promotion; untouched (read-only): all cone campaign products, both no-cone S2' releases, all pre-S2' releases, the pre-S2' bgsub study tree",
+      "PM-3": "Sidecar hygiene: sha256 ledger extended with the cone campaign artifacts (cone DV JSON 3371f5dc..., cone S2' response ROOTs fda5466f.../c84a8c2d... + npz 736fae14..., cone RAW/Born release IBU CSVs ded84be1.../20b5c431..., f_i crosscheck CSVs, alpha-QA sums, Phase-F rerun record, guard adjudication) plus the carried electron template npz's (a04dd1a6.../66141a54...) and C_rad table; no stale blind C_rad sidecars (unchanged rule)",
+      "PM-4": "State rule: no merge until 1-24 + IV-7 PASS; the 19-component total becomes the quoted published total at promotion; STATE.md/RUN_STATUS.md record the cone-S2' + Set R' basis, the cone-selection flag in the quoting rule, and the P-ALPHA closure entry"
+    }
+  },
+  "preconditions_and_blockers": [
+    "CONE 15-COMP BUDGET PACKAGE (NEW PRECONDITION, BLOCKER for CP-5 and the 19-comp total): the full 15-component S2' budget must be re-derived on the cone base (all components, anchors, 1000-toy sidecars, fakecol_mcstat_rel, shifted-response detector components) BEFORE or WITH the bgsub build; the COMPLETE production recipe, machinery re-scoping, and re-dispatch plan are SS-H (production_preconditions_h)",
+    "CONE-BASE PROMOTION/INSTALL: the cone RAW/Born releases are study-tree R9 PROVISIONAL; promotion to canonical (and STATE.md/RUN_STATUS supersession records for the no-cone S2' releases as re-base target) must precede or accompany the bgsub candidate promotion (PM-2); until then every cone-based value carries the study-tree PROVISIONAL flag",
+    "P-ALPHA FORMAL CLOSURE: both critic conditions discharge by construction on the cone basis; a formal closure/supersession entry in STATE.md is REQUIRED (baseline-update procedure owns the file)",
+    "LOWQ2 RADIUS REBUILD (OPTIONAL): the alpha0p1-radius mismatch is bounded <<0.01% and carried inside the lowQ2 +/-30% model term; a cheap single-sample alpha0p2-radius rebuild would remove even that caveat; the ledger Sec 11.4 central-selection template production is otherwise MOOT (achieved by the cone basis for e/V0)",
+    "BUILD-TIME MEASUREMENTS (expectations supplied, not measurements): pre-unfold re-unfold result (RU-3 realization vs anchor); bgsub_stage_rel re-measurement (stage-difference term only); fc0 re-derivation on the cone variant (CP-4); exact 19-comp medians; 1000-toy sidecar on data_sub' through the cone chain",
+    "KEEPER-BOUNDARY ENVELOPE: k_parented K-nuclear secondaries <=0.064% of the data vector, REPORT-ONLY per the canonical budget - unchanged",
+    "DIFFVM: bounded uncovered residual, never subtracted, register rows 18/19 BLOCKED - unchanged; the normalization-owner fake-fraction provenance dispatch runs unchanged and re-triggers IV-1..IV-7",
+    "ABSOLUTE CROSS-SECTION QUOTING: governed by the existing normalization policy; this addendum changes only the basis of the background-corrected chain and the uncertainty register",
+    "IMPLEMENTATION AND PRODUCTION: later dispatches; operational execution routes to h1-script-runner / h1-naf-operator per the standing handoff rules"
+  ],
+  "production_preconditions_h": {
+    "section": "H",
+    "title": "Production preconditions - the cone 15-comp budget recipe (2026-10-11 extension)",
+    "trigger": "H1ChargedSidis_HighQ2/output_v6/studies/bgsub_setr_cone_build_2026-10-11/BLOCKER_RECORD_2026-10-11.md (Stage-1 stopped at precondition verification; nothing launched, nothing canonical touched)",
+    "anchors_unchanged_statement": "NO Rev-3 anchor, window, or budget expectation changes: none depends on the productions in this section (they depend only on the EXISTING cone core chain, the packaged cone-applied templates, and carried artifacts). The cone 15-comp component medians remain BUILD OUTPUTS; H.1 states sanity windows only.",
+    "exists_missing": {
+      "exists_cone_core": [
+        "production/data_vector_cone_alpha_central_2026-10-11.json (in-grid 3,865,073 = 1,965,700/1,899,373)",
+        "production/migration_inputs_cone_alpha_central_2026-10-11.root (RG+DJ; embeds the cone DV + binmap)",
+        "production/migration_s2prime_cone_{rapgap31,djangoh14}_2026-10-11.{root,npz}",
+        "production/release_driver/{bbb_ibu_cone_alpha_central,born_crad_dj14relbin_cone_alpha_central}_..._2026-10-11/",
+        "f_i crosschecks + alpha-QA sums",
+        "cone-EDITED self-tested shifted builders: build_shifted_response_data_vector_v4.py (11/11), build_shifted_response_data_vector_s2prime_v4.py (13/13); cone from RAW unshifted branches (identical cone across all shift legs)",
+        "cone-ported build_data_vector_v4.py (the Phase-A builder itself)"
+      ],
+      "carried_nocone_artifacts_readonly": [
+        "3 HFS shifted sidistree sets (660 files per tag; selection-independent; byte-identical reuse)",
+        "legacy shifted/seed data vectors (acceptance references)",
+        "PHICAMP, B1JSON, BUDGET_CSV, C_rad tables, PARENTAGE (carry conventions H.5-bis)",
+        "658-file central sidistree list (byte-identical shard-list reuse per campaign precedent)"
+      ],
+      "missing": [
+        "5 cone shifted detector data vectors (H.2)",
+        "16 cone tracking-seed data vectors + NO cone-ported tracking-drop builder exists anywhere (H.3)",
+        "cone 1000-toy stat sidecar (H.4)",
+        "the gate/machinery re-scoping (prescribed in H.5)"
+      ]
+    },
+    "per_component_inventory": [
+      {
+        "component": "ibu_stat_rel",
+        "cone_input": "cone 1000-toy sidecar on the cone variant chain",
+        "status": "MISSING",
+        "recipe": "H.4 repointed sidecar campaign (2 Condor jobs + assembler; seeds 12345/22345, 1000 toys/charge)"
+      },
+      {
+        "component": "ibu_model_rel",
+        "cone_input": "cone coherent legs dj_v_coh, ibu_v (in-machinery) + CARRIED B1 floors",
+        "status": "EXISTS + CARRY",
+        "recipe": "no production; floors carried per H.5-bis"
+      },
+      {
+        "component": "ibu_reg_rel",
+        "cone_input": "cone k-scan legs k3_v, k5_v (in-machinery)",
+        "status": "EXISTS",
+        "recipe": "no production"
+      },
+      {
+        "component": "hfs_jes_rel",
+        "cone_input": "cone shifted DV over the hfs_jes_down shifted sidistrees",
+        "status": "MISSING",
+        "recipe": "H.2-HFS: cone-ported build_data_vector_v4.py over the 660 legacy shifted files (1 job)"
+      },
+      {
+        "component": "hfs_rces_rel",
+        "cone_input": "cone shifted DV over the hfs_rces_up shifted sidistrees",
+        "status": "MISSING",
+        "recipe": "H.2-HFS: same, tag hfs_rces_up (1 job)"
+      },
+      {
+        "component": "hfs_theta_rel",
+        "cone_input": "cone shifted DV over the hfs_theta_up shifted sidistrees",
+        "status": "MISSING",
+        "recipe": "H.2-HFS: same, tag hfs_theta_up (1 job)"
+      },
+      {
+        "component": "elec_energy_rel",
+        "cone_input": "cone shifted DV, shift elecE_p1pct",
+        "status": "MISSING",
+        "recipe": "H.2-e: cone-edited shifted builder --mode data-vector --shift elecE_p1pct over the 658 central files (1 job)"
+      },
+      {
+        "component": "elec_theta_rel",
+        "cone_input": "cone shifted DV, shift elecTheta_p1mrad",
+        "status": "MISSING",
+        "recipe": "H.2-e: same, shift elecTheta_p1mrad (1 job)"
+      },
+      {
+        "component": "lumi_rel",
+        "cone_input": "none",
+        "status": "N/A",
+        "recipe": "flat 2.7% fully correlated; no production"
+      },
+      {
+        "component": "tracking_eff_m0p5_rel",
+        "cone_input": "16 cone seed data vectors (seeds 314159-314174)",
+        "status": "MISSING (builder port too)",
+        "recipe": "H.3: cone port of the tracking-drop builder + 16 jobs + P=0 anchor job"
+      },
+      {
+        "component": "phi_h_gauss_rel",
+        "cone_input": "CARRIED no-cone flat-leg absolutes re-expressed on the cone nominal",
+        "status": "EXISTS (carry)",
+        "recipe": "no production; H.5-bis phi_h carry convention"
+      },
+      {
+        "component": "c_rad_gen_rel",
+        "cone_input": "unchanged gen-level tables",
+        "status": "EXISTS (carry)",
+        "recipe": "no production (gen-only standing ruling)"
+      },
+      {
+        "component": "c_rad_stat_rel",
+        "cone_input": "unchanged DJ14 releasebin table stat",
+        "status": "EXISTS (carry)",
+        "recipe": "no production"
+      },
+      {
+        "component": "detint_removal_rel",
+        "cone_input": "cone legs inc_RG/inc_DJ (in-machinery) + CARRIED parentage 0.909920 +/- 0.000269",
+        "status": "EXISTS + CARRY",
+        "recipe": "no production"
+      },
+      {
+        "component": "fakecol_mcstat_rel",
+        "cone_input": "cone variant npz w2 matrix (exists)",
+        "status": "EXISTS",
+        "recipe": "no production; G12 re-scoped per H.5"
+      }
+    ],
+    "inventory_verdict": "8 of 15 components need NO new production; 5 need the shifted-DV campaign; 1 needs the seed campaign; 1 needs the sidecar",
+    "median_sanity_windows": {
+      "policy": "acceptance windows only, NOT Rev-3 anchors; exact values are build outputs",
+      "window": "each component median within +/-25% relative of its no-cone S2' 15-comp value",
+      "nocone_s2prime_15comp_medians_percent": {
+        "ibu_stat_rel": {
+          "hplus": 3.5902,
+          "hminus": 3.833
+        },
+        "ibu_model_rel": {
+          "hplus": 1.3623,
+          "hminus": 1.4271
+        },
+        "ibu_reg_rel": {
+          "hplus": 0.5767,
+          "hminus": 0.5669
+        },
+        "hfs_jes_rel": {
+          "hplus": 0.3624,
+          "hminus": 0.3918
+        },
+        "hfs_rces_rel": {
+          "hplus": 0.2595,
+          "hminus": 0.2794
+        },
+        "hfs_theta_rel": {
+          "hplus": 0.2965,
+          "hminus": 0.312
+        },
+        "elec_energy_rel": {
+          "hplus": 4.559,
+          "hminus": 4.8422
+        },
+        "elec_theta_rel": {
+          "hplus": 0.5091,
+          "hminus": 0.5601
+        },
+        "tracking_eff_m0p5_rel": {
+          "hplus": 0.491,
+          "hminus": 0.4929
+        },
+        "phi_h_gauss_rel": {
+          "hplus": 1.0494,
+          "hminus": 1.0568
+        },
+        "c_rad_gen_rel": {
+          "hplus": 0.5844,
+          "hminus": 0.5804
+        },
+        "c_rad_stat_rel": {
+          "hplus": 0.4272,
+          "hminus": 0.4429
+        },
+        "detint_removal_rel": {
+          "hplus": 0.0296,
+          "hminus": 0.0282
+        },
+        "fakecol_mcstat_rel": {
+          "hplus": 0.3443,
+          "hminus": 0.3507
+        }
+      }
+    },
+    "shifted_dv_campaign": {
+      "legs": {
+        "hfs_tree_level": {
+          "tags": [
+            "hfs_jes_down",
+            "hfs_rces_up",
+            "hfs_theta_up"
+          ],
+          "input": "output_v6/systematics/hfs/<tag>/sidistree/data/{ep0304,em0405,em06,ep0607}/sidistree_*.root (660 files per tag; REUSED byte-identical; NO tree re-production)",
+          "builder": "cone-ported build_data_vector_v4.py (copied_scripts; run from a dated campaign copy)",
+          "jobs": "1 per tag (wrap_build_hfs_down_data_vector_v4.sh + submit pattern, repointed; ~2GB, 3h cap)"
+        },
+        "electron_posthoc": {
+          "shifts": [
+            "elecE_p1pct",
+            "elecTheta_p1mrad"
+          ],
+          "input": "the SAME 658 central sidistree files as the cone Phase-A build",
+          "builder": "cone-edited build_shifted_response_data_vector_v4.py --mode data-vector --shift <SHIFT_NAME> (cone from RAW unshifted branches; identical cone across all shift legs)",
+          "jobs": "1 per shift (submit_build_shifted_data_vector_v4.condor pattern, repointed)"
+        },
+        "zero_shift_anchor": {
+          "recipe": "--shift zero through the cone-edited shifted builder over the same 658 files",
+          "acceptance": "per-bin arrays BIT-IDENTICAL to the campaign cone data vector (max dev 0); validates the shifted builder's cone port"
+        }
+      },
+      "acceptance_per_leg": [
+        "schema: 980 per-bin rows, charges {0,1}, 490 bins/charge, cone stamps + alpha-rejection counters > 0",
+        "per-bin SUBSET vs the legacy no-cone shifted DV: cone_shifted[i] <= nocone_shifted[i] for all 980 rows (EXACT)",
+        "cone-removed total within [0.35%, 0.65%] of the legacy shifted-DV total",
+        "leg total change vs the CONE nominal within +/-0.05 pp of the legacy leg's change vs the NO-cone nominal"
+      ],
+      "reference_total_changes_percent": {
+        "hfs_jes_down": {
+          "pos": 0.0397,
+          "neg": 0.0516
+        },
+        "hfs_rces_up": {
+          "pos": 0.3007,
+          "neg": 0.3086
+        },
+        "hfs_theta_up": {
+          "pos": 0.3036,
+          "neg": 0.3106
+        },
+        "elecE_p1pct": {
+          "pos": 1.0747,
+          "neg": 1.1112
+        },
+        "elecTheta_p1mrad": {
+          "pos": 0.0616,
+          "neg": 0.0555
+        }
+      }
+    },
+    "tracking_drop_port": {
+      "gap": "NO cone-ported tracking-drop builder exists anywhere (the cone campaign ported 6 scripts; the tracking-drop builder was not among them)",
+      "port": "MERGE two verified edits into ONE new dated campaign script (neither parent modified): parent A = studies/tracking_eff_m0p5_randdrop_z005_20260702/scripts/build_data_vector_v4.py (randdrop patch: H1_RANDDROP_P=0.005, H1_RANDDROP_SEED_TAG=seed<N>, make_keep_mask on valid rows, n_reco_dropped_randdrop counters, .randdrop_audit.json sidecar); parent B = the campaign cone-ported copied_scripts/build_data_vector_v4.py (alpha predicate ELECTRON_ALPHA_VETO_RAD=0.2, NaN reject, applied at admission BEFORE the z guard, cone QA counters). DISJOINT code sites (drop = valid-row thinning; cone = admission); both verbatim.",
+      "order_semantics": "drop thins the valid track rows FIRST (efficiency perturbation, pre-admission); the cone applies at admission AFTER, identically to the campaign port; track identity seed_tag|run|event|track_index|row_index is cone-independent (same drop decision as the legacy seeds); vs the legacy seed legs the cone is the ONLY selection change, vs the campaign cone DV the drop is the ONLY content change",
+      "campaign": "16 jobs, seeds 314159-314174 (legacy set reused EXACTLY), each over the SAME 658-file list (manifests/data_all.txt pattern, byte-identical reuse), env seed tag, outputs data_vector_cone_seed<N>_all4p.json (+qa+audit), label tracking_eff_m0p5_randdrop_seed<N>_cone_data4p_prod_data (~8GB, workday); PLUS one P=0 anchor job (H1_RANDDROP_P=0.0 -> per-bin arrays BIT-IDENTICAL to the campaign cone DV); packaging step writes tracking_cone/ensemble_manifest.json (schema mirror; NO re-unfold campaign needed - data-side convention computes the component in-machinery)",
+      "acceptance_per_seed": [
+        "schema/stamps + randdrop_audit with n_reco_dropped_randdrop ~0.5% of pre-drop (legacy DV-level drop fractions 0.49276%/0.49349%)",
+        "per-bin subset vs the legacy seed DV (EXACT, all 980 rows)",
+        "removed fraction vs the legacy seed DV within [0.35%, 0.65%] (expected ~0.4837% pos / 0.4912% neg)",
+        "P=0 anchor bit-identity to the campaign cone data vector"
+      ]
+    },
+    "stat_sidecar": {
+      "machinery": "dated copies of studies/detint_variant_s2prime_2026-10-09/stat_sidecar_campaign_2026-10-10/scripts/ (run_s2prime_stat_sidecar_toys.py, run_stat_sidecar_condor.sh, assemble_stat_sidecar_s2prime.py; precedent cluster 5481723), repointed",
+      "repoints": {
+        "REL": "cone RAW release",
+        "VARIANT_RESPONSE": "migration_s2prime_cone_rapgap31_2026-10-11.root",
+        "VARIANT_ID_EXPECTED": "cone_alpha_central_S2prime_2026-10-11 (pre-flight assert)",
+        "data_vector": "from the cone central ROOT (identical to the cone DV JSON)"
+      },
+      "unchanged": [
+        "seeds pos 12345 / neg 22345",
+        "1000 toys per charge",
+        "independent Poisson on the rounded measured cone data vector",
+        "fixed cone variant f_i + response + coherent body+miss prior",
+        "IBU k=4, L=351000.0 nb^-1",
+        "authoritative covariance schema",
+        "central-column stat_component CSVs"
+      ],
+      "deltas_vs_precedent": [
+        "nominal cross-check (cone release ibu/cross_sections.json vs recomputed cone variant IBU <=1e-10) PRE-VALIDATED read-only (reproduction dev <=1.8e-15)",
+        "G5-style closure re-check reproduced VERBATIM vs the cone release nominal (n|z|>3 <= 4 STOP condition)",
+        "the precedent's bit-level cross-check vs the gate-suite G5 1000-toy product DROPPED (no cone gate-suite toy product exists)"
+      ],
+      "install": "ADDITIVE at <cone RAW release>/stat_sidecar_1000toy/ (covariance JSONs + plots + byte-copied stat_component CSVs + manifest recording the ORIGINAL manifest/tarball sha256 unchanged); isolation verified (manifest 6ca6b4a1... / tarball b16424f0... bit-identical pre/post)",
+      "acceptance": [
+        "1000 toys per charge complete; per-charge status PASS",
+        "stat_component CSVs 245 rows; nominal_yield_coherent == cone release yields (<=1e-9); ratio identity <=1e-12",
+        "closure stop condition untriggered",
+        "deterministic reproduction: re-run one charge, stat_component CSV BITWISE identical (numpy-seeded, no entropy)"
+      ]
+    },
+    "gate_rescoping": {
+      "cone_edition": "NEW dated copy in the campaign tree (canonical builder and its study-tree copy NEVER modified); diff = the input map + this table",
+      "input_map_repoints": {
+        "RELEASE_TARBALL": "cone RAW release + tarball",
+        "CENTRAL_ROOT": "production/migration_inputs_cone_alpha_central_2026-10-11.root",
+        "CENTRAL_DV": "production/data_vector_cone_alpha_central_2026-10-11.json",
+        "VNPZ_RG_DJ": "production/migration_s2prime_cone_{rapgap31,djangoh14}_2026-10-11.npz",
+        "VAR_IBUT_CSV": "cone release ibu/cross_sections.csv",
+        "STAT_CSV": "cone sidecar stat_component CSVs",
+        "DET_TAGS": "5 cone shifted DVs (H.2)",
+        "TRKCAMP": "cone tracking campaign (ensemble_manifest.json only)",
+        "OUT_PKG": "campaign tree systematics_package/"
+      },
+      "carried_unchanged_inputs": [
+        "B1JSON",
+        "BUDGET",
+        "BUDGET_CSV",
+        "PHICAMP",
+        "EMDIR/EM_CSV/RG_EM",
+        "DJ_TAB",
+        "PARENTAGE",
+        "SPEC_* parentage constants"
+      ],
+      "removed_constants": [
+        "IBUNAT",
+        "CAND_CSV",
+        "VECTORS_NPZ",
+        "G10_NPZ",
+        "GATEREPORT",
+        "DETCAMP/TRKCAMP campaign-CSV paths"
+      ],
+      "count": {
+        "total": 31,
+        "repoint": 10,
+        "replace_incl_new": 6,
+        "drop": 6,
+        "unchanged": 9,
+        "note": "gate 13 additionally DROPS the G10 npz comparison inside a REPLACE row"
+      },
+      "gates": [
+        {
+          "n": 1,
+          "gate": "STEP 0 candidate manifest sha (L151)",
+          "rescoping": "REPPOINT: cone manifest sha256 6ca6b4a148e3b83702440c75800045e31beb6201fdb2fd48cdd0f95ae87aa8d3"
+        },
+        {
+          "n": 2,
+          "gate": "STEP 0 candidate tarball sha (L152)",
+          "rescoping": "REPPOINT: cone tarball sha256 b16424f0f048880178ebf05573765cb094f1655d8bd4e508e35da5d4ca0c711e"
+        },
+        {
+          "n": 3,
+          "gate": "STEP 0 SEED_PATHS == 314159-314174 (L155)",
+          "rescoping": "REPPOINT: the CONE tracking campaign ensemble_manifest.json"
+        },
+        {
+          "n": 4,
+          "gate": "STEP 0 GUARD_FILES existence (L156-170)",
+          "rescoping": "REPPOINT: the cone/carried input map"
+        },
+        {
+          "n": 5,
+          "gate": "STEP 0 guard_before/after tree hashes",
+          "rescoping": "REPPOINT: cone campaign tree + carried artifacts + cone release tree"
+        },
+        {
+          "n": 6,
+          "gate": "STEP 1 DATA_SUMS == 1975301/1908796 (L230)",
+          "rescoping": "REPLACE: cone sums {'pos': 1965700.0, 'neg': 1899373.0}"
+        },
+        {
+          "n": 7,
+          "gate": "STEP 1 shape/DV-identity/binmap asserts (L191-215)",
+          "rescoping": "UNCHANGED (hold on the cone; verified read-only)"
+        },
+        {
+          "n": 8,
+          "gate": "STEP 2 VECTORS_NPZ exactness <=1e-9 (L257-268)",
+          "rescoping": "DROP (no-cone gate-suite npz); replaced by gate 12"
+        },
+        {
+          "n": 9,
+          "gate": "STEP 2 IBUNAT/CAND campaign reproduction <=1e-12 (L271-291)",
+          "rescoping": "DROP (no cone ibu_native campaign; cone-central legs are PRIMARY); anchors gates 10/14"
+        },
+        {
+          "n": 10,
+          "gate": "STEP 2 CENTRAL_IBMED 11.483372/11.190383 (L292-294)",
+          "rescoping": "REPLACE: CONE_CENTRAL_IBMED {'pos': 11.449320, 'neg': 11.155372}"
+        },
+        {
+          "n": 11,
+          "gate": "STEP 2 central model/reg convention reproduction <=1e-12 (L297-311)",
+          "rescoping": "DROP (no cone equivalents; conventions enforced by construction + exactly-once ledger)"
+        },
+        {
+          "n": 12,
+          "gate": "STEP 2 variant release reproduction <=1e-9 (L313-321)",
+          "rescoping": "REPPOINT: vs the cone release CSV; PRE-VALIDATED read-only at <=1.8e-15"
+        },
+        {
+          "n": 13,
+          "gate": "STEP 2 VARIANT_IBMED + G10 + SHIFT (L322-330)",
+          "rescoping": "REPLACE: CONE_VARIANT_IBMED {'pos': 11.412233, 'neg': 11.123626}; CONE_VARIANT_SHIFT_INTEGRATED {pos: -0.003239238509156861, neg: -0.002845788385763881}; G10 npz comparison DROPS (cone shift vector becomes a recorded output)"
+        },
+        {
+          "n": 14,
+          "gate": "(NEW) secondary leg anchors",
+          "rescoping": "NEW: six remaining legs pinned at round-6 (see pinned_constants.cone_leg_integrated_nb_round6)"
+        },
+        {
+          "n": 15,
+          "gate": "STEP 3a sidecar consistency <=1e-9/<=1e-12 (L340-353)",
+          "rescoping": "REPPOINT: cone sidecar CSVs; tolerances UNCHANGED"
+        },
+        {
+          "n": 16,
+          "gate": "STEP 3b B1 floor mapping vs BUDGET_CSV <=1e-12 (L355-369)",
+          "rescoping": "UNCHANGED (carried B1JSON/BUDGET_CSV; pins the CARRY MAPPING - H.5-bis)"
+        },
+        {
+          "n": 17,
+          "gate": "STEP 3b model component construction (L370-381)",
+          "rescoping": "UNCHANGED LOGIC (cone legs; carried floors; binding fractions recorded)"
+        },
+        {
+          "n": 18,
+          "gate": "STEP 3d shifted-DV load + variant data-side component (L405-427)",
+          "rescoping": "REPPOINT: the 5 cone shifted DVs"
+        },
+        {
+          "n": 19,
+          "gate": "STEP 3d DETCAMP machinery reproduction <=1e-12 (L428)",
+          "rescoping": "DROP -> REPLACED by the H.2 acceptance re-assertions in-machinery (schema; per-bin subset vs legacy shifted DVs EXACT; removed-fraction window [0.35, 0.65]%)"
+        },
+        {
+          "n": 20,
+          "gate": "STEP 3d DETCAMP nominal-vs-candidate <=1e-12 (L429)",
+          "rescoping": "DROP (no cone coherent detector campaign exists or is needed - data-side convention; cone-central legs are the internal reference; central data-side diagnostic stays REPORT-ONLY)"
+        },
+        {
+          "n": 21,
+          "gate": "STEP 3e seed ensemble component (L444-463)",
+          "rescoping": "REPPOINT: the 16 cone seed DVs; ensemble-mean construction UNCHANGED"
+        },
+        {
+          "n": 22,
+          "gate": "STEP 3e TRKCAMP machinery reproduction <=1e-12 (L473)",
+          "rescoping": "DROP -> REPLACED by the H.3 acceptance re-assertions in-machinery"
+        },
+        {
+          "n": 23,
+          "gate": "STEP 3f phi recipe machinery reproduction <=1e-15 (L535)",
+          "rescoping": "UNCHANGED (carried PHICAMP operands; pins the CARRY MAPPING - H.5-bis)"
+        },
+        {
+          "n": 24,
+          "gate": "STEP 3f variant re-expression (L500-534)",
+          "rescoping": "UNCHANGED LOGIC (carried flat-leg absolutes / CONE nominal per bin; additive separability)"
+        },
+        {
+          "n": 25,
+          "gate": "STEP 3g c_rad V3 recompute + budget drift <=1e-15 (L570, L580)",
+          "rescoping": "UNCHANGED (gen-level tables, cone-invariant; standing gen-only ruling)"
+        },
+        {
+          "n": 26,
+          "gate": "STEP 4 parentage SPEC asserts <=1e-15 (L594-598)",
+          "rescoping": "UNCHANGED (gen-level truth classification; cone-invariant)"
+        },
+        {
+          "n": 27,
+          "gate": "STEP 4 G9 growth reproduction vs GATEREPORT <=1e-9 (L613-630)",
+          "rescoping": "REPLACE: cone-INTERNAL identities (denominator invariance <=1e-8, read-only <=1.4e-9; f_i identity <=1e-12, read-only <=1.1e-16) + pinned cone references at <=1e-9 (see pinned_constants.g9_cone)"
+        },
+        {
+          "n": 28,
+          "gate": "STEP 4 G12 sumw2 cross-checks vs GATEREPORT <=1e-6 (L703-723)",
+          "rescoping": "REPLACE: cone-INTERNAL w2 partition closure (category w2 vectors == w2-matrix fake column per reco row, <=1e-9 rel, read-only <=1.05e-15) + pinned cone totals at <=1e-6 (see pinned_constants.g12_cone)"
+        },
+        {
+          "n": 29,
+          "gate": "STEP 4 keeper envelope (L675-700, report-only)",
+          "rescoping": "UNCHANGED (cone npz carries h_keeper_retained_body_*)"
+        },
+        {
+          "n": 30,
+          "gate": "closure/hierarchy/finite/lumi/dominance/soft gates (L813-835, L865, L906-914)",
+          "rescoping": "UNCHANGED (component-level identities; central template pinning operates on the CARRIED BUDGET_CSV)"
+        },
+        {
+          "n": 31,
+          "gate": "PKG non-existence + schema/header asserts (L176, L1079-1080)",
+          "rescoping": "REPPOINT: the new campaign package dir; structures UNCHANGED (490x43)"
+        }
+      ],
+      "carry_conventions": {
+        "b1_floor": "P1-replica B1 floors (per-gen-bin model floors from the NO-cone central chain) are CARRIED UNCHANGED and applied per gen bin to the cone model component as max(unfloored_cone_halfdiff, floor) - the SAME carry the no-cone S2' 15-comp applied onto its variant chain (no variant B1 replica campaign existed there either). A cone B1 replica campaign is NOT required. Gate 16 stays AS-IS (carried operands validate the carry mapping, not cone physics). Floor-binding fractions recorded (no-cone S2' binding 61.2%/66.5% of bins).",
+        "phi_h": "Per-generator ABS flat-leg deltas (nb) from phi_h_coherentprior_2026-10-06/per_generator_deltas.csv are CARRIED UNCHANGED as generator-model absolutes (generator-physics effect; the no-cone S2' 15-comp carried them the same way - additive separability, removal shift transferred OUT); re-expressed per bin against the CONE S2' nominal, then the recipe applied IDENTICALLY (5-bin pT-row Gaussian smoothing, max over generators, half envelope, 0.85x unsmoothed floor). Gate 23 stays AS-IS. A cone phi_h flat-leg campaign is NOT required."
+      },
+      "stage2_extender_rescoping": "extend_budget_13to17_v1.py hard-asserts the no-cone CENTRAL 13-comp budget (491 lines x 35 fields) as parent; the cone edition (extend_budget_15to19) must take the CONE 15-comp package CSV (490 rows x 43 fields, FULL_HEADER) as parent, assert its structure + CP-5 byte-identity, and extend with the four bgsub components to the 19-comp quadrature identity (<=1e-12) per Rev-3 E/F; the gate runner's CP-5 consumption follows that budget JSON"
+    },
+    "ordered_plan": [
+      {
+        "stage": "P0",
+        "name": "scaffolding (no builds)",
+        "content": "dated cone-edition script copies (re-scoped 15-comp builder; H.2 wrap/submit clones; H.3 ported tracking builder; H.4 sidecar trio; H.5-bis Stage-2 extender edition)",
+        "acceptance": "copies exist; cone-edition shifted builders re-pass self-tests (11/11, 13/13); ported tracking builder single-file smoke (P=0 content subset + counters); re-scoped builder constant block matches H.5/H.7 (dry-read)"
+      },
+      {
+        "stage": "P1",
+        "name": "5 cone shifted DVs + zero-shift anchor (6 jobs; independent of P2/P3)",
+        "content": "H.2 recipes",
+        "acceptance": "H.2 (a)-(d) per leg + zero-shift anchor bit-identity to the campaign cone DV"
+      },
+      {
+        "stage": "P2",
+        "name": "tracking port validation + 16 seeds (17 jobs; independent of P1/P3)",
+        "content": "H.3 recipes",
+        "acceptance": "P=0 anchor bit-identity; H.3 (a)-(c) per seed; ensemble_manifest.json written (seeds 314159-314174)"
+      },
+      {
+        "stage": "P3",
+        "name": "cone 1000-toy sidecar (2 jobs + assembler; independent of P1/P2)",
+        "content": "H.4 recipes",
+        "acceptance": "1000 toys/charge; nominal cross-check <=1e-10; closure stop untriggered; additive install isolated (manifest/tarball shas unchanged); one-charge re-run bitwise"
+      },
+      {
+        "stage": "P4",
+        "name": "the cone 15-comp budget build (1 job)",
+        "content": "the re-scoped builder (H.5)",
+        "acceptance": "ALL 31 H.5 gates green; legs positive; components finite non-negative; quadrature closure <=1e-12; hierarchy 0 violations; package written (490x43 CSV + JSON + contract + validation + provenance + report-only comparison vs the no-cone S2' 15-comp package); medians inside the H.1 sanity windows"
+      },
+      {
+        "stage": "P5",
+        "name": "Stage 2 - the Set R' chain (the original dispatch's Stage 2)",
+        "content": "Rev-3 C/G productions (B_R'_cone vector build -> cone-variant re-unfold -> C_rad -> candidate born_crad_bgsub_setRprime_conebase_... -> budget 15->19 via the H.5-bis extender edition)",
+        "acceptance": "the Rev-3 F 26-item gate (IV-1..IV-7 + SA-1..5 + RU-1..5 + CP-1..5 + PM-1..4), CP-5 consuming the P4 package byte-identically"
+      }
+    ],
+    "plan_dependencies": "P1/P2/P3 mutually independent (may run concurrently); P4 requires P1+P2+P3; P5 requires P4; ~24 Condor jobs + the P4 build + the Stage-2 chain",
+    "campaign_tree": "H1ChargedSidis_HighQ2/output_v6/studies/bgsub_setr_cone_build_2026-10-11/cone_15comp/ (subdirs scripts/, shifted_dvs/, tracking_cone/, stat_sidecar_campaign/, systematics_package/)",
+    "pinned_constants": {
+      "cone_release_manifest_sha256": "6ca6b4a148e3b83702440c75800045e31beb6201fdb2fd48cdd0f95ae87aa8d3",
+      "cone_release_tarball_sha256": "b16424f0f048880178ebf05573765cb094f1655d8bd4e508e35da5d4ca0c711e",
+      "cone_data_sums": {
+        "pos": 1965700.0,
+        "neg": 1899373.0
+      },
+      "cone_central_ibmed_round6": {
+        "pos": 11.44932,
+        "neg": 11.155372
+      },
+      "cone_variant_ibmed_round6": {
+        "pos": 11.412233,
+        "neg": 11.123626
+      },
+      "cone_variant_shift_integrated": {
+        "pos": -0.003239238509156861,
+        "neg": -0.002845788385763881
+      },
+      "cone_leg_integrated_nb": {
+        "ibu_c": {
+          "pos": 11.449319692781245,
+          "neg": 11.15537219608634
+        },
+        "dj_c_coh": {
+          "pos": 11.515829684102885,
+          "neg": 11.227195593367334
+        },
+        "k3_c": {
+          "pos": 11.446690694928535,
+          "neg": 11.153024967852781
+        },
+        "k5_c": {
+          "pos": 11.450400071956594,
+          "neg": 11.156370545193331
+        },
+        "ibu_v": {
+          "pos": 11.41223261552874,
+          "neg": 11.123626367451845
+        },
+        "dj_v_coh": {
+          "pos": 11.473249700867942,
+          "neg": 11.19051978472385
+        },
+        "k3_v": {
+          "pos": 11.409643742184743,
+          "neg": 11.121269819919222
+        },
+        "k5_v": {
+          "pos": 11.413289455416054,
+          "neg": 11.124628528657977
+        }
+      },
+      "cone_leg_integrated_nb_round6": {
+        "ibu_c": {
+          "pos": 11.44932,
+          "neg": 11.155372
+        },
+        "dj_c_coh": {
+          "pos": 11.51583,
+          "neg": 11.227196
+        },
+        "k3_c": {
+          "pos": 11.446691,
+          "neg": 11.153025
+        },
+        "k5_c": {
+          "pos": 11.4504,
+          "neg": 11.156371
+        },
+        "ibu_v": {
+          "pos": 11.412233,
+          "neg": 11.123626
+        },
+        "dj_v_coh": {
+          "pos": 11.47325,
+          "neg": 11.19052
+        },
+        "k3_v": {
+          "pos": 11.409644,
+          "neg": 11.12127
+        },
+        "k5_v": {
+          "pos": 11.413289,
+          "neg": 11.124629
+        }
+      },
+      "variant_release_reproduction_prevalidation_max_reldev": {
+        "pos": 1.382e-15,
+        "neg": 1.782e-15
+      },
+      "g9_cone": {
+        "fi_integrated_growth_pp": {
+          "rapgap31": {
+            "pos": 0.6245835888590197,
+            "neg": 0.5612091043738465
+          },
+          "djangoh14": {
+            "pos": 0.6863208448106516,
+            "neg": 0.6155459135576747
+          }
+        },
+        "dj_over_rg_growth_ratio": {
+          "pos": 1.0988454660879141,
+          "neg": 1.0968209687981685
+        },
+        "denominator_invariance_max": 1.397e-09,
+        "f_i_identity_max": 1.11e-16
+      },
+      "g12_cone": {
+        "fakecol_sumw2_total": {
+          "pos": 14640397.30909059,
+          "neg": 13603616.799681988
+        },
+        "fc3_sumw2_total": {
+          "pos": 462979.3219727144,
+          "neg": 402267.9972327622
+        },
+        "category_w2_partition_closure_max_reldev": 1.046e-15
+      },
+      "legacy_shifted_dv_sums": {
+        "hfs_jes_down": {
+          "pos": 1976086.0,
+          "neg": 1909781.0
+        },
+        "hfs_rces_up": {
+          "pos": 1981241.0,
+          "neg": 1914687.0
+        },
+        "hfs_theta_up": {
+          "pos": 1981299.0,
+          "neg": 1914724.0
+        },
+        "elecE_p1pct": {
+          "pos": 1996529.0,
+          "neg": 1930006.0
+        },
+        "elecTheta_p1mrad": {
+          "pos": 1976517.0,
+          "neg": 1909855.0
+        }
+      },
+      "legacy_shifted_dv_removal_window_centers_percent": {
+        "hfs_jes_down": {
+          "pos": 0.4859,
+          "neg": 0.4934
+        },
+        "hfs_rces_up": {
+          "pos": 0.4846,
+          "neg": 0.4921
+        },
+        "hfs_theta_up": {
+          "pos": 0.4846,
+          "neg": 0.4921
+        },
+        "elecE_p1pct": {
+          "pos": 0.4809,
+          "neg": 0.4882
+        },
+        "elecTheta_p1mrad": {
+          "pos": 0.4858,
+          "neg": 0.4934
+        }
+      },
+      "legacy_seed_dv_sums": {
+        "314159": {
+          "pos": 1965606.0,
+          "neg": 1899622.0
+        },
+        "314160": {
+          "pos": 1965927.0,
+          "neg": 1899690.0
+        },
+        "314161": {
+          "pos": 1964487.0,
+          "neg": 1898361.0
+        },
+        "314162": {
+          "pos": 1967630.0,
+          "neg": 1901420.0
+        },
+        "314163": {
+          "pos": 1965543.0,
+          "neg": 1899352.0
+        },
+        "314164": {
+          "pos": 1964755.0,
+          "neg": 1898543.0
+        },
+        "314165": {
+          "pos": 1964353.0,
+          "neg": 1898223.0
+        },
+        "314166": {
+          "pos": 1964133.0,
+          "neg": 1897962.0
+        },
+        "314167": {
+          "pos": 1963677.0,
+          "neg": 1897516.0
+        },
+        "314168": {
+          "pos": 1965291.0,
+          "neg": 1899271.0
+        },
+        "314169": {
+          "pos": 1965928.0,
+          "neg": 1899704.0
+        },
+        "314170": {
+          "pos": 1968174.0,
+          "neg": 1901748.0
+        },
+        "314171": {
+          "pos": 1965550.0,
+          "neg": 1899408.0
+        },
+        "314172": {
+          "pos": 1964859.0,
+          "neg": 1898780.0
+        },
+        "314173": {
+          "pos": 1966930.0,
+          "neg": 1900524.0
+        },
+        "314174": {
+          "pos": 1966236.0,
+          "neg": 1899897.0
+        }
+      },
+      "legacy_seed_ensemble_mean_sums": {
+        "pos": 1965567.4375,
+        "neg": 1899376.3125
+      },
+      "legacy_seed_drop_fraction_percent": {
+        "pos": 0.49276,
+        "neg": 0.49349
+      },
+      "expected_cone_seed_removed_fraction_percent": {
+        "pos": 0.4837,
+        "neg": 0.4912
+      },
+      "nominal_cone_removal": {
+        "pos_count": 9601,
+        "neg_count": 9423,
+        "pos_fraction_percent_of_nocone_nominal": 0.4861,
+        "neg_fraction_percent_of_nocone_nominal": 0.4937
+      }
+    },
+    "computation_provenance": "read-only scratch: /tmp/opencode/cone_hlegs_computation.py (the eight cone legs; pinned engine crosscheck_unfold_methods_v4 from scripts/unfolding/tunfold_official_v4_percharge; EXACTLY the 15-comp builder STEP 1/2 conventions) + /tmp/opencode/cone_g9g12_probe.py (G9/G12 operands) + a legacy-sums probe; outputs retained in /tmp/opencode/; load-bearing scalars embedded here (scratch copies may not survive /tmp cleanup)"
+  },
+  "verification_provenance": {
+    "computation": "Read-only recomputation on the NAF login node (single process, seconds; scratch scripts /tmp/opencode/cone_rev3_computation.py + cone_rev3_extension.py, outputs retained): engine crosscheck_unfold_methods_v4.derive_response_blocks (pinned) for the cone S2' variant f_i; common_bgsub_setr (pinned conventions: PT_PAIRS release pairing, dual guard convention) for the templates/vectors; per-bin dilution on the cone release CSVs; carried scalars re-verified against the carried 980/490 CSVs (max dev 0.0)",
+    "correction_sources": [
+      "sidis_highQ2/docs/critiques/critic-gate-bgsub-promotion-2026-10-11.md (F-1; M-1/M-2/M-3; Conditions 1-5)",
+      "sidis_highQ2/docs/backgrounds/bgsub_unfolding_consistency_ledger_2026-10-07.md (Sec 6-11.4) + JSON twin",
+      "sidis_highQ2/docs/backgrounds/cone_alpha_cut_impact_study_2026-10-11.md (predictions verified; Sec 4 consequences; Sec 5.2 re-derivation list)",
+      "sidis_highQ2/docs/qa/cone-missrow-guard-adjudication-2026-10-11.md (guard verdict (a); E-value windows)"
+    ],
+    "anchor_sources": [
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/release_driver/bbb_ibu_cone_alpha_central_..._2026-10-11/ibu/cross_sections.csv",
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/release_driver/born_crad_dj14relbin_cone_alpha_central_..._2026-10-11/ibu/cross_sections.csv",
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/data_vector_cone_alpha_central_2026-10-11.json",
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/migration_s2prime_cone_rapgap31_2026-10-11.{root,npz}",
+      "H1ChargedSidis_HighQ2/output_v6/studies/bgsub_setr_build_2026-10-10/vectors/bgsub_setr_vectors_{490,980}.csv",
+      "H1ChargedSidis_HighQ2/output_v6/studies/reco_backgrounds_alpha0p2_z005_combinedL_rescaled_20260625/diagnostics/reco_backgrounds_L351000_finalcandidate_20260626/AGGREGATED_{rapgap31,djangoh14}_electron_alpha0p2_combinedL_L351000_finalcandidate.npz"
+    ],
+    "disjointness_sources": [
+      "cone npz category exports (migration_s2prime_cone_rapgap31_2026-10-11.npz)",
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/f_i_crosscheck_cone_*.json (s2prime_vs_central_cone denominator conservation)",
+      "H1ChargedSidis_HighQ2/output_v6/studies/detint_variant_s2prime_2026-10-09/validation/gate_suite_G1_G13_report_2026-10-10.md",
+      "H1ChargedSidis_HighQ2/output_v6/studies/detint_parentage_2026-10-08/detint_parentage_results_2026-10-09.json",
+      "sidis_highQ2/docs/backgrounds/detint_fake_response_variant_spec_2026-10-08.md (Rev 2 Sec 0, Sec 2, Sec 3)"
+    ],
+    "cone_campaign_records": [
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/docs/PRODUCTION_LOG_2026-10-11.md",
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/docs/BORN_LOG_2026-10-11.md",
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/qa_tools/check_phase_f_rerun_outputs.json",
+      "H1ChargedSidis_HighQ2/output_v6/studies/cone_alpha_central_build_2026-10-11/production/{central,s2prime}_shards_alpha_qa_sum.json"
+    ],
+    "computation_h_extension": "SS-H pinned constants: read-only recomputation on the NAF login node (single process, seconds): the eight cone legs via the pinned engine (load_response_and_data + derive_response_blocks + body+miss prior + ibu_unfold), the cone release manifest/tarball sha256, the G9/G12 operands on the cone responses, and the legacy shifted/seed DV sums; scratch /tmp/opencode/cone_hlegs_computation.py + cone_g9g12_probe.py"
+  }
+}

@@ -211,6 +211,7 @@ New in rev 3:
   adds `cov_unfold_closure: 2`; g7 (`:122-128`) treats the closure term as cross-charge correlated
   (D2); the ident tuple at `s08:104` drops `delta_diffvm_rho_rel` (else `conv[...]` raises KeyError)
   and gains `delta_unfold_closure_rel`.
+- D28 **detint norm leg removed, user 2026-10-27** ("Fix it"): `detint_removal_rel` = hypot(model, stat) again and `cov_detint_norm_rank1` leaves the covariance (its class is already varied by `bgsub_env100_hyp_rel` and `nonprimary_int_rel`); 26 quoted / 27 covariance terms; installed as a follow-up tag (P1b) on a fresh staging root `STN/closure_rev3b_staging`.
 - D27 **DIFFVM leaves the budget, stays as INFO.** Move `diffvm_rho_rel` from `TERMS["C"]`
   (`esph_downstream.py:347`) to `INFO["C"]` (`:352`, where `diffvm_rho_signed_rel` already is);
   remove `cov_diffvm_rho_rank1` from RANK1 (`esph_base_common.py:114`) and BUDGET_FORMS (`:159`),
@@ -422,18 +423,20 @@ None. OQ1–3 of the program plan were answered by the user on 2026-10-27 (progr
 
 ## Log
 
+- 2026-10-27: S0-S9 executed at `esigmaphotonxf_2026-10-27` (P1, P3). D28 (detint ±100% normalisation leg removed as a double count) led to the follow-up tag `esigmaphotonxf_2026-10-27b` on `STN/closure_rev3b_staging` (26 quoted / 27 covariance terms), installed, promoted and frozen 2026-10-27 (`FREEZE_RECORD_esigmaphotonxf_2026-10-27b.json`, sha256 `77f14dda…`).
+
 ## Todo
 
 Executor: each step names its script, Condor use, acceptance and the H1 specialist to brief.
 
-- [ ] S0 `ER` created; `ER/S0_reuse_check.json` PASS (`toys_reusable`, `s03_present`, baseline shas) — login — `h1-data-validator`
-- [ ] S1 `E/closure_rev/{build_closure_term,eval_coverage_gate,theory_chi2}.py` + `.sub`; `E/diffvm_table/build_diffvm_perbin_table.py`; groupA/esph_downstream/esph_base_common edits (D3, D4, D14, D27); s08/s09/assemble/s15/s16/s18 `<NEWTAG>` copies (D19, D26) — login — `py_compile`, `terms_26_28`, `default_unchanged`; `h1-analysis-critic` diff read
-- [ ] S2 `build_closure_term.py` → `ER/closure_rev/closure_term.npz` — Condor 1 — `reproduces_ev`, `shape`, `medians` — `h1-unfolder`
-- [ ] S3 group A → step_assemble → `s08_<NEWTAG>` → `s09_<NEWTAG>` under `ER` — Condor 4 — `n_terms`, `diag_identity`, `rank`, `g_all`, `g2_identity`, `no_diffvm_term`, `v2_untouched` — `h1-systematics`, `h1-naf-operator`
-- [ ] S4 ratio/A_h columns (s09) and `theory_chi2.py` → `ER/closure_rev/theory_chi2.json` — Condor 1 — `chi2_written` — `h1-systematics`
-- [ ] S5 `eval_coverage_gate.py --budget ER/downstream/budget_v2/esph_budget_v2.csv` → `ER/closure_rev/gate.json` — Condor 1 — `budget_column_matches`, `coverage` PASS — `h1-systematics`
-- [ ] S6 `build_diffvm_perbin_table.py` → `TBL/diffvm_perbin_<NEWTAG>_{pos,neg}.csv`, `SQ/docs/backgrounds/diffvm_perbin_table_<NEWTAG>.md` — login — `rows_490`, `any_count`, `matches_study`, `scale_header` — `h1-analysis-critic`
-- [ ] S7 `assemble_package_<NEWTAG>.py` (Condor 1) → `s15_install_<NEWTAG>.py --dry` (login) → hostile review (`h1-analysis-critic`) → user sign-off → `s15` real (Condor 1) → `DR/INSTALL_RECORD_<NEWTAG>.json` — `dry_ok`, `refuses_existing`, `old_untouched`, `release_identical` — `h1-naf-operator`, `h1-data-validator`
-- [ ] S8 `s16_promote_<NEWTAG>.py`, `s18_close_quoting_blockers_<NEWTAG>.py` `--dry` then real — login — `s16_all_edited` 21/21, `s18_targets` 6/6, `no_low_n_flag`, `backups`; post-install audit PASS — `h1-data-validator`
-- [ ] S9 (P3) documents per Slice 9 — `no_diffvm_row`, `diffvm_table_present`, `t4_passage`, `no_onetrack_excess`, D10 set, latexmk ×3 — `h1-analysis-note-writer`, `h1-systematics`, `h1-analysis-critic`
-- [ ] Verification on the installed tag (gate rerun, install record, `release_identical`); report to supervisor for P2–P6
+- [x] S0 `ER` created; `ER/S0_reuse_check.json` PASS (`toys_reusable`, `s03_present`, baseline shas) — login — `h1-data-validator`
+- [x] S1 `E/closure_rev/{build_closure_term,eval_coverage_gate,theory_chi2}.py` + `.sub`; `E/diffvm_table/build_diffvm_perbin_table.py`; groupA/esph_downstream/esph_base_common edits (D3, D4, D14, D27); s08/s09/assemble/s15/s16/s18 `<NEWTAG>` copies (D19, D26) — login — `py_compile`, `terms_26_28` (~~28 covariance terms~~ struck by D28: 27 at 27b), `default_unchanged`; `h1-analysis-critic` diff read
+- [x] S2 `build_closure_term.py` → `ER/closure_rev/closure_term.npz` — Condor 1 — `reproduces_ev`, `shape`, `medians` — `h1-unfolder`
+- [x] S3 group A → step_assemble → `s08_<NEWTAG>` → `s09_<NEWTAG>` under `ER` — Condor 4 — `n_terms`, `diag_identity`, `rank`, `g_all`, `g2_identity`, `no_diffvm_term`, `v2_untouched` — `h1-systematics`, `h1-naf-operator`
+- [x] S4 ratio/A_h columns (s09) and `theory_chi2.py` → `ER/closure_rev/theory_chi2.json` — Condor 1 — `chi2_written` — `h1-systematics`
+- [x] S5 `eval_coverage_gate.py --budget ER/downstream/budget_v2/esph_budget_v2.csv` → `ER/closure_rev/gate.json` — Condor 1 — `budget_column_matches`, `coverage` PASS — `h1-systematics`
+- [x] S6 `build_diffvm_perbin_table.py` → `TBL/diffvm_perbin_<NEWTAG>_{pos,neg}.csv`, `SQ/docs/backgrounds/diffvm_perbin_table_<NEWTAG>.md` — login — `rows_490`, `any_count`, `matches_study`, `scale_header` — `h1-analysis-critic`
+- [x] S7 `assemble_package_<NEWTAG>.py` (Condor 1) → `s15_install_<NEWTAG>.py --dry` (login) → hostile review (`h1-analysis-critic`) → user sign-off → `s15` real (Condor 1) → `DR/INSTALL_RECORD_<NEWTAG>.json` — `dry_ok`, `refuses_existing`, `old_untouched`, `release_identical` — `h1-naf-operator`, `h1-data-validator`
+- [x] S8 `s16_promote_<NEWTAG>.py`, `s18_close_quoting_blockers_<NEWTAG>.py` `--dry` then real — login — `s16_all_edited` 21/21, `s18_targets` 6/6, `no_low_n_flag`, `backups`; post-install audit PASS — `h1-data-validator`
+- [x] S9 (P3) documents per Slice 9 — `no_diffvm_row`, `diffvm_table_present`, `t4_passage`, `no_onetrack_excess`, D10 set, latexmk ×3 — `h1-analysis-note-writer`, `h1-systematics`, `h1-analysis-critic`
+- [x] Verification on the installed tag (gate rerun, install record, `release_identical`); report to supervisor for P2–P6 — at 27b: install record 55/55 gates, post-install audit 8/8 PASS, freeze_verify PASS; the coverage gate ran on the staged budget (`budget_column_matches` PASS)

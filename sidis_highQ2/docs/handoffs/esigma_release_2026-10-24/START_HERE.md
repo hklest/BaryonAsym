@@ -95,6 +95,7 @@ Ask the user to choose:
 
 ## 6. Still blocked, and housekeeping for the user
 - **Quoting is blocked** by three older open items: M1 (the env100 builder), N2 (HFS E−pz), P-CRAD-LUMI (C_rad and luminosity).
+  - **Superseded 2026-10-24:** M1, N2 and P-CRAD-LUMI are closed; see /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/docs/blockers/ (M1_closure_rescope, N2_closure, P-CRAD-LUMI_closure, 2026-10-24).
 - Housekeeping; do none of this unless the user asks:
   - `condor_rm 5840395 5842557 5842558 5842610 5842612 5842992`
   - The 21 canonical docs/skills and the release scripts are untracked in the BaryonAsym git repo; the user decides whether

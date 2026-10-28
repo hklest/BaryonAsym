@@ -1,0 +1,31 @@
+# N1/M2 quantification on RAPGAP31 RAD MC v6 (read-only ROOT inspection)
+
+Date: 2026-10-19. Inspector: h1-root-analyst (loop-2 follow-up, finding N1 + loop-1 M2).
+
+## File and method
+- File: `/data/dust/group/h1/klesthen/BaryonAsym/H1ChargedSidis_HighQ2/output_v6/central/sidistree/mc/rapgap31/7071/sidistree_rapgap31_7071_em06_0060.root` (smallest v6 rapgap31 slice, 15 MB). Tree `ChargedTotGen`: 214,334 rows. ISR present: 35.3% of rows have `GenEnPhoton`>0 (median Egamma = 0.92 GeV).
+- **Binning verification:** the Q2 edges quoted in the task ([150,20000],[20000,60000],...,[4e6,1e9]) do NOT match the actual `binning_v3.py` used by the released response builder. The real binning (cone_s2prime_2026-10-11, imported by `build_migration_th2_per_charge_cone_s2prime.py`) is Q2 strata [150,300,700,1500,20000] x-split into 7 cells (S0_x0..S3_x0), gen fiducial 150<Q2_es_gen<20000, 0.1<Y_es_gen<0.7, GenEmpz>45, xFGen<0, |PDG| in {211,321,2212}, IsV0DaughterGen==0. The numbers below use the ACTUAL binning/fiducial (plus task-quoted variants).
+- Prior cell = `cell_index_gen(Q2esGen, x_es_gen)`; body cell = `cell_index_gen(Q2_es_gen, x_es_gen)`, replicating `compute_gen_bin` vs the matched-mirror body fill.
+
+## N1: Q2esGen vs Q2_es_gen cell straddle
+Fiducial rows (builder definition): 35,627 (weighted 50,207).
+- **Straddle overall: 690/35,627 = 1.94% (weighted 1.57%) — MATERIAL (>1%).**
+- Per prior cell: S0_x0 0%, S0_x1 0%, S1_x0 2.76%, S1_x1 2.34%, S2_x0 **8.74%**, S2_x1 1.84%, S3_x0 **6.21%**. All are in-grid mismatches (prior counts cell A, body fills cell B).
+- Direction: 690/690 (100%) have Q2esGen > Q2_es_gen -> prior places ISR rows in the HIGHER Q2 stratum. Systematic one-way leakage across the 700/1500/20000 edges: prior over-counts the upper cell, under-counts the lower.
+- Task-quoted fiducial variants: envelope (Q2_es_gen>100, Y in (0.05,0.9)): 2.21% overall (67,932 rows), incl. 692 rows prior-in-grid/body-out (Q2esGen>150 but Q2_es_gen<150) and 50 prior-out/body-in; release-90 (Q2>150, Y in (0.1,0.9)): 1.75% overall (45,196 rows).
+
+## Q2 relative differences (builder-fiducial rows)
+- |Q2esGen - Q2_es_gen|/Q2_es_gen: median 0.0% (non-ISR rows exactly 0, max 6e-7%), ISR rows (31.8% of fiducial): median **3.49%**, max **102.7%**; 27.2% of all fiducial rows differ by >1%.
+
+## M2: zGen vs rad-safe z
+- Branches present: `GenEnPhoton`, `GenBeamElecE`, `GenBeamProtP`, `GenElecE`, `GenElecPz` -> rad-safe z IS computable offline: z_rad = (P.p_h) / (P.(eBeam4_eff - e')), eBeam4_eff = (0,0,-(Eb-Egamma),Eb-Egamma), i.e. the same collinear-ISR E_e_eff = Eb - Egamma convention the builder itself uses for Q2_es_gen/Y_es_gen.
+- Formula validated: recomputed nominal z matches stored zGen to median 8.9e-8 relative.
+- |zGen - z_rad|/z_rad: median 0.0% overall; ISR rows: median **9.72%**, max **81.1%** (zGen biased LOW; rad-safe z is higher because P.q shrinks with E_e_eff).
+- z-bin change rate under Z_EDGES [0,0.05,0.1,0.2,0.3,0.5,0.7,1.0]: **1,157/35,627 = 3.25% (weighted 3.41%)**; 100% of changed rows are ISR; all transitions upward (nominal bin -> higher rad-safe bin), dominated by 0->1 (465), 1->2 (289), 2->3 (162). zGen support [0,0.7) covers 99.94% of fiducial rows.
+
+## Verdicts
+- **N1: MATERIAL.** 1.9% overall straddle on the released response fiducial (weighted 1.6%), reaching 8.7% (S2_x0) and 6.2% (S3_x0) per cell, 100% one-directional. Supports the loop-2 recommendation: harmonize the gen-Q2 cell index (use rad-safe Q2_es_gen on the prior side, or Q2esGen on the body side) and rebuild the response.
+- **M2: MATERIAL.** 3.25% of fiducial gen rows change z bin under a rad-safe z (ISR-only median shift 9.7%, all upward). No rad-safe z branch exists in the tree, but it is computable offline from existing branches with the validated formula above.
+
+## Caveat
+Single em06 phase-space slice of run 7071 (one small file, per login-node policy). Per-cell rates depend on this slice's population near strata edges; the ISR fraction (~32% of rows), the one-way direction, and the order of magnitude are the robust conclusions. A full-sample rate would need a Condor pass.

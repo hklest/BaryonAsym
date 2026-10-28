@@ -1,0 +1,5 @@
+docs/critiques/rev6_chain_audit_2026-05-31/area4-weights-critic-impl.md
+docs/critiques/rev6_chain_audit_2026-05-31/area4-weights-critic-physics.md
+docs/references/reference-highQ2-mc-luminosity.md
+docs/research/research-F1-area-constraint-normalization-2026-05-31.md
+docs/results/nucliaweight_fix_2026-05-31.md

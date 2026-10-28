@@ -1,0 +1,11 @@
+- [det.int. uncertainty gap](h1-sidis-detint-uncertainty-gap.md) — det.int. removal has no rate uncertainty; κ decision pending
+- [Track-class leaks into body](h1-sidis-track-class-leaks.md) — absorbed secondaries/dups/Tier-2/keeper ~1.5% of body; proposed signal predicate
+- [Track-class impact + rate shift](h1-sidis-trackclass-impact.md) — v5 INSTALLED 2026-10-21: quoted total 7.45%/7.80%, covariance edition; concurrent writers on NAF
+- [NAF H1 SIDIS access](naf-h1-sidis-access.md) — ssh host, analysis paths, STATE.md/skills navigation
+- [Triple-check backgrounds](feedback-triplecheck-backgrounds.md) — validate bkg classes with independent variables before quoting
+- [Provenance-only background](feedback-provenance-background.md) — bkg = STR-only links; never define bkg by reco kinematics
+- [Low-Q2 takeover](h1-lowq2-takeover.md) — low-Q2 SIDIS state on NAF, parity plan, decisions D1-D5
+- [NucliaWeight primary-loss term](h1-sidis-nucliaweight-primary-loss.md) — INSTALLED 2026-10-21: quoted total 7.4848%/7.8604%; nominal NW 0.45% bias user-dismissed
+- [Smoke before production](feedback-smoke-before-production.md) — broad smoke matrix + storage projection before any big Condor ask
+- [Final production 2026-10-21](h1-sidis-final-production-2026-10-21.md) — final production + downstream; eΣ-frame re-production DONE 2026-10-22 (total 8.20/8.80% after carry fix; critic round 2: C_rad no rerun, open items in docs/esigma_frame_critic_review_2026-10-22.md), study only, not installed
+- [eΣ release plan (NEXT)](h1-sidis-esigma-release-plan.md) — after compaction: execute docs/esigma_release_plan_2026-10-22.md; ask U1–U6 first

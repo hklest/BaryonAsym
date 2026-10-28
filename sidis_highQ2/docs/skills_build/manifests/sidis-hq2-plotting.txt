@@ -1,0 +1,5 @@
+docs/methodology/plots_directory_layout_2026-05-24.md
+docs/methodology/v6_data_mc_qa_plotting_2026-06-06.md
+plots/bca_4d_nominal/bca_4d_v6_plot_input_summary.md
+plots/old/README.md
+scripts/canonical_highQ2_sidis_2026-06-30/release/provenance/PLOTS.md
