@@ -55,7 +55,7 @@ in the skims).
    ≥ 100 and the ND raw count there is ≥ 100; otherwise that unit takes the per-cell all-M_X scales (the parent's
    fallback). M_X classes: [4,10), [10,20), [20,40] (WP-C grid, `wpc_lib.py:4`) plus `MXout` (M_X < 4, ≥ 40 or
    non-finite), so the classes partition the FIT sample and the all-M_X per-cell fit equals the WP-A2 basis
-   restricted to < 3.0. The ALL-cell scope and a shared-scale (per-cell) variant are diagnostics.
+   restricted to < 3.0. A shared-scale (per-cell) variant is a diagnostic.
 4. **Templates.** DIFF8 = 9012 + 9024 + 9033 + 9155 + 9157 + 9158 + 6671 + 6677 with fixed relative weights
    (`exposure_factors` of the odd_frozen payloads; `wpa_common.fac_used/table_fac`), one ND chain per fit (7071,
    7091, or nd4cat with its sidecar overrides). Reggeon rides inside DIFF8 under s_diff; its fraction f_Reg per
@@ -64,20 +64,25 @@ in the skims).
    `D/data/restart_2026-10-27/wp-a6/range_frozen.json` (edges, classes, unit thresholds, BB-lite spec, script md5s)
    and quote its sha256 in the odd-split submit log before any odd-split fit (the WP-A2 `submit_s4.sh` pattern,
    `D/condor/restart_2026-10-27/wp-a2/fit_wpa2/submit_log_s4.txt`). G2 is ruled on the odd split; the even result
-   and a both-parity fit are reported for WP-F.
+   is reported beside it.
 6. **f_ND in the selected region.** Per M_X bin m and chain c:
    f_ND(m) = Σ_cell s_ND(cell, m) · N_ND^SEL(cell, m) / N_data^SEL(m), with SEL = `F.masks(...)["SB"]`
-   (`fact_wpa3.py:79`) ∧ x_IP < 0.04 ∧ M_X > 3 and N_ND^SEL the chain's weighted count there (its own M_X class and
-   cell). The sum is split into the in-fit part (η04 < 3.0) and the band part (η04 ≥ 3.0); both are tabulated.
-   Uncertainty components, all in `f_nd_per_mx.csv`: (i) fit statistical = profile σ(s_ND) per unit (max of minus/plus)
-   ⊕ MC-stat of N_ND^SEL (√Σw²) ⊕ Poisson of N_data^SEL, in quadrature over cells; (ii) generator spread =
+   (`fact_wpa3.py:79`, `etaMaxClus08` < 3.3) ∧ x_IP < 0.04 ∧ M_X > 3 and N_ND^SEL the chain's weighted count there
+   (its own M_X class and cell). Selection edge: the parent WP-A6 block (line 448) and D4 say η_max(0.8) < 3.2; the
+   brief and the WP-A2 frozen `SB` mask say 3.3; G2 names no edge. The ruling edge is 3.3 (brief; the frozen WP-A2
+   definition), recorded as a deviation from the WP-A6 block text (Decision 13); the final edge is WP-B's and WP-F
+   re-derives f_ND on it. The sum is split into the in-fit part (η04 < 3.0) and the band part (η04 ≥ 3.0); both are
+   tabulated. Uncertainty components, all in `f_nd_per_mx.csv`: (i) fit statistical = profile σ(s_ND) per unit (max
+   of minus/plus, which carries the in-fit template MC-stat through BB-lite) ⊕ MC-stat (√Σw²) of the band part of
+   N_ND^SEL only ⊕ Poisson of N_data^SEL, in quadrature over cells; (ii) generator spread =
    max |f_ND(7091 or nd4cat) − f_ND(7071)|; (iii) edge-band term δ_edge(m) = f_ND^band(m) · ρ, ρ = max over the
    [3.0, 3.4) 0.05 bins with ≥ 20 data events of |data/prediction − 1| in the same fit unit. The G2 uncertainty is
    (i) ⊕ (ii) as pre-registered; (iii) is reported beside it and the verdict states whether any bin's ruling would
    flip with (iii) included (Open Q1). What the spread covers: the ND gap-probability model, including the
    generator-dependent slope over 3.0-3.3 (WP-A2 diagnosis). What it does not cover: the LAr-edge response
-   mismatch common to all chains (`forward_response_fix_assessment.md` §1.1; 30-50 % excess at 3.15-3.35 for every
-   chain), which is what δ_edge bounds.
+   mismatch common to all chains (`forward_response_fix_assessment.md` §1.1 for the attribution; data/MC 1.2-1.5
+   over 3.0-3.3 for every chain, `D/docs/restart_2026-10-27/wp-a2/s2_diagnostic_record.md:22,55`), which is what
+   δ_edge bounds.
 7. **G2 reading.** "f_ND ≤ 0.30 under the largest of the three ND chains" is applied to the central value of the
    chain with the largest f_ND in that M_X bin; the uncertainty is quoted beside it, not added. Bins above the
    ceiling are flagged `masked_G2`. This is a reading of the pre-registered text, recorded here for the critic.
@@ -89,48 +94,53 @@ in the skims).
    physics normalisation. WP-A6 therefore has no dependency on WP-A5's output.
 9. **Purity table.** Track-level inputs: `wpc_build.py` run unchanged in selection on the merged
    `D/data/t2_detector/mc_merged_2026-10-18/{7071,6671,6677}.root` with the truth-fiducial block bypassed
-   (every track counts as background) and an `e_cell` column added; the six signal labels are rebuilt the same way
-   only if the WP-C npz lack `e_cell`. The fill recomputes every column of the WP-C table
-   (`binstats_proposal_D7plus_xip030_frameB_G2.csv` header; frame B, x_IP < 0.03 proposal rows and the D7-literal start
-   rows both) with per-event weights × s_diff(cell, m) for DIFF8 (Reggeon included) and × s_ND(cell, m) for ND,
-   through `wpc_lib.pur_stab` and `cell_id` unchanged: f_nd = s_ND N_ND / N_tot, f_reg = s_diff N_Reg / N_tot,
-   purity and f_fake with N_tot in the denominator, so purity + f_mig + f_fake + f_nd + f_reg = 1 per bin. The
-   per-bin f_nd spread uses the per-M_X relative spread of Decision 6 (no 7091/nd4cat track builds unless the 7071
-   build's wall time × 3.3 fits the budget). A new dated mask JSON with `.sha256` is written through
-   `make_blind_mask.py`; WP-C files are not touched. Caveat recorded in the table header: the track build selects
-   `etaMaxClus08` < 3.2 and E−p_z 35-70 (`wpc_build.py:100-101`), the event-level f_ND uses 3.3; the harmonisation
-   is WP-B's open item W2.
+   (every track counts as background) and an `e_cell` column added, defined exactly as the fit cells,
+   `skim_wpa3.py:56-57` (x = Q2s/(4·27.6·920·Ys), boxes of `n1_wpa2.py:119`; not from `Q2es`). The WP-C npz carry
+   `e_Q2es`/`e_Yes` but no `e_cell`, so the six signal labels are rebuilt with the same wrapper under `wp-a6/`. The
+   fill recomputes every column of one WP-C table (the proposal set `binstats_proposal_D7plus_xip030_frameB_G2.csv`:
+   frame B, x_IP < 0.03, D7+; the CLI takes `--rule --frame --xipcut` so the grid Open Q6 selects is one re-run) with
+   per-event weights × s_diff(cell, m) for DIFF8 (Reggeon included) and × s_ND(cell, m) for ND, through
+   `wpc_lib.pur_stab` and `cell_id` unchanged: f_nd = s_ND N_ND / N_tot, f_reg = s_diff N_Reg / N_tot, purity and
+   f_fake with N_tot in the denominator, so purity + f_mig + f_fake + f_nd + f_reg = 1 per bin. Deviation from the
+   WP-A6 block's `purity = 1 − f_ND − f_Reg − f_fake`: purity keeps WP-C's D7 migration definition, so the identity
+   closes with the existing `p_mig` column (Decision 13 lists it). The per-bin f_nd spread uses the per-M_X relative
+   spread of Decision 6. A new dated mask JSON with `.sha256` is written through `make_blind_mask.py`; WP-C files are
+   not touched. Caveat recorded in the table header: the track build selects E−p_z 35-70 and `etaMaxClus08` < 3.2
+   (`wpc_build.py:97,100-101`), the event-level f_ND uses 3.3; the harmonisation is WP-B's open item W2.
 10. **Validation set.** `closure_injected` (Asimov from even MC, s_diff = 0.85, s_ND = 1.5, recovered within 1e-3),
     `bblite_reduces_to_poisson` (Σw² → 0 reproduces the WP-A2 deviance), `payload_identity`, `q_invariance`;
     stability variants on the even split: upper edge 2.8, lower edge 1.0, x_IP < 0.04 applied in the fit, shared
-    per-cell scales, coarse ≥ 100-data groups; chain spread is the systematic. Each variant's f_ND per M_X bin goes
+    per-cell scales; chain spread is the systematic. Each variant's f_ND per M_X bin goes
     in a stability table; a variant shift above the quoted G2 uncertainty is flagged in the verdict, not added.
 11. **σ_r^D(3) figure not here.** No machine-readable EPJC 72 (2012) 2074 table and no (β, Q², x_IP) yield script
     exist in the workspace (worker check); an uncorrected reco-level comparison would not test the leakage fit.
     The sanity figures of this package are the post-fit η04 stacks per (cell, M_X) and the data vs scaled-cocktail
     M_X and x_IP spectra in the selected region.
 12. **Compute.** Payload build: one Condor job per (chain, split), 6 jobs, 8 GB, minutes. Fits: one job per
-    (chain, split, cell, unit), about 72 nominal with toys plus about 100 even-split variants without toys; ≤ 0.15
+    (chain, split, cell, unit), 72 nominal with toys plus about 150 even-split variant fits without toys; ≤ 0.15
     Condor-days. Track builds: 7071 (10.3 GB) split per raw file (`D/output_v6dif/mc/7071/sidistree/`, 61 files) if one
-    merged job would exceed `+MaxRuntime` 10800, plus 6671 and 6677; ≤ 0.4 Condor-days. Total ≤ 0.6 Condor-days,
-    leaving WP-A5's ≈ 0.05 inside the joint 1 Condor-day cap; tally by `h1-naf-operator` in
-    `D/data/restart_2026-10-27/wp-a6/condor_tally.csv`. Login node: single-file tests only.
+    merged job would exceed `+MaxRuntime` 10800, plus 6671, 6677 and the six signal labels (WP-C's `wpc_build.sub`
+    ran them at ≤ 3000 s each); ≤ 0.5 Condor-days. Total ≤ 0.7 Condor-days, leaving WP-A5's ≈ 0.05 inside the joint
+    1 Condor-day cap; tally by `h1-naf-operator` in `D/data/restart_2026-10-27/wp-a6/condor_tally.csv`. Login node:
+    single-file tests only.
 13. **Record format.** `g2_verdict.md` mirrors `g1prime_verdict.md`: the G1″(c) and G2 text quoted verbatim from
     the parent; the per-M_X table (f_ND per chain, in-fit/band split, fit σ, spread, δ_edge, ceiling flag, largest
     chain); the per-unit scale table with toy p (diagnostic); the edge diagnostic; the stability table; deviations
-    from pre-registration; budget; sha256 of `range_frozen.json`, the CSVs and the mask; open items;
+    from pre-registration (at least: selection edge 3.3 against the WP-A6 block's 3.2, Decision 6; purity keeps the
+    D7 migration definition, Decision 9); budget; sha256 of `range_frozen.json`, the CSVs and the mask; open items;
     `RULING:` line by `h1-analysis-critic`. If in any M_X bin the chain spread exceeds 3× the fit σ, `h1-mc-expert`
     gives a one-paragraph forward-flow reading that the verdict quotes.
 
 ## Outline
 
-- `D/scripts/restart_2026-10-27/wp-a6/build_payload_wpa6.py` — `--chain {7071,7091,nd4cat} --split {even,odd,both}
+- `D/scripts/restart_2026-10-27/wp-a6/build_payload_wpa6.py` — `--chain {7071,7091,nd4cat} --split {even,odd}
   --out`; loads skims with `fact_wpa3.load` and `masks` (`:68-80`), weights per `veto_eff_hist.py:74`; writes the
   `wpa-fit-payload-v1` layout of `odd_frozen_*.json` (`edges`, `modes.cluster.data.templates.raw[cell]`,
-  `components[label].templates.{raw,exposure1,signed,sumw2}[cell]`, `scale_table_basis.exposure_factors`) extended
-  with a `mx_class` level under each cell, `band_3p0_3p4`, `band_3p4_5`, `oor`, and `sel` (SEL counts per cell ×
-  class, in-fit and band, data and components, with `sumw2`). Gotcha: the `ec08 < −900` sentinel is kept in the
-  mask though no skim checked carries it; `period` is −1 for MC.
+  `modes.cluster.components[label].templates.{raw,exposure1,signed}[cell]`, `scale_table_basis.exposure_factors`)
+  extended with a new `sumw2` key beside `raw`, a `mx_class` level under each cell, `band_3p0_3p4`, `band_3p4_5`,
+  `oor`, and `sel` (SEL counts per cell × class, in-fit and band, data and components, with `sumw2`). Gotcha: the
+  `ec08 < −900` sentinel is kept in the mask though no skim checked carries it (slice 1 logs the count); `period` is
+  −1 for MC.
 - `D/scripts/restart_2026-10-27/wp-a6/fit_bblite_wpa6.py` — fork of `fit_7p1_wpa2.py` with
   `dev_bb(y, d, n, sw2_d, sw2_n, q)` (profiled deviance), `fit`, `prof_interval`, `toy_gof` calling it; CLI adds
   `--mx-class`, `--eta-lo/--eta-hi`, `--xip-cut`, `--no-bb`; outputs the WP-A2 JSON/CSV set per unit plus
@@ -140,9 +150,10 @@ in the skims).
   `D/data/restart_2026-10-27/wp-a6/f_nd_per_mx.csv` (columns: `split, mx_bin, chain, f_nd, f_nd_infit, f_nd_band,
   sig_fit, spread, delta_edge, f_reg, n_data_sel, largest_chain, above_ceiling, flip_with_edge`) and the stability
   CSV; applies the fallback rule of Decision 3 and records which units fell back.
-- `D/scripts/restart_2026-10-27/wp-a6/wpc_build_bkg_wpa6.py` — thin wrapper importing `wpc_build.py` selection code
-  with the gen block bypassed, `--label --input --out`, adds `e_cell` from `Q2es` and x per `n1_wpa2.py:119` cell
-  boxes; `D/scripts/restart_2026-10-27/wp-a6/purity_fill_wpa6.py` — `--scales <fit summary> --frame B --xipcut 0.03
+- `D/scripts/restart_2026-10-27/wp-a6/wpc_build_bkg_wpa6.py` — thin wrapper importing `wpc_build.py` selection code,
+  `--label --input --out --gen {on,off}` (off bypasses the gen block for 7071/6671/6677; on for the six signal
+  rebuilds), adds `e_cell` per `skim_wpa3.py:56-57` from the `Q2s`/`Ys` branches `wpc_build.py:25` already reads;
+  `D/scripts/restart_2026-10-27/wp-a6/purity_fill_wpa6.py` — `--scales <fit summary> --frame B --xipcut 0.03
   --rule D7plus --out`; reuses `wpc_lib.cell_id/pur_stab`; writes `binstats_wpa6_<rule>_<frame>_<xip>.csv` and calls
   `D/scripts/restart_2026-10-27/wp-c/mask/make_blind_mask.py` for the mask.
 - `D/scripts/restart_2026-10-27/wp-a6/plots_wpa6.py` — post-fit stacks per (cell, class) with ratio and MC-stat
@@ -170,11 +181,11 @@ in the skims).
    `bblite_reduces_to_poisson: --no-bb on the odd_frozen payload cut at 3.0 -> deviance equals fit_7p1_wpa2 on the same arrays within 1e-6`;
    `closure_injected: Asimov even MC with (0.85, 1.5) -> recovered within 1e-3, both scales`;
    `q_invariance: DIFF8 × 0.8 in one unit -> s_ND unchanged within 1e-9, s_diff × 1.25`;
-   `toy_floor: n_toys 1000 -> reported p ≥ 1/1001 and method string names BB-lite`;
-   `range_frozen: range_frozen.json -> edges [−1, 3.0) in 0.05 steps, no merged bin, sha256 quoted in submit_log_odd.txt before the odd queue`.
+   `range_frozen: range_frozen.json -> edges [−1, 3.0) in 0.05 steps, no merged bin, sha256 sidecar written`.
    Checkpoint: `D/docs/restart_2026-10-27/wp-a6/fit_record.md` section "even split" with the scale and stability tables.
 3. **Odd-split fits, f_ND per M_X, G2 table and plots** (units: `fnd_wpa6.py`, `plots_wpa6.py`; odd queue). Delivers
    `f_nd_per_mx.csv`, the stability CSV, the figures. Tests:
+   `freeze_before_odd: submit_log_odd.txt -> quotes the range_frozen.json sha256 with a UTC stamp earlier than the odd condor_submit`;
    `g2_table: every (mx_bin, chain) row -> f_nd, sig_fit, spread, delta_edge, above_ceiling present`;
    `spread_as_syst: 7071 rows -> spread == max |f_nd(7091 or nd4cat) − f_nd(7071)|`;
    `parts_sum: f_nd_infit + f_nd_band -> equals f_nd within 1e-9`;
@@ -193,7 +204,7 @@ in the skims).
    `h1-naf-operator` tally; one handoff line). Tests:
    `gate_text_frozen: diff of the quoted G1″(c)/G2 block vs the parent plan -> empty`;
    `numbers_traceable: every number in the verdict tables -> found in f_nd_per_mx.csv, the fit summaries or the stability CSV (script check)`;
-   `budget_recorded: condor_tally.csv -> total Condor-days ≤ 0.6`.
+   `budget_recorded: condor_tally.csv -> total Condor-days ≤ 0.7`.
    Checkpoint: `g2_verdict.md` exists with a `RULING:` line.
 
 ## Verification
@@ -211,16 +222,14 @@ only under `wp-a6/` paths and the handoff line; the parent WP-A6 tests `range_fr
 - D2 × [20,40] or [4,10) may fall back to per-cell scales; the fallback hides an M_X dependence of s_ND there.
 - The 7071 track build on one 10 GB merged file may exceed the runtime; the per-raw-file queue is the fallback and
   costs nothing but job count.
-- The selected-region efficiency of the η_max cut itself under the LAr-edge mismatch is not addressed by this fit
-  or by WP-A5; it is a WP-F/WP-J item (WP-A4 §1.1).
 - `wpc_build.py` gen-side code on ND rows is untested; the wrapper bypasses it, but shared helpers may still assume
   `mirFound`.
 
 ## Scope Notes
 
 In: the five slices. Out: everything under Non-goals; the remedy-1 control region (η08 < 1.5) in any step; any
-Plug energy-shape criterion; changing a threshold of G1″ or G2 (user sign-off); 7091/nd4cat track builds beyond
-the budget rule. User decisions not to reopen: D12-D14, G1″ re-gating, Q7's recommendation (GOF-dependent G2 branch
+Plug energy-shape criterion; changing a threshold of G1″ or G2 (user sign-off); 7091/nd4cat track builds. User
+decisions not to reopen: D12-D14, G1″ re-gating, Q7's recommendation (GOF-dependent G2 branch
 retired), fit basis = WP-A2 frozen set with the range changed (parent WP-A6 Scope Notes). Memory: no entry affects
 `wp-a6/`; `.supervisor/memory/decisions/2026-10-26-response-mc-stat-in-quoted-totals.md` is consistent with
 Decision 2.
@@ -233,17 +242,12 @@ Decision 2.
 - `wpc_build.py` runs on 7071/6671/6677 with the gen block bypassed (checked by `nd_tracks_present`).
 - The inherited LCG python (numpy 1.26.4, scipy 1.15.0) serves the Condor jobs as it did for WP-A2 (checked by the
   wrapper's import line).
-- No skim carries the `ec08 < −900` sentinel (checked by a one-line count in slice 1's log; the mask keeps it either way).
 
 ## Open Questions
 
 - **Q1 (user:) edge-band term in the G2 uncertainty.** Options: (a) rule with the pre-registered fit ⊕ spread and
   report δ_edge with a flip flag; (b) add δ_edge to the G2 uncertainty before ruling. Recommendation: (a) for this
   package, since the uncertainty definition is pre-registered; decide (b) for WP-F if any flip flag is set.
-- **Q2 (user:) σ_r^D(3) early look.** Options: (a) defer to WP-G as planned; (b) fetch the HEPData table now and add
-  an uncorrected reco-level figure. Recommendation: (a).
-- **Q3 (user:) 7091 track build for the per-bin purity spread.** Options: (a) only if the 7071 build time × 3.3 fits
-  the budget (Decision 9); (b) always; (c) never, use the per-M_X spread. Recommendation: (a).
 
 ## Log
 

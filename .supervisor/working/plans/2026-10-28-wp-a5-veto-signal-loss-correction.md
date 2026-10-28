@@ -47,8 +47,10 @@ bins and overshoots the [3.0,3.3) data, `veto_efficiency_view.md` per-η table).
   fine G1′(c) scales (`veto_eff.json` `fit_scales_fine`), q_v = Δf/(1 − f_MC,full) with Δf = f_data − f_MC,full. The MC
   weight for a passing signal event is Π_v(1 − q_v); independence is checked, not assumed silently, by the COMB closure
   diagnostic (A5-D9). FMD and FTS follow the same procedure as Plug with no special case: the even-split FMD Δf is
-  consistent with zero (−0.012 … +0.004), so the rule itself makes FMD a systematic-only term through the odd/even
-  spread. Negative q is allowed (weight > 1). Chain spread (7091, nd4cat) is reported per cell, not added to σ.
+  consistent with zero only over ALL cells (−0.004, 7071); per cell it is D0 +0.023, D1 −0.030, D2 −0.090
+  (`veto_eff.json` `deep_gap_eta_lt_2p5` `N1_FMD|even|D*`), so FMD gets a real per-cell q under the same rule, with a
+  D2 weight above 1. Negative q is allowed (weight > 1). Chain spread (7091, nd4cat) is reported per cell, not added
+  to σ (parent WP-A5 block, step (2)).
 - **A5-D3 Binning: 3 × 3 step function, no merging, no smoothing.** M_X ∈ {[4,10), [10,20), [20,40]} × {D0, D1, D2}, per
   detector and split. Deep-gap Plug N−1 data per parity (worker count, 2026-10-28): D0 1242/1903/608, D1 329/776/320, D2
   43/175/129, so the binomial σ_q is 0.007–0.016 in D0/D1 and 0.02–0.045 in D2, below the |q|/2 ≈ 0.033 floor everywhere
@@ -72,8 +74,9 @@ bins and overshoots the [3.0,3.3) data, `veto_efficiency_view.md` per-η table).
 - **A5-D6 Propagation sample.** The six WP-C SIGNAL track skims `D/data/restart_2026-10-27/wp-c/study/s{9012,9024,9033,
   9155,9157,9158}.npz` (reco selection: parent env, Q²_es > 150, 0.1 < y_es < 0.7, η_max(0.8) < 3.2, three vetoes pass,
   0 < x_IP < 0.04, M_X > 3; 2503 events / 15 686 tracks for 9012), event weight `e_w` × s_diff(cell, 7071). Reggeon
-  (6671/6677) has no track skim and is ≤ 0.15 per bin (parent D4); it is omitted from the propagation and the correction
-  is nonetheless defined for all DIFF8 downstream (D14). The spectrum per (charge, M_X bin, frame) is
+  (6671/6677) has no track skim and is ≤ 0.15 per bin (parent D4); it is omitted from the propagation (a deviation from parent
+  step (4) "DIFF8 reco events", recorded in the verdict's deviations section) and the correction is nonetheless defined
+  for all DIFF8 downstream (D14). The spectrum per (charge, M_X bin, frame) is
   S(bin) = Σ_tracks w′ / Σ_events w′ with w′ = w·Π_v(1 − q_v); variants reweight the same events, so MC statistics
   cancel in R to first order; a 200-resample event bootstrap of R is reported per bin as a diagnostic.
 - **A5-D7 Application form for downstream.** `veto_weight.py` exposes one function (Outline) that every later package
@@ -176,8 +179,7 @@ All new files; nothing existing is edited. Python: the cvmfs LCG_107a `python3` 
    six labels -> true`; `zero_variant_identity: variant zero -> R == 0 in every bin and Σ_events w equals the skim e_w·s_diff
    sum per M_X bin`; `weight_total: weights() returns a finite value for every event incl. cell −1 and M_X outside
    [4,40] -> true`; `g1pp_a_table: 2 frames × 2 charges × 3 M_X × (6 + 4) bins = 120 rows with syst_veto_rel and
-   masked_veto -> written`; `variant_order: R_up ≤ 0 ≤ R_down not required; |R_up − R_down| > 0 in at least one unmasked
-   bin per frame -> true (guards against a no-op weight)`. Checkpoint: `tests_wpa5.py --slice 2` PASS; table exists.
+   masked_veto -> written`. Checkpoint: `tests_wpa5.py --slice 2` PASS; table exists.
 3. **Diagnostics, plots, verdict.** Units: (a) `diagnostics_wpa5.py`; (b) `plot_wpa5.py` + captions; (c) verdict draft
    from the tables, then `h1-systematics` review of A5-D5 and `h1-analysis-critic` ruling appended. Tests:
    `period_table: 4 periods × 3 detectors × 2 parities f_data with χ²/ndf 3 -> written`; `comb_closure: f′ and f_data
@@ -234,7 +236,6 @@ Batched; none blocks execution (the plan runs with the recommended answer and re
 - **Q-B (user:)** If the η-shape term alone exceeds 0.05 in a bin, promote q_η (η-stepped) to the nominal correction with
   half the step as systematic, or keep the constant nominal and mask? Recommendation: decide on the numbers; the verdict
   tabulates both forms per bin.
-- **Q-C (user:)** Chain spread (7091, nd4cat) per cell: diagnostic only (recommended; D14 fixes σ_q) or added to the max?
 
 ## Log
 
@@ -252,4 +253,4 @@ Batched; none blocks execution (the plan runs with the recommended answer and re
 - [ ] S3a `diagnostics_wpa5.py`; `diagnostics.json`
 - [ ] S3b `plot_wpa5.py`; fig1–fig3 + `captions.md`
 - [ ] S3c `g1pp_a_verdict.md` drafted; `h1-systematics` review; `h1-analysis-critic` ruling appended; `tests_wpa5.py` all PASS
-- [ ] Verification re-run byte-identical; Condor tally recorded; Open Q-A/Q-B/Q-C answers requested from the user
+- [ ] Verification re-run byte-identical; Condor tally recorded; Open Q-A/Q-B answers requested from the user

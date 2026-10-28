@@ -72,7 +72,7 @@ Removal probability: q = (f_data − f_MC)/(1 − f_MC) of the full stack (any v
 - **Plug.** In the deep-gap sample (η_max < 2.5; 0.88–0.90 diffractive over all cells, 0.51–0.58 in D2), Plug fires more often in data than in MC by
   +0.065 to +0.067 absolute: 0.087 against 0.021, a ratio of 4.0–4.3 (even split +0.067). Kinematically, the excess rises with M_X
   (+0.053 → +0.075) and toward D2 on both splits. On the odd split this is compatible with flat (p 0.01–0.40). On the even split it is not (p ≤ 0.006).
-  The pass-efficiency ratio data/MC varies by about 5% on the odd split (0.946 → 0.898) and about 10% on the even split (0.951 → 0.854).
+  The pass-efficiency ratio data/MC varies by about 5% on the odd split (0.946 → 0.898) and about 10% on the even split (0.951 → 0.854) over the M_X bins and D cells.
 - **FTS.** It fires +0.045 to +0.047 more often: 0.125 against 0.078, a ratio of 1.6 (even +0.043). Its ratio is flat across D cells. Across M_X it is
   not flat on odd (p ≤ 0.002) but is compatible with flat on even.
 - **FMD.** It fires 0.020–0.034 less often on odd (ratio 0.89–0.93) and is consistent with MC on even (−0.012 to +0.004).

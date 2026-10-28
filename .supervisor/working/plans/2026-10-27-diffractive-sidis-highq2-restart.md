@@ -108,7 +108,7 @@ material items (also in `## Open Questions`).
   G1 is nominal; the next passing one is a systematic leg. No tuning on the test sample.
   Superseded 2026-10-28 (D12-D14): remedy (i) becomes the per-detector, per-(M_X, cell) correction of WP-A5;
   (ii) the threshold scan is optional (WP-A7, 7/10/15 GeV); (iii) dropping the Plug veto is not chosen.
-- D4 **Selection start values** (WP-B confirms): parent event selection; η_max < 3.2 (0.8 GeV
+- D4 **Selection start values** (WP-B confirms): parent event selection; η_max < 3.3 (0.8 GeV
   clusters, electron excluded, vertex-relative); FMD ≤ 1 hit pair in layers 1-2; FTS 26/28 m empty;
   Plug per WP-A; reco x_IP < 0.04, reco M_X > 3 GeV; fiducial x_IP < 0.03, M_Y < 1.6 GeV, \|t\| <
   1 GeV², 4 ≤ M_X ≤ 40 GeV; no VM veto, no multiplicity cut. Reggeon fraction per M_X bin ≤ 0.15 or
@@ -315,7 +315,7 @@ reporting status RESTART-COMPLETE with the trap list corrected.
   totals as in the parent (`.supervisor/memory/decisions/2026-10-26-response-mc-stat-in-quoted-totals.md`).
 - 6671/6677 may be ruled unusable: Reggeon then enters only as a ±100% term on a fraction bounded
   from the elastic/PDISS flux fit; D4's 0.15 ceiling protects the bins.
-- The WP-A5 correction is derived at `etaMaxClus08` < 2.5 and applied up to 3.2, where Plug purity falls to
+- The WP-A5 correction is derived at `etaMaxClus08` < 2.5 and applied up to 3.2 (the WP-C track skims used for propagation were built at 3.2; the selection edge is 3.3 per D4; WP-B reconciles the two), where Plug purity falls to
   0.68 / 0.43 and the Plug Δf rises to +0.155 / +0.228 (fig6); if the signal fraction above 2.5 is large, the
   extrapolation term can exceed the 5 % acceptance and mask bins.
 - Below η_max 3.0 the fit is still imperfect (χ²/bin 1.8 / 1.5 / 1.0 fine, D0/D1/D2, 7071; fig1 captions):
@@ -404,7 +404,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   `D/scripts/restart_2026-10-27/wp-a3/fact_wpa3.py` (`masks`), `D/data/restart_2026-10-27/gate_evidence/veto_eff.json`;
   M_X edges = the WP-C start grid)
 - Stages: plan, execute
-- Status: plan
+- Status: execute
 - Lead: `executor` (child plan by `planner`); `h1-naf-operator` (Condor), `h1-systematics` (systematic assignment
   review), `h1-analysis-critic` (verdict)
 - Condor: yes (forks of `veto_eff_hist.py` over the 17 skims; ≈ 0.05 Condor-days)
@@ -437,7 +437,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   WP-A2 fit fork `D/scripts/restart_2026-10-27/wp-a2/fit_7p1_wpa2.py`, the WP-A3 skims; M_X edges = the WP-C
   start grid; WP-C `f_fake`)
 - Stages: plan, execute
-- Status: plan
+- Status: execute
 - Lead: `executor` (child plan by `planner`); `h1-mc-expert` (ND forward-flow reading where the chains disagree),
   `h1-analysis-critic` (verdict)
 - Condor: yes (fits per cell × chain × M_X bin with ≥ 1000 toys; ≈ 0.1 Condor-days)
@@ -445,7 +445,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   range changed to [−1, 3.0) and no merged edge bin; the [3.0, 3.4) and [3.4, 5) counts are reported as
   out-of-fit diagnostics. Fits per D cell and, where the FIT sample holds ≥ 100 data events per bin, per M_X bin;
   otherwise the M_X dependence comes from the templates under the per-cell scales. f_ND per M_X bin in the
-  veto-passing η_max(0.8) < 3.2 selection from the fitted s_ND; nominal 7071, systematic = max |f_ND(7091 or
+  veto-passing η_max(0.8) < 3.3 selection (selection edge aligned to the WP-A2 S3 published definition, 2026-10-28; WP-B owns any later change) from the fitted s_ND; nominal 7071, systematic = max |f_ND(7091 or
   nd4cat) − f_ND(7071)|; G2 ceiling on the largest chain. Purity per measurement bin = 1 − f_ND − f_Reg − f_fake
   from the scaled ND track spectra in the WP-C interim frame, WP-C's f_fake and the D4 Reggeon fraction. Toy GOF
   reported, not gated. Tests: `range_frozen: fit edges -> [−1, 3.0), 0.05 bins, recorded before the odd-split
@@ -759,6 +759,9 @@ Future user touchpoint (not a question now): mask ratification at WP-K (D7); the
 - 2026-10-28 decision: re-gating accepted as proposed — G1″ replaces G1′: (a) veto signal-loss correction from the deep-gap N−1 view with systematic ≤ 5 % per measurement bin; (c) η_max fit confined to < 3.0 with ND-generator spread as systematic, G2 ≤ 0.30 kept; MC-stat gate and ≥ 5× signal-MC request unchanged; the Plug/FMD/FTS leg of the G1′ KILL withdrawn, the LAr edge a fit-range/systematic item (D13); source: user
 - 2026-10-28 decision: Plug (and FTS/FMD) excess handling = correction + systematic, per (M_X bin, D cell), systematic max(half the correction, odd/even-split spread); not a threshold scan, not dropping the veto (D14); source: user
 - 2026-10-28 decision: G2's former GOF-dependent branch (f_ND ≤ 0.10, ±100 % envelope) retired; generator spread replaces the envelope (Open Q7, user may override); source: lead
+- 2026-10-28 supervisor: parent selection-edge wording aligned to η_max(0.8) < 3.3 in D4 and the WP-A6 block; R7 and the WP-A5 lines kept at 3.2 (existing WP-C track skims), noted for WP-B (WP-A6 child plan Decision 6 / 13); WP-A5 child plan at .supervisor/working/plans/2026-10-28-wp-a5-veto-signal-loss-correction.md and WP-A6 child plan at .supervisor/working/plans/2026-10-28-wp-a6-leakage-refit.md written (critic PASS round 1 each); executors dispatched for both; open to user: WP-A5 Q-A (σ_stat in σ_q), Q-B (η-stepped nominal), WP-A6 Q1 (δ_edge in G2 uncertainty), parent Q6 (U1 grid, ≥5× signal MC), Q7 (G2 GOF branch retired)
+- 2026-10-28 WP-A5 (planner): child plan written and reviewed (critic PASS round 1, scope-critic TRIM applied); deferred: user answers to Open Q-A (σ_stat in σ_q) and Q-B (η-stepped nominal if the η term alone exceeds 0.05), non-blocking
+- 2026-10-28 WP-A6 (planner): child plan written at .supervisor/working/plans/2026-10-28-wp-a6-leakage-refit.md, critic PASS round 1, scope-critic TRIM applied; deferred: σ_r^D(3) sanity figure to WP-G (no table or yield script in the workspace); 7091/nd4cat track builds (per-M_X spread used instead); open: Q1 edge-band term in the G2 uncertainty (user), parent 3.2/3.3 selection-edge wording (supervisor)
 
 ## Todo
 
