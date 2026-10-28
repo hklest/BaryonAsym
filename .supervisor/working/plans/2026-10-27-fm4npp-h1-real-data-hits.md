@@ -207,9 +207,9 @@ user may overturn each at plan approval. D6-D16 are lead decisions with evidence
   lam/ sample and the earlier plan selected on `Q2e>5` only (`$R/lam/job.sh:12`), so runs outside
   any good-run list and events with CJC HV off are in. WP2, and WP0/WP1 on the lam/ sample
   retroactively, apply the H1OO standard data selection: the run is accepted by an `H1RunList`
-  AND, per event, `H1DetectorStatus::IsOn` holds for the exported subdetectors (CJC1, CJC2, COZ;
-  CST and CIP added when WP4 and WP5 land). This is what `H1AnalysisGoodRunCut.C:80-92` does
-  (`IsOn` AND `IsSelected`), and H1OO refuses a data chain without it (`H1AnalysisChain.C:718`).
+  AND, per event, `H1DetectorStatus::IsOn` holds for CJC1 and CJC2 only (their HV, CAEN and BBL3 bits exactly as `IsOn` defines them);
+  the COZ, CST and CIP status bits are carried as per-event flags, not required. This follows `H1AnalysisGoodRunCut.C:80-92`
+  (`IsOn` AND `IsSelected`) restricted to the CJC subdetectors, and H1OO refuses a data chain without it (`H1AnalysisChain.C:718`).
   `IsOn` (`H1DetectorStatus.C:833-860`) reads the HAT branches `Mhv1[43]`, `Mhv2[31]` (CAEN) and
   `Mbbl3[16]`, filled per event from DMIS `Kslow1/Kslow2/Kbbl3` (`H1HatFiller.C:301-313`); a bit
   equal to 1 means off. Bits per subdetector (`H1DetectorStatus.C` setters): CJC1 = HV 0 + CAEN 0;
@@ -384,7 +384,7 @@ WP0-WP2 (disjoint files; WP3 never replaces `$R/calib_consts/bin/calibprobe`).
    `multi_run: a file whose first 5000 events span 2+ runs -> per-event consts selection, meta lists all runs`;
    `production: 112 files -> 112 DONE, sum of events in meta about 560k, 0 jobs over runtime`;
    `validation_sample: validate_data_cjc.py on every 10th file -> D16 thresholds`;
-   `selection_fractions: 112 metas -> run-list and status-bit fractions printed per file and pooled; pooled status-bit fraction in accepted runs below 1% (D17)`.
+   `selection_fractions: 112 metas -> run-list and status-bit fractions printed per file and pooled; pooled status-bit fraction in accepted runs below 1% (CJC-only det_on) (D17)`.
    Checkpoint: `condor_submit $D/condor/realdata_2007ep.sub`, then `ls .../hits | wc -l` = 112 and the
    validation JSONs.
 3. **WP3: constants for 2005, 2006, 07low/07med.** Delivers `$D/consts/<period>/consts_<run>.json`
@@ -440,7 +440,7 @@ checks.
   c070060 `Q2e>150` (89 events); 634 and 604 µm are robust σ against CJKR circles; the data
   track-free 95% quantile is 7.3 mm. The default representation is judged against MC (D16), not
   against a resolution target.
-- **Selection coverage.** The run list is stricter than CJC/COZ alone and ends at 500611 (D17, Q3).
+- **Selection coverage.** The run list is stricter than the CJC-only det_on and ends at 500611 (D17, Q3).
   The status words update about every 10 s (`H1AnalysisGoodRunCut.C:79`), so shorter trips pass,
   and a partially read-out CJC (some sectors off) is not a status bit; the D10 empty-event skip and
   the reported `meta` counters cover the gross case only.
@@ -496,7 +496,7 @@ D17 the supervisor's recommendations until the user confirms them.
 - Owns: `$D/validation/parity/` (script, `parity.sub`, `parity.json`, `plots/`)
 - Deps: none
 - Stages: execute
-- Status: blocked: execute: user decision on the D16 FAIL (accept, tighten or change D5) and on COZ in det_on
+- Status: execute
 - Artifacts: ->
 
 ### WP1: lam/ to hits tree and schema parity
@@ -617,6 +617,9 @@ Each with the recommended answer; D1-D5 stand until the user answers.
 - 2026-10-28 decision: user approved the plan and wave 1 ("Sure, go ahead with wave 1."): defaults D1–D5, D16, D17 stand; WP0 and WP3 started
 - 2026-10-28 WP0: parity_cjc.py, parity.json and four figures done on all 38 lam dirs vs $MC0; verdict FAIL (CDF −7 to −8.5 pp at 0.5-2 mm; arc-length bin 10-20 cm ratio 2.07; |cos β| medians and zcd width 1.55 pass); D17 removes 2.67% by run list and 8.30% by status bits (COZ HV dominates); commit 6099cb9; deferred: user decision on FAIL (accept, tighten or change D5; T0 confound untested, 23% of events on run-default T0), COZ in det_on
 - 2026-10-28 WP3: done; consts for 19,888 runs (2005 6,605, 2006 10,264, 07low 2,192, 07med 827), 0 failed, AFS NDB, IVRSQT 2/3 as calrun.F; regression 0.920-0.927 on 6 files (all >= 0.90); commit 3ec0514; deferred: COZ re-dump of 110 runs with empty COZ constants, Lorentz band 0.60-0.64 holds for 07low only (2005/2006/07med partly outside; band choice for the user), 07low/07med run list (Q3/D17), cjxref segfault and piped-wrapper early exit to handle in WP2
+- 2026-10-28 decision: WP0 FAIL handling, user chose (b) ("yep"): test the T0 confound with HAT T0_CJC and a split by T0 source before ruling on D5; WP0 execute stage re-run
+- 2026-10-28 decision: D17 amended ("yep"): det_on requires CJC1 and CJC2 only (HV, CAEN and BBL3 bits per IsOn); COZ, CST and CIP status bits are per-event flags, not requirements
+- 2026-10-28 decision: Lorentz-angle band is a per-period sanity check, not a gate ("yep"): 0.60-0.64 for 2007, 0.59-0.66 for 2005, 2006 and 07med
 
 ## Todo
 
