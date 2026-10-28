@@ -1,0 +1,12 @@
+{
+  "tag": "9012_0000", "steer": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/pkg_truth_probe/steering/probe_9012_0000.steer", "n": 50000, "sum_w": 50000, "sigmt_first": 22972.1152344,
+  "n_charm_hadron_events": 4735, "sum_w_charm_hadron_events": 4735, "n_beauty_hadron_events": 4, "n_charm_quark_line_events": 25, "n_gki_nhfhad_gt0": 29,
+  "n_pt2hat_physical": 7075, "pt2hat_min": 6.00017690659, "pt2hat_max": 1155.20141602,
+  "n_q2gki_gt150": 577, "sum_w_q2gki_gt150": 577, "n_q2gki_gt150_charm": 96, "n_q2gki_gt150_pt2phys": 217, "sum_w_q2gki_gt150_pt2phys": 217,
+  "pdfid1_hist": {"-99999": 50000},
+  "pdfid2_hist": {"31": 50000},
+  "pdfid2_hist_q2gt150": {"31": 577},
+  "hfhad1_hist": {"18": 1, "19": 1, "20": 4, "21": 3, "22": 5, "23": 2, "24": 3, "25": 1, "26": 4, "27": 2, "28": 1, "29": 1, "33": 1},
+  "status_hist": {"-1": 1009758, "0": 846239, "2": 650537, "3": 257075, "201": 100000, "202": 21453},
+  "class_hist": {"ME2to2_p2=?": 7075, "QPMsent_p2=?": 42925}
+}

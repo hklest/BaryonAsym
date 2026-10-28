@@ -1,0 +1,18 @@
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_evls/2026-10-28/mc8529/v6dif_mc8529_evls_job.sh
+arguments       = $(steer) $(tag) $(outroot)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_evls/2026-10-28/mc8529/logs/evls_$(tag).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_evls/2026-10-28/mc8529/logs/evls_$(tag).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_evls/2026-10-28/mc8529/logs/evls_$(cluster).log
+request_memory  = 6144
+request_disk    = 5G
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = 10800
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+on_exit_remove  = True
+notification    = Never
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_evls/2026-10-28/mc8529
+queue steer, tag, outroot from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_evls/2026-10-28/mc8529/queue.txt

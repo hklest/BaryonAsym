@@ -1,0 +1,71 @@
+{
+  "campaign": "v6dif_mcnew_2026-10-28 (smoke 8529/9022; production 8529,8530,8531,9022,9023)",
+  "purpose": "Single-chunk (0000) smoke of the v6dif detector-tree chain on candidate MC 8529 and 9022. mck_samples.json is NOT edited.",
+  "samples": {
+    "8529": {
+      "reqid": "8529",
+      "generator": "rapgap31",
+      "period": "em0405",
+      "pp": "05",
+      "chunks": 11,
+      "grl": "nc_goodruns_0405.root",
+      "file_stem": "4.0.6.RAPGAP31.RAD.EMINUS.Q2GT1.POM.8529.S39500.R97903.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8529",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/05/8529",
+      "dst_count": 100,
+      "desc": "RAPGAP 3.1 elastic Pomeron uds e-, gen 5717, SW=80, weighted 1-4"
+    },
+    "9022": {
+      "reqid": "9022",
+      "generator": "rapgap31",
+      "period": "ep0304",
+      "pp": "04",
+      "chunks": 6,
+      "grl": "nc_goodruns_0304.root",
+      "file_stem": "4.0.25.RG31034.POMC.EP920Q5.9022.S39600.R97905.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/9022",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/04/9022",
+      "dst_count": 60,
+      "desc": "RAPGAP 3.1 POMC (charm per DB name RG31034.POMC) e+ 03/04, gen 4490, SW=84"
+    },
+    "8530": {
+      "reqid": "8530",
+      "generator": "rapgap31",
+      "period": "em0405",
+      "pp": "05",
+      "chunks": 11,
+      "grl": "nc_goodruns_0405.root",
+      "file_stem": "4.0.6.RAPGAP31.RAD.EMINUS.Q2GT1.CHA.8530.S39500.R97903.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8530",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/05/8530",
+      "dst_count": 100,
+      "desc": "RAPGAP 3.1 elastic Pomeron charm e-, SW=80, weighted"
+    },
+    "8531": {
+      "reqid": "8531",
+      "generator": "rapgap31",
+      "period": "em0405",
+      "pp": "05",
+      "chunks": 11,
+      "grl": "nc_goodruns_0405.root",
+      "file_stem": "4.0.6.RAPGAP31.RAD.EMINUS.Q2GT1.REG.8531.S39500.R97903.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8531",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/05/8531",
+      "dst_count": 100,
+      "desc": "RAPGAP 3.1 Reggeon-only e-, SW=80, weighted"
+    },
+    "9023": {
+      "reqid": "9023",
+      "generator": "rapgap31",
+      "period": "ep0607",
+      "pp": "07",
+      "chunks": 6,
+      "grl": "nc_goodruns_0607.root",
+      "file_stem": "4.0.25.RG31034.POMC.EP920Q5.9023.S39600.R97905.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/9023",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/07/9023",
+      "dst_count": 60,
+      "desc": "RAPGAP 3.1 POMC e+ 06/07 twin of 9022 (SW=84)"
+    }
+  }
+}

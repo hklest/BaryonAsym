@@ -1,0 +1,6 @@
+// WP-D MC-candidate truth probe round 2 (2026-10-28): ReqID 7448 chunk 0000, gen-level only (HAT+MODS, no ODS).
+H1SteerTree() {
+   fHatFiles  = "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/7448/hat.4.0.6.RAPGAP31.Q2MIN2.IFPS10.POSI.POM.7448.S39200.R97700.ftt.DST.0000.root";
+   fModsFiles = "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/7448/mods.4.0.6.RAPGAP31.Q2MIN2.IFPS10.POSI.POM.7448.S39200.R97700.ftt.DST.0000.root";
+   fLoadODS   = false;
+}

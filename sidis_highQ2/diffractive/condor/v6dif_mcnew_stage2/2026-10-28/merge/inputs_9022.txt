@@ -1,0 +1,6 @@
+/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/output_v6dif/mc/9022/2026-10-28/sidistree_v6dif_rapgap31_9022_ep0304_0000.root
+/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/output_v6dif/mc/9022/2026-10-28/sidistree_v6dif_rapgap31_9022_ep0304_0001.root
+/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/output_v6dif/mc/9022/2026-10-28/sidistree_v6dif_rapgap31_9022_ep0304_0002.root
+/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/output_v6dif/mc/9022/2026-10-28/sidistree_v6dif_rapgap31_9022_ep0304_0003.root
+/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/output_v6dif/mc/9022/2026-10-28/sidistree_v6dif_rapgap31_9022_ep0304_0004.root
+/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/output_v6dif/mc/9022/2026-10-28/sidistree_v6dif_rapgap31_9022_ep0304_0005.root

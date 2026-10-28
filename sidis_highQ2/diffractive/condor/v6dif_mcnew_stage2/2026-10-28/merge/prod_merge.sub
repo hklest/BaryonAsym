@@ -1,0 +1,18 @@
+universe = vanilla
+executable = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/prod_merge_job.sh
+arguments = $(r) $(out) $(ins)
+output = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/merge/logs/merge_$(r).out
+error = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/merge/logs/merge_$(r).err
+log = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/merge/logs/merge_$(cluster).log
+request_memory = 4096
+request_disk = 4G
+request_cpus = 1
+should_transfer_files = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime = 7200
++MyProject = "h1"
+requirements = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+on_exit_remove = True
+notification = Never
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/merge
+queue r, out, ins from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/merge/queue_merge.txt

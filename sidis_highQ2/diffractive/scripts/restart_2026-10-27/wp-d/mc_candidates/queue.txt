@@ -1,0 +1,8 @@
+truth, 9012
+truth, 8529
+truth, 8530
+truth, 8531
+hatscan, 9012
+hatscan, 8529
+hatscan, 8530
+hatscan, 8531

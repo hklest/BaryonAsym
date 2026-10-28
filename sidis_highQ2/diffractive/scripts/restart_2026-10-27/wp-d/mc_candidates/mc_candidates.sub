@@ -1,0 +1,17 @@
+# WP-D MC-candidate assessment (h1-mc-expert 2026-10-28): 4 truth probes (chunk 0000) + 4 HAT scans. Submit: condor_submit mc_candidates.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/mc_candidates_job.sh
+arguments       = $(kind) $(label)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/logs/$(kind)_$(label).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/logs/$(kind)_$(label).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/logs/condor_$(Cluster).log
+getenv          = True
+request_memory  = 2500M
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 3600
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue kind, label from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/queue.txt

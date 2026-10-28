@@ -1,0 +1,17 @@
+# WP-D MC-candidate assessment round 3 (h1-mc-expert 2026-10-28): gen-level X-system scan (McCandidateXScan) of 8405/8403 (full), 9012 (full), 8402/8404 (8 chunks). Submit: condor_submit mc_candidates_r3.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/mc_candidates_r3_job.sh
+arguments       = $(label)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/logs/xscan_$(label).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/logs/xscan_$(label).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/logs/condor_$(Cluster).log
+getenv          = True
+request_memory  = 2500M
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 5400
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue label from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-d/mc_candidates/queue_r3.txt

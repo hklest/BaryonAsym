@@ -1,0 +1,6 @@
+// WP-D MC-candidate truth probe (2026-10-28): ReqID 9022 chunk 0000, gen-level only (HAT+MODS, no ODS).
+H1SteerTree() {
+   fHatFiles  = "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/9022/hat.4.0.25.RG31034.POMC.EP920Q5.9022.S39600.R97905.ftt.DST.0000.root";
+   fModsFiles = "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/9022/mods.4.0.25.RG31034.POMC.EP920Q5.9022.S39600.R97905.ftt.DST.0000.root";
+   fLoadODS   = false;
+}

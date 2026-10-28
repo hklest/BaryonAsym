@@ -1,0 +1,12 @@
+{
+  "tag": "9022_0000", "steer": "scripts/restart_2026-10-27/wp-d/mc_candidates/pkg_truth_probe/steering/probe_9022_0000.steer", "n": 50000, "sum_w": 50000, "sigmt_first": 4190.58789062,
+  "n_charm_hadron_events": 49999, "sum_w_charm_hadron_events": 49999, "n_beauty_hadron_events": 0, "n_charm_quark_line_events": 50000, "n_gki_nhfhad_gt0": 49936,
+  "n_pt2hat_physical": 0, "pt2hat_min": -1, "pt2hat_max": -1,
+  "n_q2gki_gt150": 895, "sum_w_q2gki_gt150": 895, "n_q2gki_gt150_charm": 895, "n_q2gki_gt150_pt2phys": 0, "sum_w_q2gki_gt150_pt2phys": 0,
+  "pdfid1_hist": {"-99999": 50000},
+  "pdfid2_hist": {"31": 50000},
+  "pdfid2_hist_q2gt150": {"31": 895},
+  "hfhad1_hist": {"13": 4524, "14": 10549, "15": 12278, "16": 10178, "17": 6436, "18": 3360, "19": 1534, "20": 651, "21": 226, "22": 99, "23": 39, "24": 22, "25": 13, "26": 8, "27": 4, "28": 1, "29": 2, "30": 3, "31": 2, "33": 2, "34": 1, "38": 2, "39": 1, "47": 1},
+  "status_hist": {"-1": 1751912, "0": 1497608, "2": 1138093, "3": 250000, "201": 100000, "202": 18644},
+  "class_hist": {"QPMsent_p2=?": 50000}
+}

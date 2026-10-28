@@ -1,0 +1,16 @@
+universe = vanilla
+executable = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/prod_tally_job.sh
+arguments = $(r)
+output = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/tally_logs/tally_$(r).out
+error = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/tally_logs/tally_$(r).err
+log = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28/tally_logs/tally_$(cluster).log
+request_memory = 2048
+request_disk = 1G
+request_cpus = 1
+should_transfer_files = IF_NEEDED
++MaxRuntime = 3600
++MyProject = "h1"
+requirements = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+notification = Never
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mcnew_stage2/2026-10-28
+queue r in 8529 8530 8531 9022 9023
