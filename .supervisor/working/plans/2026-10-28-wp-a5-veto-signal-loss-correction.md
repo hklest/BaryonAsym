@@ -239,18 +239,18 @@ Batched; none blocks execution (the plan runs with the recommended answer and re
 
 ## Log
 
-(empty; `fixer` appends)
+- 2026-10-28 executor (wave 1d, D15 edge 3.0): G1″(a) mechanical PASS, max σ_rel 0.0378 (A) / 0.0248 (B), 4/2 fragile bins, frozen q reused; records g1pp_a_verdict_edge30.md; deferred: D7 re-evaluation at 3.0 on the WP-C grid, critic/systematics ruling
 
 ## Todo
 
-- [ ] S1a `veto_corr_hist.py`, `veto_corr_hist.sub`, `wpa5_job.sh`; submitted by `h1-naf-operator`; hists JSON written
-- [ ] S1b `derive_veto_corr.py --split even`; `veto_correction_even.json`; `freeze_record.md` with sha256 and UTC time
-- [ ] S1b `derive_veto_corr.py --split odd`; `veto_correction.json`
-- [ ] S1c `tests_wpa5.py --slice 1`: fig2_consistency, deep_gap_reproduced, even_frozen_first, syst_floor, no_control_1p5 PASS
-- [ ] S2a `attach_cells.py`, `attach_cells.sub`; six `cells_<label>.npz`
-- [ ] S2b `veto_weight.py`
-- [ ] S2c `propagate_wpa5.py`; `g1pp_a_table.{csv,json}`; `tests_wpa5.py --slice 2` PASS
-- [ ] S3a `diagnostics_wpa5.py`; `diagnostics.json`
-- [ ] S3b `plot_wpa5.py`; fig1–fig3 + `captions.md`
-- [ ] S3c `g1pp_a_verdict.md` drafted; `h1-systematics` review; `h1-analysis-critic` ruling appended; `tests_wpa5.py` all PASS
-- [ ] Verification re-run byte-identical; Condor tally recorded; Open Q-A/Q-B answers requested from the user
+- [x] S1a `veto_corr_hist.py`, `veto_corr_hist.sub`, `wpa5_job.sh`; submitted by `h1-naf-operator`; hists JSON written
+- [x] S1b `derive_veto_corr.py --split even`; `veto_correction_even.json`; `freeze_record.md` with sha256 and UTC time
+- [x] S1b `derive_veto_corr.py --split odd`; `veto_correction.json`
+- [x] S1c `tests_wpa5.py --slice 1`: fig2_consistency, deep_gap_reproduced, even_frozen_first, syst_floor, no_control_1p5 PASS
+- [x] S2a `attach_cells.py`, `attach_cells.sub`; six `cells_<label>.npz`
+- [x] S2b `veto_weight.py`
+- [x] S2c `propagate_wpa5.py`; `g1pp_a_table.{csv,json}`; `tests_wpa5.py --slice 2` PASS
+- [x] S3a `diagnostics_wpa5.py`; `diagnostics.json`
+- [x] S3b `plot_wpa5.py`; fig1–fig3 + `captions.md`
+- [x] S3c `g1pp_a_verdict.md` drafted; `h1-systematics` review; `h1-analysis-critic` ruling appended; `tests_wpa5.py` all PASS
+- [x] Verification re-run byte-identical; Condor tally recorded; Open Q-A/Q-B answers requested from the user

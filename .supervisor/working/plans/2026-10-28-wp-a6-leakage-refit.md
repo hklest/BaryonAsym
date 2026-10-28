@@ -251,10 +251,12 @@ Decision 2.
 
 ## Log
 
+- 2026-10-28 executor (wave 1d, D15 edge 3.0): G2 passes in all three M_X bins on both splits at SB30 (odd largest chain f_ND 0.040/0.243/0.221; masks from G2 vanish, D7+ ∪ G2 retains 18 of 30 bins vs 4 at 3.3); records g2_verdict_edge30.md; deferred: h1-analysis-critic ruling and the 7091 identity condition for [10, 20) (not lifted by a mechanical pass)
+
 ## Todo
 
-- [ ] S1 payload builder, Condor build job, slice-1 tests, payload sha256 list
-- [ ] S2 BB-lite fitter, even-split nominal and variant queues, `range_frozen.json`, `fit_record.md` even section
-- [ ] S3 odd queue after the freeze, `fnd_wpa6.py`, `f_nd_per_mx.csv`, stability CSV, plots and captions
-- [ ] S4 ND/Reggeon track builds, `purity_fill_wpa6.py`, `binstats_wpa6_*.csv`, dated mask + sha256
-- [ ] S5 `g2_verdict.md`, `h1-analysis-critic` ruling, `h1-mc-expert` reading if triggered, Condor tally, handoff line
+- [x] S1 payload builder, Condor build job, slice-1 tests, payload sha256 list
+- [x] S2 BB-lite fitter, even-split nominal and variant queues, `range_frozen.json`, `fit_record.md` even section
+- [x] S3 odd queue after the freeze, `fnd_wpa6.py`, `f_nd_per_mx.csv`, stability CSV, plots and captions
+- [x] S4 ND/Reggeon track builds, `purity_fill_wpa6.py`, `binstats_wpa6_*.csv`, dated mask + sha256
+- [x] S5 `g2_verdict.md`, `h1-analysis-critic` ruling, `h1-mc-expert` reading if triggered, Condor tally, handoff line

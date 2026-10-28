@@ -112,7 +112,7 @@ material items (also in `## Open Questions`).
   clusters, electron excluded, vertex-relative); FMD ≤ 1 hit pair in layers 1-2; FTS 26/28 m empty;
   Plug per WP-A; reco x_IP < 0.04, reco M_X > 3 GeV; fiducial x_IP < 0.03, M_Y < 1.6 GeV, \|t\| <
   1 GeV², 4 ≤ M_X ≤ 40 GeV; no VM veto, no multiplicity cut. Reggeon fraction per M_X bin ≤ 0.15 or
-  x_IP is tightened to 0.02 in that bin's study.
+  x_IP is tightened to 0.02 in that bin's study. — superseded by D15 (edge 3.0) on 2026-10-28
 - D5 **Re-base = downstream forks, plus one writer fork.** OPT-A gen cell (`Q2esGen`, already in
   the writer, `P/src/ChargedSidisTreeBuilderHighQ2_v6dif.C:999,1112`) and eSigma ISR-only gen
   kinematics (`P/scripts/unfolding/esigma_final_2026-10-24/esigma_xf.py`) are offline conventions.
@@ -172,6 +172,12 @@ material items (also in `## Open Questions`).
   excess of the [2.5, 3.0) Δf over the deep-gap value, weighted by the signal fraction above 2.5, is a further
   systematic term; the ≤ 5 % acceptance is evaluated by propagating q ± σ as event weights through the
   per-event-normalised spectra on the 9012 reco sample.
+- D15 (user, 2026-10-28): LRG selection edge for the measurement is η_max(0.8 GeV clusters, `etaMaxClus08`) < 3.0,
+  replacing 3.3 (D4). Grounds: WP-A6 odd-split f_ND at 3.3 is 0.372 / 0.332 for M_X [10,20) / [20,40] with 75–90 % of
+  it in the unfitted 3.0–3.3 band, against in-fit parts 0.023–0.094; CJC-containment study: ~37 % of LRG events sit at
+  3.0–3.3. Consequences: WP-B W2 is settled; WP-A5 propagation range and WP-A6 G2 ruling and purity table are
+  re-evaluated at 3.0 (wave 1d); the η_max-cut signal efficiency from MC enters the systematics budget (WP-J) with the
+  data/MC agreement of the fitted η_max shape below 3.0 as its bound.
 
 ## Gates and Kill Criteria
 
@@ -422,7 +428,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   veto_eff.json deep_gap_eta_lt_2p5 within 1e-6`; `no_control_1p5: scripts contain no η_max < 1.5 control mask ->
   true`; `even_frozen_first: correction JSON sha256 recorded before any odd-split read -> true`; `syst_floor:
   every cell σ_q ≥ |q|/2 -> true`; `g1pp_a_table: relative σ on both spectra per (charge, M_X, bin) -> written
-  with a ≤ 0.05 flag`. Checkpoint: `g1pp_a_verdict.md`.
+  with a ≤ 0.05 flag`. Checkpoint: `g1pp_a_verdict.md`. Wave 1d: re-rule at the D15 edge η_max(0.8) < 3.0; existing even-split freezes stand.
 - Artifacts: plan-wpA5-veto-correction.md (default path); `D/docs/restart_2026-10-27/wp-a5/g1pp_a_verdict.md`;
   `D/data/restart_2026-10-27/wp-a5/veto_correction.json` (q, σ per detector × M_X × cell × split)
 - Output: `D/docs/restart_2026-10-27/wp-a5/`, `D/data/restart_2026-10-27/wp-a5/`, `D/plots/restart_2026-10-27/wp-a5/`
@@ -452,7 +458,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   fit`; `payload_identity: templates equal the WP-A2 odd_frozen payloads restricted to < 3.0 -> true`;
   `g2_table: every M_X bin has f_ND, fit σ, chain spread, ceiling flag -> true`; `spread_as_syst: quoted σ_syst =
   max chain deviation -> true`; `purity_table: purity per (charge, M_X, bin) in both axes -> written`.
-  Checkpoint: `g2_verdict.md`.
+  Checkpoint: `g2_verdict.md`. Wave 1d: re-rule at the D15 edge η_max(0.8) < 3.0; existing even-split freezes stand.
 - Artifacts: plan-wpA6-leakage-refit.md (default path); `D/docs/restart_2026-10-27/wp-a6/g2_verdict.md`;
   `D/data/restart_2026-10-27/wp-a6/f_nd_per_mx.csv`
 - Output: `D/docs/restart_2026-10-27/wp-a6/`, `D/data/restart_2026-10-27/wp-a6/`, `D/plots/restart_2026-10-27/wp-a6/`
@@ -717,6 +723,7 @@ Material items only; each with options and a recommendation.
   (f_ND ≤ 0.10, ±100 % envelope), as written in G2 above; (b) keep it, triggered by toy p < 0.05 on the
   restricted range. Recommendation: (a); the generator spread replaces the envelope and GOF over the LAr edge is
   no longer a gate.
+- Q8 (user:) selection edge for the measurement: keep η_max(0.8) < 3.3 (only M_X [4,10) survives G2, 2 bins per charge), move to η_max < 3.0 (WP-A6 in-fit f_ND 0.009–0.094 in all M_X bins; costs ~37 % of events; η_max-cut efficiency from MC becomes a systematic), or move to 2.5 (ND ≤ 0.12 before fitting, Plug Δ +0.065, keeps ~37 % of events). Supervisor recommendation: 3.0. Decision binds WP-B W2, WP-A5 propagation range and the WP-A6 re-ruling. — answered 2026-10-28: 3.0 (D15)
 
 Future user touchpoint (not a question now): mask ratification at WP-K (D7); the Q4 return after wave 1c.
 
@@ -762,6 +769,12 @@ Future user touchpoint (not a question now): mask ratification at WP-K (D7); the
 - 2026-10-28 supervisor: parent selection-edge wording aligned to η_max(0.8) < 3.3 in D4 and the WP-A6 block; R7 and the WP-A5 lines kept at 3.2 (existing WP-C track skims), noted for WP-B (WP-A6 child plan Decision 6 / 13); WP-A5 child plan at .supervisor/working/plans/2026-10-28-wp-a5-veto-signal-loss-correction.md and WP-A6 child plan at .supervisor/working/plans/2026-10-28-wp-a6-leakage-refit.md written (critic PASS round 1 each); executors dispatched for both; open to user: WP-A5 Q-A (σ_stat in σ_q), Q-B (η-stepped nominal), WP-A6 Q1 (δ_edge in G2 uncertainty), parent Q6 (U1 grid, ≥5× signal MC), Q7 (G2 GOF branch retired)
 - 2026-10-28 WP-A5 (planner): child plan written and reviewed (critic PASS round 1, scope-critic TRIM applied); deferred: user answers to Open Q-A (σ_stat in σ_q) and Q-B (η-stepped nominal if the η term alone exceeds 0.05), non-blocking
 - 2026-10-28 WP-A6 (planner): child plan written at .supervisor/working/plans/2026-10-28-wp-a6-leakage-refit.md, critic PASS round 1, scope-critic TRIM applied; deferred: σ_r^D(3) sanity figure to WP-G (no table or yield script in the workspace); 7091/nd4cat track builds (per-M_X spread used instead); open: Q1 edge-band term in the G2 uncertainty (user), parent 3.2/3.3 selection-edge wording (supervisor)
+- 2026-10-28 executor (cjc_containment): done; the current hemisphere is CJC-contained in 94.7 % of LRG data and the losses are backward; the forward problems are unchanged in the subset (Plug Δ +0.137, purity 0.83, 37 % at η_max 3.0–3.3); deferred: nd4cat chain and neutral energy (no cluster list in the trees)
+- 2026-10-28 WP-A5: G1″(a) PASS in both frames (A 37/37, B 34/34 D7-retained bins ≤0.05; max 0.049/0.035; masked_veto bins all already D7-masked), q frozen even sha c026604e, 5.8e-4 Condor-days; deferred: fragile η-cancellation bins (6A/3B) to WP-A6 FMD δ chain check, COMB over-correction to WP-E/F/H, Q-A/Q-B user answers; x_IP-cut variant of q (shifts up to −0.11/+0.29 in D2 high-M_X) to WP-J systematics
+- 2026-10-28 WP-A6: G2 PASS with masks (odd split; M_X [4,10) retained, nd4cat f_ND 0.048 ± 0.040, δ_edge 0.013; [10,20) 0.372 and [20,40] 0.332 masked_G2; no flip), purity table and D7+ ∪ G2 mask written, 0.033 Condor-days; deferred: [4,10) robustness to the no-BB and lower-edge-1.0 variants and the [10,20) split dependence, to WP-F; 3.2/3.3 edge alignment to WP-B W2
+- 2026-10-28 supervisor: wave 1c closed; G2 masks M_X > 10 GeV at the 3.3 selection edge because 75–90 % of f_ND sits in the unfitted η_max 3.0–3.3 band (in-fit parts 0.03–0.09); the selection-edge decision (keep 3.3 / move to 3.0 / move to 2.5) is put to the user before WP-B; WP-A5 outputs committed badb695, cjc_containment 2ab0579
+- 2026-10-28 decision: user chose η_max(0.8) < 3.0 as the LRG selection edge (D15; AskUserQuestion, options 3.0 / 2.5 / keep 3.3); WP-A5/WP-A6 re-opened for wave 1d re-ruling at 3.0; WP-A6 outputs committed aac91a6
+- 2026-10-28 decision: open to user, unanswered after two rounds: Q6 (U1 grid rule, recommendation (c); ≥5× signal-MC request), Q7 (G2 GOF branch retired, recommended), WP-A5 Q-A (σ_stat in σ_q, recommended yes), Q-B (moot), WP-A6 Q1 (δ_edge beside G2, recommended)
 
 ## Todo
 
