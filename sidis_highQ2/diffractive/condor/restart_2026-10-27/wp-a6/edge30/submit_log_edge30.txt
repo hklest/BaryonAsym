@@ -1,0 +1,14 @@
+utc_submit: 2026-10-28T15:35:19Z
+9b892f8289b1dd6b4292840ea57ee479  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/edge30/edge30_wpa6_job.sh
+b35b8944ff748445f0174ca7eab4d25a  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/edge30/edge30_wpa6.sub
+6315d0d63ed833333d9ca2d0be393323  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/edge30/queue_edge30.txt
+f033210a008f911fb659f6d464877040  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a6/edge30/attach_ec08_wpa6.py
+39d2baec57169cba021c9cdbec87910d  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a6/edge30/build_sel30_wpa6.py
+Submitting job(s).....................................................................
+69 job(s) submitted to cluster 5952214.
+utc_submit purity: 2026-10-28T15:36:48Z
+d0eb0a9ba7dd769525282ebfad9d4ac0  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/edge30/edge30_wpa6_job.sh
+c2a578ee251239a4f55dbf63c431e1ac  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/edge30/queue_purity.txt
+4f939ae9ee4bbad5452ecfe77531ca99  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a6/edge30/purity_edge30_wpa6.py
+Submitting job(s).
+1 job(s) submitted to cluster 5952587.

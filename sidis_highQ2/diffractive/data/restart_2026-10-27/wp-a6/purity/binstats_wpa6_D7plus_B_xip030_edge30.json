@@ -1,0 +1,123 @@
+{
+ "scales_file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/scales_resolved_odd_nominal.csv",
+ "scales_sha256": "22c7cb9e0087382007504a730bfa9f763d3aa633e91e702593d8b87f2a63f3da",
+ "g2_file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/edge30/f_nd_per_mx_SB30.csv",
+ "g2_sha256": "7fd5cd6f53a3b443dc5c5e2579749b9dc6a06434b1de311b478b9313793a808f",
+ "g2_split": "odd",
+ "rule": "D7plus",
+ "frame": "B",
+ "xipcut": 0.03,
+ "edges": {
+  "xF": [
+   [
+    -1.0,
+    1.0
+   ],
+   [
+    -1.0,
+    1.0
+   ],
+   [
+    -1.0,
+    -0.05,
+    0.0,
+    0.05,
+    1.0
+   ]
+  ],
+  "pt2": [
+   [
+    0.0,
+    0.75,
+    10.0
+   ],
+   [
+    0.0,
+    0.05,
+    0.15,
+    10.0
+   ],
+   [
+    0.0,
+    0.05,
+    0.15,
+    0.5,
+    10.0
+   ]
+  ]
+ },
+ "caveat": "edge30 (user D15): event cut etaMaxClus08 < 3.0 (or sentinel) applied to the track builds (built at < 3.2); the event-level f_ND (--g2) is evaluated on SB30 = SB & etaMaxClus08 < 3.0, so the two edges agree",
+ "cell_minus1_track_fraction": {
+  "signal": 0.10920606241170196,
+  "reggeon": 0.07016386231166831,
+  "nd": 0.045239528683237294
+ },
+ "cell_minus1_weight_fraction": {
+  "signal": 0.07254394775167332,
+  "reggeon": 0.06877457176925285,
+  "nd": 0.09893986898208718
+ },
+ "fac_ratio_max_dev": 1.0346330476806997e-06,
+ "mask": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/mask_wpa6_D7plus_B_xip030_2026-10-28_edge30.json",
+ "overlay": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/mask_wpa6_g2_overlay_2026-10-28_edge30.json",
+ "summary": "bins 30 | masked by G2 0, by D7plus (new) 12, by D7plus in WP-C table 20, union 12 | median purity new 0.4208 vs WP-C 0.4496 | median f_nd 0.1070, median f_reg 0.0317",
+ "edge30_track_cut": {
+  "edge": 3.0,
+  "per_label": {
+   "s9012": {
+    "events": 2503,
+    "events_kept": 1989,
+    "tracks_xip": 13329,
+    "tracks_kept": 11163
+   },
+   "s9024": {
+    "events": 5970,
+    "events_kept": 4281,
+    "tracks_xip": 36048,
+    "tracks_kept": 28810
+   },
+   "s9033": {
+    "events": 4176,
+    "events_kept": 2933,
+    "tracks_xip": 25309,
+    "tracks_kept": 20011
+   },
+   "s9155": {
+    "events": 4161,
+    "events_kept": 3352,
+    "tracks_xip": 21652,
+    "tracks_kept": 18082
+   },
+   "s9157": {
+    "events": 2108,
+    "events_kept": 1681,
+    "tracks_xip": 11053,
+    "tracks_kept": 9158
+   },
+   "s9158": {
+    "events": 3835,
+    "events_kept": 3126,
+    "tracks_xip": 20004,
+    "tracks_kept": 16827
+   },
+   "b6671": {
+    "events": 1842,
+    "events_kept": 952,
+    "tracks_xip": 8340,
+    "tracks_kept": 4747
+   },
+   "b6677": {
+    "events": 1757,
+    "events_kept": 902,
+    "tracks_xip": 7681,
+    "tracks_kept": 4346
+   },
+   "b7071": {
+    "events": 8790,
+    "events_kept": 4482,
+    "tracks_xip": 40535,
+    "tracks_kept": 23254
+   }
+  }
+ }
+}

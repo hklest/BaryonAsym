@@ -1,0 +1,126 @@
+{
+ "d7plus_mask": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/mask_wpa6_D7plus_B_xip030_2026-10-28_edge30.json",
+ "d7plus_mask_sha256": "0db7e78d94cf9ab848f16033dd858a8372bd13a433c7614ba05728df5a112410",
+ "data_read": false,
+ "final_masked_bins": [
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 3,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 3,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h+",
+   "mx_bin": "4-10",
+   "reasons": [
+    "purity<0.35",
+    "p_mig<0.40",
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h+",
+   "mx_bin": "10-20",
+   "reasons": [
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "f_fake>0.35",
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 3,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h-",
+   "mx_bin": "4-10",
+   "reasons": [
+    "purity<0.35",
+    "p_mig<0.40",
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h-",
+   "mx_bin": "10-20",
+   "reasons": [
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "f_fake>0.35"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 3,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100"
+   ]
+  }
+ ],
+ "g2_masked_mx_bins": [],
+ "g2_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/edge30/f_nd_per_mx_SB30.csv",
+ "g2_source_sha256": "7fd5cd6f53a3b443dc5c5e2579749b9dc6a06434b1de311b478b9313793a808f",
+ "source_table": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/binstats_wpa6_D7plus_B_xip030_edge30.csv",
+ "source_table_sha256": "685e866bc7d292468d2139a71d651c0e0917e9e619803a651d5316e2c754dd76",
+ "split": "odd"
+}

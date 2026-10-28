@@ -1,0 +1,3 @@
+# WP-A6 edge30 figure captions
+
+`fnd_per_mx_edge30.{pdf,png}`: ND leakage fraction f_ND per M_X bin for the three ND chains (7071 blue, 7091 orange, nd4cat green), odd split (left, the ruling split) and even split (right). Open squares are the selection SB (etaMaxClus08 < 3.3, the frozen WP-A6 values). Filled circles are SB30 (etaMaxClus08 < 3.0, user D15). The bars show σ_G2 = fit stat ⊕ chain spread, the horizontal dash marks the in-fit part (etaMaxClus04 < 3.0), and the dashed line marks the G2 ceiling of 0.30. Scales come from the frozen nominal unit fits; nothing was refit. Source: `D/data/restart_2026-10-27/wp-a6/edge30/f_nd_per_mx_edge30.csv`.
