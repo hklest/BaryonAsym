@@ -214,7 +214,7 @@ material items (also in `## Open Questions`).
   10/40 per-charge bins, raw-9012 min 11, UG:21,26). Per (hemisphere, β) cell the grid is the finest of {q5, q4, q3} whose
   every bin passes D7 for both charges on the frozen cocktail, the same grid for h⁺ and h⁻; start value q4 (frame A: 0
   failures; frame B: 5), q5 where it passes (it fails only the G high-β bins 1-4, purity 0.23-0.33, UG:26). The failures are
-  migration purity, not MC statistics (UG:26-27): more MC does not move them, grid and frame do.
+  migration purity, not MC statistics (UG:26-27): more MC does not move them, grid and frame do. — amended 2026-10-28 (Q-C1-3): the per-cell pass criterion is the C1-7 rule (D7+ plus MC-stat ≥ 500/≥ 20, inter-cell migration < 0.5, bin width ≥ 1.5(σ_core+|bias|)), see the WP-C C1 child plan.
 - D20 **β bins.** Two, split at the data event median 0.523 (low β ≈ M_X 13-32 GeV, high β ≈ 5-18 GeV at 5/95 %, UG:14); reco
   β = DiffTot `beta`, gen β from true Q² and `mirMX` (UG:10). The three M_X bins [4,10), [10,20), [20,40] stay the
   pre-registered units in which G1″(a) and G2 were ruled and are carried as a derivation stratum and continuity cross-check
@@ -233,7 +233,7 @@ material items (also in `## Open Questions`).
   gen → reco bins per charge. D7 (weighted n ≥ 50, purity ≥ 0.35, stability ≥ 0.35) stays the pre-registered mask floor for
   unfolded bins; unfolding is what makes a 0.35-purity bin measurable, it does not relax the floor; bin-by-bin is used only
   for the G3 gate. The D7+ extras (`binning_record.md:222-244`) apply as written. The ≥ 5× signal-MC request (Q6) is met by
-  840x (D23).
+  840x (D23). — amended 2026-10-28 (Q-C1-1): reconstructed β is split 2× finer than the gen β bins when C2/WP-H build the response matrices (h1-unfolder consult: +0.054 β bias).
 - D23 **Signal MC = 8402/8403/8404/8405 (lead, conditional; user may override, Q13).** RAPGAP 3.1043 elastic uds, gens
   5643 (e⁻)/5644 (e⁺), 10 M each, L_eq 330-331 pb⁻¹ per period, SW77 with tilt and run-dependent z-vtx, DST on disk
   (`D/docs/restart_2026-10-27/wp-d/mc_candidates_assessment_2026-10-28.md:40-49`, cited as A); generator-level gate passed
@@ -655,7 +655,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 - Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wp-a56/`
 - Deps: WP-D2 (840x merged trees, per-period weights, both skim sets, adoption record)
 - Stages: plan, execute
-- Status: blocked: plan: WP-D2
+- Status: execute
 - Lead: `executor` (child plan by `planner` at `.supervisor/working/plans/2026-10-28-wp-a56-rederivation.md`);
   `h1-mc-expert` (chain-spread reading if the [10,20)-type > 3σ_fit trigger recurs, `g2_verdict.md:135`), `h1-systematics`
   (σ_q and leakage-leg review), `h1-analysis-critic` (both verdicts)
@@ -710,7 +710,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   D7 purity) and the WP-B selection; final gen frame after WP-E. Updated: C1: WP-D2 (840x study npz, weights), WP-A56′ (q
   weights, f_ND and purity per β bin); C2: WP-E (true gen X), WP-B (selection record)
 - Stages: research, plan, execute
-- Status: blocked: plan: WP-D2 (C1, with WP-A56′ re-filling f_ND; child plan at `.supervisor/working/plans/2026-10-28-wp-c-user-grid.md`); C2 after WP-E
+- Status: execute (C1, with WP-A56′ re-filling f_ND; child plan at `.supervisor/working/plans/2026-10-28-wp-c-user-grid.md`); C2 after WP-E
 - Lead: `executor` (stat study), `planner` (binning record); `h1-unfolder` reviews purity/stability,
   `h1-analysis-critic` reviews the frame definition
 - Condor: yes (reads 91 GB of v6dif MC; data on the login node is not allowed either: 658 files)
@@ -741,6 +741,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   + sha256 (C2).
 - Artifacts: `D/docs/restart_2026-10-27/wp-c/binning_record.md`, mask JSON with sha256; updated: child plan
   `.supervisor/working/plans/2026-10-28-wp-c-user-grid.md`, `user_grid_record.md`, `mask_user_grid.json`
+- Notes: C1 record at `D/docs/restart_2026-10-27/wp-c/c1/grid_freeze_record.md`; 5-line stub at `D/docs/restart_2026-10-27/wp-c/user_grid_record.md`.
 - Output: `D/docs/restart_2026-10-27/wp-c/`, `D/data/restart_2026-10-27/wp-c/`
 - Log: —
 
@@ -773,7 +774,8 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 - Deps: none (the v6dif stage-2 production under `D/condor/v6dif_mc840x_stage2/2026-10-28/` is running; chunk output in
   `D/output_v6dif/mc/840{2,3,4,5}/2026-10-28/`)
 - Stages: execute
-- Status: execute
+- Status: done
+- Result: 840x adopted (validation PASS; w_period 0.1324/0.2970/0.1551/0.3748 for 8402/8403/8404/8405; stream factor floated in WP-A56′; SW77→SW84 tier 1 passes at 2σ, tier 2 not run); record docs/restart_2026-10-27/wp-d2/adoption_840x_record.md; h1-analysis-critic signature pending
 - Lead: `executor`; `h1-naf-operator` (tally, merge, Condor-day count), `h1-data-validator` (merged trees, branch parity with
   9012), `h1-mc-db` (gen 5624 pair availability; 4489 bookkeeping; 5719 steering), `h1-mc-expert` (SW77→SW84 reading),
   `h1-analysis-critic` (record)
@@ -1012,7 +1014,7 @@ Material items only; each with options and a recommendation.
   it as the detector-level Reggeon shape cross-check of 6671/6677 in the hard tail, (b) drop it. Recommendation: (a), after the
   `h1-mc-db` steering confirmation in WP-D2.
 - **Q13 (user:, may override a lead decision) 840x as signal MC** (D23) and 9012 out of the nominal mixture. Recommendation:
-  keep, conditional on the WP-D2 gates; the alternative (9012 nominal) leaves the leakage estimate MC-starved.
+  keep, conditional on the WP-D2 gates; the alternative (9012 nominal) leaves the leakage estimate MC-starved. Default applied 2026-10-28 (840x adopted per WP-D2); user may override.
 
 Future user touchpoint (not a question now): mask ratification at WP-K (D7); the Q4 return after wave 1c → now Q10 after
 wave 1f.
@@ -1074,6 +1076,11 @@ wave 1f.
 - 2026-10-28 decision: WP-A5/WP-A6 re-derived on the new mixture as WP-A56′, q per (M_X, D cell), f_ND per β bin, Q² integrated, cells combined, M_X cross-check; leakage target σ_G2/(1−f_ND) ≤ 0.10 per β bin with a user return on failure (Q11); 6670 not used for templates (D24); source: lead
 - 2026-10-28 decision: housekeeping defaults let stand — σ_q = max(|q|/2, odd/even spread, σ_stat); G2 GOF branch retired; δ_edge reported beside, band-ρ values per bin (D25; closes Q7, WP-A5 Q-A/Q-B, WP-A6 Q1); source: lead
 - 2026-10-28 planner (annotation): parent plan annotated for the wave-1d state; WP-D2 and WP-A56′ added, WP-C re-scoped to the user grid (C1/C2), WP-A7 items 3-4 added, WP-E..WP-L re-sequenced (waves 1e, 1f, 2′-6′); deferred: child plans for WP-A56′ and WP-C C1 (planner after WP-D2), critic conditions 1-8 to disk (WP-A56′ step 0)
+- 2026-10-28 WP-D2: 840x adopted as signal (402/402 chunks, validation PASS, w = 0.1324/0.2970/0.1551/0.3748 for 8402/8403/8404/8405, stream factor floated in A56'); SW77->SW84 tier 1 passes at 2 sigma (|Δf|+2e = 0.007/0.025/0.011 vs σ_q 0.034/0.043/0.024; Δq/σ_q ≤ 0.65), tier 2 not run; 840x skims in both sets; deferred: gen-4489 Σweight1 check, rc-134 builder bug, cross-check-label skims (9022/9023, 8529-8531), 5719 steering lookup, h1-analysis-critic signature
+- 2026-10-28 supervisor: wave 1e closed; wave 1f opened — planner child plans for WP-A56′ (`.supervisor/working/plans/2026-10-28-wp-a56-rederivation.md`) and WP-C C1 (`.supervisor/working/plans/2026-10-28-wp-c-user-grid.md`) dispatched in parallel; WP-D2 outputs committed; Q9 (z* default) and Q13 (840x adoption default) put to the user, non-blocking
+- 2026-10-28 WP-A56′ (planner): child plan written and reviewed (critic PASS r1, scope-critic TRIM applied); deferred: Open Questions 1-2 to the user (override-only; neither blocks a start)
+- 2026-10-28 WP-C C1 planner: done; child plan at .supervisor/working/plans/2026-10-28-wp-c-user-grid.md (critic PASS round 2); deferred: Q9 to the user (default z* at 0.2 applied); Q-C1-1/Q-C1-2/Q-C1-3 to the supervisor (D22 reco β split, closure-suite placement in C2, D19 criterion → D7+ plus consult criteria); slice 4b until WP-A56′ delivers f_nd_per_beta.csv
+- 2026-10-28 decision: supervisor accepted Q-C1-1 (D22 amended: reco β split 2×), Q-C1-2 (h1-unfolder closure suite placed in WP-C C2 before the mask hash), Q-C1-3 (D19 amended: C1-7 criterion); lead defaults applied: WP-A56′ q strata (M_X, cell) nominal with qbeta beside, 6670 not used; executors dispatched for WP-A56′ (slices 0-5) and WP-C C1 (slices 1-3, 4a)
 
 ## Todo
 
