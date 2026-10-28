@@ -1,0 +1,99 @@
+{
+ "beta_split": 0.523,
+ "cells": {
+  "G_hi": {
+   "pt2_grid": "q3",
+   "zstar": [
+    0.0,
+    0.2,
+    null
+   ]
+  },
+  "G_lo": {
+   "pt2_grid": "q3",
+   "zstar": [
+    0.0,
+    0.2,
+    null
+   ]
+  },
+  "P_hi": {
+   "pt2_grid": "q3",
+   "zstar": [
+    0.0,
+    0.2,
+    null
+   ]
+  },
+  "P_lo": {
+   "pt2_grid": "q3",
+   "zstar": [
+    0.0,
+    0.2,
+    null
+   ]
+  }
+ },
+ "cells_if_frame_B_rule": {
+  "G_hi": "q3",
+  "G_lo": "q3",
+  "P_hi": "q3",
+  "P_lo": "q3"
+ },
+ "created_utc": "2026-10-28T19:45:52Z",
+ "fiducial": "Q2>150, 0.1<y<0.7, x_IP<0.03, M_Y<1.6, |t|<1, 4<=M_X<=40, Q2 and M_X integrated; |eta_lab|<1.6, 0.15<=pT<=15; eta_max(0.8)<3.0 is the selection",
+ "frame": "A",
+ "hemisphere": "P if x_F>0 else G (x_F in gamma*p/X frame, proton-positive)",
+ "inputs_sha256": {
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/gate_evidence/veto_eff.json": "12ed5f75ecac0b0f1c694a7d9a8e8177ff8a829e0359fd04c99834e7aed58189",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a5/veto_correction.json": "cff5c00ad579546b0a144830e361f2acb250d384669fe3226f13deae53b9dea7",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/edge30/f_nd_per_mx_edge30.csv": "72ca1d968add11a4e954e201776a67acdca7c88746d0661920f9a92425c4d4ad",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/scales_resolved_odd_nominal.csv": "22c7cb9e0087382007504a730bfa9f763d3aa633e91e702593d8b87f2a63f3da",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/c1/cells/cells_8402.npz": "82fa01ab35daf938a926667f365f56a125b28b342a6fd316783278edf10363ea",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/c1/cells/cells_8403.npz": "7873dc7601ae24246d6b2545af992b249b9b088363e87f89b6acff96f37471dd",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/c1/cells/cells_8404.npz": "5bc589132b53f5cc46a2a1b2b3b0d26aaf00d9653de1c27c151639318de6cf98",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/c1/cells/cells_8405.npz": "8b0f495a8f5704dbb7768961bab9ad7801c547ec7d1ed05045ffec82808f36c0",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s8402.npz": "6df7812ba71f33bc33d0764d2ed5977c2b7a53df0fd365296d597e7aa0159a52",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s8403.npz": "75bc337b3b5010f83a5246fac06640ff1a451902885b17b2f934768c9e6c94c4",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s8404.npz": "b3d659cb1f8224a8c5304e06a8697cc4364d3e8582f2b628f4b70ffaf531e027",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s8405.npz": "56d0235134b6686e1dace7f8802b82caa21d38bc6446d6f6fe61074e506e280a",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s9024.npz": "24b1c28773901eb650a3b36c97f8ce18c5c6787eac2bf770f74365320de1a036",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s9033.npz": "25338957bf17597df190f6a48fb47c26a4a13eed18de1cd6e1763c65fc42f434",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s9155.npz": "924f3aab1cb55e28cbd60bcfea5fee09b9ea1e910f2fdcf9fdbcfd199c044f96",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s9157.npz": "4da1ff00f2fa95b8b46a2c41cba06a3dc22727d09aacd265e829f52c80293b26",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/s9158.npz": "2fd37e1b71ff99ed78639c7e6edd0ade5215c421668ffdb760cba3d849db24c3",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/user_grid_2026-10-28/user_grid_summary.json": "72153fdadc8c9f7ee4b5994173f2c11de55974948a2fbf9207d62e71d622e769",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/user_grid_2026-10-28/user_grid_tables.csv": "d9fa2dc290ef0afa38a3a6484ff227adbe05718b141ddbd89bd94cddd7415808",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a2/n1_wpa2.py": "e6d63d3787ab5c053d34982ec5a8d9440909c3beadff178605825cc19fd713f6",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a5/attach_cells.py": "55ad2d2628cb211e47dd69b29807beaf6845697b4f05d17ce2de8939eb812dd4",
+  "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a5/veto_weight.py": "d9693af0d2331e3dca7d34feb455cfb1e8161ab3cadf2a5bfa2400ac3f75010d"
+ },
+ "pt2_edges": {
+  "q3": [
+   0.0,
+   0.074,
+   0.268
+  ],
+  "q4": [
+   0.0,
+   0.051,
+   0.141,
+   0.386
+  ],
+  "q5": [
+   0.0,
+   0.039,
+   0.096,
+   0.205,
+   0.494
+  ]
+ },
+ "reco_subbin_top_split": {
+  "q3": 0.5173432084417304,
+  "q4": 0.685737887034741,
+  "q5": 0.8434010031800703,
+  "z": 0.2938034707626962
+ },
+ "rule": "finest of q5/q4/q3 per cell with every p_T*^2 bin passing D7+ (+ MC-stat >=500/>=20, inter-cell<0.5, width>=1.5(sigma+|bias|)) in both charges; z axis fixed",
+ "zstar_split": 0.2
+}

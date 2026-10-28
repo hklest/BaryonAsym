@@ -1,0 +1,17 @@
+# WP-C C1 slice 1: attach D cell, etaMaxClus08, run/event to the four 840x skims (read-only, default priority).
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/c1/c1_job.sh
+arguments       = attach $(label)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/c1/logs/attach_$(label)_$(Cluster).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/c1/logs/attach_$(label)_$(Cluster).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/c1/logs/attach_$(Cluster).log
+getenv          = True
+request_memory  = 4096
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 3600
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue label in 8402 8403 8404 8405

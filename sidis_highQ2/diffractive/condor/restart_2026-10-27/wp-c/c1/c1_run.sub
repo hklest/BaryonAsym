@@ -1,0 +1,17 @@
+# WP-C C1 slices 2-3: tables A/B, mask, resolution, stats, plots, tests (one job).  Arguments: c1_run.py <stage>
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/c1/c1_job.sh
+arguments       = run $(stage)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/c1/logs/run_$(stage)_$(Cluster).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/c1/logs/run_$(stage)_$(Cluster).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-c/c1/logs/run_$(Cluster).log
+getenv          = True
+request_memory  = 12288
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 7200
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue stage in all

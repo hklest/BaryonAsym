@@ -1,0 +1,6 @@
+- fig1_purity_stability.png: purity (top) and stability (bottom) per gen bin on the frozen grid, per cell, h+ and h-, z* (open squares) and p_T*^2 (dots) axes, stand-in f_ND; dashed = 0.35 floor.
+- fig2_flip_fractions.png: per gen bin (h+), fraction of matched tracks whose reco hemisphere / beta bin / either differs, and the share with gen |x_F| < 0.02; dotted 0.30 (WP-H flag), dashed 0.5 (C1-7 gate).
+- fig3_mx_projection.png: purity of each frozen-grid bin restricted to reco M_X classes, with the G2 and G1 proxy gen frames (D20 continuity); denominators include the stand-in ND and Reggeon.
+- fig4_frameAB_failures.png: number of p_T*^2 bins failing D7+ (both charges) per cell and candidate grid, frame A (nominal) and frame B on the frame-A edges (cross-check, D21).
+- fig5_precision_veto.png: expected relative data precision per bin (UG frame-A counts) and the WP-A5 veto systematic per bin; red dashed = 0.05 acceptance.
+- fig6_beta_bins.png: event-level purity and stability of the two beta bins (cocktail signal events, informational); dotted 0.8 = the plan's expectation.
