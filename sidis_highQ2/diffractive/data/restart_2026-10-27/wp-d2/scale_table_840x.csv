@@ -1,0 +1,5 @@
+component,L_MC_nb,scale_to_data,exposure_factor,stream_flag,weight_recipe
+8402,331022.8,0.13241865,1.0,"rapgap31043 gen 5644 e+ ep0304, stream factor not applied",w_event=weight1*weight2 (=1); fill_w=w_event*w_period
+8403,330303.4,0.29696051,1.0,"rapgap31043 gen 5643 e- em0405, stream factor not applied",w_event=weight1*weight2 (=1); fill_w=w_event*w_period
+8404,330303.4,0.15505780,1.0,"rapgap31043 gen 5643 e- em06_true, stream factor not applied",w_event=weight1*weight2 (=1); fill_w=w_event*w_period
+8405,331022.8,0.37482630,1.0,"rapgap31043 gen 5644 e+ ep0607_true, stream factor not applied",w_event=weight1*weight2 (=1); fill_w=w_event*w_period

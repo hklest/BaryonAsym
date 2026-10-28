@@ -1,0 +1,57 @@
+{
+ "L_data_nb": {
+  "ep0304": 43833.59,
+  "em0405": 98087.05,
+  "em06_true": 51216.11,
+  "ep0607_true": 124076.04999999999
+ },
+ "L_data_total_nb": 317212.8,
+ "sigma_pb": {
+  "5643": 30275.2,
+  "5644": 30209.4
+ },
+ "samples": {
+  "8402": {
+   "gen": "5644",
+   "charge": "e+",
+   "period": "ep0304",
+   "L_eq_nb": 331022.7942296106,
+   "L_eq_pb": 331.0227942296106,
+   "w_period": 0.13241864537460002,
+   "L_eq_recorded_pb": 331.0
+  },
+  "8403": {
+   "gen": "5643",
+   "charge": "e-",
+   "period": "em0405",
+   "L_eq_nb": 330303.35059718846,
+   "L_eq_pb": 330.30335059718846,
+   "w_period": 0.296960505616,
+   "L_eq_recorded_pb": 330.3
+  },
+  "8404": {
+   "gen": "5643",
+   "charge": "e-",
+   "period": "em06_true",
+   "L_eq_nb": 330303.35059718846,
+   "L_eq_pb": 330.30335059718846,
+   "w_period": 0.1550577973472,
+   "L_eq_recorded_pb": 330.3
+  },
+  "8405": {
+   "gen": "5644",
+   "charge": "e+",
+   "period": "ep0607_true",
+   "L_eq_nb": 331022.7942296106,
+   "L_eq_pb": 331.0227942296106,
+   "w_period": 0.37482630248700005,
+   "L_eq_recorded_pb": 331.0
+  }
+ },
+ "sum_w_Leq_nb": 317212.8,
+ "sum_check_rel": 0.0,
+ "stream_factor": {
+  "applied": 1.0,
+  "prior_offset_to_9012": "+6..8 % (A:45-47); floated per generator stream in WP-A56'"
+ }
+}

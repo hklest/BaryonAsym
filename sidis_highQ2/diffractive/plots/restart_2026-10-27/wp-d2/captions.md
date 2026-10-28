@@ -1,0 +1,6 @@
+# WP-D2 figure captions (script: scripts/restart_2026-10-27/wp-d2/tier1_sw_check.py; data: data/restart_2026-10-27/wp-d2/tier1_{hists,summary}.json)
+All figures: 8405 (RAPGAP 840x, 06/07 e+, SW77, blue) vs 9012 (06/07 e+, SW84, red), WP-A3 skims, unweighted counts, unit-area shapes. S0 = A_pre (passRecoEnv, Q2s>150, 0.1<Ys<0.9, |vtxz|<35); S1 = S0 and xIp<0.04 and mx>3 (LRG-like region). Red band in the ratio panels = 9012 MC-stat band; ratio errors combine both samples. Overflow is in the last bin. chi2 is the two-sample test for unequal totals.
+- fig1_etamax_{S0,S1}: etaMaxClus08 and etaMaxClus04 before and after the three forward vetoes (Plug<7 GeV, FMD, FTS). S1: chi2/ndf 19.9/18, 15.4/18, 18.4/18, 12.3/18.
+- fig2_forward_{S0,S1}: Plug energy, nFmu12, nFts28 (S1: 16.2/22, 7.9/10, 0.3/4).
+- fig3_kin_{S0,S1}: xIp, mx, vertex z. S0 shows xIp 24.4/11 and mx 63.8/10 (the xIp>0.04 tail); in S1 xIp is 4.5/10, mx 18.8/9, vtxz 18.6/13.
+- fig4_veto_fail_{S0,S1}: N-1 fail fraction of each veto (and the any-fail rate) per etaMaxClus08 bin; lower panels show f(8405) - f(9012) with the WP-A5 sigma_q (ALL cell: Plug 0.034, FTS 0.024, FMD 0.043) as band. The "other" bin (eta<-1 or sentinel) holds a handful of 9012 events and is uninformative.

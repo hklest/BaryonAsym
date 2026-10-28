@@ -1,0 +1,20 @@
+# WP-D2: 4 jobs (8402..8405): WP-A3 skim + WP-C study build. Default priority. Submit: condor_submit skim840x.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-d2/skim840x_job.sh
+arguments       = $(label)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-d2/logs/skim840x_$(label).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-d2/logs/skim840x_$(label).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-d2/logs/skim840x_$(Cluster).log
+getenv          = True
+request_memory  = 8GB
+request_disk    = 3GB
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = 7200
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+on_exit_remove  = True
+notification    = Never
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+queue label in 8402 8403 8404 8405

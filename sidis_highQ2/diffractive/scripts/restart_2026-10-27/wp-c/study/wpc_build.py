@@ -45,13 +45,14 @@ def g21(q, y, x):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--label", required=True); ap.add_argument("--input", required=True); ap.add_argument("--out", required=True)
+    ap.add_argument("--table", default=TABLE)  # WP-D2: 840x uses data/restart_2026-10-27/wp-d2/scale_table_840x.csv
     a = ap.parse_args()
     t0 = time.time()
     f = uproot.open(a.input)
     D = {k: np.asarray(v) for k, v in f["DiffTot"].arrays(DB, library="np").items()}
     C = {k: np.asarray(v) for k, v in f["ChargedTot"].arrays(CB, library="np").items()}
     nD = len(D["Q2s"]); nC = len(C["Pt"])
-    rows = [r for r in csv.DictReader(open(TABLE)) if r["component"] == a.label]
+    rows = [r for r in csv.DictReader(open(a.table)) if r["component"] == a.label]
     assert len(rows) == 1
     scale, expo = float(rows[0]["scale_to_data"]), float(rows[0]["exposure_factor"])
 

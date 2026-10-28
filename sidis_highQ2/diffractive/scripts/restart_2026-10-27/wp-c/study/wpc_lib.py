@@ -1,6 +1,7 @@
 import numpy as np, glob
 BASE = "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-c/study/"
 LABELS = ["9012", "9024", "9033", "9155", "9157", "9158"]
+LABELS_840X = ["8402", "8403", "8404", "8405"]  # WP-D2: skim files s<label>.npz exist; kept out of LABELS so existing consumers are unchanged (load() reads LABELS)
 MX_EDGES = np.array([4., 10., 20., 40.])
 XF_EDGES = np.array([-1, -.5, -.2, 0, .2, .5, 1.])
 PT2_EDGES = np.array([0, .25, .75, 2, 10.])
