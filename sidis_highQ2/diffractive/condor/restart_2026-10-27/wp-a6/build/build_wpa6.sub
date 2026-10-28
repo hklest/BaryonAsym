@@ -1,0 +1,20 @@
+# WP-A6 S1 payload builder: one job per (chain, split).  Queue columns: chain, split, out
+# Submit: condor_submit QFILE=<abs queue> /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/build_wpa6.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/build_wpa6_job.sh
+arguments       = $(chain) $(split) $(out)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/logs/build_$(split)_$(chain).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/logs/build_$(split)_$(chain).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/logs/$(Cluster).log
+request_memory  = 8GB
+request_disk    = 1G
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = 3600
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+on_exit_remove  = True
+notification    = Never
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+queue chain, split, out from $(QFILE)

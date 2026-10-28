@@ -1,0 +1,17 @@
+WP-A6 fit submit log (tag even_variants)
+utc_prepared: 2026-10-28T06:26:36Z
+command: condor_submit QFILE=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/queue_even_variants.txt TAG=even_variants /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/fit_wpa6.sub
+queue_rows: 180
+md5 script: 79a41f1c521054a6a53776540900e3fe  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a6/fit_bblite_wpa6.py
+md5 wrapper: 6b87b40912d7e75e84d9b5c8de85ddfa  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/fit_wpa6_job.sh
+md5 sub: e807ba130bb43b410ac4fa6be36b48c9  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/fit_wpa6.sub
+md5 queue: ec968b5fe1e6a0a6d281b8fe559b18ed  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/queue_even_variants.txt
+payload sha256:
+75ad30dfdbe804de74940dfb9e1ad10add1210b8bc3ca5ec78b1305c835450e2  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/payloads/even_7071.json
+f11b19e66e59b82c3c8a975b43084e6559a7bc978e51eb0b3b5a04ec8331c88f  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/payloads/even_7091.json
+29a522fd9d096775e0179b51801edffc9bead818354bb01b29d5e6703e926250  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/payloads/even_nd4cat.json
+range_frozen: absent (allowed for tag even_variants)
+utc_submit: 2026-10-28T06:26:36Z
+Submitting job(s)....................................................................................................................................................................................
+180 job(s) submitted to cluster 5931431.
+condor_submit rc=0

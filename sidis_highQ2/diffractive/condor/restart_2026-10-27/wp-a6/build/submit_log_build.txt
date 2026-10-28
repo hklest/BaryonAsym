@@ -1,0 +1,30 @@
+WP-A6 S1 payload build submit log
+utc_prepared: 2026-10-28T06:24:15Z
+command: condor_submit QFILE=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/queue_build.txt /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/build_wpa6.sub
+queue_rows: 6
+md5 script: 5a11af5ac2f60d4313f3ac0fc9f0168c  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a6/build_payload_wpa6.py
+md5 wrapper: c8ce8b3bf5b3f6a0245f513c68a02b0b  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/build_wpa6_job.sh
+md5 sub: 62f592b7e9028843e151aee993095d39  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/build_wpa6.sub
+md5 queue: 236d0950daf0b399d80da6e92a712a4e  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/build/queue_build.txt
+skim sha256 (17):
+812b8f8feacd0d0122054fc77a5f54bdde37a1145011cf8250780819b762155b  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/6671.npz
+efd9fa772f8fe1dba20272e07f333a46f2a61da9faf446c340b4cf600e9fbd0f  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/6677.npz
+e8fdaaef71e9698dce6280b290985101b7e899af70546e0a90e9c29e143984b2  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/7071.npz
+6f8532af78cdc0c43f09edebbadcb47107235698ae6686b9a602169587b61a27  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/7091.npz
+203e23dde018f09a9982116b1bf6e006d2684e6539268d61e0d3d6fc44bcbcd6  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/7094.npz
+b1fbe9c3cc4cea6e450218bc6fb13b763239429f087fc083fd1a003c33e689bb  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/7096.npz
+51dc743103b1cde62d28c8a482c094e837520cb844f99f75836806542c09e13e  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/7097.npz
+d62838e9ade1853c04c524e887cb159ab32a0577e295b34459f7721a7a38f3f9  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/9012.npz
+a0f6facf0d73dbc7b802abe1a8863d8945c3b5271144b6ce853cda48a5c06a93  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/9024.npz
+387ba32ccae224ac7a25275afcdfa9f3e23c78acf17d37d32a2a54421e7d55bd  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/9033.npz
+1a815a6dc7fffbe3d3b845b27159612a0261c18b4693bfde2fab92383b410fc9  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/9155.npz
+00e1a51c8403300b856540a91855b39476e53f259afd1ccc81d107fa2147bbae  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/9157.npz
+9868d0fe2c47bf0e18300a197ac4a7f8bf09484f0ede5151884a26ca2c7d0173  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/9158.npz
+93ae0e927c3a4cf8b84db8e26d28e949fb4818e06f7f7be4d77f419a0ee7cd18  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/em0405.npz
+9425ef3f709def0aa9cf9c45d330ad1aa6a8f22af80f3b6491c79aeca6da5b28  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/em06_true.npz
+89b1930ff0cba2239372444dc8d2b54ba3d72eb363ca3c94db7521a857867e02  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/ep0304.npz
+a631d2a2830bac0347f7ff64781d91767db524e96475e955a7147eee422eb948  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a3/skims/ep0607_true.npz
+utc_submit: 2026-10-28T06:24:15Z
+Submitting job(s)......
+6 job(s) submitted to cluster 5931415.
+condor_submit rc=0

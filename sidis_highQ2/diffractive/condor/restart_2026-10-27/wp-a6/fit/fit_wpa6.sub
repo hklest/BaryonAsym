@@ -1,0 +1,21 @@
+# WP-A6 BB-lite fit submit file: one job per (chain, scope, M_X class, variant tag).
+# Queue columns: chain scope mx eta_lo eta_hi xip bb payload outdir n_toys vtag rt   (from fit_bblite_wpa6.py queue)
+# Submit via submit_fit.sh <queue> <tag>  (condor_submit QFILE=<abs queue> TAG=<tag> fit_wpa6.sub)
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/fit_wpa6_job.sh
+arguments       = $(chain) $(scope) $(mx) $(eta_lo) $(eta_hi) $(xip) $(bb) $(payload) $(outdir) $(n_toys) $(vtag)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/logs/$(TAG)/fit_$(vtag)_$(chain)_$(scope)_$(mx).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/logs/$(TAG)/fit_$(vtag)_$(chain)_$(scope)_$(mx).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/logs/$(TAG)/$(Cluster).log
+request_memory  = 1024
+request_disk    = 1G
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = $(rt)
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+on_exit_remove  = True
+notification    = Never
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+queue chain, scope, mx, eta_lo, eta_hi, xip, bb, payload, outdir, n_toys, vtag, rt from $(QFILE)

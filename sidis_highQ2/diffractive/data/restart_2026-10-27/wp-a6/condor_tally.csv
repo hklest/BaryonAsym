@@ -1,0 +1,13 @@
+item,cluster,jobs,wall_x_cpus_s,condor_days
+"build_payload (discarded, condor_rm)",5931395,6,0.0,0.0
+"build_payload (crashed, fixed)",5931402,6,7.0,8.1e-05
+build_payload,5931415,6,41.0,0.000475
+track builds,5931397,69,389.0,0.004502
+track merge 7071,5931411,1,4.0,4.6e-05
+fits even nominal,5931429,60,1224.0,0.014167
+fits even variants,5931431,180,326.0,0.003773
+fits odd nominal,5931955,60,811.0,0.009387
+plots spectra even,5931958,1,4.0,4.6e-05
+plots spectra odd,5931994,1,6.0,6.9e-05
+track_builds_subtotal,,70,393.0,0.004549
+TOTAL,,390,2812.0,0.032546

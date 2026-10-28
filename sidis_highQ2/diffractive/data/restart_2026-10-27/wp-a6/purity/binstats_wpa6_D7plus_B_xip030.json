@@ -1,0 +1,64 @@
+{
+ "scales_file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/scales_resolved_odd_nominal.csv",
+ "scales_sha256": "22c7cb9e0087382007504a730bfa9f763d3aa633e91e702593d8b87f2a63f3da",
+ "g2_file": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/f_nd_per_mx.csv",
+ "g2_sha256": "6268013032511409bd0a7cc08539391f72f2180effe6115ceaf02a6f0f19a160",
+ "g2_split": "odd",
+ "rule": "D7plus",
+ "frame": "B",
+ "xipcut": 0.03,
+ "edges": {
+  "xF": [
+   [
+    -1.0,
+    1.0
+   ],
+   [
+    -1.0,
+    1.0
+   ],
+   [
+    -1.0,
+    -0.05,
+    0.0,
+    0.05,
+    1.0
+   ]
+  ],
+  "pt2": [
+   [
+    0.0,
+    0.75,
+    10.0
+   ],
+   [
+    0.0,
+    0.05,
+    0.15,
+    10.0
+   ],
+   [
+    0.0,
+    0.05,
+    0.15,
+    0.5,
+    10.0
+   ]
+  ]
+ },
+ "caveat": "track build selects E-p_z 35-70 and etaMaxClus08 < 3.2 (wpc_build.py:97,100-101); the event-level f_ND uses SB (etaMaxClus08 < 3.3); harmonisation is WP-B item W2",
+ "cell_minus1_track_fraction": {
+  "signal": 0.10969818281722203,
+  "reggeon": 0.07852193995381063,
+  "nd": 0.05175774022449735
+ },
+ "cell_minus1_weight_fraction": {
+  "signal": 0.07029566715921236,
+  "reggeon": 0.07565928596903984,
+  "nd": 0.11297802908199753
+ },
+ "fac_ratio_max_dev": 1.0346330476806997e-06,
+ "mask": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/mask_wpa6_D7plus_B_xip030_2026-10-28.json",
+ "overlay": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/mask_wpa6_g2_overlay_2026-10-28.json",
+ "summary": "bins 30 | masked by G2 24, by D7plus (new) 19, by D7plus in WP-C table 20, union 26 | median purity new 0.3616 vs WP-C 0.4496 | median f_nd 0.1466, median f_reg 0.0421"
+}

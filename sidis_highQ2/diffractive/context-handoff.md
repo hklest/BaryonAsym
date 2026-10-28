@@ -26,6 +26,7 @@ the parent IBU machinery (task chain T0–T9, `H1DiffractiveHighQ2SIDISPlan.md`)
   (3) all prior decisions are re-evaluated and none is binding.
 - Research input: `docs/research/revival_assessment_2026-10-27.md`.
 - Output root convention: `sidis_highQ2/diffractive/{docs,data,scripts,condor,plots}/restart_2026-10-27/<wp>/`.
+- 2026-10-28 WP-A6 (G2, G1″(c)): BB-lite η04 < 3.0 refit, odd split, RULING PASS with masks — M_X [4, 10) retained (nd4cat f_ND 0.048 ± 0.040), [10, 20) and [20, 40] masked_G2; record `docs/restart_2026-10-27/wp-a6/g2_verdict.md`, table `data/restart_2026-10-27/wp-a6/f_nd_per_mx.csv`, mask `data/restart_2026-10-27/wp-a6/purity/`.
 - The PARKED status below is kept as history of the 2026-10-20 end state.
 
 ## Current Status — PARKED (2026-10-20)

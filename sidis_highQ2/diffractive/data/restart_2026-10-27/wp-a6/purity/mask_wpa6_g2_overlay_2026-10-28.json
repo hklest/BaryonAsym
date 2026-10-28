@@ -1,0 +1,276 @@
+{
+ "d7plus_mask": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/mask_wpa6_D7plus_B_xip030_2026-10-28.json",
+ "d7plus_mask_sha256": "4baa819e160d7d548eb18efe8071265b3857af8acdd402f6156b85af88c34904",
+ "data_read": false,
+ "final_masked_bins": [
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h+",
+   "mx_bin": "10-20",
+   "reasons": [
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100",
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 1,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 2,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "f_fake>0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 3,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "raw_reco_subbin<100",
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h-",
+   "mx_bin": "10-20",
+   "reasons": [
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100",
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 1,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 2,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "f_fake>0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "xF",
+   "bin": 3,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h+",
+   "mx_bin": "4-10",
+   "reasons": [
+    "purity<0.35",
+    "p_mig<0.40",
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h+",
+   "mx_bin": "10-20",
+   "reasons": [
+    "purity<0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h+",
+   "mx_bin": "10-20",
+   "reasons": [
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h+",
+   "mx_bin": "10-20",
+   "reasons": [
+    "raw_reco_subbin<100",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "f_fake>0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 3,
+   "charge": "h+",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h-",
+   "mx_bin": "4-10",
+   "reasons": [
+    "purity<0.35",
+    "p_mig<0.40",
+    "raw_reco_subbin<100"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h-",
+   "mx_bin": "10-20",
+   "reasons": [
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h-",
+   "mx_bin": "10-20",
+   "reasons": [
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h-",
+   "mx_bin": "10-20",
+   "reasons": [
+    "raw_reco_subbin<100",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "f_fake>0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "purity<0.35",
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "G2"
+   ]
+  },
+  {
+   "axis": "pt2",
+   "bin": 3,
+   "charge": "h-",
+   "mx_bin": "20-40",
+   "reasons": [
+    "raw_reco_subbin<100",
+    "G2"
+   ]
+  }
+ ],
+ "g2_masked_mx_bins": [
+  "10-20",
+  "20-40"
+ ],
+ "g2_source": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/f_nd_per_mx.csv",
+ "g2_source_sha256": "6268013032511409bd0a7cc08539391f72f2180effe6115ceaf02a6f0f19a160",
+ "source_table": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/binstats_wpa6_D7plus_B_xip030.csv",
+ "source_table_sha256": "614bce1d148e367896945c82b114187f83fae906f2191532c284a51c0d4ec34a",
+ "split": "odd"
+}

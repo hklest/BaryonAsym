@@ -1,0 +1,8 @@
+== 2026-10-28T06:21:53Z
+condor_submit /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/trk_wpa6.sub
+67d09da25b9e9f9d62917059f924d5be  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/trk_wpa6.sub
+9a9ba827fa85b234839f86095ed4e61c  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/trk_wpa6_job.sh
+c9f952fdc7fd7db723408e23f9ea546e  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/queue_trk.txt
+4175a206b8d79d3ea6485536bd38a9c2  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a6/wpc_build_bkg_wpa6.py
+Submitting job(s).....................................................................
+69 job(s) submitted to cluster 5931397.

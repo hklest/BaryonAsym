@@ -1,0 +1,18 @@
+WP-A6 fit submit log (tag odd)
+utc_prepared: 2026-10-28T06:30:30Z
+command: condor_submit QFILE=/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/queue_odd.txt TAG=odd /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/fit_wpa6.sub
+queue_rows: 60
+md5 script: 79a41f1c521054a6a53776540900e3fe  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-a6/fit_bblite_wpa6.py
+md5 wrapper: 6b87b40912d7e75e84d9b5c8de85ddfa  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/fit_wpa6_job.sh
+md5 sub: e807ba130bb43b410ac4fa6be36b48c9  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/fit_wpa6.sub
+md5 queue: 2852aa59fa3e19e9cf0b220eb9a21269  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/fit/queue_odd.txt
+payload sha256:
+d68f945e17ab44e53c83a541796285aea92d61d55f66a5b099e63abd1f7b2147  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/payloads/odd_7071.json
+960c53644bae7b0f898c276a8161bfbec5448e0390aa4c5f5bb55520360f4103  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/payloads/odd_7091.json
+a7cede964015239b21607fd7a0d9da7cb6fd6b39499e0cc295ffb28f789ef716  /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/payloads/odd_nd4cat.json
+range_frozen sha256 /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/range_frozen.json = 6eb1405e3e6457665924df4085d201198378d2ca920d98af990a4b277f97b7b4 (sidecar 6eb1405e3e6457665924df4085d201198378d2ca920d98af990a4b277f97b7b4)
+range_frozen check: PASS
+utc_submit: 2026-10-28T06:30:30Z
+Submitting job(s)............................................................
+60 job(s) submitted to cluster 5931955.
+condor_submit rc=0

@@ -1,0 +1,479 @@
+{
+ "bins": [
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h+",
+   "hi": 1.0,
+   "lo": -1.0,
+   "marginal": false,
+   "masked": false,
+   "mx_bin": "4-10",
+   "n_sig_pred": 7908.9453,
+   "purity": 0.42915793,
+   "reasons": [],
+   "stability": 0.85577902
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h+",
+   "hi": 1.0,
+   "lo": -1.0,
+   "marginal": false,
+   "masked": false,
+   "mx_bin": "10-20",
+   "n_sig_pred": 19865.166,
+   "purity": 0.46283608,
+   "reasons": [],
+   "stability": 0.78288668
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h+",
+   "hi": -0.05,
+   "lo": -1.0,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 3778.0981,
+   "purity": 0.41567564,
+   "reasons": [
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.61117879
+  },
+  {
+   "axis": "xF",
+   "bin": 1,
+   "charge": "h+",
+   "hi": 0.0,
+   "lo": -0.05,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 3363.1904,
+   "purity": 0.33344893,
+   "reasons": [
+    "purity<0.35"
+   ],
+   "stability": 0.60413988
+  },
+  {
+   "axis": "xF",
+   "bin": 2,
+   "charge": "h+",
+   "hi": 0.05,
+   "lo": 0.0,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 2912.6847,
+   "purity": 0.32166316,
+   "reasons": [
+    "purity<0.35",
+    "f_fake>0.35"
+   ],
+   "stability": 0.60814702
+  },
+  {
+   "axis": "xF",
+   "bin": 3,
+   "charge": "h+",
+   "hi": 1.0,
+   "lo": 0.05,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 1340.93,
+   "purity": 0.33328152,
+   "reasons": [
+    "purity<0.35",
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.58760939
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h-",
+   "hi": 1.0,
+   "lo": -1.0,
+   "marginal": false,
+   "masked": false,
+   "mx_bin": "4-10",
+   "n_sig_pred": 7712.729,
+   "purity": 0.43325136,
+   "reasons": [],
+   "stability": 0.85582412
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h-",
+   "hi": 1.0,
+   "lo": -1.0,
+   "marginal": false,
+   "masked": false,
+   "mx_bin": "10-20",
+   "n_sig_pred": 19758.099,
+   "purity": 0.47308631,
+   "reasons": [],
+   "stability": 0.78789874
+  },
+  {
+   "axis": "xF",
+   "bin": 0,
+   "charge": "h-",
+   "hi": -0.05,
+   "lo": -1.0,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 3896.1637,
+   "purity": 0.42526789,
+   "reasons": [
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.61733123
+  },
+  {
+   "axis": "xF",
+   "bin": 1,
+   "charge": "h-",
+   "hi": 0.0,
+   "lo": -0.05,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 3259.907,
+   "purity": 0.338688,
+   "reasons": [
+    "purity<0.35"
+   ],
+   "stability": 0.63286363
+  },
+  {
+   "axis": "xF",
+   "bin": 2,
+   "charge": "h-",
+   "hi": 0.05,
+   "lo": 0.0,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 2798.6425,
+   "purity": 0.331373,
+   "reasons": [
+    "purity<0.35",
+    "f_fake>0.35"
+   ],
+   "stability": 0.60759931
+  },
+  {
+   "axis": "xF",
+   "bin": 3,
+   "charge": "h-",
+   "hi": 1.0,
+   "lo": 0.05,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 1442.0356,
+   "purity": 0.3599246,
+   "reasons": [
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.63187376
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h+",
+   "hi": 0.75,
+   "lo": 0.0,
+   "marginal": false,
+   "masked": false,
+   "mx_bin": "4-10",
+   "n_sig_pred": 7291.671,
+   "purity": 0.426993,
+   "reasons": [],
+   "stability": 0.80916022
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h+",
+   "hi": 10.0,
+   "lo": 0.75,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "4-10",
+   "n_sig_pred": 616.10874,
+   "purity": 0.11609208,
+   "reasons": [
+    "purity<0.35",
+    "p_mig<0.40",
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.56303992
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h+",
+   "hi": 0.05,
+   "lo": 0.0,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "10-20",
+   "n_sig_pred": 4382.2511,
+   "purity": 0.33388809,
+   "reasons": [
+    "purity<0.35"
+   ],
+   "stability": 0.58647134
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h+",
+   "hi": 0.15,
+   "lo": 0.05,
+   "marginal": true,
+   "masked": false,
+   "mx_bin": "10-20",
+   "n_sig_pred": 5596.9965,
+   "purity": 0.36027142,
+   "reasons": [],
+   "stability": 0.54450473
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h+",
+   "hi": 10.0,
+   "lo": 0.15,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "10-20",
+   "n_sig_pred": 9867.9888,
+   "purity": 0.41467369,
+   "reasons": [
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.73710155
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h+",
+   "hi": 0.05,
+   "lo": 0.0,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 2193.0839,
+   "purity": 0.31256037,
+   "reasons": [
+    "purity<0.35",
+    "f_fake>0.35"
+   ],
+   "stability": 0.53686534
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h+",
+   "hi": 0.15,
+   "lo": 0.05,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 3125.324,
+   "purity": 0.34035582,
+   "reasons": [
+    "purity<0.35"
+   ],
+   "stability": 0.56530019
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h+",
+   "hi": 0.5,
+   "lo": 0.15,
+   "marginal": true,
+   "masked": false,
+   "mx_bin": "20-40",
+   "n_sig_pred": 3621.016,
+   "purity": 0.36284471,
+   "reasons": [],
+   "stability": 0.58669831
+  },
+  {
+   "axis": "pt2",
+   "bin": 3,
+   "charge": "h+",
+   "hi": 10.0,
+   "lo": 0.5,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 2401.7124,
+   "purity": 0.35634521,
+   "reasons": [
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.66106243
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h-",
+   "hi": 0.75,
+   "lo": 0.0,
+   "marginal": false,
+   "masked": false,
+   "mx_bin": "4-10",
+   "n_sig_pred": 7026.8433,
+   "purity": 0.42829677,
+   "reasons": [],
+   "stability": 0.80882672
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h-",
+   "hi": 10.0,
+   "lo": 0.75,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "4-10",
+   "n_sig_pred": 679.92406,
+   "purity": 0.19172854,
+   "reasons": [
+    "purity<0.35",
+    "p_mig<0.40",
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.71700078
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h-",
+   "hi": 0.05,
+   "lo": 0.0,
+   "marginal": true,
+   "masked": false,
+   "mx_bin": "10-20",
+   "n_sig_pred": 4490.5237,
+   "purity": 0.37306011,
+   "reasons": [],
+   "stability": 0.61517686
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h-",
+   "hi": 0.15,
+   "lo": 0.05,
+   "marginal": true,
+   "masked": false,
+   "mx_bin": "10-20",
+   "n_sig_pred": 5657.4289,
+   "purity": 0.3782687,
+   "reasons": [],
+   "stability": 0.57663983
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h-",
+   "hi": 10.0,
+   "lo": 0.15,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "10-20",
+   "n_sig_pred": 9577.9376,
+   "purity": 0.41479889,
+   "reasons": [
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.73429836
+  },
+  {
+   "axis": "pt2",
+   "bin": 0,
+   "charge": "h-",
+   "hi": 0.05,
+   "lo": 0.0,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 2275.1773,
+   "purity": 0.30937151,
+   "reasons": [
+    "purity<0.35",
+    "f_fake>0.35"
+   ],
+   "stability": 0.57044163
+  },
+  {
+   "axis": "pt2",
+   "bin": 1,
+   "charge": "h-",
+   "hi": 0.15,
+   "lo": 0.05,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 3117.849,
+   "purity": 0.34012225,
+   "reasons": [
+    "purity<0.35"
+   ],
+   "stability": 0.56300462
+  },
+  {
+   "axis": "pt2",
+   "bin": 2,
+   "charge": "h-",
+   "hi": 0.5,
+   "lo": 0.15,
+   "marginal": true,
+   "masked": false,
+   "mx_bin": "20-40",
+   "n_sig_pred": 3518.474,
+   "purity": 0.37001017,
+   "reasons": [],
+   "stability": 0.56748901
+  },
+  {
+   "axis": "pt2",
+   "bin": 3,
+   "charge": "h-",
+   "hi": 10.0,
+   "lo": 0.5,
+   "marginal": false,
+   "masked": true,
+   "mx_bin": "20-40",
+   "n_sig_pred": 2439.7389,
+   "purity": 0.36511935,
+   "reasons": [
+    "raw_reco_subbin<100"
+   ],
+   "stability": 0.66931382
+  }
+ ],
+ "created_utc": "2026-10-28T06:32:15Z",
+ "data_read": false,
+ "n_bins": 30,
+ "n_marginal": 5,
+ "n_masked": 19,
+ "rule": "D7plus: D7 or p_mig<0.40 or f_fake>0.35 or min raw MC per reco sub-bin<100",
+ "source_sha256": "614bce1d148e367896945c82b114187f83fae906f2191532c284a51c0d4ec34a",
+ "source_table": "/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/restart_2026-10-27/wp-a6/purity/binstats_wpa6_D7plus_B_xip030.csv"
+}

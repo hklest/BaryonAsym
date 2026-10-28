@@ -1,0 +1,16 @@
+# WP-A6 spectra plots (SEL M_X and x_IP). Submit: condor_submit plots_wpa6.sub split=even   (odd only after the freeze, by the lead)
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/plots/plots_wpa6_job.sh
+arguments       = $(split)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/plots/logs/plots_$(split)_$(Cluster).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/plots/logs/plots_$(split)_$(Cluster).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/plots/logs/plots_$(split)_$(Cluster).log
+request_memory  = 8192
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 3600
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue

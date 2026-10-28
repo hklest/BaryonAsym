@@ -1,0 +1,15 @@
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/trk_wpa6_job.sh
+arguments       = $(label) $(input) $(outprefix) $(gen)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/logs/trk_$(Cluster)_$(Process).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/logs/trk_$(Cluster)_$(Process).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/logs/trk.log
+request_memory  = 6GB
+request_disk    = 2GB
+request_cpus    = 1
+should_transfer_files   = IF_NEEDED
+when_to_transfer_output = ON_EXIT
++MaxRuntime     = 3000
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+queue label,input,outprefix,gen from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/restart_2026-10-27/wp-a6/trk/queue_trk.txt
