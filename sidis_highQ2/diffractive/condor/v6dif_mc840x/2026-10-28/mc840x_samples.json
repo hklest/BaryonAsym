@@ -1,0 +1,57 @@
+{
+  "campaign": "v6dif_mc840x_2026-10-28",
+  "samples": {
+    "8402": {
+      "reqid": "8402",
+      "generator": "rapgap31",
+      "period": "ep0304",
+      "pp": "04",
+      "chunks": 100,
+      "grl": "nc_goodruns_0304.root",
+      "file_stem": "4.0.6.rapgap31043_eplus_job1.8402.S39400.R97901.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8402",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/04/8402",
+      "dst_count": 1000,
+      "desc": "RAPGAP 3.1 inclusive elastic diffractive, SW=77"
+    },
+    "8403": {
+      "reqid": "8403",
+      "generator": "rapgap31",
+      "period": "em0405",
+      "pp": "05",
+      "chunks": 100,
+      "grl": "nc_goodruns_0405.root",
+      "file_stem": "4.0.6.rapgap31043_eminus_job1.8403.S39400.R97901.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8403",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/05/8403",
+      "dst_count": 1000,
+      "desc": "RAPGAP 3.1 inclusive elastic diffractive, SW=77"
+    },
+    "8404": {
+      "reqid": "8404",
+      "generator": "rapgap31",
+      "period": "em06",
+      "pp": "06",
+      "chunks": 101,
+      "grl": "nc_goodruns_06.root",
+      "file_stem": "4.0.6.rapgap31043_eminus_job1.8404.S39400.R97901.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8404",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/06/8404",
+      "dst_count": 1000,
+      "desc": "RAPGAP 3.1 inclusive elastic diffractive, SW=77"
+    },
+    "8405": {
+      "reqid": "8405",
+      "generator": "rapgap31",
+      "period": "ep0607",
+      "pp": "07",
+      "chunks": 101,
+      "grl": "nc_goodruns_0607.root",
+      "file_stem": "4.0.6.rapgap31043_eplus_job1.8405.S39400.R97901.ftt.DST",
+      "oo_base": "/pnfs/desy.de/dphep/online/h1/mc/oo-4.0/rapgap31/8405",
+      "dst_dir": "/pnfs/desy.de/dphep/online/h1/mc/rapgap31/07/8405",
+      "dst_count": 1000,
+      "desc": "RAPGAP 3.1 inclusive elastic diffractive, SW=77"
+    }
+  }
+}

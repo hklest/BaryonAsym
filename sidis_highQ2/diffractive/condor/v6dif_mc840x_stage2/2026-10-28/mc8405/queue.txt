@@ -1,0 +1,1 @@
+/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/condor/v6dif_mc840x_stage2/2026-10-28/mc8405/steering/v6dif_rapgap31_8405_ep0607_0000.steer,v6dif_rapgap31_8405_ep0607_0000,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/output_v6dif/mc/8405/smoke_2026-10-28/sidistree_v6dif_rapgap31_8405_ep0607_0000.root
