@@ -506,7 +506,7 @@ D17 the supervisor's recommendations until the user confirms them.
   `$D/condor/lam_convert.sub`, `$H/production/realdata_2007ep/lam_q2e5/`
 - Deps: WP0
 - Stages: execute
-- Status: execute
+- Status: done
 - Artifacts: ->
 
 ### WP2: Condor extraction pipeline, 2007 e+p
@@ -517,7 +517,7 @@ D17 the supervisor's recommendations until the user confirms them.
   `$H/production/realdata_2007ep/q2e5_n5000/`
 - Deps: WP1
 - Stages: execute
-- Status: blocked: execute: needs the WP1 writer and validation scripts
+- Status: blocked: execute: user go-ahead for Condor production; carry over WP1 open items (coz_trk_*, COZ charge scale, cjc_zcd side)
 - Artifacts: ->
 
 ### WP3: constants for 2005, 2006, 07low and 07med
@@ -623,16 +623,17 @@ Each with the recommended answer; D1-D5 stand until the user answers.
 - 2026-10-28 WP0 (T0 confound check): done, HAT T0_CJC agrees with cjavt0 (median -0.22, robust sigma 1.45 ticks; HAT 0.0 treated as none); split shows the gap in the cjavt0 events alone (CDF -8.0/-8.3/-6.9/-3.1 pp), run-default hits 0.45%; HAT-T0 verdict FAIL as WP0; amended D17 (CJC-only) removes 5.16% (run list 2.67%); commit dd8363f; deferred: D5 ruling and D11 zero-sentinel confirmation (user decisions)
 - 2026-10-28 decision: D5 stands, WP0 accepted ("We want parity between simulation and data, at least in the data formats, if not in the actual resolutions. Do whatever gets us closest to that. We need to basically define the data hits identically to how the MC's hits are defined, so post-calibration."): data hits use the MC representation (CJC.simple(), cos β = 1 mirror points, calibrated drift distance) with per-run NDB constants; the ~8 pp / 1.1-1.3x resolution gap vs $MC0 is documented, not a blocker; D16 reinterpreted as format parity plus documented resolution comparison
 - 2026-10-28 decision: D11 zero sentinel, supervisor default under the user's "do whatever gets us closest": HAT T0_CJC = 0.0 means no T0; fall back to cjavt0, then run default; cjc_t0_src records the source
+- 2026-10-28 WP1: lam/ hits writer committed (2b01dcf); 38/38 files, schema-parity PASS (0 diffs outside D7), 54,088 of 57,038 events written (D17 rejects 2,946; D10 skips 4); deferred: coz_trk_*, cjcu_*, CST/CIP/COP content (WP4/WP5), COZ charge scale mismatch data vs MC, cjc_zcd side choice (C2)
 
 ## Todo
 
 - [x] WP0 `parity_cjc.py`: `mc_residuals` on `$MC0`, `data_residuals` on the 38 lam dirs (login
       smoke on ≤ 5), `compare`
 - [x] WP0 four PNGs and `parity.json`; verdict PASS or return to the user
-- [ ] WP1 writer: `read_events`, `read_cjcprobe`, `read_hat`, `join`, `select`, `coords`, `fill_tree`, CLI, `meta`
+- [x] WP1 writer: `read_events`, `read_cjcprobe`, `read_hat`, `join`, `select`, `coords`, `fill_tree`, CLI, `meta`
 - [ ] WP1 `dump_runlist.py` (run list and run quality tables, sha256); D17 branches; `run_list`,
       `hv_vs_cjc_off` and `selection_fractions` tests
-- [ ] WP1 `check_schema.py` with the D7 allowlist; run against `$MC0`
+- [x] WP1 `check_schema.py` with the D7 allowlist; run against `$MC0`
 - [ ] WP1 `validate_data_cjc.py`; run `h1hits_regression` first
 - [ ] WP1 login-node run on one lam dir; Condor array over 38; the eleven Slice 1 tests
 - [ ] WP2 `job_realdata.sh` (probes + dataprobe + writer `--hat`) and `.sub`
