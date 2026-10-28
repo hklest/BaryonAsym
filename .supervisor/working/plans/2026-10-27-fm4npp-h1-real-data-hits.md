@@ -496,7 +496,7 @@ D17 the supervisor's recommendations until the user confirms them.
 - Owns: `$D/validation/parity/` (script, `parity.sub`, `parity.json`, `plots/`)
 - Deps: none
 - Stages: execute
-- Status: execute
+- Status: blocked: execute: user decision on the D16 FAIL (accept, tighten or change D5) and on COZ in det_on
 - Artifacts: ->
 
 ### WP1: lam/ to hits tree and schema parity
@@ -528,7 +528,7 @@ D17 the supervisor's recommendations until the user confirms them.
   `$R/mirror/acs/data/05/`, `$D/consts/`, `$D/condor/consts_<period>.sub`
 - Deps: none
 - Stages: execute
-- Status: execute
+- Status: done
 - Artifacts: ->
 
 ### WP4: CST space points on data
@@ -614,12 +614,15 @@ Each with the recommended answer; D1-D5 stand until the user answers.
   COZ (CST, CIP later) from the HAT status words, applied in the writer; no trigger requirement;
   `run_selected`, `run_quality`, `det_on` and the off-bit lists stored per event; alternative list
   `nc_goodruns_0607.root` or a new `oolumi` list; source: supervisor default, user to confirm
+- 2026-10-28 decision: user approved the plan and wave 1 ("Sure, go ahead with wave 1."): defaults D1–D5, D16, D17 stand; WP0 and WP3 started
+- 2026-10-28 WP0: parity_cjc.py, parity.json and four figures done on all 38 lam dirs vs $MC0; verdict FAIL (CDF −7 to −8.5 pp at 0.5-2 mm; arc-length bin 10-20 cm ratio 2.07; |cos β| medians and zcd width 1.55 pass); D17 removes 2.67% by run list and 8.30% by status bits (COZ HV dominates); commit 6099cb9; deferred: user decision on FAIL (accept, tighten or change D5; T0 confound untested, 23% of events on run-default T0), COZ in det_on
+- 2026-10-28 WP3: done; consts for 19,888 runs (2005 6,605, 2006 10,264, 07low 2,192, 07med 827), 0 failed, AFS NDB, IVRSQT 2/3 as calrun.F; regression 0.920-0.927 on 6 files (all >= 0.90); commit 3ec0514; deferred: COZ re-dump of 110 runs with empty COZ constants, Lorentz band 0.60-0.64 holds for 07low only (2005/2006/07med partly outside; band choice for the user), 07low/07med run list (Q3/D17), cjxref segfault and piped-wrapper early exit to handle in WP2
 
 ## Todo
 
-- [ ] WP0 `parity_cjc.py`: `mc_residuals` on `$MC0`, `data_residuals` on the 38 lam dirs (login
+- [x] WP0 `parity_cjc.py`: `mc_residuals` on `$MC0`, `data_residuals` on the 38 lam dirs (login
       smoke on ≤ 5), `compare`
-- [ ] WP0 four PNGs and `parity.json`; verdict PASS or return to the user
+- [x] WP0 four PNGs and `parity.json`; verdict PASS or return to the user
 - [ ] WP1 writer: `read_events`, `read_cjcprobe`, `read_hat`, `join`, `select`, `coords`, `fill_tree`, CLI, `meta`
 - [ ] WP1 `dump_runlist.py` (run list and run quality tables, sha256); D17 branches; `run_list`,
       `hv_vs_cjc_off` and `selection_fractions` tests
@@ -628,8 +631,8 @@ Each with the recommended answer; D1-D5 stand until the user answers.
 - [ ] WP1 login-node run on one lam dir; Condor array over 38; the eleven Slice 1 tests
 - [ ] WP2 `job_realdata.sh` (probes + dataprobe + writer `--hat`) and `.sub`
 - [ ] WP2 smoke `c070060 -n 300`; `df` check; production 112 files; validation every 10th file
-- [ ] WP3 `CONSTS_ONLY` flag in `calibprobe.C`, built as `bin/calibprobe_consts`; byte-identity test on c070060
-- [ ] WP3 mirror symlink 05; per-period submit; bank diff; one full-dump validation per period
+- [x] WP3 `CONSTS_ONLY` flag in `calibprobe.C`, built as `bin/calibprobe_consts`; byte-identity test on c070060
+- [x] WP3 mirror symlink 05; per-period submit; bank diff; one full-dump validation per period
 - [ ] WP4 research and child plan (SIFE, cstprobe in job, `cst_sp_*`, D16 CST tests)
 - [ ] WP5 research (data CGAM versus MC; CRME presence) and child plan
 - [ ] WP6 `$D/docs/README.md`, `$H/HANDOFF.md` data section, erratum note (Risks list), hash and
