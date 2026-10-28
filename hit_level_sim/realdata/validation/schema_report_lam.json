@@ -1,0 +1,1092 @@
+{
+ "mc": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/cov_loQ2/loQ2/hits/hits_part_0.root",
+ "mc_branches": 110,
+ "mc_entries": 249,
+ "files": 38,
+ "total_differences": 0,
+ "verdict": "PASS",
+ "added_allowlist": [
+  "bbl3_off",
+  "caen_off",
+  "cjc_t0",
+  "cjc_t0_src",
+  "cjc_trk_x",
+  "cjc_trk_y",
+  "cjc_trk_z",
+  "coz_trk_x",
+  "coz_trk_y",
+  "coz_trk_z",
+  "det_on",
+  "hv_off",
+  "is_data",
+  "run_quality",
+  "run_selected"
+ ],
+ "removed_allowlist": [],
+ "results": [
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070000.root",
+   "entries": 0,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070003.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070006.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070009.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070012.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070015.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070018.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070021.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070024.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070027.root",
+   "entries": 1462,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070030.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070033.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070036.root",
+   "entries": 1248,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070039.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070042.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070045.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070048.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070051.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070054.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070057.root",
+   "entries": 1091,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070060.root",
+   "entries": 1490,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070063.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070066.root",
+   "entries": 1497,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070069.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070072.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070075.root",
+   "entries": 1500,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070078.root",
+   "entries": 994,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070081.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070084.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070087.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070090.root",
+   "entries": 1325,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070093.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070096.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070099.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070102.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070105.root",
+   "entries": 1501,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070108.root",
+   "entries": 1454,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  },
+  {
+   "file": "/data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/production/realdata_2007ep/lam_q2e5/hits/hits_part_c070111.root",
+   "entries": 1500,
+   "n_branches": 122,
+   "schema_diff": {
+    "missing_in_data": [],
+    "removed_declared": [],
+    "extra_undeclared": [],
+    "added_declared": [
+     "is_data",
+     "cjc_t0",
+     "cjc_t0_src",
+     "run_selected",
+     "run_quality",
+     "det_on",
+     "hv_off",
+     "caen_off",
+     "bbl3_off",
+     "cjc_trk_x",
+     "cjc_trk_y",
+     "cjc_trk_z"
+    ],
+    "type_diff": [],
+    "order_diff": null
+   },
+   "n_schema_diffs": 0,
+   "invariant_failures": []
+  }
+ ]
+}

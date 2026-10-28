@@ -1,0 +1,12 @@
+# WP1 validation after lam_convert.sub
+universe = vanilla
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/lam_validate_job.sh
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor
+output = logs/lam_validate.out
+error = logs/lam_validate.err
+log = logs/lam_validate.log
+RequestCpus = 1
+request_memory = 8000
++RequestRuntime = 7200
+requirements = OpSysAndVer == "RedHat9"
+queue

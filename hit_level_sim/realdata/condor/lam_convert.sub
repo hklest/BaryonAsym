@@ -1,0 +1,13 @@
+# WP1: convert the 38 lam/ dumps to real-data hits trees (D17 selection standard). Afterwards: validation/check_schema.py and overlay_data_mc.py
+universe = vanilla
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor/lam_convert_job.sh
+arguments = $(f)
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/condor
+output = logs/lam_convert_$(f).out
+error = logs/lam_convert_$(f).err
+log = logs/lam_convert.log
+RequestCpus = 1
+request_memory = 8000
++RequestRuntime = 10800
+requirements = OpSysAndVer == "RedHat9"
+queue f from /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/lam_dirs.txt
