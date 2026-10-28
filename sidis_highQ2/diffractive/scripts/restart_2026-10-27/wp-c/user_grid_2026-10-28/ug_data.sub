@@ -1,0 +1,17 @@
+# user-grid data track skim, 4 jobs (one data file each). Submit: condor_submit ug_data.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-c/user_grid_2026-10-28/ug_data_job.sh
+arguments       = $(label) $(input)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-c/user_grid_2026-10-28/logs/ug_$(label).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-c/user_grid_2026-10-28/logs/ug_$(label).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-c/user_grid_2026-10-28/logs/ug_$(Cluster).log
+getenv          = True
+request_memory  = 4096
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 3600
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue label, input from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/wp-c/user_grid_2026-10-28/queue_data.txt

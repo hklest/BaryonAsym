@@ -1,0 +1,4 @@
+ep0304,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/merged_data_true_2026-10-18/ep0304.root
+em0405,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/merged_data_true_2026-10-18/em0405.root
+em06_true,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/merged_data_true_2026-10-18/em06_true.root
+ep0607_true,/data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/data/t2_detector/merged_data_true_2026-10-18/ep0607_true.root
