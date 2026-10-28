@@ -496,7 +496,7 @@ D17 the supervisor's recommendations until the user confirms them.
 - Owns: `$D/validation/parity/` (script, `parity.sub`, `parity.json`, `plots/`)
 - Deps: none
 - Stages: execute
-- Status: blocked: execute: user ruling on D5 after the T0 confound check (gap persists with HAT T0_CJC)
+- Status: done
 - Artifacts: ->
 
 ### WP1: lam/ to hits tree and schema parity
@@ -506,7 +506,7 @@ D17 the supervisor's recommendations until the user confirms them.
   `$D/condor/lam_convert.sub`, `$H/production/realdata_2007ep/lam_q2e5/`
 - Deps: WP0
 - Stages: execute
-- Status: blocked: execute: WP0 parity verdict must be PASS
+- Status: execute
 - Artifacts: ->
 
 ### WP2: Condor extraction pipeline, 2007 e+p
@@ -621,6 +621,8 @@ Each with the recommended answer; D1-D5 stand until the user answers.
 - 2026-10-28 decision: D17 amended ("yep"): det_on requires CJC1 and CJC2 only (HV, CAEN and BBL3 bits per IsOn); COZ, CST and CIP status bits are per-event flags, not requirements
 - 2026-10-28 decision: Lorentz-angle band is a per-period sanity check, not a gate ("yep"): 0.60-0.64 for 2007, 0.59-0.66 for 2005, 2006 and 07med
 - 2026-10-28 WP0 (T0 confound check): done, HAT T0_CJC agrees with cjavt0 (median -0.22, robust sigma 1.45 ticks; HAT 0.0 treated as none); split shows the gap in the cjavt0 events alone (CDF -8.0/-8.3/-6.9/-3.1 pp), run-default hits 0.45%; HAT-T0 verdict FAIL as WP0; amended D17 (CJC-only) removes 5.16% (run list 2.67%); commit dd8363f; deferred: D5 ruling and D11 zero-sentinel confirmation (user decisions)
+- 2026-10-28 decision: D5 stands, WP0 accepted ("We want parity between simulation and data, at least in the data formats, if not in the actual resolutions. Do whatever gets us closest to that. We need to basically define the data hits identically to how the MC's hits are defined, so post-calibration."): data hits use the MC representation (CJC.simple(), cos β = 1 mirror points, calibrated drift distance) with per-run NDB constants; the ~8 pp / 1.1-1.3x resolution gap vs $MC0 is documented, not a blocker; D16 reinterpreted as format parity plus documented resolution comparison
+- 2026-10-28 decision: D11 zero sentinel, supervisor default under the user's "do whatever gets us closest": HAT T0_CJC = 0.0 means no T0; fall back to cjavt0, then run default; cjc_t0_src records the source
 
 ## Todo
 
