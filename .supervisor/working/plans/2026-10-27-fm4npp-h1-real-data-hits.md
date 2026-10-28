@@ -496,7 +496,7 @@ D17 the supervisor's recommendations until the user confirms them.
 - Owns: `$D/validation/parity/` (script, `parity.sub`, `parity.json`, `plots/`)
 - Deps: none
 - Stages: execute
-- Status: execute
+- Status: blocked: execute: user ruling on D5 after the T0 confound check (gap persists with HAT T0_CJC)
 - Artifacts: ->
 
 ### WP1: lam/ to hits tree and schema parity
@@ -620,6 +620,7 @@ Each with the recommended answer; D1-D5 stand until the user answers.
 - 2026-10-28 decision: WP0 FAIL handling, user chose (b) ("yep"): test the T0 confound with HAT T0_CJC and a split by T0 source before ruling on D5; WP0 execute stage re-run
 - 2026-10-28 decision: D17 amended ("yep"): det_on requires CJC1 and CJC2 only (HV, CAEN and BBL3 bits per IsOn); COZ, CST and CIP status bits are per-event flags, not requirements
 - 2026-10-28 decision: Lorentz-angle band is a per-period sanity check, not a gate ("yep"): 0.60-0.64 for 2007, 0.59-0.66 for 2005, 2006 and 07med
+- 2026-10-28 WP0 (T0 confound check): done, HAT T0_CJC agrees with cjavt0 (median -0.22, robust sigma 1.45 ticks; HAT 0.0 treated as none); split shows the gap in the cjavt0 events alone (CDF -8.0/-8.3/-6.9/-3.1 pp), run-default hits 0.45%; HAT-T0 verdict FAIL as WP0; amended D17 (CJC-only) removes 5.16% (run list 2.67%); commit dd8363f; deferred: D5 ruling and D11 zero-sentinel confirmation (user decisions)
 
 ## Todo
 
