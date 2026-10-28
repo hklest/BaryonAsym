@@ -1,0 +1,17 @@
+# CJC-containment skim (restart 2026-10-28): 14 jobs, one merged v6dif input each (queue_skim.txt). Submit: condor_submit cjc_skim.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/cjc_skim_job.sh
+arguments       = $(label) $(kind) $(input)
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/logs/skim_$(label).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/logs/skim_$(label).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/logs/skim_$(Cluster).log
+getenv          = True
+request_memory  = $(mem)
+request_disk    = $(disk)
+request_cpus    = 1
++MaxRuntime     = $(rt)
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue label, kind, input, mem, rt, disk from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/queue_skim.txt

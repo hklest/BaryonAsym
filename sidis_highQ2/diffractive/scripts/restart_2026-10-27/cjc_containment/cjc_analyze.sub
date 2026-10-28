@@ -1,0 +1,16 @@
+# CJC-containment analysis (restart 2026-10-28): 1 job over the 14 skims. Submit: condor_submit cjc_analyze.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/cjc_analyze_job.sh
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/logs/analyze_$(Cluster).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/logs/analyze_$(Cluster).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/cjc_containment/logs/analyze_$(Cluster).log
+getenv          = True
+request_memory  = 8192
+request_disk    = 2G
+request_cpus    = 1
++MaxRuntime     = 10800
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue
