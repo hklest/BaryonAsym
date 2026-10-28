@@ -23,6 +23,10 @@ Python forks, ~12 new doc records, one note section. All prior diffractive produ
 Amended 2026-10-28: G1 and G1′ were killed; two further bounded packages on the existing WP-A3 skims (WP-A5,
 WP-A6; ≤ 1 Condor-day together, 2-3 doc records each) rule the replacement gate G1″ before the campaign;
 the campaign size is unchanged.
+Amended 2026-10-28 (evening): G1″ passed at the D15 edge (wave 1d); the measurement grid is the user's (D16-D22) and the
+signal MC moves to 8402-8405 (D23). Added: WP-D2 (840x adoption, ≤ 1 Condor-day plus the tally of the running
+production) and WP-A56′ (re-derivation of the veto correction and the leakage fit on the new mixture, ≈ 0.1 Condor-days);
+WP-C is re-scoped to the user grid; WP-E grows by the 840x re-production in the writer fork (cost from the WP-D2 tally).
 
 ## Approach
 
@@ -46,6 +50,16 @@ Rejected alternatives (one line each):
 
 Amended 2026-10-28: the campaign gate is G1″ (D12-D14), ruled by WP-A5 and WP-A6 on the existing skims; WP-E
 onward waits on both records and the Q4 user return.
+
+Amended 2026-10-28 (evening): the observable grid is hemisphere × β × {z*, p_T*²}, Q² integrated (user; D16-D22). The
+weakest link after wave 1d is the leakage estimate at M_X > 10 GeV: chain-dependent
+(`D/docs/restart_2026-10-27/wp-a6/g2_verdict_edge30.md:52`) and MC-starved (9012 raw ≈ 0.5k / 1.2k / 0.9k reco events per
+M_X bin, `mc_candidates_assessment_2026-10-28.md:40`); the remedy is statistics (840x, ≈ 25× the 9012 templates) and
+fit units that remove the per-cell normalisation freedom (Q²-integrated, per β bin), not a new gate. Order: adopt 840x
+(WP-D2) → re-derive q and f_ND on the new mixture (WP-A56′) in parallel with the user-grid record (WP-C C1) and the
+selection record (WP-B) → Q4 return → WP-E onward. Rejected: deriving the user-grid mask on the 9012 cocktail (the
+raw-9012 floor is 57-82 per bin, `user_grid_stats.md:19-20`, and the mask would be re-derived anyway); keeping 9012 in the
+nominal mixture (adds 4 %, different SW and generator version); an M_X-binned second unfolding (Q5 (c)).
 
 ## Decision Re-evaluation Register
 
@@ -83,6 +97,10 @@ material items (also in `## Open Questions`).
 | R26 | New official MC requests (non-rad diffractive, Fit A, ARIADNE, SW=84 Reggeon, ep0304 PDISS) | user: | external cost; recommendation none before G1 | WP-D → Open Q3 |
 | R27 | G1/G1′ clause (a): Plug N−1 energy shape ≤ 0.10 and \|Δf_fail\| ≤ 0.02 as a kill gate (this plan, 2026-10-27) | superseded (user 2026-10-28) | the gate is veto efficiency, not Plug energy; the excess becomes a correction + systematic (G1″(a), D12-D14) | WP-A5 |
 | R28 | G1/G1′ clause (c): two-template η_max toy p ≥ 0.05 over the full range to 3.4 as a kill gate | superseded (user 2026-10-28) | the LAr-edge 3.15-3.4 mismatch is simulation response (`D/docs/restart_2026-10-27/wp-a4/forward_response_fix_assessment.md` §1.1); fit confined to η_max(0.4) < 3.0, generator spread as systematic, G2 kept (G1″(c)) | WP-A6 |
+| R29 | Q5 answer: bin in M_X, quote ⟨β⟩, no β axis (Log 2026-10-27); x_F as a measurement axis (D6) | superseded (user 2026-10-28) | the user's grid has two β bins and the x_F sign as hemisphere only; M_X bins stay derivation strata | D16, D20 |
+| R30 | Signal MC = 9012 (handoff "Mixture nominal"; WP-D gap list) | change (lead, conditional) | 8402-8405: ≈ 25× statistics, all four periods, DST on disk, generator-level gate passed; adoption gates in WP-D2 | D23, WP-D2 |
+| R31 | D7 purity floor 0.35 under unfolding (D7) | keep | the floor is what IBU needs; the user-grid failures move with grid and frame choice, not with the rule | D19, D22 |
+| R32 | Frame not frozen, B provisional nominal (`binning_record.md:59,375`, C1) | change (lead) | A nominal, B cross-check: A has 0 D7 failures at q4 on the user grid and carries the t-recoil B ignores by construction (`binning_record.md:53-56`) | D21, WP-C C2 confirms |
 
 ## Decisions
 
@@ -178,6 +196,88 @@ material items (also in `## Open Questions`).
   3.0–3.3. Consequences: WP-B W2 is settled; WP-A5 propagation range and WP-A6 G2 ruling and purity table are
   re-evaluated at 3.0 (wave 1d); the η_max-cut signal efficiency from MC enters the systematics budget (WP-J) with the
   data/MC agreement of the fitted η_max shape below 3.0 as its bound.
+- D16 **User grid (user, 2026-10-28).** The measurement grid is hemisphere (x_F > 0 Pomeron side P, x_F < 0 photon side G)
+  × β (2 bins) × {z* (2 bins) | p_T*² (≤ 5 bins)}, per charge, Q² integrated over Q² > 150 GeV²; the x_F and M_X axes of D6
+  are replaced (R29). Primary observables: (1/N_D) dn^±/dz* and (1/N_D) dn^±/dp_T*² per (hemisphere, β) cell; charge sum and
+  h⁺−h⁻ derived. Evidence base `D/docs/restart_2026-10-27/wp-c/user_grid_2026-10-28/user_grid_stats.md` (UG): 15,296 data
+  events, 104,459 tracks at the D15 selection (UG:6). Everything else in D6 (frame axis, lab fiducial, eSigma γ*, masses,
+  per-event normalisation, x_F sign) stands.
+- D17 **Q² integrated; D cells are strata (user "we can integrate over Q²").** D cells and M_X bins remain derivation and
+  systematic strata only: q per (M_X bin, D cell) (D14), the η_max fit per β bin with cells combined (D24), per-cell and
+  per-M_X fits as cross-checks; no measurement bin is Q²- or M_X-differential.
+- D18 **z = z* = 2E*/M_X** in the D21 frame (UG:8). Lab z = P·p_h/P·q is ≈ 0 on the Pomeron side (median 0.013 vs 0.077 on
+  the photon side, UG:14; a 0.2 split holds 0-4 tracks, UG:25) and cannot carry two bins. Split at z* = 0.2 (fixed,
+  leading-hadron edge; 0 D7 failures, raw-9012 min 57, UG:19,26); the per-hemisphere median split (0.094 G / 0.083 P) is the
+  alternative presentation (fails P high-β low-z*, purity 0.33 in both charges, UG:18,26). Pending user confirmation (Q9).
+- D19 **p_T*² binning rule.** Data-quantile edges, equal population over all tracks in both hemispheres (q5
+  0/0.042/0.103/0.222/0.547, q4 0.055/0.152/0.424, q3 0.079/0.291 GeV², last bin open, UG:14); fixed grids rejected (f5 fails
+  10/40 per-charge bins, raw-9012 min 11, UG:21,26). Per (hemisphere, β) cell the grid is the finest of {q5, q4, q3} whose
+  every bin passes D7 for both charges on the frozen cocktail, the same grid for h⁺ and h⁻; start value q4 (frame A: 0
+  failures; frame B: 5), q5 where it passes (it fails only the G high-β bins 1-4, purity 0.23-0.33, UG:26). The failures are
+  migration purity, not MC statistics (UG:26-27): more MC does not move them, grid and frame do.
+- D20 **β bins.** Two, split at the data event median 0.523 (low β ≈ M_X 13-32 GeV, high β ≈ 5-18 GeV at 5/95 %, UG:14); reco
+  β = DiffTot `beta`, gen β from true Q² and `mirMX` (UG:10). The three M_X bins [4,10), [10,20), [20,40] stay the
+  pre-registered units in which G1″(a) and G2 were ruled and are carried as a derivation stratum and continuity cross-check
+  (q, f_ND per M_X); no M_X-binned unfolding.
+- D21 **Frame: A nominal, B cross-check (lead; supersedes C1 "no freeze").** Reco p_X = stored HFS 4-vector (frame A,
+  `binning_record.md:44-62`); gen p_X = the WP-E truth X 4-vector, its exact counterpart (the proxy q + x_IP·P until then).
+  Grounds: on the user grid A has 0 D7 failures at q4 and 5 at q5 against B's 5 and 8 (UG:26); B's p_T*² ignores the HFS
+  transverse imbalance and the t-recoil by construction, which the critic ruled not negligible at large |x_F|
+  (`binning_record.md:53-56`), and B carries a +0.10…+0.41 GeV² bias at M_X 4-10 (`:149-165`), the high-β cells where the
+  failures sit; A's 1.5-2.6× worse p_T*² core resolution at M_X > 10 (`:80-147`) is absorbed by the quantile grid and the
+  unfolding. B is the frame systematic. Confirmed at the WP-C mask freeze with the true gen X; if B then has fewer failures
+  on the same grid, WP-C reports instead of flipping. Consequence: WP-E (gen X/Y branches) stays required and includes 840x.
+- D22 **Unfolding on the user grid (D8 adapted).** IBU per charge with a 2D response (cell × observable bin → cell × reco
+  bin), reco split 2× along the observable axis only (Q6 option (c)), cells = hemisphere × β so that migration across
+  hemispheres and β bins is inside the response, plus the event-level β response for N_D: 8 → 16 (z*) and ≤ 20 → 40 (p_T*²)
+  gen → reco bins per charge. D7 (weighted n ≥ 50, purity ≥ 0.35, stability ≥ 0.35) stays the pre-registered mask floor for
+  unfolded bins; unfolding is what makes a 0.35-purity bin measurable, it does not relax the floor; bin-by-bin is used only
+  for the G3 gate. The D7+ extras (`binning_record.md:222-244`) apply as written. The ≥ 5× signal-MC request (Q6) is met by
+  840x (D23).
+- D23 **Signal MC = 8402/8403/8404/8405 (lead, conditional; user may override, Q13).** RAPGAP 3.1043 elastic uds, gens
+  5643 (e⁻)/5644 (e⁺), 10 M each, L_eq 330-331 pb⁻¹ per period, SW77 with tilt and run-dependent z-vtx, DST on disk
+  (`D/docs/restart_2026-10-27/wp-d/mc_candidates_assessment_2026-10-28.md:40-49`, cited as A); generator-level gate passed
+  (ratio to 9012 flat in β, x_IP, Q², |t|; +6-8 % global, A:45-47). Rules: (i) one floating normalisation per generator stream,
+  no (β, x_IP) reweight (A:47); (ii) per-period weights: each data period takes its own 840x period at L_data/L_eq times the
+  stream factor; (iii) 8402≡8405 and 8403≡8404 are the same generated events (A:49), two independent truth streams, so
+  MC-stat bootstraps are by generated event; (iv) 9012 leaves the nominal mixture (adds 4 %, other SW and version) and is the
+  SW84 anchor and shape cross-check; nominal mixture = 840x + charm 9024/9033 + PDISS 9155/9157/9158 + Reggeon 6671/6677,
+  PDISS ratio per R11; (v) adoption gates open in WP-D2: the 8405 ODS smoke record (run, undocumented), the production tally
+  (odsLoaded 100 %, DiffTot = evls, rc=134 retries), the SW77→SW84 transfer check — first 840x vs 9012 on the shared 06/07
+  period at detector level, the djangoh14 gen 5624 same-event pair (A:52) only if that shows a difference beyond σ_q,ALL or
+  the chain spread. Roles of the user-named samples: 9022/9023 (gen 4490, charm BGF only, 71.6 pb⁻¹ each, correlated twins) = x_IP-shape
+  cross-check of 9024/9033 only (A:7-10); 8529/8530/8531 (gens 5717-5719, p̂_T hard subsets with `weight1`, SW80 04/05 e⁻) =
+  high-p_T-tail shape cross-checks, never in the σ-normalised mixture (A:14-19); gen 5719 = ReqID 8531, the Reggeon member of
+  that family (A:17; `mc_gap_list.md:72`): not an elastic signal candidate; its
+  one use is a detector-level (DST, SW80) Reggeon shape cross-check of the HAT/MODS-only 6671/6677 in the hard tail, after the
+  `h1-mc-db` steering confirmation (the 5719 log was read for σ only, A:17; PTCU, subset and periods unconfirmed). 6670/6676/8221/7448 have no DST and
+  are not signal (8221 vs 6676, IFPS only, remains a candidate WP-J hadronisation leg).
+- D24 **WP-A5′/WP-A6′ re-derivation on the new mixture (lead).** Both corrections depend on 9012 through the DIFF8 template,
+  f_MC,full in q and the propagation sample (`D/docs/restart_2026-10-27/wp-a5/g1pp_a_verdict.md:41-43`), so WP-A56′ re-derives
+  them under the same freeze protocol (even derives, odd rules). Order: (1) 840x skims; (2) first-pass η_max fit with the new
+  DIFF8′ for the stream scales; (3) q per (M_X bin, D cell) from the deep-gap view (D14); (4) the η_max(0.4) < 3.0 two-template
+  fit per β bin, Q² integrated, D cells combined with the MC relative cell populations (the parent's inclusive data/MC Q²
+  agreement is the justification), per-cell and per-M_X fits as cross-checks; (5) f_ND per β bin, G2 ceiling 0.30 on the
+  largest chain, σ_G2 = fit ⊕ chain spread, δ_edge beside; one scale iteration between (3) and (4). 6670 is not used for
+  templates: 840x already gives ≈ 25× the 9012 template statistics and 6670 would add ≈ 20 % at the price of a HAT-vs-tree
+  η_max parity validation. **Leakage target:** σ_G2/(1 − f_ND) ≤ 0.10 per β bin (present M_X values 0.21 / 0.13 for [10,20) /
+  [20,40], from `g2_verdict_edge30.md:15-35`), equivalently a propagated leakage term ≤ 10 % per measurement bin: the figure
+  G2's own justification assumed, and under half the G5 median ceiling once the parent-style detector legs (7-8 % median) and
+  the veto leg (≤ 5 %) are added. Expected gains: the fit σ (0.044-0.080) shrinks with ≈ 25× templates and ≈ 3× data per unit;
+  the chain spread (0.151 at [10,20)) shrinks when the per-cell normalisation freedom goes (`h1-mc-expert`), but it is a model
+  term and may stay above the target. If a β bin misses it, WP-A56′ reports beside it the pre-registered variant selection
+  η_max(0.4) < 3.0 (the fit variable; removes the residual band; costs 10-35 % of events) and the user chooses variant, mask or
+  acceptance under G5 (Q11); no lead switches it.
+- D25 **Housekeeping defaults (lead, user let stand 2026-10-28).** σ_q = max(|q|/2, odd/even spread, σ_stat) (closes WP-A5
+  Q-A; Q-B is moot at 3.0, `g1pp_a_verdict_edge30.md:33`); G2's GOF branch retired (closes Q7); δ_edge reported beside the G2
+  uncertainty, not folded in (closes WP-A6 Q1), with the condition-5 band-ρ values per bin
+  (`D/docs/restart_2026-10-27/wp-a6/g2_edge30_conditions_2_5.md:21-28`). Binding `h1-analysis-critic` conditions at the 3.0
+  edge, relayed by the supervisor (only conditions 2 and 5 are on disk; WP-A56′ step 0 writes the list to
+  `D/docs/restart_2026-10-27/wp-a6/g2_edge30_critic_conditions.md`): the leakage uncertainty is carried to G5 and shown net
+  favourable against the η_max-cut efficiency systematic (η_max correlates with x_F, so the cut efficiency does not cancel);
+  purity budgets use largest-chain f_ND; the `nobb` stability flag ([20,40] 7091 0.353) is carried; the frozen "[10,20) stays
+  masked unless WP-F unmasks it" (`D/docs/restart_2026-10-27/wp-a6/g2_verdict.md:222`, `g2_verdict_edge30.md:51`) is
+  discharged by WP-A56′ on the new mixture, not by D15.
 
 ## Gates and Kill Criteria
 
@@ -236,6 +336,13 @@ history (both KILL, 2026-10-27); G1″ is the live campaign gate (user sign-off 
   combined uncertainty ≤ 1/3 of f_ND), the size of the parent's whole detector-side total
   (median 7.4-7.9%, `sidis_highQ2/docs/RUN_STATUS.md:7`), so one background term cannot dominate
   the budget before the G5 ceiling.
+  Amended 2026-10-28 (evening, D16-D24): G1″(a)'s ≤ 0.05 per measurement bin and G2's ≤ 0.30 ceiling are re-ruled by WP-A56′ on
+  the 840x mixture, G1″(a) on the user grid (D16) and G2 per β bin (D20), the M_X bins as continuity cross-check; D24's leakage
+  target σ_G2/(1−f_ND) ≤ 0.10 per β bin is a target with a user return (Q11), not a kill. Wave-1d state at the 3.0 edge
+  (mechanical re-rules; critic ruling relayed): G1″(a) PASS, max σ_rel 0.038 A / 0.025 B, 37 / 34 retained bins, 4 / 2 fragile
+  cancellation bins carried in joint and quadrature form (`g1pp_a_verdict_edge30.md:6,26-32,41`; D7 masks not re-evaluated,
+  `:50-51`); G2 largest-chain f_ND 0.040 / 0.243 / 0.221, σ_G2 0.032 / 0.157 / 0.099, no mask, with the D25 conditions
+  (`g2_verdict_edge30.md:15-35`).
 - **G3 (WP-G, σ_r^D(3) gate).** Bin-by-bin corrected x_IP·σ_r^D(3) in the overlapping (β, Q²,
   x_IP) points of EPJC 72 (2012) 2074 at Q² ≥ 150 GeV²: ratio within 1 ± 0.25 for ≥ 80% of the
   points and no point beyond 2σ (combined stat ⊕ syst of both). This replaces the prior plan's
@@ -279,7 +386,27 @@ Pointers only; `executor` writes the code in the child plans.
   filtered to `D/data/t2_detector/certified_runlist_2026-10-19/` (per-run `veto_fail_rate_PLUG7`,
   `mean_PLUG7` columns exist for period/run-range splits).
 - Data shapes: per-bin CSV rows `charge, mx_bin, axis (xF|pt2), bin, n_data, n_sig_pred, f_nd,
-  f_reg, f_fake, purity, stability, masked` shared by WP-C, WP-F, WP-H, WP-J.
+  f_reg, f_fake, purity, stability, masked` shared by WP-C, WP-F, WP-H, WP-J. Amended 2026-10-28 (evening): the key becomes
+  `charge, hemisphere, beta_bin, axis (zstar|pt2s), bin`, with `mx_bin` rows kept for the D20 cross-check strata.
+- 840x (D23): stage-2 chain `D/condor/v6dif_mc840x_stage2/2026-10-28/mc840{2,3,4,5}/` (prep scripts
+  `prepare_mc840x_*.py`, `prod_merge_job.sh`), output `D/output_v6dif/mc/840{2,3,4,5}/2026-10-28/`, smoke
+  `D/output_v6dif/mc/8405/smoke_2026-10-28/`; tally and merge pattern =
+  `D/docs/restart_2026-10-27/wp-d/mc_candidates/production_2026-10-28.md` (per-chunk gates `:3`, rc=134 retry policy `:4`),
+  merged target `D/data/t2_detector/mc840x_merged_2026-10-28/<R>.root` with a README and tally CSV as in
+  `D/data/t2_detector/mcnew_merged_2026-10-28/`.
+- Skims (WP-D2 delivers both for 840x): event-level `D/scripts/restart_2026-10-27/wp-a3/skim_wpa3.py` →
+  `D/data/restart_2026-10-27/wp-a3/skims/<label>.npz` (17 labels, `g1pp_a_verdict.md:54-76`); track-level study npz
+  `D/scripts/restart_2026-10-27/wp-c/study/wpc_build.py` with labels in `wpc_lib.L.LABELS`. Gotcha: `ug_tables.py` takes its
+  signal list from `propagate_wpa5.sample()` (`D/scripts/restart_2026-10-27/wp-a5/propagate_wpa5.py:38`), not from an
+  argument; the 840x labels and per-period weights go into `wpc_lib` and the wp-a5 cells, and 9012 is dropped from the list.
+- WP-A56′ reuses `D/scripts/restart_2026-10-27/wp-a5/{veto_corr_hist.py,derive_veto_corr.py,propagate_wpa5.py,veto_weight.py}`
+  and `D/scripts/restart_2026-10-27/wp-a6/{build_payload_wpa6.py,fit_bblite_wpa6.py,fnd_wpa6.py,purity_fill_wpa6.py}` plus
+  `edge30/`; frozen range `D/data/restart_2026-10-27/wp-a6/range_frozen.json`; payload pattern
+  `D/data/restart_2026-10-27/wp-a6/edge30/payloads/<split>_<chain>_sel30.json`. Invariant: the even-split freeze and sha
+  record precede any odd-split read, as in `g1pp_a_verdict.md:40-41`.
+- Truth η_max recomputation (WP-A7 item 1) exists in
+  `D/scripts/restart_2026-10-27/wp-d/mc_candidates/pkg_xscan/src/McCandidateXScan.C:8-10,57-90` (status-0 `H1PartMC`,
+  largest-gap X/Y split in the γ*p cms, M_X, M_Y, η_max of X); WP-E ports it into the v6dif2 writer fork as the branch.
 
 ## Slices
 
@@ -298,6 +425,21 @@ their child plans.
 4. Wave 4: WP-H, WP-I (execute). Checkpoint: G4 record; C_rad table or bound.
 5. Wave 5: WP-J. Checkpoint: G5 record.
 6. Wave 6: WP-K, WP-L. Checkpoint: user mask ratification, results package, note section, handoff.
+
+Amended 2026-10-28 (evening); waves 2-6 above are superseded by this sequence:
+1d. Wave 1d (D15): WP-A5 and WP-A6 re-ruled at 3.0 — done (`g1pp_a_verdict_edge30.md`, `g2_verdict_edge30.md`).
+1e. Wave 1e (now): WP-D2. Checkpoint: `D/data/t2_detector/mc840x_merged_2026-10-28/<R>.root` validated,
+   `D/docs/restart_2026-10-27/wp-d/mc_candidates/production_840x_2026-10-28.md`, `D/docs/restart_2026-10-27/wp-d2/adoption_record.md`,
+   840x labels in both skim sets.
+1f. Wave 1f (after WP-D2): WP-A56′ and WP-C C1 (user-grid record on the 840x cocktail, proxy gen; the edge-30 f_ND as
+   stand-in, re-filled from WP-A56′) in parallel, then WP-B (decision) on both.
+   Checkpoint: `D/docs/restart_2026-10-27/wp-a56/g1pp_a_verdict_v2.md`, `g2_verdict_v2.md` (per β bin),
+   `D/docs/restart_2026-10-27/wp-c/user_grid_record.md`, `D/docs/restart_2026-10-27/wp-b/selection_record.md`; then the Q4 return
+   (Q10) with the WP-D2 cost tally.
+2′. Wave 2 (on Q4): WP-E (v6dif2 for data, 840x and the other MC), WP-I execute (gen level; needs only C1).
+   Checkpoint: validator record; `crad_record.md`.
+3′. Wave 3: WP-F (G2 re-confirmed per β bin on v6dif2), WP-C C2 (frame confirmation, mask freeze with sha256), then WP-G (G3).
+4′-6′. WP-H (G4); WP-J (G5); WP-K and WP-L, as before.
 
 ## Verification
 
@@ -326,6 +468,15 @@ reporting status RESTART-COMPLETE with the trap list corrected.
   extrapolation term can exceed the 5 % acceptance and mask bins.
 - Below η_max 3.0 the fit is still imperfect (χ²/bin 1.8 / 1.5 / 1.0 fine, D0/D1/D2, 7071; fig1 captions):
   f_ND carries a model uncertainty the generator spread may not cover.
+- 840x is SW77 where the data-period simulation elsewhere is SW84 and the forward response is the known weak point: if the
+  WP-D2 transfer check fails, a transfer leg is needed or the 9012 anchor limits what 840x can carry.
+- Two truth streams in four periods (8402≡8405, 8403≡8404): MC-stat correlation across periods, handled by bootstraps by
+  generated event (D23 iii); the +7 % unattributed normalisation (DPDF/flux, A:51) is bounded by the flat ratio in β and
+  x_IP (A:45) and re-checked on the final fit.
+- The D24 leakage target may be out of reach in the low-β bin (M_X 13-32 GeV) if the chain spread is a model term: user return
+  Q11, with the η_max(0.4) < 3.0 variant costed beside it.
+- The user grid's p_T*² failures sit in the G high-β cell in both frames; if the true-gen-X purity (WP-C C2) does not recover
+  q4 there, that cell is measured with q3 or z* only (D19), not with a relaxed D7.
 
 ## Scope Notes
 
@@ -334,7 +485,9 @@ editing `.supervisor/memory/` (curator only). User decisions `executor` must not
 X-frame x_F/p_T*² in M_X/β bins; narrow Plug probe first; re-base on parent conventions; restart
 authority for leads (user 2026-10-27, recorded in the supervisor brief); parent-side memory entries
 R21/R22; the 2026-10-28 reframing (veto efficiency, not Plug energy shape), the G1″ re-gating, correction +
-systematic for the forward-veto excess, and no reuse of the remedy-1 η_max < 1.5 control region (D12-D14). Workspace rules per `CLAUDE.md`; `.sub` files under `D/condor/restart_2026-10-27/`.
+systematic for the forward-veto excess, and no reuse of the remedy-1 η_max < 1.5 control region (D12-D14); the D15 edge
+3.0; the user grid of D16 (two z bins, ≤ 5 p_T bins, hemispheres, two β bins, Q² integrated) and the five named samples'
+consideration (D23). Lead decisions the user may override are marked in D18, D21, D23, D24 (Q9, Q11, Q13). Workspace rules per `CLAUDE.md`; `.sub` files under `D/condor/restart_2026-10-27/`.
 
 ## Assumptions
 
@@ -410,7 +563,9 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   `D/scripts/restart_2026-10-27/wp-a3/fact_wpa3.py` (`masks`), `D/data/restart_2026-10-27/gate_evidence/veto_eff.json`;
   M_X edges = the WP-C start grid)
 - Stages: plan, execute
-- Status: execute
+- Status: done
+- Result: G1″(a) PASS at 3.2 (2026-10-28, `g1pp_a_verdict.md`) and at the D15 edge 3.0 (mechanical re-rule, max σ_rel 0.038 A /
+  0.025 B, `g1pp_a_verdict_edge30.md:6,29`); q frozen even sha c026604e; superseded for the measurement by WP-A56′ (D24)
 - Lead: `executor` (child plan by `planner`); `h1-naf-operator` (Condor), `h1-systematics` (systematic assignment
   review), `h1-analysis-critic` (verdict)
 - Condor: yes (forks of `veto_eff_hist.py` over the 17 skims; ≈ 0.05 Condor-days)
@@ -443,7 +598,10 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   WP-A2 fit fork `D/scripts/restart_2026-10-27/wp-a2/fit_7p1_wpa2.py`, the WP-A3 skims; M_X edges = the WP-C
   start grid; WP-C `f_fake`)
 - Stages: plan, execute
-- Status: execute
+- Status: done
+- Result: G2 PASS with masks at 3.3 (`g2_verdict.md`); at the D15 edge 3.0 largest-chain f_ND 0.040 / 0.243 / 0.221, no mask,
+  critic conditions carried (`g2_verdict_edge30.md:15-35`, `g2_edge30_conditions_2_5.md`); superseded for the measurement by
+  WP-A56′ (D24)
 - Lead: `executor` (child plan by `planner`); `h1-mc-expert` (ND forward-flow reading where the chains disagree),
   `h1-analysis-critic` (verdict)
 - Condor: yes (fits per cell × chain × M_X bin with ≥ 1000 toys; ≈ 0.1 Condor-days)
@@ -467,15 +625,21 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 ### WP-A7: parked follow-ups (optional, non-gating)
 - Goal: hold the deferred studies that gate nothing; done when each item is run or formally dropped in WP-L
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-a7/`
-- Deps: item (1) WP-E (writer fork); item (2) WP-A5 (correction JSON)
+- Deps: item (1) WP-E (writer fork); item (2) WP-A56′ (correction JSON)
 - Stages: execute
 - Status: blocked: execute: parked — opened only by user request or by WP-E for item (1)
 - Lead: `executor`; `h1-mc-expert` (truth banks), `h1-systematics` (item 2 as an optional leg)
 - Condor: yes if opened (item 1 rides the WP-E production; item 2 ≈ 0.05 Condor-days)
 - Scope Notes: (1) unbiased truth η_max: recompute from H1PartMC status-0 particles (0.4 and 0.8 GeV thresholds) as
   a WP-E writer-fork branch; definition of the biased HAT `EtaMaxGen` per the `h1-mc-expert` fact (`## Log`
-  2026-10-28). (2) Plug threshold scan 7/10/15 GeV as an
-  optional systematic leg on the WP-A5 correction; the user chose re-gating without it. Tests:
+  2026-10-28). Updated 2026-10-28 (evening): the recomputation exists in
+  `D/scripts/restart_2026-10-27/wp-d/mc_candidates/pkg_xscan/src/McCandidateXScan.C:8-10,57-90`; WP-E ports it, item (1)
+  reduces to the `etamax_gen_fwd_vs_hat` test on the v6dif2 trees. (2) Plug threshold scan 7/10/15 GeV as an
+  optional systematic leg on the WP-A5 correction; the user chose re-gating without it. Not parked here but
+  recorded for continuity (both owned by WP-D2): (3) the gen 4489 bookkeeping ("Events 1,645,032" vs 1,200,002 records, A:48),
+  WP-D2 step (6), before any absolute 9012 normalisation or G3 comparison; (4) the rc=134 stage-2 exit abort
+  (`production_2026-10-28.md:4`), counted in the WP-D2 tally, investigated only if the rerun-once policy fails a chunk or the
+  count exceeds the 9/40 of the first production. Tests:
   `etamax_gen_fwd_vs_hat: on 9012 the new branch ≥ hatEtaMaxGen event by event -> fraction with new > hat
   reported`; `threshold_scan_table: q per threshold per (M_X, cell) -> written`. Checkpoint:
   `D/docs/restart_2026-10-27/wp-a7/followups.md`.
@@ -483,14 +647,48 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 - Output: `D/docs/restart_2026-10-27/wp-a7/`, `D/data/restart_2026-10-27/wp-a7/`
 - Log: —
 
+### WP-A56′: WP-A5′ + WP-A6′ — veto correction and leakage fit re-derived on the 840x mixture, per β bin
+- Goal: re-derive q (per M_X bin × D cell) and f_ND (per β bin, Q² integrated, cells combined) on the D23 mixture with the
+  WP-A5/WP-A6 machinery and freeze protocol, re-rule G1″(a) on the user grid and G2 per β bin, and report the D24 leakage
+  target (with the η_max(0.4) < 3.0 variant beside it only where a β bin misses it); done when `D/docs/restart_2026-10-27/wp-a56/g2_verdict_v2.md` and
+  `g1pp_a_verdict_v2.md` exist with `h1-analysis-critic` verdicts
+- Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wp-a56/`
+- Deps: WP-D2 (840x merged trees, per-period weights, both skim sets, adoption record)
+- Stages: plan, execute
+- Status: blocked: plan: WP-D2
+- Lead: `executor` (child plan by `planner` at `.supervisor/working/plans/2026-10-28-wp-a56-rederivation.md`);
+  `h1-mc-expert` (chain-spread reading if the [10,20)-type > 3σ_fit trigger recurs, `g2_verdict.md:135`), `h1-systematics`
+  (σ_q and leakage-leg review), `h1-analysis-critic` (both verdicts)
+- Condor: yes (skim forks and fits; ≈ 0.1 Condor-days)
+- Scope Notes: step 0 writes the relayed critic conditions 1-8 to
+  `D/docs/restart_2026-10-27/wp-a6/g2_edge30_critic_conditions.md` (D25). Steps per D24 (1)-(5); units: q strata (M_X bin,
+  D cell) as D14; fit units β bin × {7071, 7091, nd4cat} × split, cells combined with the MC relative cell populations,
+  per-cell and per-M_X units as cross-checks (continuity with `g2_verdict_edge30.md`); the scale fallback for units below
+  100 FIT-sample data events or 100 raw ND events (`fit_record.md:6`) re-checked per β unit; 9012 excluded from DIFF8′ and fitted once as the anchor cross-check
+  (its f_ND against DIFF8′'s within σ_G2). Propagation of q ± σ_q on the user grid (D16, frame A, q4 start grid, z* 0.2) gives the
+  G1″(a) table per (charge, hemisphere, β, axis, bin), joint and quadrature forms for the cancellation bins
+  (`g1pp_a_verdict.md:192,338`). Leakage target per β bin; only where a β bin misses it, the variant selection η_max(0.4) < 3.0 is
+  run on the same skims and its event cost, f_ND and σ_G2 reported side by side (D24, Q11). Purity per measurement bin with largest-chain f_ND
+  (D25) feeds WP-C C1. Not allowed: the remedy-1 control region; any Plug energy-shape criterion; relaxing D7. Tests:
+  `even_frozen_first: q and scale JSON sha256 recorded before any odd-split read -> true`; `mixture_identity: DIFF8′ labels =
+  {8402,8403,8404,8405,9024,9033,9155,9157,9158,6671,6677}, 9012 absent -> true`; `per_period_weights: Σ_R w_R L_eq,R per
+  period = L_data,period × stream factor -> within 1e-6`; `g2_table_beta: f_ND, σ_fit, spread, δ_edge, ceiling flag, target
+  flag per β bin and chain -> written`; `continuity_mx: per-M_X f_ND on the new mixture vs edge30 within σ_G2 -> reported`;
+  `g1pp_a_table_user_grid: σ_rel ≤ 0.05 flag per user-grid bin, both forms -> written`; `variant_costed: if a β bin misses the D24 target -> η_max(0.4) < 3.0
+  event fraction, f_ND and σ_G2 for that bin written`. Checkpoint: the two verdicts.
+- Artifacts: child plan; `g1pp_a_verdict_v2.md`, `g2_verdict_v2.md`; `D/data/restart_2026-10-27/wp-a56/{veto_correction_v2.json,f_nd_per_beta.csv,purity_user_grid.csv}`
+- Output: `D/docs/restart_2026-10-27/wp-a56/`, `D/data/restart_2026-10-27/wp-a56/`, `D/plots/restart_2026-10-27/wp-a56/`
+- Log: —
+
 ### WP-B: selection and kinematic-range re-decision
 - Goal: re-decide every selection and range item from scratch (register R3-R10, R22); done when the
   selection record is signed by `h1-analysis-critic`
 - Owns: `D/docs/restart_2026-10-27/wp-b/`
 - Deps: WP-A5 (veto corrections and their systematic), WP-A6 (η_max fit range, f_ND per M_X bin), WP-C (x_IP
-  purity per M_X bin); the kinematic research proceeds in wave 1
+  purity per M_X bin); the kinematic research proceeds in wave 1. Updated 2026-10-28 (evening): WP-A56′ (f_ND per β bin),
+  WP-C C1 (x_IP purity per β bin); R7/W2 settled by D15; R5 edges and R3 x_IP remain
 - Stages: research, plan
-- Status: research
+- Status: blocked: plan: WP-A56′ and WP-C C1 (wave 1f)
 - Lead: `planner` (research by `planner-worker`s); `h1-analysis-critic` signs
 - Condor: no (reads WP-A and WP-C products)
 - Scope Notes: inputs D4 start values; outputs per item: value, alternatives, evidence, systematic
@@ -501,14 +699,18 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 - Output: `D/docs/restart_2026-10-27/wp-b/`
 - Log: —
 
-### WP-C: observable definition, boost, binning and blinded mask
+### WP-C: observable definition, boost, binning and blinded mask (re-scoped 2026-10-28 evening to the user grid)
 - Goal: fix D6 operationally, measure resolutions and propose the grid; done when the binning record
-  with per-bin purity/stability and the blinded mask is written
+  with per-bin purity/stability and the blinded mask is written. Updated: fix D16-D22 operationally in two slices — C1 the
+  user-grid record (observable definitions, bin edges per cell by the D19 rule, purity/stability per bin on the 840x
+  cocktail with the proxy gen, provisional mask) and C2 the frame confirmation and mask freeze with sha256 on the v6dif2
+  cocktail; done when `user_grid_record.md` (C1) and the frozen mask JSON (C2) exist
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-c/`
 - Deps: none for the stat study (interim gen proxy q + x_IP·P); mask freeze: WP-A6 (f_ND per M_X bin enters the
-  D7 purity) and the WP-B selection; final gen frame after WP-E
+  D7 purity) and the WP-B selection; final gen frame after WP-E. Updated: C1: WP-D2 (840x study npz, weights), WP-A56′ (q
+  weights, f_ND and purity per β bin); C2: WP-E (true gen X), WP-B (selection record)
 - Stages: research, plan, execute
-- Status: blocked: plan: user U1 grid/mask rule (binning_record.md §8; re-surfaced 2026-10-28 with the ≥ 5× signal-MC request, Open Q6)
+- Status: blocked: plan: WP-D2 (C1, with WP-A56′ re-filling f_ND; child plan at `.supervisor/working/plans/2026-10-28-wp-c-user-grid.md`); C2 after WP-E
 - Lead: `executor` (stat study), `planner` (binning record); `h1-unfolder` reviews purity/stability,
   `h1-analysis-critic` reviews the frame definition
 - Condor: yes (reads 91 GB of v6dif MC; data on the login node is not allowed either: 658 files)
@@ -519,8 +721,26 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   Tests: `boost_closure: p_X boosted into its own frame -> (M_X, 0,0,0) within 1e-6`;
   `xf_range: all tracks -> −1 ≤ x_F ≤ 1`; `mask_blind: mask sha256 recorded before data fill -> true`;
   `engine_shape: ibu_unfold on a (61,31) toy -> converges, closure within 1e-3` (Assumption 2).
-  Checkpoint: `D/docs/restart_2026-10-27/wp-c/binning_record.md`.
-- Artifacts: `D/docs/restart_2026-10-27/wp-c/binning_record.md`, mask JSON with sha256
+  Checkpoint: `D/docs/restart_2026-10-27/wp-c/binning_record.md`. — the above is the 2026-10-27 scope, delivered
+  (`binning_record.md`, user-grid statistics `user_grid_2026-10-28/`); the former block was blocked on user U1
+  (binning_record.md §8, Open Q6), answered by the user grid and 840x (D19, D22, D23); superseded by:
+  Updated 2026-10-28 (evening). C1 on the 840x cocktail (9012 dropped per D23, `wpc_lib.L.LABELS` and the wp-a5 cells
+  extended by WP-D2): observables, frame (A nominal, B in the same tables), β and z* splits and the per-cell p_T*² grid rule
+  per D16-D21, the β median re-read on the D15 selection, quantile edges from `user_grid_summary.json`; purity, stability,
+  f_fake, n per bin per D7/D7+ with
+  largest-chain f_ND from WP-A56′ (until it delivers, C1 is filled with the edge-30 largest-chain per-M_X f_ND,
+  `g2_verdict_edge30.md:15-35`, mapped by event M_X, and re-filled when WP-A56′ lands); β and z* resolutions added to the T3 table (no z* entry exists, `binning_record.md:80-147`);
+  the response shapes of D22 (8 → 16, ≤ 20 → 40 per charge, event-level β) checked with `engine_shape`. The provisional mask
+  is derived blind and hashed but not frozen. C2 after WP-E: recompute purity with the true gen X in frames A and B on the C1
+  grid, confirm D21 (report, do not flip), freeze the mask JSON with sha256 before any data fill. Tests (C1):
+  `zstar_range: all tracks -> 0 < z* ≤ 1`; `beta_split_reproduced: data median at the D15 selection -> 0.523 ± 0.005 or the new
+  value recorded`; `grid_rule_applied: per cell the chosen p_T*² grid is the finest of q5/q4/q3 with no D7 failure in either charge
+  -> true`; `nine012_absent: cocktail labels contain no 9012 -> true`; `purity_source: purity uses largest-chain f_ND -> true`.
+  Tests (C2): `frame_report: purity failures per frame on the C1 grid, true gen X -> written`; `mask_blind` as above.
+  Checkpoints: `D/docs/restart_2026-10-27/wp-c/user_grid_record.md` (C1); `D/data/restart_2026-10-27/wp-c/mask_user_grid.json`
+  + sha256 (C2).
+- Artifacts: `D/docs/restart_2026-10-27/wp-c/binning_record.md`, mask JSON with sha256; updated: child plan
+  `.supervisor/working/plans/2026-10-28-wp-c-user-grid.md`, `user_grid_record.md`, `mask_user_grid.json`
 - Output: `D/docs/restart_2026-10-27/wp-c/`, `D/data/restart_2026-10-27/wp-c/`
 - Log: —
 
@@ -544,20 +764,65 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 - Output: `D/docs/restart_2026-10-27/wp-d/`
 - Log: —
 
+### WP-D2: 840x adoption as signal MC
+- Goal: close the D23 adoption gates and deliver 8402-8405 as validated, weighted, skimmed signal MC; done when
+  `D/docs/restart_2026-10-27/wp-d2/adoption_record.md` is signed by `h1-analysis-critic` with the per-period weight table
+- Owns: `D/docs/restart_2026-10-27/wp-d2/`, `D/data/t2_detector/mc840x_merged_2026-10-28/`,
+  `D/docs/restart_2026-10-27/wp-d/mc_candidates/production_840x_2026-10-28.md`, the 840x entries of
+  `D/data/restart_2026-10-27/wp-a3/skims/` and `D/data/restart_2026-10-27/wp-c/study/`, `D/condor/restart_2026-10-27/wp-d2/`
+- Deps: none (the v6dif stage-2 production under `D/condor/v6dif_mc840x_stage2/2026-10-28/` is running; chunk output in
+  `D/output_v6dif/mc/840{2,3,4,5}/2026-10-28/`)
+- Stages: execute
+- Status: execute
+- Lead: `executor`; `h1-naf-operator` (tally, merge, Condor-day count), `h1-data-validator` (merged trees, branch parity with
+  9012), `h1-mc-db` (gen 5624 pair availability; 4489 bookkeeping; 5719 steering), `h1-mc-expert` (SW77→SW84 reading),
+  `h1-analysis-critic` (record)
+- Condor: yes (tally, merge and skims ≈ 0.1 Condor-days; the gen-5624 pair chunks, ≈ 0.5-1 Condor-day, only if step (3) is
+  triggered)
+- Scope Notes: (1) tally per chunk with the `production_2026-10-28.md:3` gates, rc=134 count per sample (WP-A7 item 4), the
+  Condor-days of the whole 840x production from the logs (input to Q10); the 8405 smoke record written from
+  `D/output_v6dif/mc/8405/smoke_2026-10-28/` (odsLoaded, DiffTot = evls, branch list = 9012's); hadd to
+  `mc840x_merged_2026-10-28/<R>.root` with README and tally CSV. (2) Per-period weight table: w_R = L_data,period / L_eq,R
+  (330.3 / 331.0 pb⁻¹, A:43) × one stream factor (initial 1.0; fitted later by WP-A56′), periods 8402 = 03/04 e⁺, 8403 = 04/05
+  e⁻, 8404 = 2006 e⁻, 8405 = 06/07 e⁺ (A:40,49); the z-vtx per period is simulated, no reweight. (3) SW77→SW84 transfer, two tiers: (a) 8405 (06/07, SW77) vs 9012 (06/07, SW84) on the WP-A3 skim
+  variables after the stream factor (generator-level forward shapes agree, A:46): Plug/FMD/FTS fail probabilities and the
+  η_max(0.4), η_max(0.8) shapes in the LRG-like region (x_IP < 0.04, reco M_X > 3); acceptance |Δf| per detector ≤ the WP-A5
+  σ_q of the ALL cell (Plug 0.034, FTS 0.024, FMD 0.043, `g1pp_a_verdict.md:144-146`) and the η_max(0.4) < 3.0 shape
+  difference inside the chain spread; (b) only if (a) fails: `h1-mc-db` confirms the djangoh14 gen 5624 same-event pairs
+  (8457/8868 SW77 ↔ 8942/8944/9132/9135 SW84, A:52) and DST access, the first N chunks of one pair run through v6dif and are
+  matched event by event, and a transfer weight per detector state is derived and carried as a WP-J leg; the record says which
+  tier ruled. (4) 9012 leaves the mixture (D23 iv) once (3a) is recorded. (5) Skims: `skim_wpa3.py` and `wpc_build.py` over the four merged files, labels
+  `8402..8405` added to `wpc_lib.L.LABELS` and the wp-a5 cells; 9022/9023, 8529-8531 skimmed as cross-check labels only.
+  (6) Lookups: gen 5719 steering (PTCU, subset, periods) → confirm D23's role; gen 4489 bookkeeping closed (WP-A7 item 3).
+  Not allowed: any reweight in (β, x_IP); adding 9012 to the nominal list; using 8529-8531 or 9022/9023 in the σ-normalised
+  mixture. Tests: `chunks_complete: 100/100, 100/100, 101/101, 101/101 chunks with rc=0 and odsLoaded 100 % -> true`;
+  `branch_parity_9012: every DiffTot/ChargedTot/ChargedTotGen branch of 9012 present in 8405 -> true`; `period_weights_sum:
+  Σ_periods w_R L_eq,R = 317,212.8 nb⁻¹ -> within 1e-6`; `twin_identity: first 8 chunks of 8402 and 8405 match event by event
+  on (event, Q², M_X) -> 100 %`; `transfer_acceptance: per-detector |Δf| 8405−9012 (06/07) -> ≤ σ_q,ALL, else tier (b) run and a transfer weight written`;
+  `smoke_recorded: 8405 smoke record exists with the three gates -> true`. Checkpoint: `adoption_record.md`.
+- Artifacts: `D/docs/restart_2026-10-27/wp-d2/adoption_record.md`; `production_840x_2026-10-28.md`;
+  `D/data/restart_2026-10-27/wp-d2/period_weights.json`; merged trees; skims
+- Output: `D/docs/restart_2026-10-27/wp-d2/`, `D/data/t2_detector/mc840x_merged_2026-10-28/`, `D/data/restart_2026-10-27/wp-d2/`
+- Log: —
+
 ### WP-E: re-based production (writer fork, data and MC re-run)
 - Goal: trees with gen X/Y 4-vectors and all v6dif branches for 4 data periods and 13 MC samples,
-  validated; done when `h1-data-validator` passes entry counts against v6dif
+  validated; done when `h1-data-validator` passes entry counts against v6dif. Updated 2026-10-28 (evening): the MC list is
+  the D23 mixture plus 9012 (anchor) and the ND chains, 840x included (402 chunks); the fork also carries the truth
+  η_max branch ported from `McCandidateXScan.C` (WP-A7 item 1)
 - Owns: `P/src/ChargedSidisTreeBuilderHighQ2_v6dif2.C`, `D/output_v6dif2/`,
   `D/condor/restart_2026-10-27/wp-e/`, `D/docs/restart_2026-10-27/wp-e/`
 - Deps: WP-A5 and WP-A6 (gate G1″ records `g1pp_a_verdict.md`, `g2_verdict.md`; D1 and the Q4 user return), WP-C
-  (branch list), WP-D (sample list)
+  (branch list), WP-D (sample list). Updated 2026-10-28 (evening): WP-D2 (sample list, weights, transfer outcome), WP-A56′
+  and WP-C C1 (the Q4 return, Q10); the branch list is fixed by D5, D21 and WP-A7 item 1, not by WP-C's completion
 - Stages: plan, execute
-- Status: blocked: plan: gate G1″ records (WP-A5, WP-A6) and the WP-C branch list (re-opened 2026-10-28)
+- Status: blocked: plan: Q4 user return (Q10) after wave 1f
 - Lead: `executor`; `h1-mc-expert` (truth-bank X/Y definition), `h1-naf-operator` (Condor, merges),
   `h1-data-validator`
-- Condor: yes (data 658 jobs ≈ 30 min; MC evls + stage2 chains, est. 1-3 Condor-days)
+- Condor: yes (data 658 jobs ≈ 30 min; MC evls + stage2 chains, est. 1-3 Condor-days; plus the 840x re-production at the
+  WP-D2 tally cost)
 - Scope Notes: D5; compile with `make bin`; one-file login-node smoke test only. Per-sample weights
-  recomputed on the new selection with the v3 luminosities (R15). Tests: `branch_parity: every v6dif
+  recomputed on the new selection with the v3 luminosities (R15) and the WP-D2 period weights for 840x. Tests: `branch_parity: every v6dif
   branch present in v6dif2 -> true`; `genX_closure: gen M_X from the new 4-vector vs hatMXGen on
   9012 -> median |Δ|/M_X < 0.02`; `entry_counts: per file equal v6dif -> true`. Checkpoint:
   validator record in `D/docs/restart_2026-10-27/wp-e/`.
@@ -569,9 +834,11 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 - Goal: per-M_X-bin ND and Reggeon fractions with a validated normalisation, PDISS mixture and
   fake fractions, noise corrections applied; done when the G2 record exists
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-f/`
-- Deps: WP-E, WP-B, WP-A5 (correction applied to the signal MC before the fit), WP-A6 (fit range and method)
+- Deps: WP-E, WP-B, WP-A5 (correction applied to the signal MC before the fit), WP-A6 (fit range and method). Updated
+  2026-10-28 (evening): WP-A56′ replaces WP-A5/WP-A6 as the method and start values; G2 re-confirmed per β bin (D20) with the
+  M_X cross-check; the D24 target re-reported
 - Stages: plan, execute
-- Status: blocked: plan: WP-E (re-opened 2026-10-28)
+- Status: blocked: plan: WP-E
 - Lead: `executor`; `h1-mc-expert` (mixture, M_Y spectrum), `h1-analysis-critic` (G2 verdict)
 - Condor: yes
 - Scope Notes: η_max two-template fit per the §7.1 design with the WP-A6 frozen range (< 3.0) on the new selection,
@@ -586,9 +853,9 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 ### WP-G: detector-level distributions and the σ_r^D(3) gate G3
 - Goal: data vs cocktail control plots and the inclusive gate; done when the G3 record exists
 - Owns: `D/{docs,data,scripts,condor,plots}/restart_2026-10-27/wp-g/`
-- Deps: WP-F
+- Deps: WP-F; the 4489 bookkeeping closed (WP-A7 item 3) before the G3 comparison
 - Stages: execute
-- Status: blocked: execute: WP-F (re-opened 2026-10-28)
+- Status: blocked: execute: WP-F
 - Lead: `executor`; `h1-plot-reviewer`, `h1-analysis-critic` (G3 verdict)
 - Condor: yes
 - Scope Notes: distributions: η_max, E_Plug, nFmu12, nFts28, x_IP, M_X, β, Q², x, y, E−p_z, track
@@ -605,13 +872,14 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
   G4 record exists
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-h/`, builder and downstream forks under
   `D/scripts/restart_2026-10-27/wp-h/`
-- Deps: WP-G, WP-C
+- Deps: WP-G, WP-C C2 (frozen mask, frame A confirmed)
 - Stages: plan, execute
-- Status: blocked: plan: WP-G (re-opened 2026-10-28)
+- Status: blocked: plan: WP-G and WP-C C2
 - Lead: `executor`; `h1-unfolder` (method, closure), `h1-analysis-critic`
 - Condor: yes
-- Scope Notes: D8. Tests: `split_closure`, `reweighted_closure` per G4; `fake_fraction_bounds: 0 ≤ f_i
-  < 0.5 -> true`. Checkpoint: `D/docs/restart_2026-10-27/wp-h/g4_verdict.md`.
+- Scope Notes: D8 as adapted by D22 (cell × observable response per charge, event-level β response; bootstraps by generated
+  event across the 840x twins, D23 iii). Tests: `split_closure`, `reweighted_closure` per G4; `fake_fraction_bounds: 0 ≤ f_i
+  < 0.5 -> true`; `twin_bootstrap: resampling unit = generated event shared by 8402/8405 and 8403/8404 -> true`. Checkpoint: `D/docs/restart_2026-10-27/wp-h/g4_verdict.md`.
 - Artifacts: plan-wpH-unfolding.md (default path); `g4_verdict.md`
 - Output: `D/docs/restart_2026-10-27/wp-h/`, `D/data/restart_2026-10-27/wp-h/`
 - Log: —
@@ -619,9 +887,10 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 ### WP-I: radiative correction strategy
 - Goal: C_rad table or bound per D9; done when `h1-radiative-correction` signs the record
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-i/`
-- Deps: WP-C (observable); execute stage after gate G1″ (WP-A5, WP-A6; D1)
+- Deps: WP-C (observable); execute stage after gate G1″ (WP-A5, WP-A6; D1). Updated 2026-10-28 (evening): WP-C C1 (user grid,
+  D16-D20) and the Q4 return; gen level only, runs in wave 2′
 - Stages: research, execute
-- Status: blocked: execute: WP-C grid (Open Q6) and gate G1″ (re-opened 2026-10-28)
+- Status: blocked: execute: WP-C C1 and Q10
 - Lead: `executor`; `h1-radiative-correction`, `h1-mc-expert`
 - Condor: yes (standalone RAPGAP generation, ≤ 1 Condor-day)
 - Scope Notes: research stage in wave 1 (pair usability, timing shard); execute after WP-C's grid.
@@ -635,9 +904,11 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 ### WP-J: systematics budget; gate G5
 - Goal: per-bin budget in the parent column style; done when the G5 record exists
 - Owns: `D/{docs,data,scripts,condor}/restart_2026-10-27/wp-j/`
-- Deps: WP-H, WP-I, WP-A5 (veto-correction leg), WP-A6 (ND-spread leg)
+- Deps: WP-H, WP-I, WP-A5 (veto-correction leg), WP-A6 (ND-spread leg). Updated 2026-10-28 (evening): WP-A56′ supplies both
+  legs; WP-D2 the SW77→SW84 transfer leg (if derived) and the stream-factor leg; the η_max-cut efficiency systematic of D15 is
+  shown net against the leakage gain (D25 condition)
 - Stages: plan, execute
-- Status: blocked: plan: WP-H (re-opened 2026-10-28)
+- Status: blocked: plan: WP-H
 - Lead: `executor`; `h1-systematics` (budget), `h1-analysis-critic` (G5)
 - Condor: yes
 - Scope Notes: parent legs reused as MC-only response swaps (HFS JES/RCES/θ, electron E/θ, tracking,
@@ -658,7 +929,7 @@ scoping) and WP-A4 (forward-response fix assessment) were single research dispat
 - Owns: `D/{docs,data,plots}/restart_2026-10-27/wp-k/`
 - Deps: WP-J
 - Stages: execute, write
-- Status: blocked: execute: WP-J (re-opened 2026-10-28)
+- Status: blocked: execute: WP-J
 - Lead: `executor` (tables, figures with the `dataviz` skill), `writer` (README); `h1-plot-reviewer`
 - Condor: no
 - Scope Notes: comparisons: RAPGAP Fit B elastic + PDISS cocktail; H1 1998 shapes qualitatively
@@ -723,9 +994,28 @@ Material items only; each with options and a recommendation.
   (f_ND ≤ 0.10, ±100 % envelope), as written in G2 above; (b) keep it, triggered by toy p < 0.05 on the
   restricted range. Recommendation: (a); the generator spread replaces the envelope and GOF over the LAr edge is
   no longer a gate.
+  — answered 2026-10-28 (evening): the user grid replaces U1 (D16-D22) and 840x meets the ≥ 5× request (D23); no request filed.
+- Q7 — closed 2026-10-28 (evening): default (a) let stand (D25).
 - Q8 (user:) selection edge for the measurement: keep η_max(0.8) < 3.3 (only M_X [4,10) survives G2, 2 bins per charge), move to η_max < 3.0 (WP-A6 in-fit f_ND 0.009–0.094 in all M_X bins; costs ~37 % of events; η_max-cut efficiency from MC becomes a systematic), or move to 2.5 (ND ≤ 0.12 before fitting, Plug Δ +0.065, keeps ~37 % of events). Supervisor recommendation: 3.0. Decision binds WP-B W2, WP-A5 propagation range and the WP-A6 re-ruling. — answered 2026-10-28: 3.0 (D15)
 
-Future user touchpoint (not a question now): mask ratification at WP-K (D7); the Q4 return after wave 1c.
+- **Q9 (user:) z definition.** Planned with z* = 2E*/M_X split at 0.2 (D18), because lab z = P·p_h/P·q is ≈ 0 on the Pomeron
+  side (median 0.013) and a lab-z split at 0.2 holds 0-4 tracks there. Options: (a) z* at 0.2; (b) z* at the per-hemisphere
+  median; (c) another z the user meant (say which). Recommendation: (a).
+- **Q10 (user:) Q4 campaign authorisation**, due after wave 1f with the WP-D2 tally: options (a) authorise WP-E..WP-L at
+  ≈ 15-30 Condor-days plus the 840x re-production in the writer fork (cost from the WP-D2 tally), (b) authorise WP-E only and
+  return after WP-F's per-β G2. Recommendation: (a) if WP-A56′ meets the D24 target in both β bins, else (b).
+- **Q11 (user:, conditional)** if a β bin misses the D24 leakage target σ_G2/(1−f_ND) ≤ 0.10: (a) selection on η_max(0.4) < 3.0
+  (the fit variable; removes the residual band; costs 10-35 % of events; the η_max-cut efficiency systematic grows), (b) mask
+  that β bin, (c) accept the larger leg if G5 still passes. Recommendation: decide on WP-A56′'s side-by-side numbers; default
+  planned with (c) when the propagated term stays ≤ 15 %, else (a).
+- **Q12 (user:) gen 5719 use.** It is ReqID 8531, the Reggeon hard-subset sample (D23), not an elastic signal; options (a) use
+  it as the detector-level Reggeon shape cross-check of 6671/6677 in the hard tail, (b) drop it. Recommendation: (a), after the
+  `h1-mc-db` steering confirmation in WP-D2.
+- **Q13 (user:, may override a lead decision) 840x as signal MC** (D23) and 9012 out of the nominal mixture. Recommendation:
+  keep, conditional on the WP-D2 gates; the alternative (9012 nominal) leaves the leakage estimate MC-starved.
+
+Future user touchpoint (not a question now): mask ratification at WP-K (D7); the Q4 return after wave 1c → now Q10 after
+wave 1f.
 
 ## Log
 
@@ -775,6 +1065,15 @@ Future user touchpoint (not a question now): mask ratification at WP-K (D7); the
 - 2026-10-28 supervisor: wave 1c closed; G2 masks M_X > 10 GeV at the 3.3 selection edge because 75–90 % of f_ND sits in the unfitted η_max 3.0–3.3 band (in-fit parts 0.03–0.09); the selection-edge decision (keep 3.3 / move to 3.0 / move to 2.5) is put to the user before WP-B; WP-A5 outputs committed badb695, cjc_containment 2ab0579
 - 2026-10-28 decision: user chose η_max(0.8) < 3.0 as the LRG selection edge (D15; AskUserQuestion, options 3.0 / 2.5 / keep 3.3); WP-A5/WP-A6 re-opened for wave 1d re-ruling at 3.0; WP-A6 outputs committed aac91a6
 - 2026-10-28 decision: open to user, unanswered after two rounds: Q6 (U1 grid rule, recommendation (c); ≥5× signal-MC request), Q7 (G2 GOF branch retired, recommended), WP-A5 Q-A (σ_stat in σ_q, recommended yes), Q-B (moot), WP-A6 Q1 (δ_edge beside G2, recommended)
+- 2026-10-28 WP-A5/WP-A6 (wave 1d, mechanical re-rule at 3.0): G1″(a) PASS 37 (A) / 34 (B) bins, max σ_rel 0.038 / 0.025, q frozen reused (`g1pp_a_verdict_edge30.md`); G2 largest-chain f_ND 0.040 / 0.243 / 0.221, no mask, conditions 2 and 5 recorded (`g2_verdict_edge30.md`, `g2_edge30_conditions_2_5.md`); h1-analysis-critic ruling PASS with conditions 1-8 relayed by the supervisor; deferred: the full conditions list to disk (WP-A56′ step 0), D7 masks not re-evaluated at 3.0
+- 2026-10-28 decision: measurement grid = two bins in z, up to five in p_T*, hemispheres x_F > 0 / x_F < 0, two bins in diffractive β, Q² integrated; samples gen 4490 / 9022, 8529-8531 offered; gen 5719 steering to be checked (D16, D17, D20); source: user
+- 2026-10-28 decision: "integrate over Q²" → D cells and M_X bins are derivation and systematic strata only (D17); source: user
+- 2026-10-28 decision: z = z* = 2E*/M_X split at 0.2, because lab z ≈ 0 on the Pomeron side; pending user confirmation (D18, Q9); source: lead
+- 2026-10-28 decision: p_T*² data-quantile grid, finest of q5/q4/q3 passing D7 per (hemisphere, β) cell, start q4; β split at the median 0.523; frame A nominal with B as cross-check; IBU on the user grid with D7 unchanged (D19-D22); source: lead
+- 2026-10-28 decision: 8402-8405 adopted as signal MC conditional on the 8405 smoke record, the production tally and the SW77→SW84 transfer check; one floating factor per stream, per-period weights; 9012 → SW84 anchor, out of the nominal mixture; 9022/9023 charm x_IP cross-check only; 8529-8531 hard-tail cross-checks only; gen 5719 = ReqID 8531 Reggeon, not signal (D23, Q12, Q13); source: lead
+- 2026-10-28 decision: WP-A5/WP-A6 re-derived on the new mixture as WP-A56′, q per (M_X, D cell), f_ND per β bin, Q² integrated, cells combined, M_X cross-check; leakage target σ_G2/(1−f_ND) ≤ 0.10 per β bin with a user return on failure (Q11); 6670 not used for templates (D24); source: lead
+- 2026-10-28 decision: housekeeping defaults let stand — σ_q = max(|q|/2, odd/even spread, σ_stat); G2 GOF branch retired; δ_edge reported beside, band-ρ values per bin (D25; closes Q7, WP-A5 Q-A/Q-B, WP-A6 Q1); source: lead
+- 2026-10-28 planner (annotation): parent plan annotated for the wave-1d state; WP-D2 and WP-A56′ added, WP-C re-scoped to the user grid (C1/C2), WP-A7 items 3-4 added, WP-E..WP-L re-sequenced (waves 1e, 1f, 2′-6′); deferred: child plans for WP-A56′ and WP-C C1 (planner after WP-D2), critic conditions 1-8 to disk (WP-A56′ step 0)
 
 ## Todo
 
@@ -788,12 +1087,18 @@ Future user touchpoint (not a question now): mask ratification at WP-K (D7); the
 - [x] WP-A G1 verdict recorded (KILL 2026-10-27)
 - [x] WP-A2 child plan approved; S1-S5 run; `g1prime_verdict.md` written (KILL 2026-10-27)
 - [ ] ~~G1′ pass recorded → unblock WP-E~~ superseded 2026-10-28 by G1″ (D13)
-- [ ] WP-A5 child plan approved; `veto_correction.json` frozen from the even split; per-bin systematic table; `g1pp_a_verdict.md`
-- [ ] WP-A6 child plan approved; restricted-range fits for three chains; `f_nd_per_mx.csv`; purity table; `g2_verdict.md`
-- [ ] Q6 (U1 grid/mask rule, ≥ 5× signal-MC request) and Q7 (G2 GOF branch) answered by the user
-- [ ] Q4 user return after wave 1c: campaign authorised → unblock WP-E
+- [x] WP-A5 child plan approved; `veto_correction.json` frozen from the even split; per-bin systematic table; `g1pp_a_verdict.md` (PASS 2026-10-28; edge-3.0 re-rule `g1pp_a_verdict_edge30.md`)
+- [x] WP-A6 child plan approved; restricted-range fits for three chains; `f_nd_per_mx.csv`; purity table; `g2_verdict.md` (PASS with masks 2026-10-28; edge-3.0 re-rule `g2_verdict_edge30.md`)
+- [x] Q6 (U1 grid/mask rule, ≥ 5× signal-MC request) and Q7 (G2 GOF branch) answered by the user (user grid + 840x, D16-D23; Q7 default let stand, D25)
+- [ ] ~~Q4 user return after wave 1c: campaign authorised → unblock WP-E~~ moved to Q10 after wave 1f
+- [ ] WP-D2: 840x tally, smoke record, merge validated, period weights, SW77→SW84 transfer check, skims, 5719 and 4489 lookups; `adoption_record.md`
+- [ ] WP-A56′ child plan approved; critic conditions 1-8 written to disk; q and f_ND re-derived on the 840x mixture; `g1pp_a_verdict_v2.md`, `g2_verdict_v2.md`; D24 target reported per β bin (variant costed where missed)
+- [ ] WP-C C1 child plan approved; `user_grid_record.md` with per-cell grids by the D19 rule; Q9 (z*) confirmed by the user
+- [ ] WP-B selection record (wave 1f)
+- [ ] Q10 user return after wave 1f with the WP-D2 cost tally: campaign authorised → unblock WP-E
 - [ ] WP-A7 items run or formally dropped in WP-L
-- [ ] WP-E trees validated
+- [ ] WP-E trees validated (840x included; truth η_max branch)
+- [ ] WP-C C2: frame confirmed with the true gen X; mask frozen with sha256
 - [ ] WP-F `g2_verdict.md`
 - [ ] WP-G control plots reviewed; `g3_verdict.md`
 - [ ] WP-H `g4_verdict.md`; unfolded spectra with covariance
