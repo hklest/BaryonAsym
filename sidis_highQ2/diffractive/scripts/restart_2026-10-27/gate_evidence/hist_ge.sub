@@ -1,0 +1,18 @@
+# Gate-evidence histograms (restart 2026-10-27): 1 job, reads data/restart_2026-10-27/wp-a3/skims/*.npz (17 files).
+# Submit: condor_submit hist_ge.sub
+universe        = vanilla
+executable      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/gate_evidence/hist_ge_job.sh
+output          = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/gate_evidence/logs/hist_ge_$(Cluster).out
+error           = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/gate_evidence/logs/hist_ge_$(Cluster).err
+log             = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive/scripts/restart_2026-10-27/gate_evidence/logs/hist_ge_$(Cluster).log
+getenv          = True
+request_memory  = 8192
+request_disk    = 2G
+request_cpus    = 1
+priority        = 10
++MaxRuntime     = 10800
++MyProject      = "h1"
+requirements    = (OpSysAndVer == "RedHat9") && (TARGET.Arch == "X86_64")
+initialdir      = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/diffractive
+notification    = Never
+queue
