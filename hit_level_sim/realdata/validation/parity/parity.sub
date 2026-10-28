@@ -1,0 +1,13 @@
+# WP0 parity: data residuals, one job per lam/ dir (38). Afterwards: condor_submit parity_compare.sub
+universe = vanilla
+executable = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/parity_job.sh
+arguments = data $(f)
+initialdir = /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity
+output = logs/$(f).out
+error = logs/$(f).err
+log = logs/condor.log
+RequestCpus = 1
+request_memory = 4000
++RequestRuntime = 7200
+requirements = OpSysAndVer == "RedHat9"
+queue f from /data/dust/group/h1/klesthen/BaryonAsym/hit_level_sim/realdata/validation/parity/lam_dirs.txt
