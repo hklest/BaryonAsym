@@ -1,0 +1,13 @@
+universe = vanilla
+executable = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/qa/elec_e11_acceptance/run_e11.sh
+arguments = $(lst) $(out)
+log = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/qa/elec_e11_acceptance/logs/e11.$(Cluster).log
+output = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/qa/elec_e11_acceptance/logs/e11.$(Cluster).$(Process).out
+error = /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/qa/elec_e11_acceptance/logs/e11.$(Cluster).$(Process).err
+request_cpus = 1
+request_memory = 4000MB
++RequestRuntime = 3600
+getenv = True
+should_transfer_files = NO
+on_exit_hold = (ExitCode =!= 0)
+queue lst,out from /data/dust/group/h1/klesthen/BaryonAsym/sidis_highQ2/scripts/qa/elec_e11_acceptance/jobs.args
